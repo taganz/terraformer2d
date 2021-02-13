@@ -6,7 +6,7 @@
     "path": "folders/Scripts/Time.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Time",
+  "name": "kg_per_year_to_units",
   "tags": [],
   "resourceType": "GMScript",
 }

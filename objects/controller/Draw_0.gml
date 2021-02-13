@@ -1,1 +1,4 @@
-log.log_screen_world();
+
+if room != Room0 {
+	log.log_screen_world();
+}

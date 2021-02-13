@@ -6,7 +6,7 @@
     "path": "folders/Scripts/Time.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Time",
+  "name": "Time_backup",
   "tags": [],
   "resourceType": "GMScript",
 }

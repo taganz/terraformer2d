@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Time",
-    "path": "folders/Scripts/Time.yy",
+    "name": "GUI",
+    "path": "folders/Scripts/GUI.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Time",
+  "name": "gui_text_on_simulation_screen",
   "tags": [],
   "resourceType": "GMScript",
 }

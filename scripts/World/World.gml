@@ -14,12 +14,14 @@ function World() constructor {
 	// statistics
 
 #region Initialize vars
-	
+
+	climate_change_temperature_increment = 0;		// used by GUI to simulate climate change
+
 	world_max_x = window_get_width();
 	world_max_y = window_get_height();
+	
 	world_w = floor(world_max_x/CELL_SIZE);
 	world_h = floor(world_max_y/CELL_SIZE);
-	//grid_nutrients = ds_grid_create(world_w+1, world_h+1);
 	grid_cells = ds_grid_create(world_w+1, world_h+1);
 	
 	// stats
@@ -37,8 +39,7 @@ function World() constructor {
 	climates = [];
 	climates = climate_read_array();
 	
-
-
+	
 #endregion
 
 
