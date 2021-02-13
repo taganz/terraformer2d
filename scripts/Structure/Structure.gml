@@ -39,8 +39,10 @@ function Structure(_id, _spawn_as_adult) constructor {
 	my_id = _id;
 	generation = 1;				
 	
-	age_adult = controller.time.years_to_sim_steps(my_id.dna.genome[GEN.AGE_ADULT])*random_range(0.9, 1.5);
-	age_die = controller.time.years_to_sim_steps(my_id.dna.genome[GEN.AGE_DEAD])*random_range(0.9, 1.5);		
+	//age_adult = controller.time.years_to_sim_steps(my_id.dna.genome[GEN.AGE_ADULT])*random_range(0.9, 1.5);
+	//age_die = controller.time.years_to_sim_steps(my_id.dna.genome[GEN.AGE_DEAD])*random_range(0.9, 1.5);		
+	age_adult = years_to_sim_steps(my_id.dna.genome[GEN.AGE_ADULT])*random_range(0.9, 1.5);
+	age_die = years_to_sim_steps(my_id.dna.genome[GEN.AGE_DEAD])*random_range(0.9, 1.5);		
 	
 	age = _spawn_as_adult ? age_adult : 0 ;
 	is_adult_growth = _spawn_as_adult;				// maximum growth
@@ -62,7 +64,7 @@ function Structure(_id, _spawn_as_adult) constructor {
 	dead_cause = -1;
 	is_prepared_for_reproduction = false;
 	
-	reproduction_interval = controller.time.years_to_sim_steps(my_id.dna.genome[GEN.REPRODUCTION_INTERVAL])*random_range(0.9, 1.1);	// steps
+	reproduction_interval = years_to_sim_steps(my_id.dna.genome[GEN.REPRODUCTION_INTERVAL])*random_range(0.9, 1.1);	// steps
 	//reproduction_time_first = reproduction_interval*random_range(0.1, 0.3);  // after being adult)
 	age_last_reproduction = -1;		// age at last reproduction
 	reproduction_distance = my_id.dna.genome[GEN.REPRODUCTION_DISTANCE]*random_range(0.9, 1.1);		
@@ -158,7 +160,7 @@ function Structure(_id, _spawn_as_adult) constructor {
 	
 	to_string = function () {
 		return 
-			  "Age / adult / dead: "+string(age) + " ("+string(controller.time.sim_steps_to_years(age))+" y)"+ ", "+string(age_adult) + " ("+string(controller.time.sim_steps_to_years(age_adult))+" y)"+ ", "+string(age_die) + " ("+string(controller.time.sim_steps_to_years(age_die))+" y)"
+			  "Age / adult / dead: "+string(age) + " ("+string(sim_steps_to_years(age))+" y)"+ ", "+string(age_adult) + " ("+string(sim_steps_to_years(age_adult))+" y)"+ ", "+string(age_die) + " ("+string(sim_steps_to_years(age_die))+" y)"
 			+ "\nis_hungry/starving: "+string(is_hungry)+", "+string(is_starving)
 			+ "\nLast reproduction / count: "+string(age_last_reproduction)+", "+string(reproduction_count)
 			+ "\nbiomass / max: "+string(biomass) + ", "+string(biomass_max)
@@ -168,17 +170,17 @@ function Structure(_id, _spawn_as_adult) constructor {
 	
 	to_string_parameters = function () {
 		return 
-			  "age: " + string(controller.time.sim_steps_to_years(age))+"y"
-			+ ", age_adult:" + string(controller.time.sim_steps_to_years(age_adult))+"y"
-			+ ", age_die:" + string(controller.time.sim_steps_to_years(age_die))+"y"
+			  "age: " + string(sim_steps_to_years(age))+"y"
+			+ ", age_adult:" + string(sim_steps_to_years(age_adult))+"y"
+			+ ", age_die:" + string(sim_steps_to_years(age_die))+"y"
 			
 			+ "\nis_hungry: "+string(is_hungry)
 			+", is_starving: "+string(is_starving)
 			
 			+ "\ngeneration: "+string(generation)
 			
-			//+ "\n reproduction_time_first:" + string(controller.time.sim_steps_to_years(reproduction_time_first))+"y"
-			+ "\nreproduction_interval:" + string(controller.time.sim_steps_to_years(reproduction_interval))+"y"
+			//+ "\n reproduction_time_first:" + string(sim_steps_to_years(reproduction_time_first))+"y"
+			+ "\nreproduction_interval:" + string(sim_steps_to_years(reproduction_interval))+"y"
 			+ ", reproduction_distance:" + string(reproduction_distance)
 			
 			+ "\nbiomass: "	+ string(units_to_kg(biomass))+"kg, "

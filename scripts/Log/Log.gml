@@ -90,10 +90,6 @@ function log_event_to_string(_log_event) {
 
 function Log() constructor{
 
-
-	// === world is initialized
-	
-	log_data_init_world();
 	
 
 #region var init
@@ -141,6 +137,8 @@ function Log() constructor{
 	// create file 
 	log_open = function() {
 	
+		log_data_init_world();
+
 		if obj_gui.options_log {
 
 			//_filename = SIM_LOG_FILE_NAME + string(current_day)+"_"+string(current_hour) + "_" + string(current_minute) + ".csv";

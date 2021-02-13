@@ -25,8 +25,8 @@
   "gridY": 0,
   "frames": [
     {"compositeImage":{"FrameId":{"name":"c24bb4ce-3b11-49a4-93b9-ae4d68e278e9","path":"sprites/spr_bush_2_head62/spr_bush_2_head62.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"c24bb4ce-3b11-49a4-93b9-ae4d68e278e9","path":"sprites/spr_bush_2_head62/spr_bush_2_head62.yy",},"LayerId":{"name":"42ad7d11-a3ce-4e0e-876a-ffc1d82ff971","path":"sprites/spr_bush_2_head62/spr_bush_2_head62.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
         {"FrameId":{"name":"c24bb4ce-3b11-49a4-93b9-ae4d68e278e9","path":"sprites/spr_bush_2_head62/spr_bush_2_head62.yy",},"LayerId":{"name":"a8abc651-5bc4-428d-8a4c-5d17f4b41380","path":"sprites/spr_bush_2_head62/spr_bush_2_head62.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"c24bb4ce-3b11-49a4-93b9-ae4d68e278e9","path":"sprites/spr_bush_2_head62/spr_bush_2_head62.yy",},"LayerId":{"name":"42ad7d11-a3ce-4e0e-876a-ffc1d82ff971","path":"sprites/spr_bush_2_head62/spr_bush_2_head62.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
       ],"parent":{"name":"spr_bush_2_head62","path":"sprites/spr_bush_2_head62/spr_bush_2_head62.yy",},"resourceVersion":"1.0","name":"c24bb4ce-3b11-49a4-93b9-ae4d68e278e9","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {

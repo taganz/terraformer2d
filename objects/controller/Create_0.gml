@@ -1,17 +1,5 @@
-sim_paused = false;
-global.debug = false;
-time = new Time();
-
-
-world = new World();
-
-
-
-statistics = new Statistics();
-
+default_climate_change_temperature_increment = 0;
 log = new Log();
-log.log_open();
-
-
+//screen_initialized = false;
 
 depth = -15000;

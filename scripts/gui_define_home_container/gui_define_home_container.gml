@@ -1,6 +1,7 @@
-// Script assets have changed for v2.3.0 see
-// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-
+/* 
+ GUI library
+		https://github.com/DragoniteSpam/Emu/wiki/Emu-Default-Macros
+*/
 
 #macro ROOMS_COLUMN_Y 32
 #macro OPTIONS_COLUMN_Y 400
@@ -55,6 +56,20 @@ var _options_unlimited_water = new EmuCheckbox(OPTIONS_COLUMN_Y, yy, 256, 32, "L
 	show_debug_message("options_log: " + (obj_gui.options_log ? "on" : "off"));
 });
 _home_container.AddContent(_options_unlimited_water);
+yy+=32;
+
+var input_temp = new EmuInput(OPTIONS_COLUMN_Y, yy, 256, 32, "Temperature incr.", 
+	string(controller.default_climate_change_temperature_increment), "-50 - 50", 3, E_InputTypes.REAL, function() {
+    controller.default_climate_change_temperature_increment = value;
+	show_debug_message("options_log: " + (obj_gui.options_log ? "on" : "off"));
+});
+input_temp.SetRealNumberBounds(-50, 50);
+_home_container.AddContent(input_temp);
+yy+=32;
+
+
+
+
 
 
 return _home_container;

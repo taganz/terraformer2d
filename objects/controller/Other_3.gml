@@ -1,10 +1,7 @@
 
-/*
-var _filename = "terraformer2dlog";
-if show_question("Save data? "+_filename)  {
-	statistics.save_csv(_filename);
-}
 
-*/
+/*  at room end
 
 log.log_close();
+
+*/
