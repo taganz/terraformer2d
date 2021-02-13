@@ -11,11 +11,12 @@
 
 function Time() constructor {
 	
-	current_step = 0;
+	current_step = 0;						// system steps counter
 	_current_sim_step_real = 0;				// real number, this is the one we use internally
 	
 	current_sim_step = 0;					// integer, floor of real
-	sim_steps_per_step = 1 / SIMULATION_SPEED;	// sim_steps increment per step
+	//sim_steps_per_step = 1 / SIMULATION_SPEED;	// sim_steps increment per step
+	steps_per_sim_step = SIMULATION_SPEED;	// steps to complete a sim_steps 
 	
 	sim_step_entry = true;					// first system step for current sim step
 	_last_sim_step = -1;
@@ -36,36 +37,31 @@ function Time() constructor {
 		
 		flash_50 = current_step mod room_speed < room_speed/2; 
 			
-		// sim step
-		_current_sim_step_real += sim_steps_per_step;
-		current_sim_step = floor(_current_sim_step_real);
-		sim_step_entry = current_sim_step != _last_sim_step;
-		_last_sim_step = current_sim_step;
-		// month 
-		//current_sim_month = 1 + ((current_sim_step div TIME_SIM_STEPS_PER_MONTH) mod 12);
-		current_sim_month = 1 + ((current_sim_step div TIME_SIM_STEPS_PER_MONTH) mod 12);
-		sim_month_entry = current_sim_month != _last_sim_month;
-		_last_sim_month = current_sim_month;
-		// year
-		if sim_month_entry and current_sim_month == 1
-			current_sim_year ++;
+		// sim step change?
+		sim_step_entry = current_step mod steps_per_sim_step == 0;
+		if sim_step_entry {
+			//_current_sim_step_real += sim_steps_per_step;
+			current_sim_step++;
+			current_sim_month = 1 + ((current_sim_step div TIME_SIM_STEPS_PER_MONTH) mod 12);
+			sim_month_entry = current_sim_month != _last_sim_month;
+			_last_sim_month = current_sim_month;
+			// year
+			if sim_month_entry and current_sim_month == 1
+				current_sim_year ++;
+		}
 	}
 
 	// === speed
 	
-	sim_speed_slower = function() {
+	sim_speed_faster = function() {
 		if controller.sim_paused==false
-			if sim_steps_per_step > 1
-				sim_steps_per_step --;
-			else
-				controller.sim_paused = true;
+			if steps_per_sim_step > 1
+				steps_per_sim_step --;
 	}
 	
-	sim_speed_faster = function() {
-		if controller.sim_paused == true
-			controller.sim_paused = false
-		else
-			sim_steps_per_step++;
+	sim_speed_slower = function() {
+		if controller.sim_paused == false
+			steps_per_sim_step++;
 	}
 
 //	sim_steps_to_years = function(_sim_step) {

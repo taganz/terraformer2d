@@ -7,7 +7,8 @@ function gui_text_on_simulation_screen(){
 				
 		var _t1 = "Month/Year: " + string(controller.time.current_sim_month)+"."+string(controller.time.current_sim_year) + "- sim step: " + string(controller.time.current_sim_step) + "- step: " + string(controller.time.current_step) 
 				+ " fps: "+string(clamp(fps_real, 0, game_get_speed(gamespeed_fps)))
-				+ " sim_steps_per_step: "+string(ceil(controller.time.sim_steps_per_step))
+//				+ " sim_steps_per_step: "+string(ceil(controller.time.sim_steps_per_step))
+				+ " steps_per_sim_step: "+string(ceil(controller.time.steps_per_sim_step))
 				+ (controller.sim_paused ? " PAUSED" : "")
 				;
 		

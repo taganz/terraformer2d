@@ -9,6 +9,8 @@
 
 */
 
+/*
+
 function Time() constructor {
 	
 	current_step = 0;
@@ -77,4 +79,4 @@ function Time() constructor {
 //}
 
 	
-}
+}*/
