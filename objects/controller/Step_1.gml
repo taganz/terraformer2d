@@ -8,8 +8,7 @@ if room != Room0 {
 		time.step();
 
 		// rain
-		//if time.sim_step_entry
-		//	&& time.current_sim_step mod SIMULATION_PLANT_CYCLE_SIM_STEPS == 0  {
+		// once per month
 		if time.sim_month_entry
 				world.rain();		
 	

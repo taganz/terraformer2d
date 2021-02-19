@@ -8,6 +8,14 @@ function Morphology(_id) constructor {
 	sprite = _id.creature_sprite_default;
 	
 
+	// === born
+	
+	// adjust sprite to specie
+	born = function() {
+	
+		// pending for animals
+	
+	}
 	
 	// === step
 	// update draw parameters, to avoid doing this at draw event

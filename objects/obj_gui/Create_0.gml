@@ -15,15 +15,18 @@
 
 
 
+	
+//scribble_add_font("fnt_small");
+	
 gui = new GUI();
-show = false;
+show_escape_screen = false;
 depth = -15000;
 
-// === menu
+// === user settings
 options_unlimited_water = DEBUG_RAIN_UNLIMITED;
 options_log = LOG_ALLOW_LOG;
+
+// === gui containers
 home_container = -1;
-
-
-// === demo screen
-escape_screen_container = -1;
+simulation_container = -1;
+escape_screen_container = -1;		// 

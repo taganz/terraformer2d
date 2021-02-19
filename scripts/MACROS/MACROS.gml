@@ -4,7 +4,6 @@ function MACROS(){
 // ===	GAME
 
 //#macro FIRST_ROOM Room4
-#macro ASSERT controller.log.assert
 #macro TBD assert(false, "********** Not implemented!  *******");
 #macro OBJ_CREATED_BY_CLIC obj_primary_tiny   // the object that will be created with left click
 #macro DEBUG_RAIN_UNLIMITED	false // climates give 999999 rain water
@@ -17,7 +16,7 @@ function MACROS(){
 #macro LOG_CREATURES_FOLLOWING	true		// log all CREATURE events
 #macro LOG_CREATURES_ALL		false		// false = log CREATURE events only for followed creature
 #macro LOG_WORLD				true		// log WORLD events
-
+#macro LOG_BORN_DEAD_SUMMARY	true		// log info at birth and dead for all creatures
 
 
 // === ROOM SETUP

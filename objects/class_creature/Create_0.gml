@@ -4,7 +4,7 @@ my_cell = 0;
 // -- dna
 
 dna = new DNA(initial_specie);    
-dna.genome = dna.get_initial_specie_genome(initial_specie);
+dna.genome = initial_specie_genome(initial_specie);
 
 
 // -- state

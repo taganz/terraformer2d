@@ -12,17 +12,17 @@
 function Time() constructor {
 	
 	current_step = 0;						// system steps counter
-	_current_sim_step_real = 0;				// real number, this is the one we use internally
+	//_current_sim_step_real = 0;				// real number, this is the one we use internally
 	
 	current_sim_step = 0;					// integer, floor of real
 	//sim_steps_per_step = 1 / SIMULATION_SPEED;	// sim_steps increment per step
 	steps_per_sim_step = SIMULATION_SPEED;	// steps to complete a sim_steps 
 	
-	sim_step_entry = true;					// first system step for current sim step
-	_last_sim_step = -1;
+	sim_step_entry = false;					// first system step for current sim step
+	//_last_sim_step = -1;
 	
 	current_sim_month = 0;
-	sim_month_entry = true;
+	sim_month_entry = false;
 	_last_sim_month = -1;
 	
 	current_sim_year = 0;
@@ -48,6 +48,9 @@ function Time() constructor {
 			// year
 			if sim_month_entry and current_sim_month == 1
 				current_sim_year ++;
+		}
+		else {
+			sim_month_entry = false;
 		}
 	}
 

@@ -2,7 +2,7 @@
 // Puede escribir su código en este editor
 
 #macro KEY_ACTIVATE_LOG_CREATURE_IN_SCREEN "3"  // used in Log
-#macro KEYS_TEXT_LINE "Q: GUI P: Pause  R: Restart  1: Faster  2:Slower  3:Follow  4:Debug  5:Next room "
+#macro KEYS_TEXT_LINE "ESC: Options P: Pause  R: Restart  1: Faster  2:Slower  3:Follow  4:Debug  "
 
 if room!= Room0 {
 
@@ -20,42 +20,14 @@ if room!= Room0 {
 
 	// restart
 	if keyboard_check(ord("R")) {
-		if show_question("Restart simulation?")
-			game_restart();
+		gui_game_restart();
 	}
 
 
 
-	// activate GUI
-	if keyboard_check(ord("Q")) {
-		if 	show {
-			show = false;
-			controller.sim_paused = false;
-			layer_id = layer_get_id("Instances");
-			layer_set_visible(layer_id, true);
-			layer_id = layer_get_id("tools");
-			layer_set_visible(layer_id, global.debug);
-			layer_id = layer_get_id("cell_grid");
-			layer_set_visible(layer_id, global.debug);
-			layer_id = layer_get_id(LAYER_CLIMATE);
-			layer_set_visible(layer_id, global.debug);
-			layer_id = layer_get_id(LAYER_NUTRIENTS);
-			layer_set_visible(layer_id, global.debug);
-		}
-		else {
-			show = true;
-			controller.sim_paused = true;
-			layer_id = layer_get_id("Instances");
-			layer_set_visible(layer_id, false);
-			layer_id = layer_get_id("tools");
-			layer_set_visible(layer_id, false);
-			layer_id = layer_get_id("cell_grid");
-			layer_set_visible(layer_id, false);
-			layer_id = layer_get_id(LAYER_CLIMATE);
-			layer_set_visible(layer_id, false);
-			layer_id = layer_get_id(LAYER_NUTRIENTS);
-			layer_set_visible(layer_id, false);
-		}
+	// activate escape screen (option)
+	if keyboard_check(vk_escape) {
+		gui_escape_screen_toggle();
 	}
 
 
@@ -66,17 +38,10 @@ if room!= Room0 {
 	
 	// debug show layers
 	if keyboard_check(ord("4")) {
-		global.debug = !global.debug;
-		layer_id = layer_get_id("tools");
-		layer_set_visible(layer_id, global.debug);
-		layer_id = layer_get_id("cell_grid");
-		layer_set_visible(layer_id, global.debug);
-		layer_id = layer_get_id(LAYER_CLIMATE);
-		layer_set_visible(layer_id, global.debug);
-		layer_id = layer_get_id(LAYER_NUTRIENTS);
-		layer_set_visible(layer_id, global.debug);
+		gui_debug_toogle();
 	}
 
+	/*
 	// next room
 	if keyboard_check(ord("5")) {
 		if room_next(room) != -1
@@ -84,5 +49,6 @@ if room!= Room0 {
 			room_goto_next();
 	    }
 	}
+	*/
 
 }

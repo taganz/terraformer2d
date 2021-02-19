@@ -1,5 +1,5 @@
-/// @description Inserte aquí la descripción
-// Puede escribir su código en este editor
-if room != Room0 {
+
+
+if room != Room0 and show_escape_screen == false {
 	gui_text_on_simulation_screen();
 }

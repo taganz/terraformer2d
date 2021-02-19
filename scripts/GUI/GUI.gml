@@ -5,8 +5,7 @@ function GUI() constructor{
 	
 	creature_to_follow = LOG_CREATURE_TO_FOLLOW;
 	showing_debug_data_for_creature = -1;
-	
-	
+
 		
 	follow = function(_id) {
 		creature_to_follow = _id;
@@ -34,7 +33,9 @@ function GUI() constructor{
 					//var _offset_print_to_left = mouse_x > 400 ? -300 : 0;
 					//var _offset_print_down = mouse_y > 400 ? -300 : 0;
 					//draw_text(_id.x + _offset_print_to_left, _id.y+30 + _offset_print_down, log_text_creature(_id));
-					draw_text(50, 200, log_text_creature(_id));
+					draw_set_colour(c_black);
+					draw_set_font(fnt_small);
+					draw_text(50, 400, log_text_creature(_id));
 					showing_debug_data_for_creature = _id;
 		
 					// if q is pressed, activate log for this creature

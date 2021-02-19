@@ -9,7 +9,22 @@ function state_dead(_id){
 		controller.world.creature_dead(_id);
 		// print a report at console
 		//LOG_ID(_id, "DEAD - age: "+string(_id.structure.age)+" biomass: "+string(_id.structure.biomass));
-		LOG(LOGEVENT.CREATURE_DEAD, _id, _id.structure.dead_cause, "age: "+string(_id.structure.age));
+		LOG(LOGEVENT.CREATURE_DEAD, _id);
+		LOG(LOGEVENT.CREATURE_DEAD_INFO, _id, "dead_cause", deadcause_to_string(_id.structure.dead_cause));
+		//LOG(LOGEVENT.CREATURE_DEAD_INFO, _id, "GEN.INITIAL_SPECIE_NAME", string(_id.dna.genome[GEN.INITIAL_SPECIE_NAME]));
+		//LOG(LOGEVENT.CREATURE_CREATURE_DEAD_INFOBORN_INFO, _id, "GEN.SPECIE_CODE", _id.dna.genome([GEN.SPECIE_CODE]));
+		LOG(LOGEVENT.CREATURE_DEAD_INFO_NUM, _id, "age", sim_steps_to_years(_id.structure.age));
+		//LOG(LOGEVENT.CREATURE_BORN_INFO, _id, "age_adult: "+string(sim_steps_to_years(age_adult))+"y ");
+		//LOG(LOGEVENT.CREATURE_DEAD_INFO, _id, "age_die", string(sim_steps_to_years(age_die))+"y ");
+		LOG(LOGEVENT.CREATURE_DEAD_INFO_NUM, _id, "biomass", units_to_kg(_id.structure.biomass));
+		//LOG(LOGEVENT.CREATURE_DEAD_INFO, _id, "biomass birth", string(units_to_kg(_id.dna.genome[GEN.BIOMASS_BIRTH]))+"kg ");
+		//LOG(LOGEVENT.CREATURE_DEAD_INFO, _id, "biomass reproduction", string(units_to_kg(_id.dna.genome[GEN.BIOMASS_REPRODUCTION]))+"kg ");
+		//LOG(LOGEVENT.CREATURE_DEAD_INFO, _id, "biomass adult", string(units_to_kg(_id.dna.genome[GEN.BIOMASS_ADULT]))+"kg ");
+		//LOG(LOGEVENT.CREATURE_DEAD_INFO, _id, "generation", string(generation));
+		//LOG(LOGEVENT.CREATURE_DEAD_INFO, _id, "reproduction_interval", string(sim_steps_to_years(reproduction_interval))+"y");
+		//LOG(LOGEVENT.CREATURE_DEAD_INFO, _id, "reproduction_distance", string(reproduction_distance));
+		LOG(LOGEVENT.CREATURE_DEAD_INFO, _id, "cell", _id.my_cell.to_string());
+		
 	}
 	else {
 	

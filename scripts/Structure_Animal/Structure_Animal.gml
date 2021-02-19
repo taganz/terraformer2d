@@ -31,7 +31,7 @@ function Structure_Animal(_id, _spawn_as_adult):Structure(_id, _spawn_as_adult) 
 	//
 	do_metabolism = function () {
 
-		ASSERT(is_dead==false, "dead creature entering do_metabolism animal "+string(my_id));
+		ASSERT(is_dead==false, my_id, "dead creature entering do_metabolism animal "+string(my_id));
 
 		// -- age changes
 
@@ -45,7 +45,8 @@ function Structure_Animal(_id, _spawn_as_adult):Structure(_id, _spawn_as_adult) 
 		}
 
 		// adult?
-		else if (is_adult_reproduction == false) and (age >= age_adult_reproduction) {
+//		else if (is_adult_reproduction == false) and (age >= age_adult_reproduction) {
+		else if (is_adult_reproduction == false) and (age >= age_adult) {
 			is_adult_reproduction = true;
 			is_adult_growth = true;
 			biomass_reproductive_adult = biomass_reproductive;
