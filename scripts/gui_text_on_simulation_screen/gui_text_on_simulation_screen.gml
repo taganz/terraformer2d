@@ -25,12 +25,15 @@ function gui_text_on_simulation_screen(){
 
 		
 		//draw_set_font(fnt_hud);
-		draw_set_color(c_black);
-		draw_text(20, 20, _t1);
-		draw_text(20, 40, _t2);
-		draw_text(20, 60, _t3);
-		draw_text(20, 80, _t4);
-		draw_text(20, 0, KEYS_TEXT_LINE);
+		draw_set_color(c_red);
+		draw_set_font(fnt_small);
+		var _yy = 40;
+		var _xx = 100;
+		draw_text(_xx, _yy + 20, _t1);
+		draw_text(_xx, _yy + 40, _t2);
+		draw_text(_xx, _yy + 60, _t3);
+		draw_text(_xx, _yy + 80, _t4);
+		//draw_text(_xx, _yy + 100, KEYS_TEXT_LINE);
 
 		// === seasons icon
 

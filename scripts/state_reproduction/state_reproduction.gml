@@ -1,6 +1,11 @@
 /*
 
 	Generates one offspring creature
+	
+	- create offspring instance
+	- updates offspring dna
+	- give biomass to offspring and update some parameters
+	
 
 */
 
@@ -19,8 +24,8 @@ function state_reproduction(_id){
 		var _child = instance_create_layer(_xTo, _yTo, "Instances", _id.object_index);
 					
 		// give genome to child
-		_id.dna.reproduction_get_genome(_child.dna.genome, controller.world.get_radiation(_id.x, _id.y));
-					
+		_child.dna.genome = genome_offspring_copy(_id, controller.world.get_radiation(_id.x, _id.y));
+										
 		// give biomass to child
 		var _biomass_give = - _id.structure.biomass_modify(-_id.structure.biomass_reproductive); 
 		_id.structure.biomass_reproductive -= _biomass_give;	// reset biomass_reproductive
@@ -41,10 +46,8 @@ function state_reproduction(_id){
 		// reset reproduction state
 		_id.structure.is_prepared_for_reproduction = false;
 		
-		//LOG_ID(_id, "REPRODUCED - child id: "+string(_child)+", child count: "+string(_id.structure.reproduction_count));
 		LOG(LOGEVENT.CREATURE_REPRODUCTION, _id, _child, _biomass_give);
-		//LOG(LOGEVENT.CREATURE_BORN, _child);
-
+		
 	}
 	
 	_id.state.next_state = STATE.IDLE;

@@ -52,7 +52,7 @@ function State_Machine(_id, _initial_state) constructor {
 			script_execute(state_script[state], my_id); 
 		else 
 			{
-				ASSERT(true, "state_script[state] != -1 "+string(my_id));
+				ASSERT(true, my_id, "state_script[state] != -1 "+string(my_id));
 				next_state = STATE.IDLE;
 			}
 			

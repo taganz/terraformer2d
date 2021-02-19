@@ -22,7 +22,10 @@ function Structure_Plant(_id, _creature_spawn_as_adult):Structure(_id, _creature
 	_Topt1 = my_id.dna.genome[GEN.TEMPERATURE_OPTIMAL] - TEMPERATURE_DISTRIBUTION_MARGIN;
 	_Topt2 = my_id.dna.genome[GEN.TEMPERATURE_OPTIMAL] + TEMPERATURE_DISTRIBUTION_MARGIN;
 	_Tmin = _Topt1 - my_id.dna.genome[GEN.TEMPERATURE_RANGE_MINIMUM];
-	ASSERT(_LMFa > 0 and _LMFa < 1, "Invalidad LMFa="+string(_LMFa)+" creature "+string(my_id));  
+	ASSERT((_LMFa > 0 && _LMFa < 1), my_id, "Invalidad LMFa="+string(_LMFa)+" creature "+string(my_id));  
+	_LMFa = clamp(_LMFa, 0.01, 0.99);
+	//if (_LMFa > 0 and _LMFa < 1)
+	//	show_debug_message("*** Invalid LMFa=** "+string(_LMFa)+" creature "+string(my_id));  
 	//_growth = kg_to_units(my_id.dna.genome[GEN.GROWTH_KG_YR])/12;
 	//_k_growth = _growth/_ka;
 
@@ -58,10 +61,15 @@ function Structure_Plant(_id, _creature_spawn_as_adult):Structure(_id, _creature
 	
 		// can not do this at initialization
 		if _first_execution {
-			LOG(LOGEVENT.INFO_CREATURE, my_id, "_ka: "+string(_ka));
-			LOG(LOGEVENT.INFO_CREATURE, my_id, "_kc: "+string(_kc));
-			LOG(LOGEVENT.INFO_CREATURE, my_id, "_LMFa: "+string(_LMFa));
-			//LOG(LOGEVENT.INFO_CREATURE, my_id, "_growth: "+string(_growth));
+			LOG(LOGEVENT.CREATURE_BORN_INFO_NUM, my_id, "_ka", _ka);
+			LOG(LOGEVENT.CREATURE_BORN_INFO_NUM, my_id, "_kc", _kc);
+			LOG(LOGEVENT.CREATURE_BORN_INFO_NUM, my_id, "_LMFa", _LMFa);
+			LOG(LOGEVENT.CREATURE_BORN_INFO_NUM, my_id, "_Topt1", _Topt1);
+			LOG(LOGEVENT.CREATURE_BORN_INFO_NUM, my_id, "_Topt2", _Topt2);
+			LOG(LOGEVENT.CREATURE_BORN_INFO_NUM, my_id, "_Tmin", _Tmin);
+
+
+			//LOG(LOGEVENT.CREATURE_BORN_INFO, my_id, "_growth: "+string(_growth));
 			_first_execution = false;
 		}
 
@@ -155,7 +163,7 @@ function Structure_Plant(_id, _creature_spawn_as_adult):Structure(_id, _creature
 			
 				// can reproduce
 				
-				if biomass > my_id.dna.genome[GEN.BIOMASS_REPRODUCTION] {
+				if is_adult_reproduction==false && biomass > my_id.dna.genome[GEN.BIOMASS_REPRODUCTION] {
 					is_adult_reproduction = true;
 					LOG(LOGEVENT.CREATURE_ADULT, my_id, "adult_reproduction");
 

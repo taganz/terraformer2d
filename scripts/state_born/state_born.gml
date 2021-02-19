@@ -12,29 +12,38 @@
 
 function state_born(_id){
 
-	ASSERT(state_entry, _id, "state born reentry? ");
 	
 	// can not put this at create event to assure controller has already created world
 	controller.world.creature_born(_id, _id.x, _id.y);
 	_id.my_cell = controller.world.get_cell(_id.x, _id.y);
+	// add to species the initial species
+	if _id.structure.generation == 1 {
+		var prefix = specie_code_prefix(_id.dna.genome);
+		controller.species.specie_code_from_new_prefix(prefix, _id);  
+	}
 
+	ASSERT(state_entry, _id, "state born reentry? ");
 	
-		
+	_id.morphology.born();
+
+			
 	// log parameters	
 	with _id.structure {
 		LOG(LOGEVENT.CREATURE_BORN, _id);
-		LOG(LOGEVENT.INFO_CREATURE, _id, "specie: "+string(_id.dna.genome[GEN.NAME]));
-		LOG(LOGEVENT.INFO_CREATURE, _id, "age: "+ string(sim_steps_to_years(_id.structure.age))+"y");
-		//LOG(LOGEVENT.INFO_CREATURE, _id, "age_adult: "+string(sim_steps_to_years(age_adult))+"y ");
-		LOG(LOGEVENT.INFO_CREATURE, _id, "age_die: "+string(sim_steps_to_years(age_die))+"y ");
-		LOG(LOGEVENT.INFO_CREATURE, _id, "biomass: "+string(units_to_kg(biomass))+"kg ");
-		LOG(LOGEVENT.INFO_CREATURE, _id, "biomass birth: "+string(units_to_kg(_id.dna.genome[GEN.BIOMASS_BIRTH]))+"kg ");
-		LOG(LOGEVENT.INFO_CREATURE, _id, "biomass reproduction: "+string(units_to_kg(_id.dna.genome[GEN.BIOMASS_REPRODUCTION]))+"kg ");
-		LOG(LOGEVENT.INFO_CREATURE, _id, "biomass adult: "+string(units_to_kg(_id.dna.genome[GEN.BIOMASS_ADULT]))+"kg ");
-		LOG(LOGEVENT.INFO_CREATURE, _id, "generation: "+string(generation));
-		LOG(LOGEVENT.INFO_CREATURE, _id, "reproduction_interval: "+ string(sim_steps_to_years(reproduction_interval))+"y");
-		LOG(LOGEVENT.INFO_CREATURE, _id, "reproduction_distance: "+ string(reproduction_distance));
-		LOG(LOGEVENT.INFO_CREATURE, _id, "cell: "+ _id.my_cell.to_string());
+		LOG(LOGEVENT.CREATURE_BORN_INFO, _id, "GEN.INITIAL_SPECIE_NAME", string(_id.dna.genome[GEN.INITIAL_SPECIE_NAME]));
+		LOG(LOGEVENT.CREATURE_BORN_INFO, _id, "GEN.SPECIE_CODE", string(_id.dna.genome[GEN.SPECIE_CODE]));
+		LOG(LOGEVENT.CREATURE_BORN_INFO, _id, "creature_sprite_head", sprite_get_name(_id.creature_sprite_head));
+		LOG(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "age", sim_steps_to_years(_id.structure.age));
+		//LOG(LOGEVENT.CREATURE_BORN_INFO, _id, "age_adult: "+string(sim_steps_to_years(age_adult))+"y ");
+		LOG(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "age_die", sim_steps_to_years(age_die));
+		LOG(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "biomass", units_to_kg(biomass));
+		LOG(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "biomass birth", units_to_kg(_id.dna.genome[GEN.BIOMASS_BIRTH]));
+		LOG(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "biomass reproduction", units_to_kg(_id.dna.genome[GEN.BIOMASS_REPRODUCTION]));
+		LOG(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "biomass adult", units_to_kg(_id.dna.genome[GEN.BIOMASS_ADULT]));
+		LOG(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "generation", generation);
+		LOG(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "reproduction_interval", sim_steps_to_years(reproduction_interval));
+		LOG(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "reproduction_distance", reproduction_distance);
+		LOG(LOGEVENT.CREATURE_BORN_INFO, _id, "cell", _id.my_cell.to_string());
 	}
 	
 	

@@ -9,6 +9,9 @@ if room != Room0 {
 
 	world = new World();
 	world.climate_change_temperature_increment = default_climate_change_temperature_increment;
+	world.radiation = default_world_radiation;
+
+	species = new Species();
 
 	statistics = new Statistics();
 

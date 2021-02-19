@@ -44,29 +44,47 @@ yy+=32;
 // === options column
 yy = 32;
 
-var _options_unlimited_water = new EmuCheckbox(OPTIONS_COLUMN_Y, yy, 256, 32, "Unlimited water", obj_gui.options_unlimited_water, function() {
+var text = new EmuText(OPTIONS_COLUMN_Y, yy, 512, 32, "OPTIONS ");
+_home_container.AddContent(text);
+yy+=32;
+
+
+// --- unlimited water check
+
+var check = new EmuCheckbox(OPTIONS_COLUMN_Y, yy, 256, 32, "Unlimited water", obj_gui.options_unlimited_water, function() {
     obj_gui.options_unlimited_water = value;
 	show_debug_message("options_unlimited_water: " + (obj_gui.options_unlimited_water ? "on" : "off"));
 });
-_home_container.AddContent(_options_unlimited_water);
+_home_container.AddContent(check);
 yy+=32;
 
-var _options_unlimited_water = new EmuCheckbox(OPTIONS_COLUMN_Y, yy, 256, 32, "Log", obj_gui.options_log, function() {
+// --- log check
+
+var check = new EmuCheckbox(OPTIONS_COLUMN_Y, yy, 256, 32, "Log", obj_gui.options_log, function() {
     obj_gui.options_log = value;
-	show_debug_message("options_log: " + (obj_gui.options_log ? "on" : "off"));
 });
-_home_container.AddContent(_options_unlimited_water);
+_home_container.AddContent(check);
 yy+=32;
 
-var input_temp = new EmuInput(OPTIONS_COLUMN_Y, yy, 256, 32, "Temperature incr.", 
+// --- temperature input
+
+var input = new EmuInput(OPTIONS_COLUMN_Y, yy, 350, 32, "Temperature incr.", 
 	string(controller.default_climate_change_temperature_increment), "-50 - 50", 3, E_InputTypes.REAL, function() {
     controller.default_climate_change_temperature_increment = value;
-	show_debug_message("options_log: " + (obj_gui.options_log ? "on" : "off"));
 });
-input_temp.SetRealNumberBounds(-50, 50);
-_home_container.AddContent(input_temp);
+input.SetRealNumberBounds(-50, 50);
+_home_container.AddContent(input);
 yy+=32;
 
+// --- radiation input
+
+var input = new EmuInput(OPTIONS_COLUMN_Y, yy, 350, 32, "Radiation", 
+	string(controller.default_world_radiation), "0 - 1", 3, E_InputTypes.REAL, function() {
+    controller.default_world_radiation = value;
+});
+input.SetRealNumberBounds(0, 1);
+_home_container.AddContent(input);
+yy+=32;
 
 
 

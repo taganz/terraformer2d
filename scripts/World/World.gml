@@ -39,6 +39,7 @@ function World() constructor {
 	climates = [];
 	climates = climate_read_array();
 	
+	radiation = SIMULATION_WORLD_RADIATION;
 	
 #endregion
 
@@ -175,7 +176,7 @@ function World() constructor {
 	
 	// create a cell at pixel position
 	grid_create_cell_pixel = function(_x, _y) {
-		ASSERT(is_inside_world(_x, _y), "grid_create_cell_pixel");
+		ASSERT(is_inside_world(_x, _y), 0, "grid_create_cell_pixel");
 		grid_create_cell(_x div CELL_SIZE, _y div CELL_SIZE);
 	}
 	

@@ -5,8 +5,8 @@ if room == Room0 {
 	home_container = gui_define_home_container();
 }
 else {
-	escape_screen_container = new EmuCore(32, 32, 640, 640);
-	gui_define_escape_screen_container(escape_screen_container);
+	simulation_container = gui_define_simulation_container();
+	escape_screen_container = gui_define_escape_screen_container();
 }
 
 
