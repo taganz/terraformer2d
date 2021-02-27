@@ -93,7 +93,7 @@ function Morphology_Plant(_id) constructor {
 		
 		// crown
 		if (my_id.dna.genome[GEN.PLANT_HEAD_DENSITY] > 0 ) {
-			var _head_volum_sqrt = sqrt(my_id.structure.biomass_leaf/my_id.dna.genome[GEN.PLANT_HEAD_DENSITY]);
+			var _head_volum_sqrt = sqrt(my_id.structure.biomass_eat/my_id.dna.genome[GEN.PLANT_HEAD_DENSITY]);
 			_head_h_scale = _head_volum_sqrt * my_id.dna.genome[GEN.PLANT_HEAD_FORM_FACTOR] ;
 			_head_h = _head_h_scale * sprite_get_height(sprite_head);
 			_head_w_scale = _head_volum_sqrt / my_id.dna.genome[GEN.PLANT_HEAD_FORM_FACTOR] ; 
@@ -102,7 +102,7 @@ function Morphology_Plant(_id) constructor {
 		
 		// truck
 		if (my_id.dna.genome[GEN.PLANT_BODY_DENSITY] > 0 ) {
-			var _body_volum_sqrt = sqrt(my_id.structure.biomass_trunk/my_id.dna.genome[GEN.PLANT_BODY_DENSITY]);
+			var _body_volum_sqrt = sqrt(my_id.structure.biomass_body/my_id.dna.genome[GEN.PLANT_BODY_DENSITY]);
 			_body_h_scale = _body_volum_sqrt * my_id.dna.genome[GEN.PLANT_BODY_FORM_FACTOR] ;
 			_body_h = _body_h_scale * sprite_get_height(sprite_body);
 			_body_w_scale = _body_volum_sqrt / my_id.dna.genome[GEN.PLANT_BODY_FORM_FACTOR] ;

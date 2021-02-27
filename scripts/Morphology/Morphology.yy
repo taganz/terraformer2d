@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Creatures",
-    "path": "folders/Scripts/Creatures.yy",
+    "name": "Morphology",
+    "path": "folders/Scripts/Creatures/Morphology.yy",
   },
   "resourceVersion": "1.0",
   "name": "Morphology",

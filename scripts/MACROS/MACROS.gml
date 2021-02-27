@@ -52,7 +52,7 @@ function MACROS(){
 
 
 // general life constants
-#macro BIOMASS_MAX_MINIMUM_FRACTION_LIVE  0.5  // a plant will die if it reduces biomass under this level
+//#macro BIOMASS_MAX_MINIMUM_FRACTION_LIVE  0.5  // a plant will die if it reduces biomass under this level
 #macro BIOMASS_DECOMPOSITION_ZERO  10			// when biomass decompeses under this level instance is destroyed
 
 

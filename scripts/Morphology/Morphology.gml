@@ -22,7 +22,7 @@ function Morphology(_id) constructor {
 	
 	step = function() {
 		//scale = scale_base * _struct.map_nutrients[? NUTRIENT.MINERAL];	
-		if my_id.structure.is_adult_growth
+		if my_id.structure.age_is_adult_growth
 			scale = clamp(my_id.structure.biomass/5, 0.6, 1);   // <------- 
 		else 
 			scale = clamp(my_id.structure.biomass/5, 0.4, 0.8);   // <------- 

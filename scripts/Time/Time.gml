@@ -12,20 +12,16 @@
 function Time() constructor {
 	
 	current_step = 0;						// system steps counter
-	//_current_sim_step_real = 0;				// real number, this is the one we use internally
-	
-	current_sim_step = 0;					// integer, floor of real
-	//sim_steps_per_step = 1 / SIMULATION_SPEED;	// sim_steps increment per step
 	steps_per_sim_step = SIMULATION_SPEED;	// steps to complete a sim_steps 
 	
+	current_sim_step = 0;					// integer, floor of real	
 	sim_step_entry = false;					// first system step for current sim step
-	//_last_sim_step = -1;
 	
-	current_sim_month = 0;
+	current_sim_month = 0;					// a sim_month is TIME_SIM_STEPS_PER_MONTH * sim_step
 	sim_month_entry = false;
 	_last_sim_month = -1;
 	
-	current_sim_year = 0;
+	current_sim_year = 0;					// a sim_year is 12 * sim_months
 	
 	flash_50 = false;			// used to do flash efects. true during 50% room_step cycle
 	

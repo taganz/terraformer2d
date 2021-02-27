@@ -25,7 +25,7 @@ function gui_text_on_simulation_screen(){
 
 		
 		//draw_set_font(fnt_hud);
-		draw_set_color(c_red);
+		draw_set_color(c_black);
 		draw_set_font(fnt_small);
 		var _yy = 40;
 		var _xx = 100;

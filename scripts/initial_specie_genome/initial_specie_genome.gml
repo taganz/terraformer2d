@@ -1,6 +1,51 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function initial_specie_genome(_initial_specie){
+
+	var _genome = array_create (GEN_NUM, 0);
+	var ww = ds_grid_width(controller.species.initial_species_grid);
+	var hh = ds_grid_height(controller.species.initial_species_grid);
+	
+	// get column for specie
+	ASSERT(ds_grid_value_exists(controller.species.initial_species_grid, 0, 0, 0, hh, "INITIAL_SPECIE"), 0, "INITIAL SPECIES ROW NOT FOUND");
+	var y_initial_specie = ds_grid_value_y(controller.species.initial_species_grid, 0, 0, 0, hh, "INITIAL_SPECIE");
+	ASSERT(ds_grid_value_exists(controller.species.initial_species_grid, 1, y_initial_specie, ww, y_initial_specie, _initial_specie), 0, "INITIAL SPECIES COLUMN NOT FOUND "+string(_initial_specie));
+	var x_initial_specie = ds_grid_value_x(controller.species.initial_species_grid, 1, y_initial_specie, ww, y_initial_specie, _initial_specie);
+
+	for (var i=0; i<GEN_NUM;i++) {
+	
+		// get row for this gen
+		var yy = ds_grid_value_y(controller.species.initial_species_grid, 0, 0, 1, hh, gen_to_string(i));
+		if (yy>0) {
+				var _cell =  controller.species.initial_species_grid[# x_initial_specie, yy];
+				if _cell != "" or i < GEN_FIRST_MUTABLE
+					_genome[i] = _cell;
+				else
+					_genome[i] = 0;
+		}
+		else {
+			_genome[i] = 0;
+			log_error("*** ERROR *** gen not found in inital_species_grid "+gen_to_string(i))
+		}
+	
+	}
+	
+	
+	//_genome[GEN.INITIAL_SPECIE] = _initial_specie;    
+	_genome[GEN.PARENT_SPECIE_CODE] = "NOPARENT";
+	_genome[GEN.SPECIE_CODE] = specie_code_initial(_genome[GEN.TROPHIC_LEVEL], _initial_specie);    
+		
+
+	return _genome;
+	
+}
+
+
+
+
+
+
+/*
 	var _genome =  array_create(GEN_NUM, 0);
 	switch(_initial_specie) {
 		case SPECIE.PLANT_TREE: {
@@ -15,7 +60,7 @@ function initial_specie_genome(_initial_specie){
 		_genome[GEN.METABOLIC_RATE] = 0.2;    // 
 		_genome[GEN.ANABOLISM_BIOMASS_PER_WATER_L] = 0.4;			
 		_genome[GEN.TEMPERATURE_OPTIMAL] = 30;			
-		_genome[GEN.TEMPERATURE_RANGE_MINIMUM] = -15;			
+		_genome[GEN.TEMPERATURE_RANGE] = -15;			
 		_genome[GEN.PLANT_BODY_DENSITY] =  400;			
 		_genome[GEN.PLANT_BODY_FORM_FACTOR] =  1.2;		
 		_genome[GEN.PLANT_HEAD_DENSITY] =  50;
@@ -33,7 +78,7 @@ function initial_specie_genome(_initial_specie){
 		_genome[GEN.BIOMASS_ADULT] = 250;    // 
 		_genome[GEN.METABOLIC_RATE] = 0.2;    // 
 		_genome[GEN.TEMPERATURE_OPTIMAL] = 30;			
-		_genome[GEN.TEMPERATURE_RANGE_MINIMUM] = -15;			
+		_genome[GEN.TEMPERATURE_RANGE] = -15;			
 		_genome[GEN.ANABOLISM_BIOMASS_PER_WATER_L] = 0.4;			
 		_genome[GEN.PLANT_BODY_DENSITY] =  200;			
 		_genome[GEN.PLANT_BODY_FORM_FACTOR] =  1.5;		
@@ -52,7 +97,7 @@ function initial_specie_genome(_initial_specie){
 		_genome[GEN.BIOMASS_ADULT] = 200;    //					// less biomass?
 		_genome[GEN.METABOLIC_RATE] = 0.3;    // 
 		_genome[GEN.TEMPERATURE_OPTIMAL] = 20;			
-		_genome[GEN.TEMPERATURE_RANGE_MINIMUM] = -45;			// cold temperatures
+		_genome[GEN.TEMPERATURE_RANGE] = -45;			// cold temperatures
 		_genome[GEN.ANABOLISM_BIOMASS_PER_WATER_L] = 0.3;		// needs more water?
 		_genome[GEN.PLANT_BODY_DENSITY] =  400;			
 		_genome[GEN.PLANT_BODY_FORM_FACTOR] =  1.3;		
@@ -72,7 +117,7 @@ function initial_specie_genome(_initial_specie){
 		_genome[GEN.ANABOLISM_BIOMASS_PER_WATER_L] =  0.4;			
 		_genome[GEN.METABOLIC_RATE] =  0.20;
 		_genome[GEN.TEMPERATURE_OPTIMAL] = 25;			
-		_genome[GEN.TEMPERATURE_RANGE_MINIMUM] = -10;			
+		_genome[GEN.TEMPERATURE_RANGE] = -10;			
 		_genome[GEN.PLANT_BODY_DENSITY] =  0;			// small body
 		_genome[GEN.PLANT_BODY_FORM_FACTOR] =  0;		
 		_genome[GEN.PLANT_HEAD_DENSITY] =  20;
@@ -91,7 +136,7 @@ function initial_specie_genome(_initial_specie){
 		_genome[GEN.ANABOLISM_BIOMASS_PER_WATER_L] =  0.6;			
 		_genome[GEN.METABOLIC_RATE] =  0.4;
 		_genome[GEN.TEMPERATURE_OPTIMAL] = 30;			
-		_genome[GEN.TEMPERATURE_RANGE_MINIMUM] = -10;			
+		_genome[GEN.TEMPERATURE_RANGE] = -10;			
 		_genome[GEN.PLANT_BODY_DENSITY] =  0;			// small body
 		_genome[GEN.PLANT_BODY_FORM_FACTOR] =  0;		
 		_genome[GEN.PLANT_HEAD_DENSITY] =  20;
@@ -153,3 +198,4 @@ function initial_specie_genome(_initial_specie){
 	
 	return _genome;
 }
+*/

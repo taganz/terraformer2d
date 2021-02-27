@@ -9,7 +9,8 @@ function state_dead(_id){
 		controller.world.creature_dead(_id);
 		// print a report at console
 		//LOG_ID(_id, "DEAD - age: "+string(_id.structure.age)+" biomass: "+string(_id.structure.biomass));
-		LOG(LOGEVENT.CREATURE_DEAD, _id);
+		//LOG(LOGEVENT.CREATURE_DEAD, _id);
+		LOG(LOGEVENT.CREATURE_DEAD, _id, deadcause_to_string(_id.structure.dead_cause));
 		LOG(LOGEVENT.CREATURE_DEAD_INFO, _id, "dead_cause", deadcause_to_string(_id.structure.dead_cause));
 		//LOG(LOGEVENT.CREATURE_DEAD_INFO, _id, "GEN.INITIAL_SPECIE_NAME", string(_id.dna.genome[GEN.INITIAL_SPECIE_NAME]));
 		//LOG(LOGEVENT.CREATURE_CREATURE_DEAD_INFOBORN_INFO, _id, "GEN.SPECIE_CODE", _id.dna.genome([GEN.SPECIE_CODE]));

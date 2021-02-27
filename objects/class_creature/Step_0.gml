@@ -7,9 +7,16 @@ if !controller.sim_paused {
 		// next action
 		state.step();
 
-		// absorb nutrients
 		if structure.is_dead==false {
+			
+			// increment age, calculate age_adult
+			
+			age_growth(id);
+			
+			// absorb nutrients
+		
 			structure.do_metabolism();
+			
 		}
 
 		// update morphology parameters if necessary

@@ -5,7 +5,7 @@
 	
 	
 */
-#macro TEMPERATURE_DISTRIBUTION_MARGIN  5  // from Topt - margin to Topt + margin anabolims is optimum
+#macro TEMPERATURE_DISTRIBUTION_MARGIN  2  // from Topt - margin to Topt + margin anabolims is optimum
 function Structure_Plant(_id, _creature_spawn_as_adult):Structure(_id, _creature_spawn_as_adult) constructor {
 
 	// this is sent by world cell for each plant cycle 
@@ -18,24 +18,22 @@ function Structure_Plant(_id, _creature_spawn_as_adult):Structure(_id, _creature
 	_kc = my_id.dna.genome[GEN.METABOLIC_RATE];
 	_ka = my_id.dna.genome[GEN.ANABOLISM_BIOMASS_PER_WATER_L] * WORLD_WATER_PER_LEAF_KG;
 	_LMFa = _kc/_ka
-	// anabolism is affected by temperature linearly from 0 at Tmin and up to 1 at Topt
-	_Topt1 = my_id.dna.genome[GEN.TEMPERATURE_OPTIMAL] - TEMPERATURE_DISTRIBUTION_MARGIN;
-	_Topt2 = my_id.dna.genome[GEN.TEMPERATURE_OPTIMAL] + TEMPERATURE_DISTRIBUTION_MARGIN;
-	_Tmin = _Topt1 - my_id.dna.genome[GEN.TEMPERATURE_RANGE_MINIMUM];
+	
+	// anabolism is affected by a temperature coefficient
+	//  - below Tmin:  kt = 0
+	//	- range Tmin - Topt1:  kt =  grow linearly from 0 to 1
+	//  - range Topt1 - Topt2: kt = 1 
+	//	- above Topt2: kt = 0
+	_Topt2 = my_id.dna.genome[GEN.TEMPERATURE_OPTIMAL] + my_id.dna.genome[GEN.TEMPERATURE_RANGE];
+	_Topt1 = my_id.dna.genome[GEN.TEMPERATURE_OPTIMAL];
+	_Tmin  = my_id.dna.genome[GEN.TEMPERATURE_OPTIMAL] - my_id.dna.genome[GEN.TEMPERATURE_RANGE];
+	
 	ASSERT((_LMFa > 0 && _LMFa < 1), my_id, "Invalidad LMFa="+string(_LMFa)+" creature "+string(my_id));  
 	_LMFa = clamp(_LMFa, 0.01, 0.99);
-	//if (_LMFa > 0 and _LMFa < 1)
-	//	show_debug_message("*** Invalid LMFa=** "+string(_LMFa)+" creature "+string(my_id));  
-	//_growth = kg_to_units(my_id.dna.genome[GEN.GROWTH_KG_YR])/12;
-	//_k_growth = _growth/_ka;
-
-
-	biomass_leaf = biomass * _LMFa;
-	biomass_trunk = biomass - biomass_leaf;
-
-	biomass_reproductive = 0;			// doesn't change on plants
-	biomass_reproductive_adult = 0;
-
+	
+	// initial biomass allocation
+	biomass_eat = biomass * _LMFa;
+	biomass_body = biomass - biomass_eat;
 
 
 	// === do_metabolism
@@ -48,11 +46,12 @@ function Structure_Plant(_id, _creature_spawn_as_adult):Structure(_id, _creature
 	//		age
 	//		is_dead, dead_cause
 	//		is_adult
+	//		reproduction_is_ready
 	//		is_starving
 	//		biomass
 	//		biomass_max
-	//		biomass_leaf
-	//		biomass_trunk 
+	//		biomass_eat
+	//		biomass_body 
 	//		world.biomass		<---??
 	//		plant_received_water = 0
 	//		plant_received_sun = 0
@@ -67,9 +66,6 @@ function Structure_Plant(_id, _creature_spawn_as_adult):Structure(_id, _creature
 			LOG(LOGEVENT.CREATURE_BORN_INFO_NUM, my_id, "_Topt1", _Topt1);
 			LOG(LOGEVENT.CREATURE_BORN_INFO_NUM, my_id, "_Topt2", _Topt2);
 			LOG(LOGEVENT.CREATURE_BORN_INFO_NUM, my_id, "_Tmin", _Tmin);
-
-
-			//LOG(LOGEVENT.CREATURE_BORN_INFO, my_id, "_growth: "+string(_growth));
 			_first_execution = false;
 		}
 
@@ -77,46 +73,18 @@ function Structure_Plant(_id, _creature_spawn_as_adult):Structure(_id, _creature
 		// plants use a longer cycle	
 	
 		if controller.time.sim_month_entry {
-			
-	
-			// -- age
 
-			age += TIME_SIM_STEPS_PER_MONTH;
-		
-		
-			// -- to old?
-		
-			if age > age_die {
-				is_dead = true;
-				dead_cause = DEADCAUSE.OLD;
-			}
-				
-			// -- grown up?
-			
-			else {
 
-				/*
-				// -- grown up?
-				if is_adult==false && age >= age_adult {
-					is_adult = true;
-					LOG(LOGEVENT.CREATURE_ADULT, my_id, "plant");
-				}
-*/
-	
-				// time for reproduction? 
-				if is_adult_reproduction and age - age_last_reproduction > reproduction_interval {
-					is_prepared_for_reproduction = true;
-				}
-	
-
-				// -- ANABOLISM
-				
 				LOG(LOGEVENT.CREATURE_WATER_RECEIVED, my_id, plant_received_water);
 				LOG(LOGEVENT.CREATURE_TEMPERATURE, my_id, my_id.my_cell.temperature_current_month);
 				LOG(LOGEVENT.CREATURE_RAIN, my_id, my_id.my_cell.rain_current_month);
-		
-				// we expect to have received water: biomass_leaf*WORLD_WATER_PER_LEAF_KG
-				// we are going to use it for compensate catabolism + growth
+
+
+
+				// -- ANABOLISM
+						
+				// we expect to have received water: biomass_eat*WORLD_WATER_PER_LEAF_KG
+				// we are going to use it for compensate catabolism + growth + reserves
 				
 				var _quant_anabolism = plant_received_water * my_id.dna.genome[GEN.ANABOLISM_BIOMASS_PER_WATER_L];
 				
@@ -126,53 +94,51 @@ function Structure_Plant(_id, _creature_spawn_as_adult):Structure(_id, _creature
 							: clamp((my_id.my_cell.temperature_current_month - _Tmin)/(_Topt1-_Tmin), 0, 1);
 				_quant_anabolism *= _temp_factor;
 					
-				LOG(LOGEVENT.CREATURE_ANABOLISM, my_id, _quant_anabolism, "received water: "+string(plant_received_water)+", temp factor: "+string(_temp_factor));
+				LOG(LOGEVENT.CREATURE_ANABOLISM, my_id, _quant_anabolism, "received water: "+string(plant_received_water)+", T:" + string(my_id.my_cell.temperature_current_month)+", kt: "+string(_temp_factor));
 				plant_received_water = 0;
 				
 				
 				
 				// -- CATABOLISM
-				
-				var _quant_catabolism = _kc * biomass; // 12: conversion per year-per month
+
+				// catabolims depends only on biomass_body
+				var _quant_catabolism = _kc * biomass_body
 				LOG(LOGEVENT.CREATURE_CATABOLISM, my_id, _quant_catabolism);
 
-				biomass_modify (_quant_anabolism - _quant_catabolism);
+
+				biomass_modify (my_id, _quant_anabolism - _quant_catabolism);
 				
 				
+				// -- BIOMASS ALLOCATION
+				//
 				// -- recalculate structure. check if arrived to adult
 
-				if is_adult_growth 
-					biomass_leaf = biomass * _LMFa;		
+				if age_is_adult_growth {
+					biomass_eat = biomass * _LMFa;		
+					biomass_body = clamp(biomass - biomass_eat, 0, biomass_max);
+					// remaining of biomass is reserve
+				}
 				else {
-					//biomass_leaf = clamp(biomass * _LMFa + _k_growth, 0, biomass * 0.90);  // clamp prevents error for GROWTH target to big for current leaf biomass fraction
 					
-					
+					// already adult?
 					if biomass > my_id.dna.genome[GEN.BIOMASS_ADULT]*0.9 {
-						is_adult_growth = true;
+						age_is_adult_growth = true;
 						LOG(LOGEVENT.CREATURE_ADULT, my_id, "adult_growth");
-						biomass_leaf = biomass * _LMFa;		
+						biomass_eat = biomass * _LMFa;		
 					}
 					else {
-						biomass_leaf = biomass *(_LMFa + (0.9 - _LMFa) * (1 - biomass / my_id.dna.genome[GEN.BIOMASS_ADULT]));
+						// biomass_eat changes during growth
+						biomass_eat = biomass *(_LMFa + (0.9 - _LMFa) * (1 - biomass / my_id.dna.genome[GEN.BIOMASS_ADULT]));
 					}
 					
 				}
-				biomass_trunk = biomass - biomass_leaf;
-				biomass_reproductive = my_id.dna.genome[GEN.BIOMASS_BIRTH];   // fixed <----
-			
-			
-				// can reproduce
 				
-				if is_adult_reproduction==false && biomass > my_id.dna.genome[GEN.BIOMASS_REPRODUCTION] {
-					is_adult_reproduction = true;
-					LOG(LOGEVENT.CREATURE_ADULT, my_id, "adult_reproduction");
+				biomass_body = biomass - biomass_eat;
+				biomass_reproduction = my_id.dna.genome[GEN.BIOMASS_BIRTH];   // fixed <----
+			
 
-				}
-
-		
 			}
 				  
-		}
 						
 	}
 	

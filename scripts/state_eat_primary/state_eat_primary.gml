@@ -27,10 +27,11 @@ function state_eat_primary(_id) {
 						
 						// capture a part of biomass from one of the plants 
 						//var _biomass_got = _prey.structure.been_eated(_id, _id.structure.quant_organic_wanted);
-						var _biomass_got = _prey.structure.been_eated(_id, _id.structure.biomass_digestive);
+						//var _biomass_got = _prey.structure.been_eated(_id, _id.structure.BIOMASS_EAT);
+						var _biomass_got = been_eated(_prey, _id, _id.structure.BIOMASS_EAT);
 						_id.structure.eaten_biomass += _biomass_got; 
 						
-						var _msg_log = "biomass_digestive: "+string(units_to_kg(_id.structure.biomass_digestive))+"  biomass prey: "+string(units_to_kg(_prey.structure.biomass));
+						var _msg_log = "BIOMASS_EAT: "+string(units_to_kg(_id.structure.BIOMASS_EAT))+"  biomass prey: "+string(units_to_kg(_prey.structure.biomass));
 							
 						LOG(LOGEVENT.CREATURE_EAT, _id, _prey, _biomass_got, _msg_log);
 						
