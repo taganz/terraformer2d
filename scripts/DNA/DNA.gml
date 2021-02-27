@@ -1,6 +1,9 @@
-// Script assets have changed for v2.3.0 see
-// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
+/*
 
+	Holds creature genome
+
+	
+*/
 
 
 
@@ -9,7 +12,7 @@ function DNA(_initial_specie) constructor {
 	// === initialize creature genome with selected initial specie	
 	genome = array_create(GEN_NUM, 0);
 
-	
+
 	// === format
 	// in line genome
 	genome_to_string = function()  {

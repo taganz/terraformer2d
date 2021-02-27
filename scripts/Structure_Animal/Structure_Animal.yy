@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Creatures",
-    "path": "folders/Scripts/Creatures.yy",
+    "name": "Structure",
+    "path": "folders/Scripts/Creatures/Structure.yy",
   },
   "resourceVersion": "1.0",
   "name": "Structure_Animal",

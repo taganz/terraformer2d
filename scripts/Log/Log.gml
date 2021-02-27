@@ -17,24 +17,28 @@
 // == log event codes
 
 enum LOGEVENT {
+	CREATURE_ADULT,
 	CREATURE_BORN,
 	CREATURE_BORN_INFO,
 	CREATURE_BORN_INFO_NUM,
 	CREATURE_ANABOLISM,					// obtained biomass during metabolism
 	CREATURE_CATABOLISM,				// consumed biomass during metabolism
-	CREATURE_ADULT,
 	CREATURE_DEAD,
 	CREATURE_DEAD_INFO,
 	CREATURE_DEAD_INFO_NUM,
-	CREATURE_STARVING,
-	CREATURE_REPRODUCTION,
 	CREATURE_BIOMASS,					// biomass at the end of step
-	CREATURE_BIOMASS_DIGESTIVE,			// biomass at the end of step
+	CREATURE_BIOMASS_EAT,			
+	CREATURE_BIOMASS_BODY,			
+	CREATURE_BIOMASS_REPRODUCTION,			
+	CREATURE_BIOMASS_RESERVE,		// 
 	CREATURE_DECOMPOSE,
 	CREATURE_DECOMPOSE_COMPLETED,
 	CREATURE_EAT,
 	CREATURE_BEEN_EATED,
 	CREATURE_DEBUG,
+	CREATURE_LIFE_EVENT,
+	CREATURE_STARVING,
+	CREATURE_REPRODUCTION,
 	CREATURE_TEMPERATURE,				// at cell this month
 	CREATURE_RAIN,						// at cell this month
 	CREATURE_WATER_RECEIVED,			// plants
@@ -56,26 +60,30 @@ enum LOGEVENT {
 function log_event_to_string(_log_event) {
 	var _msg = "??????";
 	switch (_log_event) {
-		case LOGEVENT.CREATURE_ADULT:			_msg = "CREATURE_ADULT"; break;
-		case LOGEVENT.CREATURE_ANABOLISM:		_msg = "CREATURE_ANABOLISM"; break;
-		case LOGEVENT.CREATURE_BEEN_EATED:		_msg = "CREATURE_BEEN_EATED"; break;
-		case LOGEVENT.CREATURE_BIOMASS:			_msg = "CREATURE_BIOMASS"; break;
-		case LOGEVENT.CREATURE_BIOMASS_DIGESTIVE: _msg = "CREATURE_BIOMASS_DIGESTIVE"; break;
-		case LOGEVENT.CREATURE_BORN:			_msg = "CREATURE_BORN"; break;
-		case LOGEVENT.CREATURE_BORN_INFO:			_msg = "CREATURE_BORN_INFO"; break;
-		case LOGEVENT.CREATURE_BORN_INFO_NUM:			_msg = "CREATURE_BORN_INFO_NUM"; break;
-		case LOGEVENT.CREATURE_CATABOLISM:		_msg = "CREATURE_CATABOLISM"; break;
-		case LOGEVENT.CREATURE_DECOMPOSE:		_msg = "CREATURE_DECOMPOSE"; break;
-		case LOGEVENT.CREATURE_DECOMPOSE_COMPLETED:	_msg = "CREATURE_DECOMPOSE_COMPLETED"; break;
-		case LOGEVENT.CREATURE_DEAD:			_msg = "CREATURE_DEAD"; break;
-		case LOGEVENT.CREATURE_DEAD_INFO:			_msg = "CREATURE_DEAD_INFO"; break;
-		case LOGEVENT.CREATURE_DEAD_INFO_NUM:			_msg = "CREATURE_DEAD_INFO_NUM"; break;
-		case LOGEVENT.CREATURE_EAT:				_msg = "CREATURE_EAT"; break;
+		case LOGEVENT.CREATURE_ADULT:			_msg = "ADULT"; break;
+		case LOGEVENT.CREATURE_ANABOLISM:		_msg = "ANABOLISM"; break;
+		case LOGEVENT.CREATURE_BEEN_EATED:		_msg = "BEEN_EATED"; break;
+		case LOGEVENT.CREATURE_BIOMASS:			_msg = "BM"; break;
+		case LOGEVENT.CREATURE_BIOMASS_EAT:		_msg = "BM_EAT"; break;
+		case LOGEVENT.CREATURE_BIOMASS_BODY:	 _msg = "BM_BODY"; break;
+		case LOGEVENT.CREATURE_BIOMASS_REPRODUCTION: _msg = "BM_REPRODUCTION"; break;
+		case LOGEVENT.CREATURE_BIOMASS_RESERVE: _msg = "BM_RESERVE"; break;
+		case LOGEVENT.CREATURE_BORN:			_msg = "BORN"; break;
+		case LOGEVENT.CREATURE_BORN_INFO:		_msg = "BORN_INFO"; break;
+		case LOGEVENT.CREATURE_BORN_INFO_NUM:	_msg = "CREATURE_BORN_INFO_NUM"; break;
+		case LOGEVENT.CREATURE_CATABOLISM:		_msg = "CATABOLISM"; break;
+		case LOGEVENT.CREATURE_DECOMPOSE:		_msg = "DECOMPOSE"; break;
+		case LOGEVENT.CREATURE_DECOMPOSE_COMPLETED:	_msg = "DECOMPOSE_COMPLETED"; break;
+		case LOGEVENT.CREATURE_DEAD:			_msg = "DEAD"; break;
+		case LOGEVENT.CREATURE_DEAD_INFO:		_msg = "DEAD_INFO"; break;
+		case LOGEVENT.CREATURE_DEAD_INFO_NUM:	_msg = "DEAD_INFO_NUM"; break;
+		case LOGEVENT.CREATURE_EAT:				_msg = "EAT"; break;
+		case LOGEVENT.CREATURE_LIFE_EVENT:		_msg = "LIFE_EVENT"; break;
 		case LOGEVENT.CREATURE_RAIN:			_msg = "CREATURE_RAIN"; break;
-		case LOGEVENT.CREATURE_REPRODUCTION:	_msg = "CREATURE_REPRODUCTION"; break;
-		case LOGEVENT.CREATURE_STARVING:		_msg = "CREATURE_STARVING"; break;
-		case LOGEVENT.CREATURE_TEMPERATURE:		_msg = "CREATURE_TEMPERATURE"; break;
-		case LOGEVENT.CREATURE_WATER_RECEIVED:	_msg = "CREATURE_WATER_RECEIVED"; break;
+		case LOGEVENT.CREATURE_REPRODUCTION:	_msg = "REPRODUCTION"; break;
+		case LOGEVENT.CREATURE_STARVING:		_msg = "STARVING"; break;
+		case LOGEVENT.CREATURE_TEMPERATURE:		_msg = "TEMPERATURE"; break;
+		case LOGEVENT.CREATURE_WATER_RECEIVED:	_msg = "WATER_RECEIVED"; break;
 		case LOGEVENT.SPECIE_NEW:				_msg = "SPECIE_NEW"; break;
 		case LOGEVENT.PROBE_NUTRIENTS:			_msg = "PROBE_NUTRIENTS"; break;
 		case LOGEVENT.PROBE_WATER:				_msg = "PROBE_WATER"; break;
@@ -194,7 +202,10 @@ function Log() constructor{
 			case LOGEVENT.CREATURE_ANABOLISM:
 			case LOGEVENT.CREATURE_BEEN_EATED:
 			case LOGEVENT.CREATURE_BIOMASS:
-			case LOGEVENT.CREATURE_BIOMASS_DIGESTIVE:
+			case LOGEVENT.CREATURE_BIOMASS_EAT:
+			case LOGEVENT.CREATURE_BIOMASS_BODY:
+			case LOGEVENT.CREATURE_BIOMASS_REPRODUCTION:
+			case LOGEVENT.CREATURE_BIOMASS_RESERVE:
 			case LOGEVENT.CREATURE_BORN:
 			case LOGEVENT.CREATURE_DEBUG: 
 			case LOGEVENT.CREATURE_DEAD:
@@ -202,6 +213,7 @@ function Log() constructor{
 			case LOGEVENT.CREATURE_DECOMPOSE:	
 			case LOGEVENT.CREATURE_DECOMPOSE_COMPLETED:
 			case LOGEVENT.CREATURE_CATABOLISM:
+			case LOGEVENT.CREATURE_LIFE_EVENT:
 			case LOGEVENT.CREATURE_RAIN:
 			case LOGEVENT.CREATURE_REPRODUCTION:
 			case LOGEVENT.CREATURE_STARVING:
@@ -225,10 +237,12 @@ function Log() constructor{
 				
 				
 					if _event == LOGEVENT.CREATURE_ADULT {
+						_col_num1 = string(sim_steps_to_years(_id1.structure.age));		
 						_col_txt1 = _arg1;
 					}
 					// id2, num1, txt1, txt2
 					if _event == LOGEVENT.CREATURE_BORN {
+						_col_num1 = string(sim_steps_to_years(_id1.structure.age));		
 						_col_txt1 = _id1.dna.genome[GEN.SPECIE_CODE];
 					}
 					// 
@@ -238,7 +252,8 @@ function Log() constructor{
 					}
 					if _event == LOGEVENT.CREATURE_REPRODUCTION {
 						_col_id2 = string(_arg1);
-						_col_num1 = string(units_to_kg(_arg2));		
+						_col_num1 = string(sim_steps_to_years(_id1.structure.age));		
+						_col_num2 = string(units_to_kg(_arg2));		
 					}
 					if _event == LOGEVENT.CREATURE_EAT {
 						_col_id2 = string(_arg1);
@@ -249,17 +264,38 @@ function Log() constructor{
 						_col_num1 = string(units_to_kg(_id1.structure.biomass));
 						_col_txt1 = "kg"
 					}
-					if _event == LOGEVENT.CREATURE_BIOMASS_DIGESTIVE {
-						var _percent = (_arg1/_id1.structure.biomass*100) mod 100;
-						//_col_specie = string(units_to_kg(_arg1));	
-						//_col_num1 = string(_percent);
+					if _event == LOGEVENT.CREATURE_BIOMASS_EAT {
+						var _percent = (_arg1/_id1.structure.biomass*100) div 100;
 						_col_num1 = string(units_to_kg(_arg1));	
 						_col_num2 = string(_percent);
 						_col_txt1 = string(_percent)+"% biomass"
 					}
+					if _event == LOGEVENT.CREATURE_BIOMASS_BODY {
+						var _percent = (_arg1/_id1.structure.biomass*100) div 100;
+						_col_num1 = string(units_to_kg(_arg1));	
+						_col_num2 = string(_percent);
+						_col_txt1 = string(_percent)+"% biomass"
+					}
+					if _event == LOGEVENT.CREATURE_BIOMASS_REPRODUCTION {
+						var _percent = (_arg1/_id1.structure.biomass*100) div 100;
+						_col_num1 = string(units_to_kg(_arg1));	
+						_col_num2 = string(_percent);
+						_col_txt1 = string(_percent)+"% biomass"
+					}
+					if _event == LOGEVENT.CREATURE_BIOMASS_RESERVE {
+						_col_num1 = string(units_to_kg(_id1.structure.biomass_reserve_max));	
+						var _percent = _id1.structure.biomass_reserve/_id1.structure.biomass_reserve_max;
+						_col_num2 = string(_percent);
+						_col_txt1 = string(_percent)+"% reserve max"
+					}
 					if _event == LOGEVENT.CREATURE_DEAD {
-						_col_txt1 = string(deadcause_to_string(_arg1));		// dead cause
-						_col_txt2 = string(_arg2);		// msg
+						_col_num1 = string(sim_steps_to_years(_id1.structure.age));	// age
+						_col_txt1 = string(_arg1);				// deadcause
+					}
+					if _event == LOGEVENT.CREATURE_LIFE_EVENT {
+						_col_num1 = string(sim_steps_to_years(_id1.structure.age));		
+						_col_txt1 = _arg1;		// event name
+						_col_txt2 = _arg2;		// event info
 					}
 					if _event == LOGEVENT.CREATURE_DEBUG {
 						_col_txt1 = _arg1;
@@ -269,10 +305,12 @@ function Log() constructor{
 					}
 					if _event == LOGEVENT.CREATURE_ANABOLISM {
 						_col_num1 = string(units_to_kg(_arg1));
+						_col_num2 = string(units_to_kg(_id1.structure.biomass));
 						_col_txt1 = _arg2;
 					}
 					if _event == LOGEVENT.CREATURE_CATABOLISM {
 						_col_num1 = string(units_to_kg(_arg1));
+						_col_num2 = string(units_to_kg(_id1.structure.biomass));
 					}
 					if _event == LOGEVENT.CREATURE_TEMPERATURE {
 						//_col_specie = "";
@@ -315,19 +353,19 @@ function Log() constructor{
 				
 						if _event == LOGEVENT.CREATURE_BORN_INFO{
 							_col_txt1 = _arg1;		// tag
-							_col_txt2 = _arg2;		// value
+							_col_txt2 = _arg2;		// string value
 						}
 						if _event == LOGEVENT.CREATURE_BORN_INFO_NUM{
 							_col_txt1 = _arg1;				// tag
-							_col_num1 = string(_arg2);		// value
+							_col_num1 = string(_arg2);		// num value
 						}
 						if _event == LOGEVENT.CREATURE_DEAD_INFO {
 							_col_txt1 = _arg1;		// tag
-							_col_txt2 = _arg2;		// value
+							_col_txt2 = _arg2;		// string value
 						}
 						if _event == LOGEVENT.CREATURE_DEAD_INFO_NUM{
 							_col_txt1 = _arg1;				// tag
-							_col_num1 = string(_arg2);		// value
+							_col_num1 = string(_arg2);		// num value
 						}
 				}
 				else
@@ -408,17 +446,17 @@ function Log() constructor{
 		
 		if _do_log {
 			
-			var t1 =  variable_instance_exists(controller, "time") ? controller.time.current_sim_step : 0;
-			var t2 =  variable_instance_exists(controller, "time") ? controller.time.current_sim_month : 0;
-			var t3 =  variable_instance_exists(controller, "time") ? controller.time.current_sim_year : 0;
+			var current_sim_step =  variable_instance_exists(controller, "time") ? controller.time.current_sim_step : 0;
+			var current_sim_month =  variable_instance_exists(controller, "time") ? controller.time.current_sim_month : 1;
+			var current_sim_year =  variable_instance_exists(controller, "time") ? controller.time.current_sim_year : 1;
 			
 			
 			_lines_buffer [_line] = 
-					string(t1)
+					string(current_sim_step)									
 					+ CSV_SEPARATOR
-					+ string(t2)
+					+ string(current_sim_month)								
 					+ CSV_SEPARATOR
-					+ string(t3)
+					+ string(current_sim_year)
 					+ CSV_SEPARATOR
 					+ log_event_to_string(_event)
 					+ CSV_SEPARATOR 
@@ -496,7 +534,7 @@ function Log() constructor{
 	creature_born = function(_id) {
 		if (LOG_IF_SHIFT_PRESSED == true 
 			&& keyboard_check(vk_shift)) || _id == obj_gui.gui.creature_to_follow {
-				LOG_ID(_id, "Born");
+				//LOG_ID(_id, "Born");
 				show_debug_message(log_text_creature(_id));
 			}
 	}
@@ -507,7 +545,7 @@ function Log() constructor{
 	creature_dead = function (_id) {
 		if (LOG_IF_SHIFT_PRESSED == true 
 			&& keyboard_check(vk_shift)) || _id == obj_gui.gui.creature_to_follow {
-				LOG_ID(_id, "Dead");
+				//LOG_ID(_id, "Dead");
 				show_debug_message(log_text_creature(_id));
 			}
 	}

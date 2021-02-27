@@ -14,23 +14,57 @@ var _home_container = new EmuCore(32, 32, 640, 640);
 
 var yy = 32;
 
-var _button = new EmuButton(ROOMS_COLUMN_Y, yy, 256, 32, "Room4 - Climates", function() {
+var _button = new EmuButton(ROOMS_COLUMN_Y, yy, 256, 32, "Tropical", function() {
+    room_goto(rm_tropical);
+});
+_home_container.AddContent(_button);
+yy+=32;
+
+var _button = new EmuButton(ROOMS_COLUMN_Y, yy, 256, 32, "Artic", function() {
+    room_goto(rm_artic);
+});
+_home_container.AddContent(_button);
+yy+=32;
+
+var _button = new EmuButton(ROOMS_COLUMN_Y, yy, 256, 32, "Mediterranean", function() {
+    room_goto(rm_mediterranean);
+});
+_home_container.AddContent(_button);
+yy+=32;
+
+var _button = new EmuButton(ROOMS_COLUMN_Y, yy, 256, 32, "Continental", function() {
+    room_goto(rm_continental);
+});
+_home_container.AddContent(_button);
+yy+=32;
+
+
+var _button = new EmuButton(ROOMS_COLUMN_Y, yy, 256, 32, "Desertic", function() {
+    room_goto(rm_desertic);
+});
+_home_container.AddContent(_button);
+yy+=32;
+
+
+var _button = new EmuButton(ROOMS_COLUMN_Y, yy, 256, 32, "Climate test (2)", function() {
+    room_goto(Room2);
+});
+_home_container.AddContent(_button);
+yy+=32;
+
+var _button = new EmuButton(ROOMS_COLUMN_Y, yy, 256, 32, "All climates (4)", function() {
     room_goto(Room4);
 });
 _home_container.AddContent(_button);
 yy+=32;
 
-var _button = new EmuButton(ROOMS_COLUMN_Y, yy, 256, 32, "Room3 - Test", function() {
-    room_goto(Room3);
+var _button = new EmuButton(ROOMS_COLUMN_Y, yy, 256, 32, "Debug", function() {
+    room_goto(rm_debug);
 });
 _home_container.AddContent(_button);
 yy+=32;
 
-var _button = new EmuButton(ROOMS_COLUMN_Y, yy, 256, 32, "Room2 - Test", function() {
-    room_goto(Room2);
-});
-_home_container.AddContent(_button);
-yy+=32;
+
 
 var _button = new EmuButton(ROOMS_COLUMN_Y, yy, 256, 32, "Room1 - Test", function() {
     room_goto(Room1);

@@ -14,6 +14,12 @@ function Species() constructor {
 	species_list = ds_list_create();
 
 
+	// === read gen values for initial species
+	
+	initial_species_grid = initial_specie_load_csv();
+	
+	
+
 	// get specie code from new prefix (different from parent's)
 	specie_code_from_new_prefix = function(new_prefix, _id_parent) {
 		

@@ -53,7 +53,7 @@ function World() constructor {
 		//		time, rain depends on current month
 		//		cell.climate, rain depends on climate
 		//		cell.soil_available_water_max
-		//		cell.creatures.biomass_leaf
+		//		cell.creatures.biomass_eat
 		// out
 		//		cell.available_water
 		//		cell.creature.plant_received_water: 
@@ -80,7 +80,7 @@ function World() constructor {
 						if producer_id.dna.genome[GEN.TROPHIC_LEVEL]==TROPHIC_LEVEL.PRODUCER  {
 								
 							// give water to creature 
-							var _quant_water = clamp(producer_id.structure.biomass_leaf*WORLD_WATER_PER_LEAF_KG, 0, _cell.available_water);
+							var _quant_water = clamp(producer_id.structure.biomass_eat*WORLD_WATER_PER_LEAF_KG, 0, _cell.available_water);
 							producer_id.structure.plant_received_water += _quant_water;
 							_cell.available_water -= _quant_water;
 								
@@ -343,7 +343,7 @@ function World() constructor {
 		if (_id.structure.biomass - _decomp < BIOMASS_DECOMPOSITION_ZERO)    // too small, go to zero
 			_decomp = _id.structure.biomass;
 				
-		_id.structure.biomass_modify(-_decomp);
+		biomass_modify(_id, -_decomp);
 		
 			
 		// transform this biomass into organic nutrients
