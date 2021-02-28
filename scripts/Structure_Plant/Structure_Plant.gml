@@ -28,7 +28,7 @@ function Structure_Plant(_id, _creature_spawn_as_adult):Structure(_id, _creature
 	_Topt1 = my_id.dna.genome[GEN.TEMPERATURE_OPTIMAL];
 	_Tmin  = my_id.dna.genome[GEN.TEMPERATURE_OPTIMAL] - my_id.dna.genome[GEN.TEMPERATURE_RANGE];
 	
-	ASSERT((_LMFa > 0 && _LMFa < 1), my_id, "Invalidad LMFa="+string(_LMFa)+" creature "+string(my_id));  
+	ASSERT((_LMFa > 0 && _LMFa < 1), my_id, "Invalid LMFa="+string(_LMFa)+" creature "+string(my_id));  
 	_LMFa = clamp(_LMFa, 0.01, 0.99);
 	
 	// initial biomass allocation

@@ -52,7 +52,7 @@ enum LOGEVENT {
 	WARNING,						// system warning
 	ERROR,							// system error
 	ERROR_ASSERT, 					// error from ASSERT function
-	INFO_WORLD						// info about creature parameters
+	SIMULATION_PARAMETERS,				// info about simulation parameters
 }
 
 
@@ -94,6 +94,7 @@ function log_event_to_string(_log_event) {
 		case LOGEVENT.WARNING:					_msg = "DEBUG WARNING"; break;
 		case LOGEVENT.ERROR:					_msg = "DEBUG ERROR"; break;
 		case LOGEVENT.ERROR_ASSERT:				_msg = "DEBUG ERROR ASSERT"; break;
+		case LOGEVENT.SIMULATION_PARAMETERS:	_msg = "SIM PARAMETERS"; break;
 	}
 	return _msg;
 }
@@ -421,14 +422,8 @@ function Log() constructor{
 				}
 				break;
 			}
-			case LOGEVENT.INFO_WORLD: {
-				if LOG_WORLD {
-					_col_txt1 = string(_id1);
-				}
-				else
-				{
-					_do_log = false;
-				}
+			case LOGEVENT.SIMULATION_PARAMETERS: {
+				_col_txt1 = string(_id1);
 				break;
 			}
 			case LOGEVENT.SPECIE_NEW: {
