@@ -110,31 +110,23 @@ function Structure_Plant(_id, _creature_spawn_as_adult):Structure(_id, _creature
 				
 				
 				// -- BIOMASS ALLOCATION
-				//
-				// -- recalculate structure. check if arrived to adult
 
 				if age_is_adult_growth {
 					biomass_eat = biomass * _LMFa;		
-					biomass_body = clamp(biomass - biomass_eat, 0, biomass_max);
-					// remaining of biomass is reserve
 				}
 				else {
-					
-					// already adult?
-					if biomass > my_id.dna.genome[GEN.BIOMASS_ADULT]*0.9 {
-						age_is_adult_growth = true;
-						LOG(LOGEVENT.CREATURE_ADULT, my_id, "adult_growth");
-						biomass_eat = biomass * _LMFa;		
-					}
-					else {
-						// biomass_eat changes during growth
-						biomass_eat = biomass *(_LMFa + (0.9 - _LMFa) * (1 - biomass / my_id.dna.genome[GEN.BIOMASS_ADULT]));
-					}
-					
+					// biomass_eat changes during growth
+					biomass_eat = biomass *(_LMFa + (0.9 - _LMFa) * (1 - biomass / my_id.dna.genome[GEN.BIOMASS_ADULT]));
 				}
-				
-				biomass_body = biomass - biomass_eat;
+
 				biomass_reproduction = my_id.dna.genome[GEN.BIOMASS_BIRTH];   // fixed <----
+				biomass_body = biomass - biomass_eat - biomass_reproduction;
+				if biomass_body < 0 {
+					biomass_body = 0;
+					biomass_reproduction = biomass - biomass_eat;
+				}
+
+				
 			
 
 			}

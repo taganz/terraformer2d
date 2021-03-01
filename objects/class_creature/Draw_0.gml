@@ -15,7 +15,4 @@ if obj_gui.show_escape_screen == false {
 			draw_circle_color(x, y, 20, c_red, c_red, true);
 	}
 
-	// === show info if necessary
-
-	// - moved to gui - controller.log.show_creature_info_screen(id);
 }

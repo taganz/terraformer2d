@@ -14,6 +14,7 @@ function Statistics() constructor {
 	biomass = [];
 	log_count = 0;
 	
+	
 	// get logging data
 	// _t not used now <----- 
 	
@@ -25,7 +26,7 @@ function Statistics() constructor {
 		//show_debug_message(string(_t)+"_"+string(creatures_live_now[_t]));
 	}
 
-		
+	/*
 	// _filename should not have extension
 	save_csv = function (_filename) {
 		var file;
@@ -57,6 +58,6 @@ function Statistics() constructor {
 	}
 
 
-
+*/
 
 }

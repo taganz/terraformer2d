@@ -31,7 +31,7 @@ function MACROS(){
 // === WORLD 
 
 #macro CELL_SIZE 64		// default CELL_SIZE 32
-#macro BIOMASS_DECOMPOSITION_FACTOR 0.02  // per step
+#macro BIOMASS_DECOMPOSITION_FACTOR 0.15  // per sim_step (animals) o sim_month (plants)
 #macro NUTRIENT_TILE_OFFSET  1000		// kg
 #macro NUTRIENT_TILE_MULTIPLIER  100    // kg multiply with nutrients tile number to obtain nutrients
 #macro SIMULATION_WORLD_RADIATION 0.1		// 

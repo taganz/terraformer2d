@@ -1,9 +1,9 @@
 /*
 
-	to be called at each sim_step_entry
+	to be called at each sim_step_entry or sim_month_entry
 	
 	updates
-		age: increment
+		age: increments 1 sim_step for consumers, 1 month for producers
 		age_is_adult_reproduction
 		age_is_adult_growth
 		is_dead
@@ -19,12 +19,9 @@ function age_growth(_id){
 	
 	with _id.structure {
 	
-		age += 1;
+		age += _id.is_producer ? TIME_SIM_STEPS_PER_MONTH : 1;					// sim_steps
 		
-		//show_debug_message(string(_id)+" age: "+string(age)+" age_to_year:"+string(sim_steps_to_years(age))
-		//+" sim_step:"+string(controller.time.current_sim_step)+ " sim_month" +string(controller.time.current_sim_month)
-		//+ " sim_year:" +string(controller.time.current_sim_year));
-		
+
 		// -- to old?
 		
 		if age > age_die {
@@ -38,24 +35,25 @@ function age_growth(_id){
 
 			// can reproduce
 				
-			if age_is_adult_reproduction==false && biomass > kg_to_units(my_id.dna.genome[GEN.BIOMASS_REPRODUCTION]) {
+			if age_is_adult_reproduction==false && biomass > kg_to_units(_id.dna.genome[GEN.BIOMASS_REPRODUCTION]) {
 				age_is_adult_reproduction = true;
-				LOG(LOGEVENT.CREATURE_ADULT, _id, "adult_reproduction");
+				LOG(LOGEVENT.CREATURE_LIFE_EVENT, _id, "adult_reproduction", "biomass: "+string(biomass));
 
-				age_is_adult_growth = true;    // <---??
-				LOG(LOGEVENT.CREATURE_LIFE_EVENT, _id, "age_is_adult_growth", "");
 				biomass_reproduction_adult = biomass_reproduction;  // <--- ??
-				LOG(LOGEVENT.CREATURE_ADULT, _id, "biomass_reproduction_adult: "+string(units_to_kg(biomass_reproduction_adult)));
 				reproduction_is_ready = true;
-				//LOG(LOGEVENT.CREATURE_LIFE_EVENT, _id, "reproduction_is_ready", "");
 
 			}
 
-	
+			// already adult?
+			
+			if age_is_adult_growth == false and biomass > _id.dna.genome[GEN.BIOMASS_ADULT]*0.9 {
+				age_is_adult_growth = true;
+				LOG(LOGEVENT.CREATURE_LIFE_EVENT, _id, "adult_growth", "biomass: "+string(biomass));
+			}
+			
 			// time for reproduction? 
 			if age_is_adult_reproduction and age - reproduction_age_last_time > reproduction_interval {
 				reproduction_is_ready = true;
-				//LOG(LOGEVENT.CREATURE_LIFE_EVENT, _id, "reproduction_is_ready", "");
 			}
 	
 	

@@ -42,6 +42,7 @@ function state_reproduction(_id){
 			_child.structure.generation = _id.structure.generation + 1;
 
 
+			LOG(LOGEVENT.CREATURE_LIFE_EVENT, _id, "reproduction", "biomass: "+string(units_to_kg(_id.structure.biomass)));
 			LOG(LOGEVENT.CREATURE_REPRODUCTION, _id, _child, _biomass_give);
 		}		
 	}

@@ -17,7 +17,7 @@
 // == log event codes
 
 enum LOGEVENT {
-	CREATURE_ADULT,
+	//CREATURE_ADULT,
 	CREATURE_BORN,
 	CREATURE_BORN_INFO,
 	CREATURE_BORN_INFO_NUM,
@@ -60,7 +60,7 @@ enum LOGEVENT {
 function log_event_to_string(_log_event) {
 	var _msg = "??????";
 	switch (_log_event) {
-		case LOGEVENT.CREATURE_ADULT:			_msg = "ADULT"; break;
+		//case LOGEVENT.CREATURE_ADULT:			_msg = "ADULT"; break;
 		case LOGEVENT.CREATURE_ANABOLISM:		_msg = "ANABOLISM"; break;
 		case LOGEVENT.CREATURE_BEEN_EATED:		_msg = "BEEN_EATED"; break;
 		case LOGEVENT.CREATURE_BIOMASS:			_msg = "BM"; break;
@@ -70,7 +70,7 @@ function log_event_to_string(_log_event) {
 		case LOGEVENT.CREATURE_BIOMASS_RESERVE: _msg = "BM_RESERVE"; break;
 		case LOGEVENT.CREATURE_BORN:			_msg = "BORN"; break;
 		case LOGEVENT.CREATURE_BORN_INFO:		_msg = "BORN_INFO"; break;
-		case LOGEVENT.CREATURE_BORN_INFO_NUM:	_msg = "CREATURE_BORN_INFO_NUM"; break;
+		case LOGEVENT.CREATURE_BORN_INFO_NUM:	_msg = "BORN_INFO_NUM"; break;
 		case LOGEVENT.CREATURE_CATABOLISM:		_msg = "CATABOLISM"; break;
 		case LOGEVENT.CREATURE_DECOMPOSE:		_msg = "DECOMPOSE"; break;
 		case LOGEVENT.CREATURE_DECOMPOSE_COMPLETED:	_msg = "DECOMPOSE_COMPLETED"; break;
@@ -199,7 +199,7 @@ function Log() constructor{
 		
 	
 		switch(_event) {
-			case LOGEVENT.CREATURE_ADULT:
+			//case LOGEVENT.CREATURE_ADULT:
 			case LOGEVENT.CREATURE_ANABOLISM:
 			case LOGEVENT.CREATURE_BEEN_EATED:
 			case LOGEVENT.CREATURE_BIOMASS:
@@ -237,10 +237,11 @@ function Log() constructor{
 					_col_y = string(_id1.my_cell.y_cell);
 				
 				
-					if _event == LOGEVENT.CREATURE_ADULT {
-						_col_num1 = string(sim_steps_to_years(_id1.structure.age));		
-						_col_txt1 = _arg1;
-					}
+					//if _event == LOGEVENT.CREATURE_ADULT {
+					//	_col_num1 = string(sim_steps_to_years(_id1.structure.age));		
+					//	_col_txt1 = _arg1;
+					//}
+					
 					// id2, num1, txt1, txt2
 					if _event == LOGEVENT.CREATURE_BORN {
 						_col_num1 = string(sim_steps_to_years(_id1.structure.age));		
@@ -306,12 +307,12 @@ function Log() constructor{
 					}
 					if _event == LOGEVENT.CREATURE_ANABOLISM {
 						_col_num1 = string(units_to_kg(_arg1));
-						_col_num2 = string(units_to_kg(_id1.structure.biomass));
+						_col_num2 = string_format(units_to_kg(_id1.structure.biomass), 4, 1);
 						_col_txt1 = _arg2;
 					}
 					if _event == LOGEVENT.CREATURE_CATABOLISM {
 						_col_num1 = string(units_to_kg(_arg1));
-						_col_num2 = string(units_to_kg(_id1.structure.biomass));
+						_col_num2 = string_format(units_to_kg(_id1.structure.biomass), 4, 1);
 					}
 					if _event == LOGEVENT.CREATURE_TEMPERATURE {
 						//_col_specie = "";
@@ -352,11 +353,11 @@ function Log() constructor{
 						_col_x = string(_id1.my_cell.x_cell);
 						_col_y = string(_id1.my_cell.y_cell);
 				
-						if _event == LOGEVENT.CREATURE_BORN_INFO{
+						if _event == LOGEVENT.CREATURE_BORN_INFO {
 							_col_txt1 = _arg1;		// tag
 							_col_txt2 = _arg2;		// string value
 						}
-						if _event == LOGEVENT.CREATURE_BORN_INFO_NUM{
+						if _event == LOGEVENT.CREATURE_BORN_INFO_NUM {
 							_col_txt1 = _arg1;				// tag
 							_col_num1 = string(_arg2);		// num value
 						}

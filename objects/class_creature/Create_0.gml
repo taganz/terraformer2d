@@ -1,11 +1,13 @@
 
+// -- our place in the world
+
 my_cell = 0;
 
 // -- dna
 
 dna = new DNA(initial_specie);    
 dna.genome = initial_specie_genome(initial_specie);
-
+is_producer = dna.genome[GEN.TROPHIC_LEVEL] == TROPHIC_LEVEL.PRODUCER;
 
 // -- state
 
@@ -16,15 +18,6 @@ state.state_script[STATE.REPRODUCTION] = state_reproduction;
 state.state_script[STATE.DEAD] = state_dead;
 
 
-
 // -- structure and morphology defined in children class
 
-/*
-// spawn as adult
-if creature_spawn_as_adult {
-	structure.age = controller.time.years_to_sim_steps(dna.genome[GEN.AGE_ADULT]);
-	structure.biomass = structure.age * kg_to_units(dna.genome[GEN.GROWTH_KG_YR]);
-	structure.is_adult = true;
-	}
-*/
 

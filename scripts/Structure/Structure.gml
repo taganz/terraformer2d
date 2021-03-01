@@ -26,7 +26,7 @@ function Structure(_id, _spawn_as_adult) constructor {
 	
 	// -- age
 	
-	age = 0 ;
+	age = 0 ;								// sim steps
 	age_is_adult_growth = false;			// maximum biomass is attained
 	age_is_adult_reproduction = false;		// can reproduce
 

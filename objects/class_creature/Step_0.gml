@@ -2,7 +2,8 @@
 if !controller.sim_paused {
 	
 	// new sim step?
-	if controller.time.sim_step_entry {
+	if controller.time.sim_step_entry and is_producer == false 
+	|| controller.time.sim_month_entry and is_producer == true {
 
 		// next action
 		state.step();
@@ -22,6 +23,5 @@ if !controller.sim_paused {
 		// update morphology parameters if necessary
 		morphology.step();	
 	
-		
 	}
 }

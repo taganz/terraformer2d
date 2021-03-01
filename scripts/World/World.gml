@@ -44,7 +44,7 @@ function World() constructor {
 #endregion
 
 
-	biomass_decomposition_factor = BIOMASS_DECOMPOSITION_FACTOR;
+	//biomass_decomposition_factor = BIOMASS_DECOMPOSITION_FACTOR;
 
 	// update water and sun for plants of active cells depending on soil type and climate
 	rain = function() {
@@ -338,7 +338,7 @@ function World() constructor {
 	biomass_decomposition = function (_id) {
 		
 		// calculate how much biomass is about to be decomposed
-		var _decomp = _id.structure.biomass * biomass_decomposition_factor;
+		var _decomp = _id.structure.biomass * BIOMASS_DECOMPOSITION_FACTOR;
 		
 		if (_id.structure.biomass - _decomp < BIOMASS_DECOMPOSITION_ZERO)    // too small, go to zero
 			_decomp = _id.structure.biomass;
@@ -379,7 +379,7 @@ function World() constructor {
 		if is_inside_world(_x, _y) {
 			var cell = ds_grid_get(grid_cells, floor(_x/CELL_SIZE), floor(_y/CELL_SIZE));
 			var s = string(floor(_x/CELL_SIZE)) +","+ string(floor(_y/CELL_SIZE));
-			//s = s + "\nbiomass_decomposition_factor: "+string(biomass_decomposition_factor);
+			// s = s + "\nbiomass_decomposition_factor: "+string(biomass_decomposition_factor);
 			if (cell == 0)
 				return s+": empty cell";
 			else
