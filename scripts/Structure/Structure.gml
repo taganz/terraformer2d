@@ -27,7 +27,7 @@ function Structure(_id, _spawn_as_adult) constructor {
 	// -- age
 	
 	age = 0 ;								// sim steps
-	age_is_adult_growth = false;			// maximum biomass is attained
+	_age_is_adult_growth = false;			// maximum biomass is attained
 	age_is_adult_reproduction = false;		// can reproduce
 
 	age_die = years_to_sim_steps(my_id.dna.genome[GEN.AGE_DEAD])*random_range(0.9, 1.5);		

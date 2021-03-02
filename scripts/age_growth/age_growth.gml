@@ -5,7 +5,7 @@
 	updates
 		age: increments 1 sim_step for consumers, 1 month for producers
 		age_is_adult_reproduction
-		age_is_adult_growth
+		_age_is_adult_growth
 		is_dead
 		dead_cause  DEADCAUSE.OLD
 		reproduction_is_ready
@@ -46,8 +46,8 @@ function age_growth(_id){
 
 			// already adult?
 			
-			if age_is_adult_growth == false and biomass > _id.dna.genome[GEN.BIOMASS_ADULT]*0.9 {
-				age_is_adult_growth = true;
+			if _age_is_adult_growth == false and biomass > _id.dna.genome[GEN.BIOMASS_ADULT]*0.9 {
+				_age_is_adult_growth = true;
 				LOG(LOGEVENT.CREATURE_LIFE_EVENT, _id, "adult_growth", "biomass: "+string(biomass));
 			}
 			

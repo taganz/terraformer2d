@@ -105,29 +105,10 @@ function Structure_Plant(_id, _creature_spawn_as_adult):Structure(_id, _creature
 				var _quant_catabolism = _kc * biomass_body
 				LOG(LOGEVENT.CREATURE_CATABOLISM, my_id, _quant_catabolism);
 
+				// -- change biomass
 
 				biomass_modify (my_id, _quant_anabolism - _quant_catabolism);
 				
-				
-				// -- BIOMASS ALLOCATION
-
-				if age_is_adult_growth {
-					biomass_eat = biomass * _LMFa;		
-				}
-				else {
-					// biomass_eat changes during growth
-					biomass_eat = biomass *(_LMFa + (0.9 - _LMFa) * (1 - biomass / my_id.dna.genome[GEN.BIOMASS_ADULT]));
-				}
-
-				biomass_reproduction = my_id.dna.genome[GEN.BIOMASS_BIRTH];   // fixed <----
-				biomass_body = biomass - biomass_eat - biomass_reproduction;
-				if biomass_body < 0 {
-					biomass_body = 0;
-					biomass_reproduction = biomass - biomass_eat;
-				}
-
-				
-			
 
 			}
 				  

@@ -43,6 +43,7 @@ enum LOGEVENT {
 	CREATURE_RAIN,						// at cell this month
 	CREATURE_WATER_RECEIVED,			// plants
 	SPECIE_NEW,							
+	CLIMATE_BORN,			
 	PROBE_NUTRIENTS,
 	PROBE_WATER,					
 	PROBE_TEMPERATURE,					
@@ -60,6 +61,7 @@ enum LOGEVENT {
 function log_event_to_string(_log_event) {
 	var _msg = "??????";
 	switch (_log_event) {
+		case LOGEVENT.CLIMATE_BORN:				_msg = "CLIMATE_BORN"; break;
 		//case LOGEVENT.CREATURE_ADULT:			_msg = "ADULT"; break;
 		case LOGEVENT.CREATURE_ANABOLISM:		_msg = "ANABOLISM"; break;
 		case LOGEVENT.CREATURE_BEEN_EATED:		_msg = "BEEN_EATED"; break;
@@ -377,11 +379,28 @@ function Log() constructor{
 				break;
 			case LOGEVENT.SPAWNER:
 				break;
+			case LOGEVENT.CLIMATE_BORN: {
+				if LOG_WORLD {
+					_col_id1 = string(_id1);
+					_col_trophic_level = trophic_level_to_string(_id1.dna.genome[GEN.TROPHIC_LEVEL]);
+					_col_specie = string(_id1.dna.genome[GEN.SPECIE_CODE]);
+					if (_id1.my_cell != 0) {
+						_col_x = string(_id1.my_cell.x_cell);
+						_col_y = string(_id1.my_cell.y_cell);
+					}
+					_col_txt1 = _arg1;
+					_col_txt2 = object_get_name(_id1.object_index);
+				}
+				else {
+					_do_log = false;
+				}
+			}
+			break;
 			case LOGEVENT.WORLD_POPULATION: {
 				if LOG_WORLD {
 					_col_id1 = "";
 					_col_trophic_level = trophic_level_to_string(_arg1);
-					_col_num1 = string(_arg2);
+					_col_num1 = string(_arg2);					
 				}
 				else {
 					_do_log = false;

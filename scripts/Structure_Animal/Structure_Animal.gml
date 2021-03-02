@@ -46,7 +46,7 @@ function Structure_Animal(_id, _spawn_as_adult):Structure(_id, _spawn_as_adult) 
 
 		if (_biomass_modif > 0) {
 			
-			if (age_is_adult_growth == false) {
+			if (_age_is_adult_growth == false) {
 			
 				// allocation when growing
 			

@@ -15,7 +15,7 @@ function state_idle(_id){
 	// adult
 	// to old?
 	else if _struct.is_dead {
-			_id.state.next_state = STATE.DEAD;
+		_id.state.next_state = STATE.DEAD;
 	}
 	// starving? - if starving don't reproduce
 	else if _struct.is_starving {

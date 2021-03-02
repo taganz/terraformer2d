@@ -2,8 +2,9 @@
 if !controller.sim_paused {
 	
 	// new sim step?
+	// steps use larger cycle
 	if controller.time.sim_step_entry and is_producer == false 
-	|| controller.time.sim_month_entry and is_producer == true {
+	|| controller.time.sim_month_entry and is_producer == true {   
 
 		// next action
 		state.step();
@@ -17,6 +18,8 @@ if !controller.sim_paused {
 			// absorb nutrients
 		
 			structure.do_metabolism();
+			
+			biomass_allocation(id);
 			
 		}
 

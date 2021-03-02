@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "World",
-    "path": "folders/Scripts/World.yy",
+    "name": "Structure",
+    "path": "folders/Scripts/Creatures/Structure.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Statistics",
+  "name": "biomass_allocation",
   "tags": [],
   "resourceType": "GMScript",
 }

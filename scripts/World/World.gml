@@ -227,6 +227,8 @@ function World() constructor {
 			// add creature to cell;
 			ds_list_add(grid_cells[# _x_cell, _y_cell].list_creatures, _id);
 			
+			return grid_cells[# _x_cell, _y_cell];
+			
 	}
 		
 	// remove creature from cell without changing statistics
@@ -260,13 +262,15 @@ function World() constructor {
 			var xx = floor(_x/CELL_SIZE);
 			var yy = floor(_y/CELL_SIZE);
 			
-			_creature_add_to_cell (_id, xx, yy);
+			var cell = _creature_add_to_cell (_id, xx, yy);
 				
 			// update stats
 			creatures_live_now ++;
 			trophic_level_live_now[_id.dna.genome[GEN.TROPHIC_LEVEL]]++;
 			creatures_born ++;
 			creatures_peak = creatures_peak <= creatures_live_now ? creatures_live_now : creatures_peak;
+
+			LOG(LOGEVENT.CLIMATE_BORN, _id, climate_to_string(cell.climate));
 
 		}
 		else {
