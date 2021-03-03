@@ -14,7 +14,7 @@ function state_eat_primary(_id) {
 		for(var i=0; i<ds_list_size(_list_creatures_cell); i++) { 
 			
 			_prey = ds_list_find_value(_list_creatures_cell, i);		
-			//assert (is_undefined(_creature)==false, " state_eat_primary error in _creature at point "+string(_id.x)+","+string(_id.y));
+			//ASSERT (is_undefined(_creature)==false, " state_eat_primary error in _creature at point "+string(_id.x)+","+string(_id.y));
 			if is_undefined(_prey)== false {
 						
 				// is it a plant?

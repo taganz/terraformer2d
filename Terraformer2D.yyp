@@ -39,7 +39,6 @@
     {"id":{"name":"gui_define_escape_screen_container","path":"scripts/gui_define_escape_screen_container/gui_define_escape_screen_container.yy",},"order":2,},
     {"id":{"name":"obj_plant_tree_adult","path":"objects/obj_plant_tree_adult/obj_plant_tree_adult.yy",},"order":7,},
     {"id":{"name":"obj_sp_tiny_20","path":"objects/obj_sp_tiny_20/obj_sp_tiny_20.yy",},"order":5,},
-    {"id":{"name":"util_assert","path":"scripts/util_assert/util_assert.yy",},"order":0,},
     {"id":{"name":"spr_plant_head_default","path":"sprites/spr_plant_head_default/spr_plant_head_default.yy",},"order":6,},
     {"id":{"name":"spr_tree_tropical_sheet_4x4","path":"sprites/spr_tree_tropical_sheet_4x4/spr_tree_tropical_sheet_4x4.yy",},"order":8,},
     {"id":{"name":"state_reproduction","path":"scripts/state_reproduction/state_reproduction.yy",},"order":6,},

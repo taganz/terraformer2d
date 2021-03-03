@@ -46,12 +46,9 @@ function Structure_Plant(_id, _creature_spawn_as_adult):Structure(_id, _creature
 	//		age
 	//		is_dead, dead_cause
 	//		is_adult
-	//		reproduction_is_ready
 	//		is_starving
 	//		biomass
 	//		biomass_max
-	//		biomass_eat
-	//		biomass_body 
 	//		world.biomass		<---??
 	//		plant_received_water = 0
 	//		plant_received_sun = 0

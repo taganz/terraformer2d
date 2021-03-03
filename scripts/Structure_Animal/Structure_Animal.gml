@@ -46,7 +46,7 @@ function Structure_Animal(_id, _spawn_as_adult):Structure(_id, _spawn_as_adult) 
 
 		if (_biomass_modif > 0) {
 			
-			if (_age_is_adult_growth == false) {
+			if (age_is_adult == false) {
 			
 				// allocation when growing
 			
@@ -66,7 +66,7 @@ function Structure_Animal(_id, _spawn_as_adult):Structure(_id, _spawn_as_adult) 
 					_biomass_modif -= _get;
 				}
 			
-				reproduction_is_ready = biomass_reproduction >= biomass_reproduction_adult * 0.95;
+				//reproduction_is_ready = biomass_reproduction >= biomass_reproduction_adult * 0.95;
 			}			
 		}
 	}

@@ -3,8 +3,6 @@ function MACROS(){
 	
 // ===	GAME
 
-//#macro FIRST_ROOM Room4
-#macro TBD assert(false, "********** Not implemented!  *******");
 #macro OBJ_CREATED_BY_CLIC obj_primary_tiny   // the object that will be created with left click
 #macro DEBUG_RAIN_UNLIMITED	false // climates give 999999 rain water
 

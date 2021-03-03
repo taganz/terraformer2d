@@ -42,6 +42,7 @@ function state_born(_id){
 		LOG(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "biomass birth", units_to_kg(_id.dna.genome[GEN.BIOMASS_BIRTH]));
 		LOG(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "biomass reproduction", units_to_kg(_id.dna.genome[GEN.BIOMASS_REPRODUCTION]));
 		LOG(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "biomass adult", units_to_kg(_id.dna.genome[GEN.BIOMASS_ADULT]));
+		LOG(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "GEN.ALLOCATION_REPRODUCTIVE", string(_id.dna.genome[GEN.ALLOCATION_REPRODUCTIVE]));
 		LOG(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "GEN.ALLOCATION_RESERVE", string(_id.dna.genome[GEN.ALLOCATION_RESERVE]));
 		LOG(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "generation", generation);
 		LOG(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "reproduction_interval", sim_steps_to_years(reproduction_interval));

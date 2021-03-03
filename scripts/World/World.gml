@@ -102,7 +102,7 @@ function World() constructor {
 	// decrement nutrient in the cell and return obtained value
 	nutrients_eaten = function (_nutrient, _quant_wanted, _x, _y) {
 		var _quant_got =  grid_cells[# _x div CELL_SIZE, _y div CELL_SIZE].map_nutrients[? _nutrient];
-		assert(is_undefined(_quant_got)==false, "world.nutrients_eaten error getting nutrient "+string(_nutrient)+ " at "+string(_x)+","+string(_y));
+		ASSERT(is_undefined(_quant_got)==false, 0, "world.nutrients_eaten error getting nutrient "+string(_nutrient)+ " at "+string(_x)+","+string(_y));
 		if _quant_got > _quant_wanted {
 			_quant_got = _quant_wanted;
 		}
@@ -236,7 +236,7 @@ function World() constructor {
 		
 		// is there a cell at position?
 		var cell = ds_grid_get(grid_cells, _x_cell, _y_cell);
-		assert(is_undefined(cell)== false, "world.creature_dead invalid grid_cell coordinates "+string(_id));
+		ASSERT(is_undefined(cell)== false, _id, "world.creature_dead invalid grid_cell coordinates ");
 		if cell!=0 {
 				// is the creature in its list?
 				var pos_in_list = ds_list_find_index(grid_cells[# _x_cell, _y_cell].list_creatures, _id);
@@ -366,7 +366,7 @@ function World() constructor {
 		if cell >0 {
 			//var pos_in_list = ds_list_find_index(grid_cells[# xx, yy].list_dead_creatures, _id );
 			var pos_in_list = ds_list_find_index(cell.list_dead_creatures, _id );
-			//assert(pos_in_list !=1, "world.creature_remove error pos_in_list for creature "+string(_id));
+			//ASSERT(pos_in_list !=1, "world.creature_remove error pos_in_list for creature "+string(_id));
 			//if pos_in_list == -1
 			ASSERT(pos_in_list != -1, _id, "world.creature_remove error pos_in_list for creature "+string(_id)+" at "+string(_id.x)+","+string(_id.y));
 			if pos_in_list != -1 {

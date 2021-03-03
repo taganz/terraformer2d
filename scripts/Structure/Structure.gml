@@ -27,8 +27,8 @@ function Structure(_id, _spawn_as_adult) constructor {
 	// -- age
 	
 	age = 0 ;								// sim steps
-	_age_is_adult_growth = false;			// maximum biomass is attained
-	age_is_adult_reproduction = false;		// can reproduce
+	age_is_adult = false;			// maximum biomass is attained
+	//age_is_adult_reproduction = false;		// can reproduce
 
 	age_die = years_to_sim_steps(my_id.dna.genome[GEN.AGE_DEAD])*random_range(0.9, 1.5);		
 
@@ -56,7 +56,8 @@ function Structure(_id, _spawn_as_adult) constructor {
 	
 	biomass_eat = 0;					// leaf for plants
 	biomass_body = 0;					// trunk for plants
-	biomass_reproduction = 0;			// doesn't change on plants
+	biomass_reproduction = 0;			
+	_biomass_reproduction_max = my_id.dna.genome[GEN.BIOMASS_ADULT] * (1 - my_id.dna.genome[GEN.ALLOCATION_RESERVE]); 
 	
 	biomass_reproduction_adult = 0;		// used for animals <---
 	

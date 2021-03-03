@@ -269,19 +269,19 @@ function Log() constructor{
 						_col_txt1 = "kg"
 					}
 					if _event == LOGEVENT.CREATURE_BIOMASS_EAT {
-						var _percent = (_arg1/_id1.structure.biomass*100) div 100;
+						var _percent = (_arg1/_id1.structure.biomass);
 						_col_num1 = string(units_to_kg(_arg1));	
 						_col_num2 = string(_percent);
 						_col_txt1 = string(_percent)+"% biomass"
 					}
 					if _event == LOGEVENT.CREATURE_BIOMASS_BODY {
-						var _percent = (_arg1/_id1.structure.biomass*100) div 100;
+						var _percent = (_arg1/_id1.structure.biomass);
 						_col_num1 = string(units_to_kg(_arg1));	
 						_col_num2 = string(_percent);
 						_col_txt1 = string(_percent)+"% biomass"
 					}
 					if _event == LOGEVENT.CREATURE_BIOMASS_REPRODUCTION {
-						var _percent = (_arg1/_id1.structure.biomass*100) div 100;
+						var _percent = (_arg1/_id1.structure.biomass);
 						_col_num1 = string(units_to_kg(_arg1));	
 						_col_num2 = string(_percent);
 						_col_txt1 = string(_percent)+"% biomass"
@@ -633,13 +633,5 @@ function Log() constructor{
 
 
 
-	
-	/*
-	// === ASSERT
-	
-	assert = function(_exp, _id, _msg) {
-		if _exp == false
-			LOG(LOGEVENT.ERROR_ASSERT, _id, _msg);
-	}
-	*/	
+
 }

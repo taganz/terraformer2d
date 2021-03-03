@@ -55,8 +55,6 @@ function state_reproduction(_id){
 		
 	// reset reproduction state
 	_id.structure.reproduction_is_ready = false;
-		
-
 	
 	_id.state.next_state = STATE.IDLE;
 

@@ -4,18 +4,15 @@
 	
 	updates
 		age: increments 1 sim_step for consumers, 1 month for producers
-		age_is_adult_reproduction
-		_age_is_adult_growth
+		age_is_adult
 		is_dead
 		dead_cause  DEADCAUSE.OLD
-		reproduction_is_ready
-		biomass_reproduction_adult 
 	
 */	
 
 function age_growth(_id){
 
-	assert(controller.time.sim_step_entry, "age_growth invalid call");
+	ASSERT(controller.time.sim_step_entry, 0, "age_growth invalid call");
 	
 	with _id.structure {
 	
@@ -32,32 +29,14 @@ function age_growth(_id){
 		// -- grown up?
 			
 		else {
-
-			// can reproduce
-				
-			if age_is_adult_reproduction==false && biomass > kg_to_units(_id.dna.genome[GEN.BIOMASS_REPRODUCTION]) {
-				age_is_adult_reproduction = true;
-				LOG(LOGEVENT.CREATURE_LIFE_EVENT, _id, "adult_reproduction", "biomass: "+string(biomass));
-
-				biomass_reproduction_adult = biomass_reproduction;  // <--- ??
-				reproduction_is_ready = true;
-
-			}
-
+			
 			// already adult?
 			
-			if _age_is_adult_growth == false and biomass > _id.dna.genome[GEN.BIOMASS_ADULT]*0.9 {
-				_age_is_adult_growth = true;
+			if age_is_adult == false and biomass >= kg_to_units(_id.dna.genome[GEN.BIOMASS_ADULT]*0.9) {
+				age_is_adult = true;
 				LOG(LOGEVENT.CREATURE_LIFE_EVENT, _id, "adult_growth", "biomass: "+string(biomass));
 			}
-			
-			// time for reproduction? 
-			if age_is_adult_reproduction and age - reproduction_age_last_time > reproduction_interval {
-				reproduction_is_ready = true;
-			}
-	
-	
-	
+
 	
 		}
 	}

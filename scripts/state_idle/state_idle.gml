@@ -8,7 +8,7 @@ function state_idle(_id){
 	
 	
 	// growing?
-	if _struct.age_is_adult_reproduction == false {
+	if _struct.age_is_adult == false {
 		// always eating when growing
 		_id.state.next_state = STATE.EAT;
 	}
