@@ -105,7 +105,7 @@ function log_event_to_string(_log_event) {
 // shorthands
 #macro LOG		controller.log.log_simulation_event
 #macro LOG_ID	controller.log.log_id						// <--- deprecated
-#macro LOG_ID_SAMPLED controller.log.log_id_sampled			// <--- deprecated
+//#macro LOG_ID_SAMPLED controller.log.log_id_sampled			// <--- deprecated
 
 function Log() constructor{
 
@@ -544,6 +544,7 @@ function Log() constructor{
 	}
 
 	
+	/*
 	// === creature is born
 
 	creature_born = function(_id) {
@@ -579,7 +580,7 @@ function Log() constructor{
 			show_debug_message("Step "+string(controller.time.current_step)+" Creature "+string(_id)+ " age "+string(_id.structure.age) + ": " +_msg); 
 	}
 	
-	
+
 	// do log_id sometimes
 	log_id_sampled = function(_id, _msg) {	
 		if (_id.structure.age mod 50 == 0) {
@@ -588,8 +589,8 @@ function Log() constructor{
 			}
 		}
 	}
-
-	
+	*/
+/*
 	// === user pressed key to see world data
 	
 	log_screen_world = function () {
@@ -631,7 +632,7 @@ function Log() constructor{
 		}
 	}
 
-
+*/
 
 
 }

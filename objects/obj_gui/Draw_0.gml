@@ -28,7 +28,7 @@ else {
 		gui.show_creature_info_screen();
 		
 		// simulation data on top of screen		
-		controller.log.log_screen_world();
+		log_screen_world();
 
 	}
 	

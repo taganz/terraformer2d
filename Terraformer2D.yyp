@@ -264,6 +264,7 @@
     {"id":{"name":"time_sim_slower","path":"scripts/time_sim_slower/time_sim_slower.yy",},"order":6,},
     {"id":{"name":"scribble_add_font","path":"scripts/scribble_add_font/scribble_add_font.yy",},"order":1,},
     {"id":{"name":"spr_cactus_head","path":"sprites/spr_cactus_head/spr_cactus_head.yy",},"order":22,},
+    {"id":{"name":"log_screen_world","path":"scripts/log_screen_world/log_screen_world.yy",},"order":9,},
     {"id":{"name":"tileset_climate","path":"tilesets/tileset_climate/tileset_climate.yy",},"order":0,},
     {"id":{"name":"Room4","path":"rooms/Room4/Room4.yy",},"order":6,},
     {"id":{"name":"spr_emu_demo_birb_blue","path":"sprites/spr_emu_demo_birb_blue/spr_emu_demo_birb_blue.yy",},"order":5,},
