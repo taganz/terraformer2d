@@ -43,6 +43,8 @@ function Structure(_id, _spawn_as_adult) constructor {
 	biomass_max = biomass;
 	
 	biomass_at_birth = biomass;
+	biomass_adult = kg_to_units(_id.dna.genome[GEN.BIOMASS_ADULT]);
+			
 
 	// creature has a reserve of 0-max. max is a fraction of biomass_max
 	// if reserve goes
@@ -57,7 +59,8 @@ function Structure(_id, _spawn_as_adult) constructor {
 	biomass_eat = 0;					// leaf for plants
 	biomass_body = 0;					// trunk for plants
 	biomass_reproduction = 0;			
-	_biomass_reproduction_max = my_id.dna.genome[GEN.BIOMASS_ADULT] * (1 - my_id.dna.genome[GEN.ALLOCATION_RESERVE]); 
+	_biomass_reproduction_max = biomass_adult * my_id.dna.genome[GEN.ALLOCATION_REPRODUCTIVE]; 
+	//_biomass_reproduction_max = -1;
 	
 	biomass_reproduction_adult = 0;		// used for animals <---
 	

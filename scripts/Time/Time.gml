@@ -50,6 +50,7 @@ function Time() constructor {
 		}
 	}
 
+	/*
 	// === speed
 	
 	sim_speed_faster = function() {
@@ -63,13 +64,7 @@ function Time() constructor {
 			steps_per_sim_step++;
 	}
 
-//	sim_steps_to_years = function(_sim_step) {
-//		return (_sim_step / 12 /  TIME_SIM_STEPS_PER_MONTH); 
-//	}
-
-//kg_per_year_to_units = function(kg_year) {
-//	return kg_year * SIMULATION_UNITS_PER_KG  * TIME_SIM_STEPS_PER_MONTH * 12 ;
-//}
+*/
 
 	
 }

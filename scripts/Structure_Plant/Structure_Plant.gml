@@ -9,7 +9,6 @@
 function Structure_Plant(_id, _creature_spawn_as_adult):Structure(_id, _creature_spawn_as_adult) constructor {
 
 	// this is sent by world cell for each plant cycle 
-	//quant_water_wanted = kg_per_year_to_units(my_id.dna.genome[GEN.BIOMASS_WANTED_PER_YEAR_GROWTH])*TIME_SIM_STEPS_PER_MONTH;
 	
 	plant_received_water = 0;
 	plant_received_sun = 0;

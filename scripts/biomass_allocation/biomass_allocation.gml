@@ -27,13 +27,13 @@ function biomass_allocation(_id) {
 		}
 		else {
 		
-			// == adult
+			// == adult		
 		
 			// -- biomass eat
-			biomass_eat = biomass * _LMFa;		
+			biomass_eat = biomass_adult * _LMFa;		
 
 			// -- biomass_reproduction
-			biomass_reproduction = 	biomass > biomass_max - _biomass_reproduction_max ? biomass - (biomass_max - _biomass_reproduction_max) : 0;
+			biomass_reproduction = 	biomass > biomass_adult - _biomass_reproduction_max ? biomass - (biomass_adult - _biomass_reproduction_max) : 0;
 
 				
 			// -- biomass_body

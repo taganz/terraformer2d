@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "World",
-    "path": "folders/Scripts/World.yy",
+    "name": "Time",
+    "path": "folders/Scripts/Time.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Statistics",
+  "name": "time_sim_faster",
   "tags": [],
   "resourceType": "GMScript",
 }

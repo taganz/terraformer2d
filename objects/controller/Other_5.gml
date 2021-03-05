@@ -1,13 +1,12 @@
-/// @description Inserte aquí la descripción
-// Puede escribir su código en este editor
+
+// === close log file
 
 if room != Room0 {
 	log.log_close();
-	//screen_initialized = false;
-
 }
 
-// prepare next room
+
+// === prepare next room
 
 if room == Room0 {
 	sim_paused = false;
@@ -21,9 +20,7 @@ if room == Room0 {
 	// holds species statistics, initial species definitions
 	species = new Species();
 
-	statistics = new Statistics();
-
-	log.log_open();
 	
-	//screen_initialized = true;
+	log.log_open();
+
 }

@@ -32,9 +32,9 @@ function age_growth(_id){
 			
 			// already adult?
 			
-			if age_is_adult == false and biomass >= kg_to_units(_id.dna.genome[GEN.BIOMASS_ADULT]*0.9) {
+			if age_is_adult == false and biomass >= biomass_adult * (1-_id.dna.genome[GEN.ALLOCATION_REPRODUCTIVE]) {
 				age_is_adult = true;
-				LOG(LOGEVENT.CREATURE_LIFE_EVENT, _id, "adult_growth", "biomass: "+string(biomass));
+				LOG(LOGEVENT.CREATURE_LIFE_EVENT, _id, "adult_growth", "biomass: "+string(biomass)+" _biomass_reproduction_max: "+string(_biomass_reproduction_max));
 			}
 
 	

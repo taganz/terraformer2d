@@ -13,7 +13,7 @@ if room!= Room0 {
 	
 	// simulation speed increase
 	if keyboard_check(ord("1")) {
-		controller.time.sim_speed_faster();
+		time_sim_faster();
 	}
 	
 	
@@ -34,8 +34,8 @@ if room!= Room0 {
 
 	// simulation speed decrease
 	if keyboard_check(ord("2")) 
-		controller.time.sim_speed_slower();
-	
+		time_sim_slower();
+
 	// debug show layers
 	if keyboard_check(ord("4")) {
 		gui_debug_toogle();

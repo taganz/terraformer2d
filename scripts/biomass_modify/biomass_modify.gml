@@ -22,6 +22,11 @@
 			
 			// modify biomass
 			biomass += _quant_got;
+			
+			// adults can not growth bigger than biomass_adult
+			if (age_is_adult and biomass > biomass_adult) {
+				biomass = biomass_adult;
+			}
 		
 			// biomass_max surpassed?
 			if biomass > biomass_max {				

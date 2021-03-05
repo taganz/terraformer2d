@@ -13,7 +13,8 @@ var _simulation_container = new EmuCore(100, 10, 640, 50);
 
 
 var _button = new EmuButton(10, yy, 70, 32, "Slower", function() {
-    controller.time.sim_speed_slower();
+//    controller.time.sim_speed_slower();
+    time_sim_slower();
 });
 _simulation_container.AddContent(_button);
 
@@ -23,7 +24,8 @@ var _button = new EmuButton(90, yy, 70, 32, "Pause", function() {
 _simulation_container.AddContent(_button);
 
 var _button = new EmuButton(170, yy, 70, 32, "Faster", function() {
-    controller.time.sim_speed_faster();
+    //controller.time.sim_speed_faster();
+    time_sim_faster();
 });
 _simulation_container.AddContent(_button);
 
