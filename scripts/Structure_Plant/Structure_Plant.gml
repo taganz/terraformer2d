@@ -30,9 +30,7 @@ function Structure_Plant(_id, _creature_spawn_as_adult):Structure(_id, _creature
 	ASSERT((_LMFa > 0 && _LMFa < 1), my_id, "Invalid LMFa="+string(_LMFa)+" creature "+string(my_id));  
 	_LMFa = clamp(_LMFa, 0.01, 0.99);
 	
-	// initial biomass allocation
-	biomass_eat = biomass * _LMFa;
-	biomass_body = biomass - biomass_eat;
+
 
 
 	// === do_metabolism
@@ -47,7 +45,7 @@ function Structure_Plant(_id, _creature_spawn_as_adult):Structure(_id, _creature
 	//		is_adult
 	//		is_starving
 	//		biomass
-	//		biomass_max
+	//		_biomass_max
 	//		world.biomass		<---??
 	//		plant_received_water = 0
 	//		plant_received_sun = 0
@@ -63,7 +61,13 @@ function Structure_Plant(_id, _creature_spawn_as_adult):Structure(_id, _creature
 			LOG(LOGEVENT.CREATURE_BORN_INFO_NUM, my_id, "_Topt2", _Topt2);
 			LOG(LOGEVENT.CREATURE_BORN_INFO_NUM, my_id, "_Tmin", _Tmin);
 			_first_execution = false;
-		}
+			
+			// initial biomass allocation
+			biomass_eat = biomass * _LMFa;
+			biomass_body = biomass - biomass_eat;
+			_biomass_max = biomass;
+			_biomass_reserve_max = _biomass_max * my_id.dna.genome[GEN.ALLOCATION_RESERVE];
+			}
 
 	
 		// plants use a longer cycle	

@@ -90,6 +90,7 @@
     {"id":{"name":"spr_emu_close","path":"sprites/spr_emu_close/spr_emu_close.yy",},"order":5,},
     {"id":{"name":"obj_gui","path":"objects/obj_gui/obj_gui.yy",},"order":8,},
     {"id":{"name":"scribble_page_get","path":"scripts/scribble_page_get/scribble_page_get.yy",},"order":1,},
+    {"id":{"name":"reproduction_ready","path":"scripts/reproduction_ready/reproduction_ready.yy",},"order":8,},
     {"id":{"name":"biomass_modify","path":"scripts/biomass_modify/biomass_modify.yy",},"order":6,},
     {"id":{"name":"scribble_draw","path":"scripts/scribble_draw/scribble_draw.yy",},"order":9,},
     {"id":{"name":"shd_emu_demo_mesh","path":"shaders/shd_emu_demo_mesh/shd_emu_demo_mesh.yy",},"order":4,},

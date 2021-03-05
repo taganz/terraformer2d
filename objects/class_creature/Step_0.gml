@@ -23,18 +23,21 @@ if !controller.sim_paused {
 			
 			biomass_allocation(id);
 
-			// check ready for reproduction
-			
-			with structure {
-				reproduction_is_ready = 
-						biomass_reproduction > _biomass_reproduction_max * 0.8
-						and age - reproduction_age_last_time > reproduction_interval; 
-			}
+
 			
 		}
 
 		// update morphology parameters if necessary
-		morphology.step();	
-	
+		morphology.step();		
 	}
+
+}
+
+	
+// === depth for drawing		
+
+switch(dna.genome[GEN.TROPHIC_LEVEL]) {
+	case TROPHIC_LEVEL.PRODUCER:	depth = -LAYER_BASE_PRODUCER - y;	break;
+	case TROPHIC_LEVEL.PRIMARY:		depth = -LAYER_BASE_PRIMARY - y;	break;
+	case TROPHIC_LEVEL.SECONDARY:	depth = -LAYER_BASE_SECONDARY -y;	break;
 }

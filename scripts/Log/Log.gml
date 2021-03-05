@@ -287,8 +287,8 @@ function Log() constructor{
 						_col_txt1 = string(_percent)+"% biomass"
 					}
 					if _event == LOGEVENT.CREATURE_BIOMASS_RESERVE {
-						_col_num1 = string(units_to_kg(_id1.structure.biomass_reserve_max));	
-						var _percent = _id1.structure.biomass_reserve/_id1.structure.biomass_reserve_max;
+						_col_num1 = string(units_to_kg(_id1.structure._biomass_reserve_max));	
+						var _percent = _id1.structure.biomass_reserve/_id1.structure._biomass_reserve_max;
 						_col_num2 = string(_percent);
 						_col_txt1 = string(_percent)+"% reserve max"
 					}
@@ -544,95 +544,6 @@ function Log() constructor{
 	}
 
 	
-	/*
-	// === creature is born
-
-	creature_born = function(_id) {
-		if (LOG_IF_SHIFT_PRESSED == true 
-			&& keyboard_check(vk_shift)) || _id == obj_gui.gui.creature_to_follow {
-				//LOG_ID(_id, "Born");
-				show_debug_message(log_text_creature(_id));
-			}
-	}
-	
-	
-	// === creature is dead
-
-	creature_dead = function (_id) {
-		if (LOG_IF_SHIFT_PRESSED == true 
-			&& keyboard_check(vk_shift)) || _id == obj_gui.gui.creature_to_follow {
-				//LOG_ID(_id, "Dead");
-				show_debug_message(log_text_creature(_id));
-			}
-	}
-	
-	
-	// === selected creature events log 
-	
-	// show message at output if 
-	//	- creature is been followed
-	//  - shift is pressed and this is allowed
-	log_id = function (_id, _msg){
-	
-		if (LOG_IF_SHIFT_PRESSED == true 
-			&& keyboard_check(vk_shift)) || _id == obj_gui.gui.creature_to_follow
-			
-			show_debug_message("Step "+string(controller.time.current_step)+" Creature "+string(_id)+ " age "+string(_id.structure.age) + ": " +_msg); 
-	}
-	
-
-	// do log_id sometimes
-	log_id_sampled = function(_id, _msg) {	
-		if (_id.structure.age mod 50 == 0) {
-			if (_id.structure.age >= 50 || _id.structure.age mod 10 == 0) {
-				log_id(_id, _msg);
-			}
-		}
-	}
-	*/
-/*
-	// === user pressed key to see world data
-	
-	log_screen_world = function () {
-
-		if keyboard_check(vk_control) {
-	
-			draw_set_colour(c_red);
-			//draw_set_font(fTextDebug);
-
-			if (mouse_x>= 0 && mouse_y >= 0 
-				&& mouse_x <controller.world.world_max_x && mouse_y <controller.world.world_max_y) {
-					
-				var _offset_print_to_left = mouse_x > 300 ? -300 : 0;
-				//var _offset_print_to_left = mouse_x < 200 ? +300 : 0;
-				var x_draw = mouse_x + _offset_print_to_left;
-				var _offset_print_down = mouse_y > 500 ? -300 : 0;
-				var y_draw = mouse_y + _offset_print_down;
-				
-				var _xx = floor(mouse_x/CELL_SIZE);
-				var _yy = floor(mouse_y/CELL_SIZE);
-				var _cell = controller.world.grid_cells[# _xx, _yy];
-				//var climate = ds_grid_get(controller.world.grid_climate, _xx, _yy);
-				//var nutrients = ds_grid_get(world.grid_nutrients, _xx, _yy);
-				if _cell!=0 {
-					draw_text(x_draw, y_draw, "Climate:"+climate_to_string(_cell.climate));
-					y_draw+=32;
-					draw_text(x_draw, y_draw, "Water:"+string(_cell.available_water));
-					y_draw+=32;
-					draw_text(x_draw, y_draw, "Water max:"+string(_cell.soil_available_water_max));
-					y_draw+=32;
-				}
-				draw_text(x_draw, y_draw, "Pixels: "+string(mouse_x)+","+string(mouse_y)+" Grid: "+string(_xx)+","+string(_yy));
-					y_draw+=32;
-				draw_text(x_draw, y_draw, "Cell: "+controller.world.cell_to_string(mouse_x, mouse_y));
-					y_draw+=32;
-			
-					
-			}
-		}
-	}
-
-*/
 
 
 }

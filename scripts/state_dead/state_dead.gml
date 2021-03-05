@@ -22,8 +22,8 @@ function state_dead(_id){
 		//LOG(LOGEVENT.CREATURE_DEAD_INFO, _id, "biomass reproduction", string(units_to_kg(_id.dna.genome[GEN.BIOMASS_REPRODUCTION]))+"kg ");
 		//LOG(LOGEVENT.CREATURE_DEAD_INFO, _id, "biomass adult", string(units_to_kg(_id.dna.genome[GEN.BIOMASS_ADULT]))+"kg ");
 		//LOG(LOGEVENT.CREATURE_DEAD_INFO, _id, "generation", string(generation));
-		//LOG(LOGEVENT.CREATURE_DEAD_INFO, _id, "reproduction_interval", string(sim_steps_to_years(reproduction_interval))+"y");
-		//LOG(LOGEVENT.CREATURE_DEAD_INFO, _id, "reproduction_distance", string(reproduction_distance));
+		//LOG(LOGEVENT.CREATURE_DEAD_INFO, _id, "_reproduction_interval", string(sim_steps_to_years(_reproduction_interval))+"y");
+		//LOG(LOGEVENT.CREATURE_DEAD_INFO, _id, "_reproduction_distance", string(_reproduction_distance));
 		LOG(LOGEVENT.CREATURE_DEAD_INFO, _id, "cell", _id.my_cell.to_string());
 		
 	}

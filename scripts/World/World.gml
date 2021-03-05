@@ -330,7 +330,7 @@ function World() constructor {
 			creatures_peak = creatures_peak <= creatures_live_now ? creatures_live_now : creatures_peak;
 
 			// log
-			controller.log.creature_dead(_id);
+			//controller.log.creature_dead(_id);
 			
 		}
 		else {

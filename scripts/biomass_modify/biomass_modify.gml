@@ -3,7 +3,7 @@
 	//		modified quantity (can be a negative value)
 	// updates
 	//		biomass
-	//		biomass_max
+	//		_biomass_max
 	//		world.biomass
 	//		is_hungry   
 	//		is_starving	
@@ -28,15 +28,15 @@
 				biomass = biomass_adult;
 			}
 		
-			// biomass_max surpassed?
-			if biomass > biomass_max {				
-				biomass_max = biomass;
+			// _biomass_max surpassed?
+			if biomass > _biomass_max {				
+				_biomass_max = biomass;
 				// "non reserve" is the part of the biomass we need to live
-				biomass_reserve_max = biomass_max * my_id.dna.genome[GEN.ALLOCATION_RESERVE];
+				_biomass_reserve_max = _biomass_max * my_id.dna.genome[GEN.ALLOCATION_RESERVE];
 			}
 			
 			// actual reserve = biomass - "non reserve max"
-			biomass_reserve = biomass - (biomass_max - biomass_reserve_max);
+			biomass_reserve = biomass - (_biomass_max - _biomass_reserve_max);
 			
 			
 			// update statistics. if animal eat animal sum is zero. not in decomposition or plants growth 
@@ -49,7 +49,7 @@
 				if is_hungry == false {
 					
 					// reserve start decreasing?
-					if biomass_reserve < 0.8 * biomass_reserve_max {
+					if biomass_reserve < 0.8 * _biomass_reserve_max {
 						is_hungry = true;
 					}
 					is_starving = false;   // first time hungry, not starving
@@ -57,10 +57,10 @@
 				else {
 					
 					// reserve is full again?
-					if biomass_reserve > 0.95 * biomass_reserve_max {
+					if biomass_reserve > 0.95 * _biomass_reserve_max {
 						is_hungry = false;
 					}
-					is_starving = biomass_reserve < 0.5 * biomass_reserve_max; 
+					is_starving = biomass_reserve < 0.5 * _biomass_reserve_max; 
 				}
 			
 				// has enough reserve to keep alive?

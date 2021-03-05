@@ -17,7 +17,7 @@ function state_reproduction(_id){
 	for (var off=0; off < _id.dna.genome[GEN.REPRODUCTION_QUANTITY]; off++) {
 
 		// calculate birth place
-		var _d = _id.structure.reproduction_distance;
+		var _d = _id.structure._reproduction_distance;
 		var _xTo = _id.x + _d * random_range (0.5, 1) * choose(-1, 1);
 		var _yTo = _id.y + _d * random_range (0.5, 1) * choose(-1, 1);
 				
@@ -36,7 +36,7 @@ function state_reproduction(_id){
 			_id.structure.biomass_reproduction -= _biomass_give;	// reset biomass_reproduction
 		
 			_child.structure.biomass = _biomass_give;
-			_child.structure.biomass_at_birth = _biomass_give;
+			//_child.structure.biomass_at_birth = _biomass_give;
 
 			// increment generation number
 			_child.structure.generation = _id.structure.generation + 1;
@@ -54,7 +54,7 @@ function state_reproduction(_id){
 	_id.structure.reproduction_count++;
 		
 	// reset reproduction state
-	_id.structure.reproduction_is_ready = false;
+	//_id.structure.reproduction_is_ready = false;
 	
 	_id.state.next_state = STATE.IDLE;
 

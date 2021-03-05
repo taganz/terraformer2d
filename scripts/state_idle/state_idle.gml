@@ -23,7 +23,7 @@ function state_idle(_id){
 		_id.state.next_state = STATE.EAT;
 	}
 	// time for reproduction? 
-	else if _struct.reproduction_is_ready  {
+	else if reproduction_ready(_id)  {
 				
 		_id.state.next_state = STATE.REPRODUCTION;
 	}
