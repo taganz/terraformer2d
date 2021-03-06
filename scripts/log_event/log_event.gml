@@ -219,6 +219,7 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 #region === SPECIE EVENTS
 
 			case LOGEVENT.SPECIE_CLIMATE_BORN: 
+			case LOGEVENT.SPECIE_CLIMATE_DEAD: 
 			case LOGEVENT.SPECIE_NEW: {
 				if obj_gui.options_log.LOG_BORN_DEAD_SUMMARY {
 					_col_id1 = string(_id1);
@@ -230,7 +231,14 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 					}
 					
 					if _event == LOGEVENT.SPECIE_CLIMATE_BORN {
-						_col_txt1 = _arg1;									// climate string
+						_col_txt1 = climate_to_string(_id1.my_cell.climate);								
+						_col_num1 = string(units_to_kg(_id1.structure.biomass));
+						_col_txt2 = object_get_name(_id1.object_index);
+					}
+					
+					if _event == LOGEVENT.SPECIE_CLIMATE_DEAD {
+						_col_txt1 = climate_to_string(_id1.my_cell.climate);								
+						_col_num1 = string(units_to_kg(_id1.structure.biomass));
 						_col_txt2 = object_get_name(_id1.object_index);
 					}
 				
