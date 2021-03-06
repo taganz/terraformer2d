@@ -14,7 +14,7 @@ function state_reproduction(_id){
 
 	// do for all offspring
 
-	for (var off=0; off < _id.dna.genome[GEN.REPRODUCTION_QUANTITY]; off++) {
+	for (var off=0; off < _id.genome[GEN.REPRODUCTION_QUANTITY]; off++) {
 
 		// calculate birth place
 		var _d = _id.structure._reproduction_distance;
@@ -28,7 +28,7 @@ function state_reproduction(_id){
 			var _child = instance_create_layer(_xTo, _yTo, "Instances", _id.object_index);
 					
 			// give genome to child
-			_child.dna.genome = genome_offspring_copy(_id, controller.world.get_radiation(_id.x, _id.y));
+			_child.genome = genome_offspring_copy(_id, controller.world.get_radiation(_id.x, _id.y));
 										
 			// give biomass to child
 			//var _biomass_give = - _id.structure.biomass_modify(-_id.structure.biomass_reproduction); 

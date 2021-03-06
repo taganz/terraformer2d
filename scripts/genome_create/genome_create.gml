@@ -1,23 +1,21 @@
-// Script assets have changed for v2.3.0 see
-// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
-function initial_specie_genome(_initial_specie){
+function genome_create(_initial_specie){
 
 	var _genome = array_create (GEN_NUM, 0);
-	var ww = ds_grid_width(controller.species.initial_species_grid);
-	var hh = ds_grid_height(controller.species.initial_species_grid);
+	var ww = ds_grid_width(controller.species._initial_species_grid);
+	var hh = ds_grid_height(controller.species._initial_species_grid);
 	
 	// get column for specie
-	ASSERT(ds_grid_value_exists(controller.species.initial_species_grid, 0, 0, 0, hh, "INITIAL_SPECIE"), 0, "INITIAL SPECIES ROW NOT FOUND");
-	var y_initial_specie = ds_grid_value_y(controller.species.initial_species_grid, 0, 0, 0, hh, "INITIAL_SPECIE");
-	ASSERT(ds_grid_value_exists(controller.species.initial_species_grid, 1, y_initial_specie, ww, y_initial_specie, _initial_specie), 0, "INITIAL SPECIES COLUMN NOT FOUND "+string(_initial_specie));
-	var x_initial_specie = ds_grid_value_x(controller.species.initial_species_grid, 1, y_initial_specie, ww, y_initial_specie, _initial_specie);
+	ASSERT(ds_grid_value_exists(controller.species._initial_species_grid, 0, 0, 0, hh, "INITIAL_SPECIE"), 0, "INITIAL SPECIES ROW NOT FOUND");
+	var y_initial_specie = ds_grid_value_y(controller.species._initial_species_grid, 0, 0, 0, hh, "INITIAL_SPECIE");
+	ASSERT(ds_grid_value_exists(controller.species._initial_species_grid, 1, y_initial_specie, ww, y_initial_specie, _initial_specie), 0, "INITIAL SPECIES COLUMN NOT FOUND "+string(_initial_specie));
+	var x_initial_specie = ds_grid_value_x(controller.species._initial_species_grid, 1, y_initial_specie, ww, y_initial_specie, _initial_specie);
 
 	for (var i=0; i<GEN_NUM;i++) {
 	
 		// get row for this gen
-		var yy = ds_grid_value_y(controller.species.initial_species_grid, 0, 0, 1, hh, gen_to_string(i));
+		var yy = ds_grid_value_y(controller.species._initial_species_grid, 0, 0, 1, hh, gen_to_string(i));
 		if (yy>0) {
-				var _cell =  controller.species.initial_species_grid[# x_initial_specie, yy];
+				var _cell =  controller.species._initial_species_grid[# x_initial_specie, yy];
 				if _cell != "" or i < GEN_FIRST_MUTABLE
 					_genome[i] = _cell;
 				else

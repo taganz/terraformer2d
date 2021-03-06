@@ -17,21 +17,21 @@ function genome_offspring_copy(_id_parent, _radiation){
 	
 	// === inmutable gens
 	
-	_genome_child[GEN.TROPHIC_LEVEL] = _id_parent.dna.genome[GEN.TROPHIC_LEVEL];
-	_genome_child[GEN.INITIAL_SPECIE] = _id_parent.dna.genome[GEN.INITIAL_SPECIE];
-	_genome_child[GEN.INITIAL_SPECIE_NAME] = _id_parent.dna.genome[GEN.INITIAL_SPECIE_NAME];
+	_genome_child[GEN.TROPHIC_LEVEL] = _id_parent.genome[GEN.TROPHIC_LEVEL];
+	_genome_child[GEN.INITIAL_SPECIE] = _id_parent.genome[GEN.INITIAL_SPECIE];
+	_genome_child[GEN.INITIAL_SPECIE_NAME] = _id_parent.genome[GEN.INITIAL_SPECIE_NAME];
 				
 	// === mutable gens can be changed by radiation
 	
 	for (var i = GEN_FIRST_MUTABLE; i < GEN_NUM;i++) {
-		_genome_child[i] = _id_parent.dna.genome[i] * (1 + random_range(-_radiation, _radiation));
+		_genome_child[i] = _id_parent.genome[i] * (1 + random_range(-_radiation, _radiation));
 	}
 
 	// === current specie gens - specie code and parent specie could change depending on radiation
 	
 	// specie prefix will be different from parent if specie_x or specie_y is diferent
-	if specie_code_x(_id_parent.dna.genome) != specie_code_x(_genome_child)
-		or specie_code_x(_id_parent.dna.genome) != specie_code_y(_genome_child) {
+	if specie_code_x(_id_parent.genome) != specie_code_x(_genome_child)
+		or specie_code_x(_id_parent.genome) != specie_code_y(_genome_child) {
 		
 		// get specie code from prefix, this will check if specie is a new one, if it is a new 
 		// variant and also update stats
@@ -40,13 +40,13 @@ function genome_offspring_copy(_id_parent, _radiation){
 		// store new specie data in genome child
 		_genome_child[GEN.SPECIE_CODE] = new_specie_code ;    
 		// parent
-		_genome_child[GEN.PARENT_SPECIE_CODE] = _id_parent.dna.genome[GEN.SPECIE_CODE];    
+		_genome_child[GEN.PARENT_SPECIE_CODE] = _id_parent.genome[GEN.SPECIE_CODE];    
 	}
 	else {
 		
 		// same specie as parent
-		_genome_child[GEN.SPECIE_CODE] = _id_parent.dna.genome[GEN.SPECIE_CODE];    
-		_genome_child[GEN.PARENT_SPECIE_CODE] = _id_parent.dna.genome[GEN.PARENT_SPECIE_CODE];    
+		_genome_child[GEN.SPECIE_CODE] = _id_parent.genome[GEN.SPECIE_CODE];    
+		_genome_child[GEN.PARENT_SPECIE_CODE] = _id_parent.genome[GEN.PARENT_SPECIE_CODE];    
 	}
 	
 	

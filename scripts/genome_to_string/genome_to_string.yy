@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "thropic_level",
-    "path": "folders/Scripts/DNA/thropic_level.yy",
+    "name": "old",
+    "path": "folders/Scripts/DNA/genome/old.yy",
   },
   "resourceVersion": "1.0",
-  "name": "trophic_level_to_char",
+  "name": "genome_to_string",
   "tags": [],
   "resourceType": "GMScript",
 }

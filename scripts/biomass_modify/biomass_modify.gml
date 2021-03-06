@@ -32,7 +32,7 @@
 			if biomass > _biomass_max {				
 				_biomass_max = biomass;
 				// "non reserve" is the part of the biomass we need to live
-				_biomass_reserve_max = _biomass_max * my_id.dna.genome[GEN.ALLOCATION_RESERVE];
+				_biomass_reserve_max = _biomass_max * my_id.genome[GEN.ALLOCATION_RESERVE];
 			}
 			
 			// actual reserve = biomass - "non reserve max"

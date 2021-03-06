@@ -233,8 +233,8 @@ function Log() constructor{
 					// common 
 					_col_id1 = string(_id1);
 					_col_name = _id1.creature_log_name;
-					_col_trophic_level = trophic_level_to_string(_id1.dna.genome[GEN.TROPHIC_LEVEL]);
-					_col_specie = string(_id1.dna.genome[GEN.SPECIE_CODE]);
+					_col_trophic_level = trophic_level_to_string(_id1.genome[GEN.TROPHIC_LEVEL]);
+					_col_specie = string(_id1.genome[GEN.SPECIE_CODE]);
 					_col_x = string(_id1.my_cell.x_cell);
 					_col_y = string(_id1.my_cell.y_cell);
 				
@@ -247,7 +247,7 @@ function Log() constructor{
 					// id2, num1, txt1, txt2
 					if _event == LOGEVENT.CREATURE_BORN {
 						_col_num1 = string(sim_steps_to_years(_id1.structure.age));		
-						_col_txt1 = _id1.dna.genome[GEN.SPECIE_CODE];
+						_col_txt1 = _id1.genome[GEN.SPECIE_CODE];
 					}
 					// 
 					if _event == LOGEVENT.CREATURE_BEEN_EATED {
@@ -350,8 +350,8 @@ function Log() constructor{
 						// common 
 						_col_id1 = string(_id1);
 						_col_name = _id1.creature_log_name;
-						_col_trophic_level = trophic_level_to_string(_id1.dna.genome[GEN.TROPHIC_LEVEL]);
-						_col_specie = string(_id1.dna.genome[GEN.SPECIE_CODE]);
+						_col_trophic_level = trophic_level_to_string(_id1.genome[GEN.TROPHIC_LEVEL]);
+						_col_specie = string(_id1.genome[GEN.SPECIE_CODE]);
 						_col_x = string(_id1.my_cell.x_cell);
 						_col_y = string(_id1.my_cell.y_cell);
 				
@@ -382,8 +382,8 @@ function Log() constructor{
 			case LOGEVENT.CLIMATE_BORN: {
 				if LOG_WORLD {
 					_col_id1 = string(_id1);
-					_col_trophic_level = trophic_level_to_string(_id1.dna.genome[GEN.TROPHIC_LEVEL]);
-					_col_specie = string(_id1.dna.genome[GEN.SPECIE_CODE]);
+					_col_trophic_level = trophic_level_to_string(_id1.genome[GEN.TROPHIC_LEVEL]);
+					_col_specie = string(_id1.genome[GEN.SPECIE_CODE]);
 					if (_id1.my_cell != 0) {
 						_col_x = string(_id1.my_cell.x_cell);
 						_col_y = string(_id1.my_cell.y_cell);
@@ -412,8 +412,8 @@ function Log() constructor{
 			case LOGEVENT.ERROR_ASSERT: {
 				if _id1 != 0 {
 					_col_id1 = string(_id1);
-					_col_trophic_level = trophic_level_to_string(_id1.dna.genome[GEN.TROPHIC_LEVEL]);
-					_col_specie = string(_id1.dna.genome[GEN.SPECIE_CODE]);
+					_col_trophic_level = trophic_level_to_string(_id1.genome[GEN.TROPHIC_LEVEL]);
+					_col_specie = string(_id1.genome[GEN.SPECIE_CODE]);
 					if (_id1.my_cell != 0) {
 						_col_x = string(_id1.my_cell.x_cell);
 						_col_y = string(_id1.my_cell.y_cell);
@@ -448,7 +448,7 @@ function Log() constructor{
 			}
 			case LOGEVENT.SPECIE_NEW: {
 				_col_id1 = string(_id1);
-				_col_trophic_level = trophic_level_to_string(_id1.dna.genome[GEN.TROPHIC_LEVEL]);
+				_col_trophic_level = trophic_level_to_string(_id1.genome[GEN.TROPHIC_LEVEL]);
 				_col_x = string(_id1.my_cell.x_cell);
 				_col_y = string(_id1.my_cell.y_cell);
 				_col_txt1 = string(_arg1);		// new specie prefix

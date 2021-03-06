@@ -26,7 +26,7 @@ function Structure(_id, _spawn_as_adult) constructor {
 	
 	age = 0 ;								// sim steps
 	age_is_adult = false;			// maximum biomass is attained
-	age_die = years_to_sim_steps(my_id.dna.genome[GEN.AGE_DEAD])*random_range(0.9, 1.5);		
+	age_die = years_to_sim_steps(my_id.genome[GEN.AGE_DEAD])*random_range(0.9, 1.5);		
 
 
 	
@@ -34,8 +34,8 @@ function Structure(_id, _spawn_as_adult) constructor {
 	
 	// give some biomass by default for 1st generation creatures.
 	// parent will update with real value in step_reproduction() for next generations
-	biomass = _spawn_as_adult ? kg_to_units(_id.dna.genome[GEN.BIOMASS_ADULT]) : kg_to_units(_id.dna.genome[GEN.BIOMASS_BIRTH]);
-	biomass_adult = kg_to_units(_id.dna.genome[GEN.BIOMASS_ADULT]);
+	biomass = _spawn_as_adult ? kg_to_units(_id.genome[GEN.BIOMASS_ADULT]) : kg_to_units(_id.genome[GEN.BIOMASS_BIRTH]);
+	biomass_adult = kg_to_units(_id.genome[GEN.BIOMASS_ADULT]);
 
 	// -- biomass allocation = eat + body + reproduction + reserve (difference)
 	
@@ -53,7 +53,7 @@ function Structure(_id, _spawn_as_adult) constructor {
 
 	_biomass_reserve_max = 0;
 	_biomass_max = biomass;
-	_biomass_reproduction_max = biomass_adult * my_id.dna.genome[GEN.ALLOCATION_REPRODUCTIVE]; 
+	_biomass_reproduction_max = biomass_adult * my_id.genome[GEN.ALLOCATION_REPRODUCTIVE]; 
 
 	
 	// -- health
@@ -67,8 +67,8 @@ function Structure(_id, _spawn_as_adult) constructor {
 	
 	reproduction_count = 0;			// times reproduction done
 	reproduction_age_last_time = -1;		// age at last reproduction
-	_reproduction_interval = years_to_sim_steps(my_id.dna.genome[GEN.REPRODUCTION_INTERVAL])*random_range(0.9, 1.1);	// steps
-	_reproduction_distance = my_id.dna.genome[GEN.REPRODUCTION_DISTANCE]*random_range(0.9, 1.1);		
+	_reproduction_interval = years_to_sim_steps(my_id.genome[GEN.REPRODUCTION_INTERVAL])*random_range(0.9, 1.1);	// steps
+	_reproduction_distance = my_id.genome[GEN.REPRODUCTION_DISTANCE]*random_range(0.9, 1.1);		
 
 	
 	// -- private vars

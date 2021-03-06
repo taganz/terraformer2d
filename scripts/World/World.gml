@@ -77,7 +77,7 @@ function World() constructor {
 					// distribute water among producers
 					for (var c=0; c < ds_list_size(_cell.list_creatures);c++) {
 						var producer_id = _cell.list_creatures[|c];
-						if producer_id.dna.genome[GEN.TROPHIC_LEVEL]==TROPHIC_LEVEL.PRODUCER  {
+						if producer_id.genome[GEN.TROPHIC_LEVEL]==TROPHIC_LEVEL.PRODUCER  {
 								
 							// give water to creature 
 							var _quant_water = clamp(producer_id.structure.biomass_eat*WORLD_WATER_PER_LEAF_KG, 0, _cell.available_water);
@@ -266,7 +266,7 @@ function World() constructor {
 				
 			// update stats
 			creatures_live_now ++;
-			trophic_level_live_now[_id.dna.genome[GEN.TROPHIC_LEVEL]]++;
+			trophic_level_live_now[_id.genome[GEN.TROPHIC_LEVEL]]++;
 			creatures_born ++;
 			creatures_peak = creatures_peak <= creatures_live_now ? creatures_live_now : creatures_peak;
 
@@ -325,7 +325,7 @@ function World() constructor {
 						
 			// update stats
 			creatures_live_now --;
-			trophic_level_live_now[_id.dna.genome[GEN.TROPHIC_LEVEL]]--;
+			trophic_level_live_now[_id.genome[GEN.TROPHIC_LEVEL]]--;
 			creatures_dead ++;
 			creatures_peak = creatures_peak <= creatures_live_now ? creatures_live_now : creatures_peak;
 

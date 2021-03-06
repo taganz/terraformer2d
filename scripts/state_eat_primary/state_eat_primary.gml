@@ -18,7 +18,7 @@ function state_eat_primary(_id) {
 			if is_undefined(_prey)== false {
 						
 				// is it a plant?
-				if _prey.dna.genome[@ GEN.TROPHIC_LEVEL]==TROPHIC_LEVEL.PRODUCER {
+				if _prey.genome[@ GEN.TROPHIC_LEVEL]==TROPHIC_LEVEL.PRODUCER {
 											
 						// all plants can be eaten now <-----
 						

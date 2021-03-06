@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "DNA",
-    "path": "folders/Scripts/DNA.yy",
+    "name": "old",
+    "path": "folders/Scripts/DNA/genome/old.yy",
   },
   "resourceVersion": "1.0",
-  "name": "initial_specie_genome",
+  "name": "genome_to_string_lines",
   "tags": [],
   "resourceType": "GMScript",
 }

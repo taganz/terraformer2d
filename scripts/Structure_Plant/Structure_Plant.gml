@@ -14,8 +14,8 @@ function Structure_Plant(_id, _creature_spawn_as_adult):Structure(_id, _creature
 	plant_received_sun = 0;
 
 	// calculate metabolism parameters LMF and k_growth	
-	_kc = my_id.dna.genome[GEN.METABOLIC_RATE];
-	_ka = my_id.dna.genome[GEN.ANABOLISM_BIOMASS_PER_WATER_L] * WORLD_WATER_PER_LEAF_KG;
+	_kc = my_id.genome[GEN.METABOLIC_RATE];
+	_ka = my_id.genome[GEN.ANABOLISM_BIOMASS_PER_WATER_L] * WORLD_WATER_PER_LEAF_KG;
 	_LMFa = _kc/_ka
 	
 	// anabolism is affected by a temperature coefficient
@@ -23,9 +23,9 @@ function Structure_Plant(_id, _creature_spawn_as_adult):Structure(_id, _creature
 	//	- range Tmin - Topt1:  kt =  grow linearly from 0 to 1
 	//  - range Topt1 - Topt2: kt = 1 
 	//	- above Topt2: kt = 0
-	_Topt2 = my_id.dna.genome[GEN.TEMPERATURE_OPTIMAL] + my_id.dna.genome[GEN.TEMPERATURE_RANGE];
-	_Topt1 = my_id.dna.genome[GEN.TEMPERATURE_OPTIMAL];
-	_Tmin  = my_id.dna.genome[GEN.TEMPERATURE_OPTIMAL] - my_id.dna.genome[GEN.TEMPERATURE_RANGE];
+	_Topt2 = my_id.genome[GEN.TEMPERATURE_OPTIMAL] + my_id.genome[GEN.TEMPERATURE_RANGE];
+	_Topt1 = my_id.genome[GEN.TEMPERATURE_OPTIMAL];
+	_Tmin  = my_id.genome[GEN.TEMPERATURE_OPTIMAL] - my_id.genome[GEN.TEMPERATURE_RANGE];
 	
 	ASSERT((_LMFa > 0 && _LMFa < 1), my_id, "Invalid LMFa="+string(_LMFa)+" creature "+string(my_id));  
 	_LMFa = clamp(_LMFa, 0.01, 0.99);
@@ -66,7 +66,7 @@ function Structure_Plant(_id, _creature_spawn_as_adult):Structure(_id, _creature
 			biomass_eat = biomass * _LMFa;
 			biomass_body = biomass - biomass_eat;
 			_biomass_max = biomass;
-			_biomass_reserve_max = _biomass_max * my_id.dna.genome[GEN.ALLOCATION_RESERVE];
+			_biomass_reserve_max = _biomass_max * my_id.genome[GEN.ALLOCATION_RESERVE];
 			}
 
 	
@@ -86,7 +86,7 @@ function Structure_Plant(_id, _creature_spawn_as_adult):Structure(_id, _creature
 				// we expect to have received water: biomass_eat*WORLD_WATER_PER_LEAF_KG
 				// we are going to use it for compensate catabolism + growth + reserves
 				
-				var _quant_anabolism = plant_received_water * my_id.dna.genome[GEN.ANABOLISM_BIOMASS_PER_WATER_L];
+				var _quant_anabolism = plant_received_water * my_id.genome[GEN.ANABOLISM_BIOMASS_PER_WATER_L];
 				
 				// temperature affects anabolism. under Tmin or over _Topt2 anabolism stops.
 				var _temp_factor = my_id.my_cell.temperature_current_month > _Topt2 

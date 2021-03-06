@@ -34,7 +34,7 @@ function Morphology_Plant(_id) constructor {
 	// adjust sprite to specie
 	// in:
 	//		- sprite_head/body
-	//		- my_id.dna.genome
+	//		- my_id.genome
 	// output
 	//		- sprite_head/body/dead_image
 	born = function() {
@@ -46,10 +46,10 @@ function Morphology_Plant(_id) constructor {
 			sprite_head_image = 0;
 			break;
 		case 4:
-			sprite_head_image = (specie_code_x(my_id.dna.genome) + specie_code_y(my_id.dna.genome)) mod 4;
+			sprite_head_image = (specie_code_x(my_id.genome) + specie_code_y(my_id.genome)) mod 4;
 			break;
 		case 16:
-			sprite_head_image = specie_code_x(my_id.dna.genome) + specie_code_y(my_id.dna.genome) * 4; 
+			sprite_head_image = specie_code_x(my_id.genome) + specie_code_y(my_id.genome) * 4; 
 			break;
 		default:
 			sprite_head_image = 0;
@@ -63,10 +63,10 @@ function Morphology_Plant(_id) constructor {
 			sprite_body_image = 0;
 			break;
 		case 4:
-			sprite_body_image = (specie_code_x(my_id.dna.genome) + specie_code_y(my_id.dna.genome)) mod 4;
+			sprite_body_image = (specie_code_x(my_id.genome) + specie_code_y(my_id.genome)) mod 4;
 			break;
 		case 16:
-			sprite_body_image = specie_code_x(my_id.dna.genome) + specie_code_y(my_id.dna.genome) * 4; 
+			sprite_body_image = specie_code_x(my_id.genome) + specie_code_y(my_id.genome) * 4; 
 			break;
 		default:
 			sprite_body_image = 0;
@@ -92,20 +92,20 @@ function Morphology_Plant(_id) constructor {
 		// ratio head biomass and body biomass depends on density <--
 		
 		// crown
-		if (my_id.dna.genome[GEN.PLANT_HEAD_DENSITY] > 0 ) {
-			var _head_volum_sqrt = sqrt(my_id.structure.biomass_eat/my_id.dna.genome[GEN.PLANT_HEAD_DENSITY]);
-			_head_h_scale = _head_volum_sqrt * my_id.dna.genome[GEN.PLANT_HEAD_FORM_FACTOR] ;
+		if (my_id.genome[GEN.PLANT_HEAD_DENSITY] > 0 ) {
+			var _head_volum_sqrt = sqrt(my_id.structure.biomass_eat/my_id.genome[GEN.PLANT_HEAD_DENSITY]);
+			_head_h_scale = _head_volum_sqrt * my_id.genome[GEN.PLANT_HEAD_FORM_FACTOR] ;
 			_head_h = _head_h_scale * sprite_get_height(sprite_head);
-			_head_w_scale = _head_volum_sqrt / my_id.dna.genome[GEN.PLANT_HEAD_FORM_FACTOR] ; 
+			_head_w_scale = _head_volum_sqrt / my_id.genome[GEN.PLANT_HEAD_FORM_FACTOR] ; 
 			_head_w = _head_w_scale * sprite_get_width(sprite_head); 
 		}
 		
 		// truck
-		if (my_id.dna.genome[GEN.PLANT_BODY_DENSITY] > 0 ) {
-			var _body_volum_sqrt = sqrt(my_id.structure.biomass_body/my_id.dna.genome[GEN.PLANT_BODY_DENSITY]);
-			_body_h_scale = _body_volum_sqrt * my_id.dna.genome[GEN.PLANT_BODY_FORM_FACTOR] ;
+		if (my_id.genome[GEN.PLANT_BODY_DENSITY] > 0 ) {
+			var _body_volum_sqrt = sqrt(my_id.structure.biomass_body/my_id.genome[GEN.PLANT_BODY_DENSITY]);
+			_body_h_scale = _body_volum_sqrt * my_id.genome[GEN.PLANT_BODY_FORM_FACTOR] ;
 			_body_h = _body_h_scale * sprite_get_height(sprite_body);
-			_body_w_scale = _body_volum_sqrt / my_id.dna.genome[GEN.PLANT_BODY_FORM_FACTOR] ;
+			_body_w_scale = _body_volum_sqrt / my_id.genome[GEN.PLANT_BODY_FORM_FACTOR] ;
 			_body_w = _body_w_scale * sprite_get_width(sprite_body);
 		}		
 			
