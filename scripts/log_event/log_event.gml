@@ -2,9 +2,14 @@
 
 function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 	
-		if obj_gui.options_log == false
+	
+		// === main log switch option
+		
+		if obj_gui.options_log.LOG_ALLOW_LOG == false
 			return;
-			
+		
+		
+		// === init format fields
 			
 		var _col_id1 = "";
 		var _col_name = "";
@@ -22,7 +27,13 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 		var _do_log = true;
 		
 	
+		// === format fields
+		
 		switch(_event) {
+			
+			
+#region === CREATURE EVENTS
+
 			//case LOGEVENT.CREATURE_ADULT:
 			case LOGEVENT.CREATURE_ANABOLISM:
 			case LOGEVENT.CREATURE_BEEN_EATED:
@@ -47,11 +58,12 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 			{
 			
 				// should we log this event?
-				if (LOG_CREATURES_ALL
-						or (LOG_CREATURES_FOLLOWING and _id1 == obj_gui.gui.creature_to_follow)) 
+				if (obj_gui.options_log.LOG_CREATURES_ALL
+						or (obj_gui.options_log.LOG_CREATURES_FOLLOWING and _id1 == obj_gui.gui.creature_to_follow)) 
 						or _id1.creature_log==true {
 						
-
+					ASSERT(_id1!=0, _id1, "log_event id1==0 event "+LOGEVENT_to_string(_event));
+					
 					// common 
 					_col_id1 = string(_id1);
 					_col_name = _id1.creature_log_name;
@@ -165,9 +177,9 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 			case LOGEVENT.CREATURE_BORN_INFO_NUM:
 			case LOGEVENT.CREATURE_DEAD_INFO:
 			case LOGEVENT.CREATURE_DEAD_INFO_NUM:
-				if LOG_BORN_DEAD_SUMMARY 
-				|| LOG_CREATURES_ALL
-				|| (LOG_CREATURES_FOLLOWING and _id1 == obj_gui.gui.creature_to_follow) 
+				if obj_gui.options_log.LOG_BORN_DEAD_SUMMARY 
+				|| obj_gui.options_log.LOG_CREATURES_ALL
+				|| (obj_gui.options_log.LOG_CREATURES_FOLLOWING and _id1 == obj_gui.gui.creature_to_follow) 
 				|| _id1.creature_log==true {
 						// common 
 						_col_id1 = string(_id1);
@@ -199,10 +211,16 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 					_do_log = false;
 				}
 				break;
-			case LOGEVENT.SPAWNER:
+			case LOGEVENT.WORLD_SPAWNER:
 				break;
-			case LOGEVENT.CLIMATE_BORN: {
-				if LOG_WORLD {
+				
+#endregion
+
+#region === SPECIE EVENTS
+
+			case LOGEVENT.SPECIE_CLIMATE_BORN: 
+			case LOGEVENT.SPECIE_NEW: {
+				if obj_gui.options_log.LOG_BORN_DEAD_SUMMARY {
 					_col_id1 = string(_id1);
 					_col_trophic_level = trophic_level_to_string(_id1.genome[GEN.TROPHIC_LEVEL]);
 					_col_specie = string(_id1.genome[GEN.SPECIE_CODE]);
@@ -210,16 +228,31 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 						_col_x = string(_id1.my_cell.x_cell);
 						_col_y = string(_id1.my_cell.y_cell);
 					}
-					_col_txt1 = _arg1;
-					_col_txt2 = object_get_name(_id1.object_index);
+					
+					if _event == LOGEVENT.SPECIE_CLIMATE_BORN {
+						_col_txt1 = _arg1;									// climate string
+						_col_txt2 = object_get_name(_id1.object_index);
+					}
+				
+				
+					if _event == LOGEVENT.SPECIE_NEW {
+						_col_txt1 = string(_arg1);		// new specie prefix
+						_col_txt2 = string(_arg2);		// new specie code
+						_col_txt3 = string(_arg3);		// parent specie code
+					}
 				}
 				else {
 					_do_log = false;
 				}
 			}
 			break;
+			
+#endregion
+			
+#region  === WORLD EVENTS
+			
 			case LOGEVENT.WORLD_POPULATION: {
-				if LOG_WORLD {
+				if obj_gui.options_log.LOG_WORLD {
 					_col_id1 = "";
 					_col_trophic_level = trophic_level_to_string(_arg1);
 					_col_num1 = string(_arg2);					
@@ -229,9 +262,39 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 				}
 			}
 			break;
-			case LOGEVENT.WARNING:
-			case LOGEVENT.ERROR:
-			case LOGEVENT.ERROR_ASSERT: {
+
+			case LOGEVENT.WORLD_PROBE_NUTRIENTS:
+			case LOGEVENT.WORLD_PROBE_WATER:
+			case LOGEVENT.WORLD_WORLD_PROBE_RAIN_TEMP: {
+				_col_name = _id1.probe_name;
+				_col_x = string(_id1.my_cell.x_cell);
+				_col_y = string(_id1.my_cell.y_cell);
+				_col_txt1 = string_replace_all(_arg2, "\n", " - ");   // climate name
+				
+				if _event == LOGEVENT.WORLD_PROBE_NUTRIENTS
+					_col_num1 = string(units_to_kg(_arg1));
+					
+				if _event == LOGEVENT.WORLD_PROBE_WATER
+					_col_num1 = string(_arg1);
+										
+				if _event == LOGEVENT.WORLD_WORLD_PROBE_RAIN_TEMP {
+					_col_num1 = string(_arg1);    // rain 
+					_col_num2 = string(_arg3);	  // temperature
+				}
+				break;
+			}
+
+#endregion
+
+#region  === INFO EVENTS
+	
+			case LOGEVENT.INFO_PARAMETERS: {
+				_col_txt1 = string(_id1);
+			break;
+			}
+			case LOGEVENT.INFO_WARNING:
+			case LOGEVENT.INFO_ERROR:
+			case LOGEVENT.INFO_ERROR_ASSERT: {
 				if _id1 != 0 {
 					_col_id1 = string(_id1);
 					_col_trophic_level = trophic_level_to_string(_id1.genome[GEN.TROPHIC_LEVEL]);
@@ -244,47 +307,17 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 				_col_txt1 = string(_arg1);
 				break;
 			}
-			case LOGEVENT.PROBE_NUTRIENTS:
-			case LOGEVENT.PROBE_WATER:
-			case LOGEVENT.PROBE_RAIN_TEMPERATURE: {
-				_col_name = _id1.probe_name;
-				_col_x = string(_id1.my_cell.x_cell);
-				_col_y = string(_id1.my_cell.y_cell);
-				_col_txt1 = string_replace_all(_arg2, "\n", " - ");   // climate name
-				
-				if _event == LOGEVENT.PROBE_NUTRIENTS
-					_col_num1 = string(units_to_kg(_arg1));
-					
-				if _event == LOGEVENT.PROBE_WATER
-					_col_num1 = string(_arg1);
-										
-				if _event == LOGEVENT.PROBE_RAIN_TEMPERATURE {
-					_col_num1 = string(_arg1);    // rain 
-					_col_num2 = string(_arg3);	  // temperature
-				}
-				break;
-			}
-			case LOGEVENT.SIMULATION_PARAMETERS: {
-				_col_txt1 = string(_id1);
-				break;
-			}
-			case LOGEVENT.SPECIE_NEW: {
-				_col_id1 = string(_id1);
-				_col_trophic_level = trophic_level_to_string(_id1.genome[GEN.TROPHIC_LEVEL]);
-				_col_x = string(_id1.my_cell.x_cell);
-				_col_y = string(_id1.my_cell.y_cell);
-				_col_txt1 = string(_arg1);		// new specie prefix
-				_col_txt2 = string(_arg2);		// new specie code
-				_col_txt3 = string(_arg3);		// parent specie code
-//				_col_txt3 = specie_code_prefix_from_code(_arg3);		// parent specie prefix
-				break;
-			}
+		
+#endregion
+
 		}
+		
+		// === concatenate fields into line
 		
 		if _do_log {
 			
-			var current_sim_step =  variable_instance_exists(controller, "time") ? controller.time.current_sim_step : 0;
-			var current_sim_month =  variable_instance_exists(controller, "time") ? controller.time.current_sim_month : 1;
+			var current_sim_step =	variable_instance_exists(controller, "time") ? controller.time.current_sim_step : 0;
+			var current_sim_month = variable_instance_exists(controller, "time") ? controller.time.current_sim_month : 1;
 			var current_sim_year =  variable_instance_exists(controller, "time") ? controller.time.current_sim_year : 1;
 			
 			
@@ -324,10 +357,13 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 						+ _col_txt3
 						;
 				
-				if (_id1 == obj_gui.gui.creature_to_follow)
-					show_debug_message("log_event:  "+string_replace_all(_lines_buffer[_line], ";", "  ;  "));
+				//if (_id1 == obj_gui.gui.creature_to_follow)
+				//	show_debug_message("log_event:  "+string_replace_all(_lines_buffer[_line], ";", "  ;  "));
 			
 				//show_debug_message(_lines_buffer[_line]);
+		
+		
+				// === write line to disk
 		
 				_line++;
 		

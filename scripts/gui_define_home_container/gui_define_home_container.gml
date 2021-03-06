@@ -92,13 +92,52 @@ var check = new EmuCheckbox(OPTIONS_COLUMN_Y, yy, 256, 32, "Unlimited water", ob
 _home_container.AddContent(check);
 yy+=32;
 
-// --- log check
 
-var check = new EmuCheckbox(OPTIONS_COLUMN_Y, yy, 256, 32, "Log", obj_gui.options_log, function() {
-    obj_gui.options_log = value;
+
+// === LOGS
+
+// --- general log
+
+var check = new EmuCheckbox(OPTIONS_COLUMN_Y, yy, 256, 32, "Log file", obj_gui.options_log.LOG_ALLOW_LOG, function() {
+    obj_gui.options_log.LOG_ALLOW_LOG = value;
 });
 _home_container.AddContent(check);
 yy+=32;
+
+
+// --- log creatures selected
+
+var check = new EmuCheckbox(OPTIONS_COLUMN_Y + 32, yy, 256, 32, "Log selected creatures", obj_gui.options_log.LOG_CREATURES_FOLLOWING, function() {
+    obj_gui.options_log.LOG_CREATURES_FOLLOWING = value;
+});
+_home_container.AddContent(check);
+yy+=32;
+
+// --- log creatures all
+
+var check = new EmuCheckbox(OPTIONS_COLUMN_Y  + 32, yy, 256, 32, "Log all creatures", obj_gui.options_log.LOG_CREATURES_ALL, function() {
+    obj_gui.options_log.LOG_CREATURES_ALL = value;
+});
+_home_container.AddContent(check);
+yy+=32;
+
+// --- log summary
+
+var check = new EmuCheckbox(OPTIONS_COLUMN_Y  + 32, yy, 256, 32, "Log summary", obj_gui.options_log.LOG_BORN_DEAD_SUMMARY, function() {
+    obj_gui.options_log.LOG_BORN_DEAD_SUMMARY = value;
+});
+_home_container.AddContent(check);
+yy+=32;
+
+// --- log world
+
+var check = new EmuCheckbox(OPTIONS_COLUMN_Y  + 32, yy, 256, 32, "Log world population", obj_gui.options_log.LOG_WORLD, function() {
+    obj_gui.options_log.LOG_WORLD = value;
+});
+_home_container.AddContent(check);
+yy+=32;
+
+
 
 // --- temperature input
 

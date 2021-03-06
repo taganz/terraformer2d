@@ -6,16 +6,22 @@ function MACROS(){
 #macro OBJ_CREATED_BY_CLIC obj_primary_tiny   // the object that will be created with left click
 #macro DEBUG_RAIN_UNLIMITED	false // climates give 999999 rain water
 
+/*
 // === log_event 
 
+// there are 4 types of log events
+//  INFO_			logged always if ALLOW_LOG is selected
+//  CREATURE_		logged if CREATURES_FOLLOWIN or CREATURES_ALL is selected
+//  SPECIES_		logged if BORN_DEAD_SUMMARY is selected
+//  WORLD_			logged if WORLD is selected
+
 #macro LOG_ALLOW_LOG			false		// main log switch. if false, no log file is created
-#macro LOG_CREATURE_TO_FOLLOW	100018 
-#macro LOG_IF_SHIFT_PRESSED		true		// log() will output only if shift is pressed
 #macro LOG_CREATURES_FOLLOWING	true		// log all CREATURE events
 #macro LOG_CREATURES_ALL		false		// false = log CREATURE events only for followed creature
 #macro LOG_WORLD				true		// log WORLD events
 #macro LOG_BORN_DEAD_SUMMARY	true		// log info at birth and dead for all creatures
 
+*/
 
 // === ROOM SETUP
 

@@ -270,7 +270,7 @@ function World() constructor {
 			creatures_born ++;
 			creatures_peak = creatures_peak <= creatures_live_now ? creatures_live_now : creatures_peak;
 
-			log_event(LOGEVENT.CLIMATE_BORN, _id, climate_to_string(cell.climate));
+			//log_event(LOGEVENT.SPECIE_CLIMATE_BORN, _id, climate_to_string(cell.climate));
 
 		}
 		else {

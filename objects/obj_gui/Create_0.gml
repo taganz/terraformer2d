@@ -24,7 +24,8 @@ depth = -15000;
 
 // === user settings
 options_unlimited_water = DEBUG_RAIN_UNLIMITED;
-options_log = LOG_ALLOW_LOG;
+//options_log = LOG_ALLOW_LOG;
+options_log = new log_user_options();
 
 // === gui containers
 home_container = -1;

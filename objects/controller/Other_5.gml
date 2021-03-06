@@ -22,6 +22,6 @@ if room == Room0 {
 
 	
 	log_open();
-	log_data_init_world();
+	log_events_init_world();
 
 }

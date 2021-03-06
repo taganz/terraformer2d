@@ -28,18 +28,27 @@ function LOGEVENT_enum(){
 		CREATURE_TEMPERATURE,				// at cell this month
 		CREATURE_RAIN,						// at cell this month
 		CREATURE_WATER_RECEIVED,			// plants
+		
+		// Species stats
+		
 		SPECIE_NEW,							
-		CLIMATE_BORN,			
-		PROBE_NUTRIENTS,
-		PROBE_WATER,					
-		PROBE_TEMPERATURE,					
-		SPAWNER,
-		WORLD_POPULATION,				// total population for a trophic level
-		PROBE_RAIN_TEMPERATURE,						
-		WARNING,						// system warning
-		ERROR,							// system error
-		ERROR_ASSERT, 					// error from ASSERT function
-		SIMULATION_PARAMETERS,				// info about simulation parameters
+		SPECIE_CLIMATE_BORN,				// individuals born per climate
+		
+		// World stats
+		
+		WORLD_POPULATION,				// total population for a trophic level for each sim step
+		WORLD_PROBE_NUTRIENTS,
+		WORLD_PROBE_WATER,					
+		WORLD_PROBE_TEMPERATURE,					
+		WORLD_SPAWNER,
+		WORLD_WORLD_PROBE_RAIN_TEMP,					
+		
+		// Simulation information
+		
+		INFO_WARNING,						// system warning
+		INFO_ERROR,							// system error
+		INFO_ERROR_ASSERT, 					// error from ASSERT function
+		INFO_PARAMETERS						// info about simulation parameters
 	}
 
 

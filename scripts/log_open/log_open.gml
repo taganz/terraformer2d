@@ -5,7 +5,7 @@ function log_open(){
 		
 
 
-		if obj_gui.options_log {
+		if obj_gui.options_log.LOG_ALLOW_LOG {
 
 			//_filename = SIM_LOG_FILE_NAME + string(current_day)+"_"+string(current_hour) + "_" + string(current_minute) + ".csv";
 			_filename = SIM_LOG_FILE_NAME + ".csv";

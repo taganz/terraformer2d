@@ -3,7 +3,6 @@ function LOGEVENT_to_string(_log_event){
 
 	var _msg = "??????";
 	switch (_log_event) {
-		case LOGEVENT.CLIMATE_BORN:				_msg = "CLIMATE_BORN"; break;
 		//case LOGEVENT.CREATURE_ADULT:			_msg = "ADULT"; break;
 		case LOGEVENT.CREATURE_ANABOLISM:		_msg = "ANABOLISM"; break;
 		case LOGEVENT.CREATURE_BEEN_EATED:		_msg = "BEEN_EATED"; break;
@@ -29,16 +28,17 @@ function LOGEVENT_to_string(_log_event){
 		case LOGEVENT.CREATURE_TEMPERATURE:		_msg = "TEMPERATURE"; break;
 		case LOGEVENT.CREATURE_WATER_RECEIVED:	_msg = "WATER_RECEIVED"; break;
 		case LOGEVENT.SPECIE_NEW:				_msg = "SPECIE_NEW"; break;
-		case LOGEVENT.PROBE_NUTRIENTS:			_msg = "PROBE_NUTRIENTS"; break;
-		case LOGEVENT.PROBE_WATER:				_msg = "PROBE_WATER"; break;
-		case LOGEVENT.SPAWNER:					_msg = "SPAWNER"; break;
+		case LOGEVENT.SPECIE_CLIMATE_BORN:		_msg = "SPECIE_CLIMATE_BORN"; break;
+		case LOGEVENT.WORLD_PROBE_NUTRIENTS:			_msg = "WORLD_PROBE_NUTRIENTS"; break;
+		case LOGEVENT.WORLD_PROBE_WATER:				_msg = "WORLD_PROBE_WATER"; break;
+		case LOGEVENT.WORLD_SPAWNER:					_msg = "SPAWNER"; break;
 		case LOGEVENT.WORLD_POPULATION:			_msg = "WORLD_POPULATION"; break;
-		case LOGEVENT.PROBE_RAIN_TEMPERATURE:	_msg = "PROBE_RAIN_TEMP"; break;
+		case LOGEVENT.WORLD_WORLD_PROBE_RAIN_TEMP:	_msg = "WORLD_PROBE_RAIN_TEMP"; break;
 		case LOGEVENT.CREATURE_DEBUG:			_msg = "CREATURE_DEBUG"; break;
-		case LOGEVENT.WARNING:					_msg = "DEBUG WARNING"; break;
-		case LOGEVENT.ERROR:					_msg = "DEBUG ERROR"; break;
-		case LOGEVENT.ERROR_ASSERT:				_msg = "DEBUG ERROR ASSERT"; break;
-		case LOGEVENT.SIMULATION_PARAMETERS:	_msg = "SIM PARAMETERS"; break;
+		case LOGEVENT.INFO_WARNING:				_msg = "WARNING"; break;
+		case LOGEVENT.INFO_ERROR:				_msg = "ERROR"; break;
+		case LOGEVENT.INFO_ERROR_ASSERT:		_msg = "ERROR ASSERT"; break;
+		case LOGEVENT.INFO_PARAMETERS:			_msg = "PARAMETERS"; break;
 	}
 	return _msg;
 
