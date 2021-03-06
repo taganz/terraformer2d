@@ -20,13 +20,11 @@ function state_born(_id){
 	// add to species the initial species
 	if _id.structure.generation == 1 {
 		var prefix = specie_code_prefix(_id.genome);
-		controller.species.specie_code_from_new_prefix(prefix, _id);  
+		//controller.species.specie_code_from_new_prefix(prefix, _id);  
+		specie_code_from_new_prefix(prefix, _id);  
 	}
-
-	ASSERT(state_entry, _id, "state born reentry? ");
 	
 	_id.morphology.born();
-
 			
 	// log parameters	
 	with _id.structure {

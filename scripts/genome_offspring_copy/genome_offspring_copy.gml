@@ -35,7 +35,8 @@ function genome_offspring_copy(_id_parent, _radiation){
 		
 		// get specie code from prefix, this will check if specie is a new one, if it is a new 
 		// variant and also update stats
-		var new_specie_code = controller.species.specie_code_from_new_prefix(specie_code_prefix(_genome_child), _id_parent);
+		//var new_specie_code = controller.species.specie_code_from_new_prefix(specie_code_prefix(_genome_child), _id_parent);
+		var new_specie_code = specie_code_from_new_prefix(specie_code_prefix(_genome_child), _id_parent);
 		
 		// store new specie data in genome child
 		_genome_child[GEN.SPECIE_CODE] = new_specie_code ;    

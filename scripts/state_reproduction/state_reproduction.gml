@@ -2,7 +2,7 @@
 
 	Generates one offspring creature
 	
-	- create offspring instance
+	- create offspring instances
 	- updates offspring dna
 	- give biomass to offspring and update some parameters
 	
