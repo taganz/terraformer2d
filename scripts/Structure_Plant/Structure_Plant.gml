@@ -54,12 +54,12 @@ function Structure_Plant(_id, _creature_spawn_as_adult):Structure(_id, _creature
 	
 		// can not do this at initialization
 		if _first_execution {
-			LOG(LOGEVENT.CREATURE_BORN_INFO_NUM, my_id, "_ka", _ka);
-			LOG(LOGEVENT.CREATURE_BORN_INFO_NUM, my_id, "_kc", _kc);
-			LOG(LOGEVENT.CREATURE_BORN_INFO_NUM, my_id, "_LMFa", _LMFa);
-			LOG(LOGEVENT.CREATURE_BORN_INFO_NUM, my_id, "_Topt1", _Topt1);
-			LOG(LOGEVENT.CREATURE_BORN_INFO_NUM, my_id, "_Topt2", _Topt2);
-			LOG(LOGEVENT.CREATURE_BORN_INFO_NUM, my_id, "_Tmin", _Tmin);
+			log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, my_id, "_ka", _ka);
+			log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, my_id, "_kc", _kc);
+			log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, my_id, "_LMFa", _LMFa);
+			log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, my_id, "_Topt1", _Topt1);
+			log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, my_id, "_Topt2", _Topt2);
+			log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, my_id, "_Tmin", _Tmin);
 			_first_execution = false;
 			
 			// initial biomass allocation
@@ -75,9 +75,9 @@ function Structure_Plant(_id, _creature_spawn_as_adult):Structure(_id, _creature
 		if controller.time.sim_month_entry {
 
 
-				LOG(LOGEVENT.CREATURE_WATER_RECEIVED, my_id, plant_received_water);
-				LOG(LOGEVENT.CREATURE_TEMPERATURE, my_id, my_id.my_cell.temperature_current_month);
-				LOG(LOGEVENT.CREATURE_RAIN, my_id, my_id.my_cell.rain_current_month);
+				log_event(LOGEVENT.CREATURE_WATER_RECEIVED, my_id, plant_received_water);
+				log_event(LOGEVENT.CREATURE_TEMPERATURE, my_id, my_id.my_cell.temperature_current_month);
+				log_event(LOGEVENT.CREATURE_RAIN, my_id, my_id.my_cell.rain_current_month);
 
 
 
@@ -94,7 +94,7 @@ function Structure_Plant(_id, _creature_spawn_as_adult):Structure(_id, _creature
 							: clamp((my_id.my_cell.temperature_current_month - _Tmin)/(_Topt1-_Tmin), 0, 1);
 				_quant_anabolism *= _temp_factor;
 					
-				LOG(LOGEVENT.CREATURE_ANABOLISM, my_id, _quant_anabolism, "received water: "+string(plant_received_water)+", T:" + string(my_id.my_cell.temperature_current_month)+", kt: "+string(_temp_factor));
+				log_event(LOGEVENT.CREATURE_ANABOLISM, my_id, _quant_anabolism, "received water: "+string(plant_received_water)+", T:" + string(my_id.my_cell.temperature_current_month)+", kt: "+string(_temp_factor));
 				plant_received_water = 0;
 				
 				
@@ -103,7 +103,7 @@ function Structure_Plant(_id, _creature_spawn_as_adult):Structure(_id, _creature
 
 				// catabolims depends only on biomass_body
 				var _quant_catabolism = _kc * biomass_body
-				LOG(LOGEVENT.CREATURE_CATABOLISM, my_id, _quant_catabolism);
+				log_event(LOGEVENT.CREATURE_CATABOLISM, my_id, _quant_catabolism);
 
 				// -- change biomass
 

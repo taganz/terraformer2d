@@ -25,7 +25,7 @@ function specie_code_from_new_prefix(new_prefix, _id_parent){
 			//ds_list_add(species_list, new_specie_code);
 		}
 		
-		LOG(LOGEVENT.SPECIE_NEW, _id_parent, new_prefix, new_specie_code, _id_parent.genome[GEN.SPECIE_CODE]);
+		log_event(LOGEVENT.SPECIE_NEW, _id_parent, new_prefix, new_specie_code, _id_parent.genome[GEN.SPECIE_CODE]);
 
 		return new_specie_code;
 }

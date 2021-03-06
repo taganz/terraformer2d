@@ -4,7 +4,7 @@ function log_data_init_world(){
 
 	show_debug_message("");
 	show_debug_message("==============================================================");
-	show_debug_message("***                     LOG INITIALIZED                   ***");
+	show_debug_message("***                     log_event INITIALIZED                   ***");
 	show_debug_message("==============================================================");
 	show_debug_message("Screen pixels:      "+string(controller.world.world_max_x)+", "+string(controller.world.world_max_y));
 	show_debug_message("World cells:        "+string(controller.world.world_w)+", "+string(controller.world.world_h));

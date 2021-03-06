@@ -19,6 +19,6 @@ show_debug_message("obj_gui. starting room:            "+room_get_name(room));
 show_debug_message("obj_gui. options_unlimited_water:  "+string(options_unlimited_water));
 show_debug_message("obj_gui. options_log:              "+string(options_log));
 
-LOG(LOGEVENT.SIMULATION_PARAMETERS, "starting room:            "+room_get_name(room));
-LOG(LOGEVENT.SIMULATION_PARAMETERS, "options_unlimited_water:  "+string(options_unlimited_water));
-LOG(LOGEVENT.SIMULATION_PARAMETERS, "options_log:              "+string(options_log));
+log_event(LOGEVENT.SIMULATION_PARAMETERS, "starting room:            "+room_get_name(room));
+log_event(LOGEVENT.SIMULATION_PARAMETERS, "options_unlimited_water:  "+string(options_unlimited_water));
+log_event(LOGEVENT.SIMULATION_PARAMETERS, "options_log:              "+string(options_log));

@@ -33,7 +33,7 @@ function state_eat_primary(_id) {
 						
 						var _msg_log = "BIOMASS_EAT: "+string(units_to_kg(_id.structure.BIOMASS_EAT))+"  biomass prey: "+string(units_to_kg(_prey.structure.biomass));
 							
-						LOG(LOGEVENT.CREATURE_EAT, _id, _prey, _biomass_got, _msg_log);
+						log_event(LOGEVENT.CREATURE_EAT, _id, _prey, _biomass_got, _msg_log);
 						
 						break;
 				}

@@ -16,7 +16,7 @@ if !controller.sim_paused {
 	
 	// monthly record 
 	if controller.time.sim_month_entry  {
-		LOG(LOGEVENT.PROBE_RAIN_TEMPERATURE, id, 
+		log_event(LOGEVENT.PROBE_RAIN_TEMPERATURE, id, 
 			string(my_cell.rain_current_month), 
 			climate_to_string(my_cell.climate),
 			string(my_cell.temperature_current_month));
@@ -25,11 +25,11 @@ if !controller.sim_paused {
 	if controller.time.sim_step_entry  {
 		
 		
-		LOG(LOGEVENT.PROBE_NUTRIENTS, id, controller.world.get_nutrients_2(NUTRIENT.MINERAL, x, y), 
+		log_event(LOGEVENT.PROBE_NUTRIENTS, id, controller.world.get_nutrients_2(NUTRIENT.MINERAL, x, y), 
 			probe_name +"_"+ controller.world.cell_to_string(x, y)); 
 			
-		//LOG(LOGEVENT.PROBE_WATER, id, controller.world.get_water(x, y), 
-		LOG(LOGEVENT.PROBE_WATER, id, string(my_cell.available_water) , 
+		//log_event(LOGEVENT.PROBE_WATER, id, controller.world.get_water(x, y), 
+		log_event(LOGEVENT.PROBE_WATER, id, string(my_cell.available_water) , 
 			probe_name +"_"+ controller.world.cell_to_string(x, y)); 
 			
 			

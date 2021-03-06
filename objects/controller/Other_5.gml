@@ -2,7 +2,7 @@
 // === close log file
 
 if room != Room0 {
-	log.log_close();
+	log_close();
 }
 
 
@@ -21,6 +21,7 @@ if room == Room0 {
 	species = new Species();
 
 	
-	log.log_open();
+	log_open();
+	log_data_init_world();
 
 }

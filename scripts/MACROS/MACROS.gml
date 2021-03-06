@@ -6,7 +6,7 @@ function MACROS(){
 #macro OBJ_CREATED_BY_CLIC obj_primary_tiny   // the object that will be created with left click
 #macro DEBUG_RAIN_UNLIMITED	false // climates give 999999 rain water
 
-// === LOG 
+// === log_event 
 
 #macro LOG_ALLOW_LOG			false		// main log switch. if false, no log file is created
 #macro LOG_CREATURE_TO_FOLLOW	100018 

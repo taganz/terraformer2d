@@ -32,13 +32,13 @@ function Structure_Animal(_id, _spawn_as_adult):Structure(_id, _spawn_as_adult) 
 		var _quant_anabolism = 0;
 		if eaten_biomass > 0 {
 			_quant_anabolism = biomass_modify (my_id, eaten_biomass * my_id.genome[GEN.ANIMAL_ANABOLISM_BIOMASS_CONVERSION]);
-			LOG(LOGEVENT.CREATURE_ANABOLISM, my_id, _quant_anabolism);
+			log_event(LOGEVENT.CREATURE_ANABOLISM, my_id, _quant_anabolism);
 			eaten_biomass -= _quant_anabolism;				  
 		}
 			
 		// catabolism
 		var _quant_catabolism = biomass_modify(my_id, - biomass * my_id.genome[GEN.METABOLIC_RATE]);
-		LOG(LOGEVENT.CREATURE_CATABOLISM, my_id, _quant_catabolism);
+		log_event(LOGEVENT.CREATURE_CATABOLISM, my_id, _quant_catabolism);
 
 		// -- biomass allocation
 
