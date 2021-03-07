@@ -125,9 +125,16 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 					}
 					if _event == LOGEVENT.CREATURE_BIOMASS_RESERVE {
 						_col_num1 = string(units_to_kg(_id1.structure._biomass_reserve_max));	
-						var _percent = _id1.structure.biomass_reserve/_id1.structure._biomass_reserve_max;
-						_col_num2 = string(_percent);
-						_col_txt1 = string(_percent)+"% reserve max"
+						if (_id1.structure._biomass_reserve_max != 0) {
+							var _percent = _id1.structure.biomass_reserve/_id1.structure._biomass_reserve_max;
+							_col_num2 = string(_percent);
+							_col_txt1 = string(_percent)+"% reserve max"
+						}
+						else {
+							var _percent = 0;
+							_col_num2 = string(_percent);
+							_col_txt1 = string(_percent)+" ERROR! reserve max == 0"
+						}
 					}
 					if _event == LOGEVENT.CREATURE_DEAD {
 						_col_num1 = string(sim_steps_to_years(_id1.structure.age));	// age

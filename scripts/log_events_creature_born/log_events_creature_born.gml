@@ -18,6 +18,7 @@ function log_events_creature_born(_id){
 		log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "biomass reproduction", units_to_kg(_id.genome[GEN.DEPRECATED_BIOMASS_REPRODUCTION]));
 		log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "biomass adult", units_to_kg(_id.genome[GEN.BIOMASS_ADULT]));
 		log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "GEN.ALLOCATION_REPRODUCTIVE", string(_id.genome[GEN.ALLOCATION_REPRODUCTIVE]));
+		log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "GEN.ANIMAL_ANABOLISM_BIOMASS_CONVERSION", string(_id.genome[GEN.ANIMAL_ANABOLISM_BIOMASS_CONVERSION]));
 		log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "GEN.ALLOCATION_RESERVE", string(_id.genome[GEN.ALLOCATION_RESERVE]));
 		log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "generation", generation);
 		log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "_reproduction_interval", sim_steps_to_years(_reproduction_interval));

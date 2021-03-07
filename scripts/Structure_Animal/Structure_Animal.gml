@@ -9,7 +9,7 @@ function Structure_Animal(_id, _spawn_as_adult):Structure(_id, _spawn_as_adult) 
 
 
 	
-	eaten_biomass = -1;
+	eaten_biomass = 0;
 	_biomass_eat_allocation = _id.genome[GEN.ALLOCATION_DIGESTIVE];
 
 

@@ -26,14 +26,12 @@ function state_eat_primary(_id) {
 						controller.world.creature_move(_id, _prey.x + 8, _prey.y + 8);
 						
 						// capture a part of biomass from one of the plants 
-						//var _biomass_got = _prey.structure.been_eated(_id, _id.structure.quant_organic_wanted);
-						//var _biomass_got = _prey.structure.been_eated(_id, _id.structure.BIOMASS_EAT);
 						var _biomass_got = been_eated(_prey, _id, _id.structure.biomass_eat);
 						_id.structure.eaten_biomass += _biomass_got; 
 						
-						var _msg_log = "biomass_eat: "+string(units_to_kg(_id.structure.biomass_eat))+"  biomass prey: "+string(units_to_kg(_prey.structure.biomass));
+						var _txt = "eaten_biomass: "+string(units_to_kg(_id.structure.eaten_biomass))+"  biomass prey: "+string(units_to_kg(_prey.structure.biomass));
 							
-						log_event(LOGEVENT.CREATURE_EAT, _id, _prey, _biomass_got, _msg_log);
+						log_event(LOGEVENT.CREATURE_EAT, _id, _prey, _biomass_got, _txt);
 						
 						break;
 				}
