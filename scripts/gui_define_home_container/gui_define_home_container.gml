@@ -3,11 +3,12 @@
 		https://github.com/DragoniteSpam/Emu/wiki/Emu-Default-Macros
 */
 
-#macro ROOMS_COLUMN_Y 32
-#macro OPTIONS_COLUMN_Y 400
 
 function gui_define_home_container(){
 	
+var ROOMS_COLUMN_Y = 32;
+var OPTIONS_COLUMN_Y = 400;
+
 var _home_container = new EmuCore(32, 32, 640, 640);
 
 // === room selection column

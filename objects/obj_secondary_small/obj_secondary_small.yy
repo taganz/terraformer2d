@@ -31,8 +31,8 @@
     {"propertyId":{"name":"class_creature","path":"objects/class_creature/class_creature.yy",},"objectId":{"name":"class_creature","path":"objects/class_creature/class_creature.yy",},"value":"state_eat_secondary","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
   ],
   "parent": {
-    "name": "Species",
-    "path": "folders/Objects/Species.yy",
+    "name": "Animals",
+    "path": "folders/Objects/Animals.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_secondary_small",

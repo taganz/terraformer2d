@@ -10,6 +10,7 @@ function gui_text_on_simulation_screen(){
 //				+ " sim_steps_per_step: "+string(ceil(controller.time.sim_steps_per_step))
 				+ " steps_per_sim_step: "+string(ceil(controller.time.steps_per_sim_step))
 				+ (controller.sim_paused ? " PAUSED" : "")
+				+ " Spawn on click: "+options_gui.object_spawn_on_click_options[options_gui.object_spawn_on_click]
 				;
 		
 		var _t2="Born: " + string(controller.world.creatures_born)
