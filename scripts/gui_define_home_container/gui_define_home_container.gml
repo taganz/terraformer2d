@@ -152,7 +152,7 @@ yy+=32;
 // --- radiation input
 
 var input = new EmuInput(OPTIONS_COLUMN_Y, yy, 350, 32, "Radiation", 
-	string(controller.default_world_radiation), "0 - 1", 3, E_InputTypes.REAL, function() {
+	string(controller.default_world_radiation), "0 - 1", 5, E_InputTypes.REAL, function() {
     controller.default_world_radiation = value;
 });
 input.SetRealNumberBounds(0, 1);

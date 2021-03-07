@@ -53,7 +53,7 @@ function genome_create(_initial_specie){
 		_genome[GEN.REPRODUCTION_INTERVAL] = 0.8;    // 
 		_genome[GEN.REPRODUCTION_DISTANCE] = 64;    // 
 		_genome[GEN.BIOMASS_BIRTH] = 3;    // 
-		_genome[GEN.BIOMASS_REPRODUCTION] = 400;    // 
+		_genome[GEN.DEPRECATED_BIOMASS_REPRODUCTION] = 400;    // 
 		_genome[GEN.BIOMASS_ADULT] = 800;    // 
 		_genome[GEN.METABOLIC_RATE] = 0.2;    // 
 		_genome[GEN.ANABOLISM_BIOMASS_PER_WATER_L] = 0.4;			
@@ -72,7 +72,7 @@ function genome_create(_initial_specie){
 		_genome[GEN.REPRODUCTION_INTERVAL] = 1.3;    // 
 		_genome[GEN.REPRODUCTION_DISTANCE] = 64;    // 
 		_genome[GEN.BIOMASS_BIRTH] = 5;    // 
-		_genome[GEN.BIOMASS_REPRODUCTION] = 100;    // 
+		_genome[GEN.DEPRECATED_BIOMASS_REPRODUCTION] = 100;    // 
 		_genome[GEN.BIOMASS_ADULT] = 250;    // 
 		_genome[GEN.METABOLIC_RATE] = 0.2;    // 
 		_genome[GEN.TEMPERATURE_OPTIMAL] = 30;			
@@ -91,7 +91,7 @@ function genome_create(_initial_specie){
 		_genome[GEN.REPRODUCTION_INTERVAL] = 1.3;    // 
 		_genome[GEN.REPRODUCTION_DISTANCE] = 64;    // 
 		_genome[GEN.BIOMASS_BIRTH] = 5;    // 
-		_genome[GEN.BIOMASS_REPRODUCTION] = 90;    // 
+		_genome[GEN.DEPRECATED_BIOMASS_REPRODUCTION] = 90;    // 
 		_genome[GEN.BIOMASS_ADULT] = 200;    //					// less biomass?
 		_genome[GEN.METABOLIC_RATE] = 0.3;    // 
 		_genome[GEN.TEMPERATURE_OPTIMAL] = 20;			
@@ -110,7 +110,7 @@ function genome_create(_initial_specie){
 		_genome[GEN.REPRODUCTION_INTERVAL] = 0.8;    // 
 		_genome[GEN.REPRODUCTION_DISTANCE] = 64;    // 
 		_genome[GEN.BIOMASS_BIRTH] = 2;    // 
-		_genome[GEN.BIOMASS_REPRODUCTION] = 5;    // 
+		_genome[GEN.DEPRECATED_BIOMASS_REPRODUCTION] = 5;    // 
 		_genome[GEN.BIOMASS_ADULT] = 10;    // 
 		_genome[GEN.ANABOLISM_BIOMASS_PER_WATER_L] =  0.4;			
 		_genome[GEN.METABOLIC_RATE] =  0.20;
@@ -129,7 +129,7 @@ function genome_create(_initial_specie){
 		_genome[GEN.REPRODUCTION_INTERVAL] = 0.8;    // 
 		_genome[GEN.REPRODUCTION_DISTANCE] = 64;    // 
 		_genome[GEN.BIOMASS_BIRTH] = 4;    // 
-		_genome[GEN.BIOMASS_REPRODUCTION] = 10;    // 
+		_genome[GEN.DEPRECATED_BIOMASS_REPRODUCTION] = 10;    // 
 		_genome[GEN.BIOMASS_ADULT] = 20;    // 
 		_genome[GEN.ANABOLISM_BIOMASS_PER_WATER_L] =  0.6;			
 		_genome[GEN.METABOLIC_RATE] =  0.4;
@@ -148,8 +148,8 @@ function genome_create(_initial_specie){
 		_genome[GEN.AGE_DEAD] = 4;    // 
 		_genome[GEN.REPRODUCTION_INTERVAL] = 0.05;    // 
 		_genome[GEN.REPRODUCTION_DISTANCE] = 128;    // 
-		_genome[GEN.GROWTH_KG_YR] = 50;     
-		_genome[GEN.AGE_ADULT] = 1;         
+		_genome[GEN.DEPRECATED_GROWTH_KG_YR] = 50;     
+		_genome[GEN.DEPRECATED_AGE_ADULT] = 1;         
 		_genome[GEN.ANIMAL_ANABOLISM_BIOMASS_CONVERSION] = 0.5 // 
 		_genome[GEN.METABOLIC_RATE] =  0.12;
 		_genome[GEN.ALLOCATION_DIGESTIVE] = 0.2;    // kg
@@ -162,8 +162,8 @@ function genome_create(_initial_specie){
 		_genome[GEN.AGE_DEAD] = 4;    // 
 		_genome[GEN.REPRODUCTION_INTERVAL] = 0.05;    // 
 		_genome[GEN.REPRODUCTION_DISTANCE] = 128;    // 
-		_genome[GEN.GROWTH_KG_YR] = 5;     
-		_genome[GEN.AGE_ADULT] = 1;         
+		_genome[GEN.DEPRECATED_GROWTH_KG_YR] = 5;     
+		_genome[GEN.DEPRECATED_AGE_ADULT] = 1;         
 		_genome[GEN.ANIMAL_ANABOLISM_BIOMASS_CONVERSION] = 0.5 // 
 		_genome[GEN.METABOLIC_RATE] =  0.12;
 		_genome[GEN.ALLOCATION_DIGESTIVE] = 0.4;    // kg
@@ -173,11 +173,11 @@ function genome_create(_initial_specie){
 		case SPECIE.SECONDARY_SMALL: 
 		_genome[GEN.INITIAL_SPECIE_NAME] = "Secondary small";    
 		_genome[GEN.TROPHIC_LEVEL] = TROPHIC_LEVEL.SECONDARY;    // 
-		_genome[GEN.AGE_ADULT] = 2;    // 
+		_genome[GEN.DEPRECATED_AGE_ADULT] = 2;    // 
 		_genome[GEN.AGE_DEAD] = 7;    // 
 		_genome[GEN.REPRODUCTION_INTERVAL] = 1;    // 
 		_genome[GEN.REPRODUCTION_DISTANCE] = 128;    // 
-		_genome[GEN.GROWTH_KG_YR] = 10;    // 
+		_genome[GEN.DEPRECATED_GROWTH_KG_YR] = 10;    // 
 		// new
 		_genome[GEN.ANIMAL_ANABOLISM_BIOMASS_CONVERSION] = 1    // 
 		_genome[GEN.METABOLIC_RATE] =  0.12;

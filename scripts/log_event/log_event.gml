@@ -69,8 +69,11 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 					_col_name = _id1.creature_log_name;
 					_col_trophic_level = trophic_level_to_string(_id1.genome[GEN.TROPHIC_LEVEL]);
 					_col_specie = string(_id1.genome[GEN.SPECIE_CODE]);
-					_col_x = string(_id1.my_cell.x_cell);
-					_col_y = string(_id1.my_cell.y_cell);
+					
+					if (_id1.my_cell != 0) {
+						_col_x = string(_id1.my_cell.x_cell);
+						_col_y = string(_id1.my_cell.y_cell);
+					}
 				
 				
 					//if _event == LOGEVENT.CREATURE_ADULT {

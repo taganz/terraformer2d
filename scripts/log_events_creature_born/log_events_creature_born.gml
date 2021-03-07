@@ -11,11 +11,11 @@ function log_events_creature_born(_id){
 		log_event(LOGEVENT.CREATURE_BORN_INFO, _id, "creature_sprite_head", sprite_get_name(_id.creature_sprite_head));
 		log_event(LOGEVENT.CREATURE_BORN_INFO, _id, "Climate", climate_to_string(_id.my_cell.climate));
 		log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "age", sim_steps_to_years(_id.structure.age));
-		//log_event(LOGEVENT.CREATURE_BORN_INFO, _id, "age_adult: "+string(sim_steps_to_years(age_adult))+"y ");
+		//log_event(LOGEVENT.CREATURE_BORN_INFO, _id, "DEPRECATED_AGE_ADULT: "+string(sim_steps_to_years(DEPRECATED_AGE_ADULT))+"y ");
 		log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "age_die", sim_steps_to_years(age_die));
 		log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "biomass", units_to_kg(biomass));
 		log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "biomass birth", units_to_kg(_id.genome[GEN.BIOMASS_BIRTH]));
-		log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "biomass reproduction", units_to_kg(_id.genome[GEN.BIOMASS_REPRODUCTION]));
+		log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "biomass reproduction", units_to_kg(_id.genome[GEN.DEPRECATED_BIOMASS_REPRODUCTION]));
 		log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "biomass adult", units_to_kg(_id.genome[GEN.BIOMASS_ADULT]));
 		log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "GEN.ALLOCATION_REPRODUCTIVE", string(_id.genome[GEN.ALLOCATION_REPRODUCTIVE]));
 		log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "GEN.ALLOCATION_RESERVE", string(_id.genome[GEN.ALLOCATION_RESERVE]));

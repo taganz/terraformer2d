@@ -11,7 +11,7 @@ if !controller.sim_paused {
 
 		if structure.is_dead==false {
 			
-			// increment age, calculate age_adult
+			// increment age, calculate DEPRECATED_AGE_ADULT
 			
 			age_growth(id);
 			

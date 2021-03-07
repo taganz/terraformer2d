@@ -27,15 +27,15 @@ function gen_enum(){
 		ANABOLISM_BIOMASS_PER_WATER_L,		// 14 - kg of biomass generatd per l
 		ALLOCATION_RESERVE,					// 15 - % of biomass used as reserve
 		METABOLIC_RATE,						// 16 - kg of biomass consumed per biomass kg per year
-		GROWTH_KG_YR,						// 17 - kg per year consumed during growth
-		AGE_ADULT,							// 18
+		DEPRECATED_GROWTH_KG_YR,			// 17 - kg per year consumed during growth
+		DEPRECATED_AGE_ADULT,							// 18
 		PLANT_BODY_DENSITY,					// 19 - biomass kg / volum m3	
 		PLANT_BODY_FORM_FACTOR,				// 20 - (sprite height m / sprite width m2) ** 2
 		PLANT_HEAD_DENSITY,					// 21 
 		PLANT_HEAD_FORM_FACTOR,				// 22
 		ANIMAL_ANABOLISM_BIOMASS_CONVERSION, // 23			// conversion from eaten biomass to creature biomass
 		BIOMASS_BIRTH,						// 24
-		BIOMASS_REPRODUCTION,				// 25		minimum mass to start reproduction
+		DEPRECATED_BIOMASS_REPRODUCTION,				// 25		minimum mass to start reproduction
 		BIOMASS_ADULT,						// 26
 		AGE_DEAD							// 27
 	

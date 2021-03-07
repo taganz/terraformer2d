@@ -42,6 +42,7 @@ function Structure(_id, _spawn_as_adult) constructor {
 	biomass_eat = 0;					// leaf for plants
 	biomass_body = 0;					// trunk for plants
 	biomass_reproduction = 0;			
+	_biomass_eat_allocation = -1;		// different in plants and animals
 	
 	// creature has a reserve of 0-max. max is a fraction of _biomass_max
 	// if reserve goes
@@ -70,6 +71,15 @@ function Structure(_id, _spawn_as_adult) constructor {
 	_reproduction_interval = years_to_sim_steps(my_id.genome[GEN.REPRODUCTION_INTERVAL])*random_range(0.9, 1.1);	// steps
 	_reproduction_distance = my_id.genome[GEN.REPRODUCTION_DISTANCE]*random_range(0.9, 1.1);		
 
+	// anabolism is affected by a temperature coefficient
+	//  - below Tmin:  kt = 0
+	//	- range Tmin - Topt1:  kt =  grow linearly from 0 to 1
+	//  - range Topt1 - Topt2: kt = 1 
+	//	- above Topt2: kt = 0
+	_Topt2 = my_id.genome[GEN.TEMPERATURE_OPTIMAL] + my_id.genome[GEN.TEMPERATURE_RANGE];
+	_Topt1 = my_id.genome[GEN.TEMPERATURE_OPTIMAL];
+	_Tmin  = my_id.genome[GEN.TEMPERATURE_OPTIMAL] - my_id.genome[GEN.TEMPERATURE_RANGE];
+	
 	
 	// -- private vars
 	
