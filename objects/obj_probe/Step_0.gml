@@ -4,7 +4,7 @@
 // initialize here to be sure controller exists
 
 if (controller.time.current_step == 1) {
-	controller.world.grid_create_cell_pixel(x,y);
+	world_create_cell_pixel(x,y);
 	my_cell =  cell_from_pixel(x,y);
 	show_debug_message("Starting probe "+string(id)+" "+probe_name);
 	
@@ -25,8 +25,8 @@ if !controller.sim_paused {
 	if controller.time.sim_step_entry  {
 		
 		
-		log_event(LOGEVENT.WORLD_PROBE_NUTRIENTS, id, controller.world.get_nutrients_2(NUTRIENT.MINERAL, x, y), 
-			probe_name +"_"+ cell_to_string(x, y)); 
+		//log_event(LOGEVENT.WORLD_PROBE_NUTRIENTS, id, controller.world.get_nutrients_2(NUTRIENT.MINERAL, x, y), 
+		//	probe_name +"_"+ cell_to_string(x, y)); 
 			
 		//log_event(LOGEVENT.WORLD_PROBE_WATER, id, controller.world.get_water(x, y), 
 		log_event(LOGEVENT.WORLD_PROBE_WATER, id, string(my_cell.available_water) , 

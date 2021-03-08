@@ -22,13 +22,13 @@ function state_reproduction(_id){
 		var _yTo = _id.y + _d * random_range (0.5, 1) * choose(-1, 1);
 				
 		// check if birth place is inside world
-		if controller.world.is_inside_world(_xTo, _yTo) {
+		if world_is_inside_pixel(_xTo, _yTo) {
 					
 			// create child creature
 			var _child = instance_create_layer(_xTo, _yTo, "Instances", _id.object_index);
 					
 			// give genome to child
-			_child.genome = genome_offspring_copy(_id, controller.world.get_radiation(_id.x, _id.y));
+			_child.genome = genome_offspring_copy(_id, world_get_radiation(_id.x, _id.y));
 										
 			// give biomass to child
 			//var _biomass_give = - _id.structure.biomass_modify(-_id.structure.biomass_reproduction); 

@@ -6,13 +6,13 @@ for (var i=0; i< spawner_quantity ;i++) {
 	var total = 0;
 
 	// calculate birt place
-	while controller.world.is_inside_world(_xTo, _yTo) == false || _try++ > 10 {
+	while world_is_inside_pixel(_xTo, _yTo) == false || _try++ > 10 {
 		_xTo = x + spawner_distance_max * random_range (0.1, 1) * choose(-1, 1);
 		_yTo = y + spawner_distance_max * random_range (0.1, 1) * choose(-1, 1);
 	}
 				
 	// check if birth place is inside world
-	if controller.world.is_inside_world(_xTo, _yTo) {
+	if world_is_inside_pixel(_xTo, _yTo) {
 					
 		// create child creature
 		_id = instance_create_layer(_xTo, _yTo, "Instances", spawner_object_to_spawn);

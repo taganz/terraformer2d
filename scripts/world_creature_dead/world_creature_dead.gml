@@ -8,7 +8,7 @@ function world_creature_dead(_id){
 		var _y = _id.y;
 		
 		// is position ok?
-		if is_inside_world(_x, _y) {
+		if world_is_inside_pixel(_x, _y) {
 			
 			var xx = floor(_x/CELL_SIZE);
 			var yy = floor(_y/CELL_SIZE);

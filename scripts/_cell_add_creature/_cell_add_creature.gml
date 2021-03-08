@@ -8,7 +8,7 @@ function _cell_add_creature (_id, _x_cell, _y_cell) {
 			
 			// if there is still no cell at position create one
 			if cell == 0 {
-				grid_create_cell(_x_cell, _y_cell)
+				_grid_create_cell(_x_cell, _y_cell)
 			}
 
 			// add creature to cell;

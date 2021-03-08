@@ -2,7 +2,7 @@
 function cell_to_string(_x, _y){
 	
 	with controller.world {
-		if is_inside_world(_x, _y) {
+		if world_is_inside_pixel(_x, _y) {
 			var cell = ds_grid_get(grid_cells, floor(_x/CELL_SIZE), floor(_y/CELL_SIZE));
 			var s = string(floor(_x/CELL_SIZE)) +","+ string(floor(_y/CELL_SIZE));
 			// s = s + "\nbiomass_decomposition_factor: "+string(biomass_decomposition_factor);

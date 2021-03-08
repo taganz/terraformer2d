@@ -5,7 +5,7 @@ function world_creature_born(_id, _x, _y) {
 	// add creature to grid_cells at cell corresponding to pixels _x, _y
 	with controller.world {
 		
-		if is_inside_world(_x, _y) {
+		if world_is_inside_pixel(_x, _y) {
 			
 			var xx = floor(_x/CELL_SIZE);
 			var yy = floor(_y/CELL_SIZE);
