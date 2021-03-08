@@ -44,61 +44,6 @@ function World() constructor {
 #endregion
 
 
-	//biomass_decomposition_factor = BIOMASS_DECOMPOSITION_FACTOR;
-
-	// update water and sun for plants of active cells depending on soil type and climate
-	rain = function() {
-		// update available water and sun for plants of active cells depending on soil type and climate
-		// in
-		//		time, rain depends on current month
-		//		cell.climate, rain depends on climate
-		//		cell.soil_available_water_max
-		//		cell.creatures.biomass_eat
-		// out
-		//		cell.available_water
-		//		cell.creature.plant_received_water: 
-		//		cell.creature.plant_received_sun: 1 <---					// for all cells 
-		for (var i=0; i< ds_grid_width(grid_cells); i++) {
-			for (var j=0; j< ds_grid_height(grid_cells); j++) {
-				var _cell = grid_cells[# i, j];
-				// if cell is initialized
-				if _cell!= 0 {
-						
-					// update temperature						
-					_cell.temperature_current_month = climate_temperature(_cell.climate, controller.time.current_sim_month);	
-						
-					// update available water with rain
-					var _rain = climate_rain(_cell.climate, controller.time.current_sim_month);	
-					_cell.rain_current_month = _rain;
-					_cell.available_water = ((_rain + _cell.available_water) < _cell.soil_available_water_max) 
-								? _cell.available_water + _rain 
-								: _cell.soil_available_water_max;
-
-					// distribute water among producers
-					for (var c=0; c < ds_list_size(_cell.list_creatures);c++) {
-						var producer_id = _cell.list_creatures[|c];
-						if producer_id.genome[GEN.TROPHIC_LEVEL]==TROPHIC_LEVEL.PRODUCER  {
-								
-							// give water to creature 
-							var _quant_water = clamp(producer_id.structure.biomass_eat*WORLD_WATER_PER_LEAF_KG, 0, _cell.available_water);
-							producer_id.structure.plant_received_water += _quant_water;
-							_cell.available_water -= _quant_water;
-								
-							// updates solar energy received
-							producer_id.structure.plant_received_sun = 1;
-								
-							// no more water to give
-							if _cell.available_water == 0 
-								break;
-								
-						}
-							
-					}
-				}
-			}
-		}
-	}
-		
 	// decrement nutrient in the cell and return obtained value
 	nutrients_eaten = function (_nutrient, _quant_wanted, _x, _y) {
 		var _quant_got =  grid_cells[# _x div CELL_SIZE, _y div CELL_SIZE].map_nutrients[? _nutrient];
@@ -122,25 +67,23 @@ function World() constructor {
 		return _cell == 0 ? 0 : _cell.available_water;
 	}
 	
-	// get cell from pixel. 0 if not exists?
-	get_cell = function(_x, _y) {
-		return grid_cells[# _x div CELL_SIZE, _y div CELL_SIZE];
-	}
 
-	// return list of creatures in this cell
-	get_creatures_cell = function(_x, _y) {
-		return grid_cells[# _x div CELL_SIZE, _y div CELL_SIZE].list_creatures;
-	}
-	
+
 	// return list of creatures in 9 cells. try first same cell
 	// assumes that calling creature is at _x, _y 
-	get_creatures_close_cells = function(_x, _y) {
+	get_creatures_close_cells = function(_x, _y, kind) {
+		ASSERT(kind == "big" or kind = "small", 0, "get_creatures_close_cells invalid parameter kind="+string(kind));
+		
 		//var _msg = "";
 		var _xx = _x div CELL_SIZE;
 		var _yy = _y div CELL_SIZE;
 		
 		// try first same cell
-		var _list = grid_cells[# _x div CELL_SIZE, _y div CELL_SIZE].list_creatures;
+		if kind == "small" 
+			var _list = grid_cells[# _x div CELL_SIZE, _y div CELL_SIZE].list_producers_small;
+		else
+			var _list = grid_cells[# _x div CELL_SIZE, _y div CELL_SIZE].list_producers_big;
+		
 		
 		if ds_list_size(_list) == 1 {			// 1 it's me
 
@@ -158,10 +101,14 @@ function World() constructor {
 					
 						// check if there is a initialized cell. if so, get list_creatures
 						var _cell = grid_cells[# _xx_check, _yy_check];
-						if _cell!= 0						
-							_list = _cell.list_creatures;
+						if _cell!= 0 {						
+							if kind == "small" 
+								_list = _cell.list_producers_small;
+							else
+								_list = _cell.list_producers_big;
 							if ds_list_empty(_list)
 								break;
+						}
 					}
 				}
 			}
@@ -213,130 +160,7 @@ function World() constructor {
 		
 	}
 	
-	// add creature to a cell without changing statistics. create cell if it doesn't exist yet 
-	_creature_add_to_cell = function (_id, _x_cell, _y_cell) {
-			
-			// check if cell already exist and creat it if not
-			var cell = ds_grid_get(grid_cells, _x_cell, _y_cell);
-			
-			// if there is still no cell at position create one
-			if cell == 0 {
-				grid_create_cell(_x_cell, _y_cell)
-			}
-
-			// add creature to cell;
-			ds_list_add(grid_cells[# _x_cell, _y_cell].list_creatures, _id);
-			
-			return grid_cells[# _x_cell, _y_cell];
-			
-	}
-		
-	// remove creature from cell without changing statistics
-	_creature_remove_from_cell = function (_id, _x_cell, _y_cell) {
-		
-		// is there a cell at position?
-		var cell = ds_grid_get(grid_cells, _x_cell, _y_cell);
-		ASSERT(is_undefined(cell)== false, _id, "world.creature_dead invalid grid_cell coordinates ");
-		if cell!=0 {
-				// is the creature in its list?
-				var pos_in_list = ds_list_find_index(grid_cells[# _x_cell, _y_cell].list_creatures, _id);
-				if pos_in_list != -1 {
-						
-					// remove creature from list
-					ds_list_delete(grid_cells[# _x_cell, _y_cell].list_creatures, pos_in_list);
-				}
-				else {
-						show_debug_message("*** WARNING *** no creature in _creature_remove_from_cell: "+string(_id)+": "+string(_x_cell)+","+string(_y_cell));
-				}
-		}
-		else {
-			show_debug_message("*** WARNING *** no cell in _creature_remove_from_cell: "+string(_id)+": "+string(_x_cell)+","+string(_y_cell));
-		}
-	}
 	
-	// add creature to grid_cells at cell corresponding to pixels _x, _y
-	creature_born = function (_id, _x, _y)  {
-		
-		if is_inside_world(_x, _y) {
-			
-			var xx = floor(_x/CELL_SIZE);
-			var yy = floor(_y/CELL_SIZE);
-			
-			var cell = _creature_add_to_cell (_id, xx, yy);
-				
-			// update stats
-			creatures_live_now ++;
-			trophic_level_live_now[_id.genome[GEN.TROPHIC_LEVEL]]++;
-			creatures_born ++;
-			creatures_peak = creatures_peak <= creatures_live_now ? creatures_live_now : creatures_peak;
-
-			//log_event(LOGEVENT.SPECIE_CLIMATE_BORN, _id, climate_to_string(cell.climate));
-
-		}
-		else {
-			show_debug_message("*** WARNING *** invalid x, y in creature_born: "+string(_id)+": "+string(_x)+","+string(_y));
-			
-			// instance_destroy   <--- TBC
-			
-		}
-
-	}
-
-	// change creature position and move it from cell if necessary
-	creature_move = function (_id, _xTo, _yTo) {
-	
-		var _x_origin = _id.x;
-		var _y_origin = _id.y;
-		
-		// change creature position
-		_id.x = _xTo;
-		_id.y = _yTo;
-		
-		// has changed cell?
-		if (_x_origin div CELL_SIZE != _xTo div CELL_SIZE) 
-			|| (_y_origin div CELL_SIZE != _yTo div CELL_SIZE) {
-			
-			// remove from old cell
-			_creature_remove_from_cell(_id, _x_origin div CELL_SIZE, _y_origin div CELL_SIZE);
-			
-			// add to new cell
-			_creature_add_to_cell (_id, _xTo div CELL_SIZE, _yTo div CELL_SIZE);
-			}
-	}
-
-	// remove creature from list_creatures from grid_cells at cell corresponding to pixels _x, _y
-	// add to list_dead_creatures
-	creature_dead = function (_id) {
-		
-		var _x = _id.x;
-		var _y = _id.y;
-		
-		// is position ok?
-		if is_inside_world(_x, _y) {
-			
-			var xx = floor(_x/CELL_SIZE);
-			var yy = floor(_y/CELL_SIZE);
-			
-			// remove from live creatures
-			_creature_remove_from_cell (_id, xx, yy);
-			
-			// add to dead creatures
-			ds_list_add(grid_cells[# xx, yy].list_dead_creatures, _id);
-						
-			// update stats
-			creatures_live_now --;
-			trophic_level_live_now[_id.genome[GEN.TROPHIC_LEVEL]]--;
-			creatures_dead ++;
-			creatures_peak = creatures_peak <= creatures_live_now ? creatures_live_now : creatures_peak;
-
-			// log
-			//controller.log.creature_dead(_id);
-			
-		}
-		else {
-			show_debug_message("*** WARNING *** invalid x, y in creature_dead: "+string(_id)+": "+string(_x)+","+string(_y));
-		}
-	}
 
 	// simulating decomposers tranforming corpse into organic nutrients
 	biomass_decomposition = function (_id) {
@@ -356,43 +180,9 @@ function World() constructor {
 		return _decomp;
 	}
 	
-	// remove from list_dead_creatures
-	// to be called when a creature destroy its instance
-	creature_remove = function (_id) {
-
-		var xx = floor(_id.x/CELL_SIZE);
-		var yy = floor(_id.y/CELL_SIZE)
-		var cell = ds_grid_get(grid_cells, xx, yy);
-		if cell >0 {
-			//var pos_in_list = ds_list_find_index(grid_cells[# xx, yy].list_dead_creatures, _id );
-			var pos_in_list = ds_list_find_index(cell.list_dead_creatures, _id );
-			//ASSERT(pos_in_list !=1, "world.creature_remove error pos_in_list for creature "+string(_id));
-			//if pos_in_list == -1
-			ASSERT(pos_in_list != -1, _id, "world.creature_remove error pos_in_list for creature "+string(_id)+" at "+string(_id.x)+","+string(_id.y));
-			if pos_in_list != -1 {
-					ds_list_delete(grid_cells[# xx, yy].list_dead_creatures, pos_in_list);
-			}
-		}
-
-	}
-
-
-	// return a string showing creatures and nutrients for cell corresponding to pixels _x, _y
 	
-	cell_to_string = function(_x, _y) {
-		if is_inside_world(_x, _y) {
-			var cell = ds_grid_get(grid_cells, floor(_x/CELL_SIZE), floor(_y/CELL_SIZE));
-			var s = string(floor(_x/CELL_SIZE)) +","+ string(floor(_y/CELL_SIZE));
-			// s = s + "\nbiomass_decomposition_factor: "+string(biomass_decomposition_factor);
-			if (cell == 0)
-				return s+": empty cell";
-			else
-				return s+":\n"+cell.to_string();
-		}
-		else {
-			return "error x,y cell_to_string";
-		}
-	}
+
+
 
 	// is this point inside the window?
 	

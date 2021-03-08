@@ -14,8 +14,8 @@ function state_born(_id){
 
 	
 	// can not put this at create event to assure controller has already created world
-	controller.world.creature_born(_id, _id.x, _id.y);
-	_id.my_cell = controller.world.get_cell(_id.x, _id.y);
+	world_creature_born(_id, _id.x, _id.y);
+	_id.my_cell = cell_from_pixel(_id.x, _id.y);
 	
 	// add to species the initial species
 	if _id.structure.generation == 1 {

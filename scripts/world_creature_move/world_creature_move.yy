@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "climate",
-    "path": "folders/Scripts/World/climate.yy",
+    "name": "World",
+    "path": "folders/Scripts/World.yy",
   },
   "resourceVersion": "1.0",
-  "name": "climate_temperature",
+  "name": "world_creature_move",
   "tags": [],
   "resourceType": "GMScript",
 }

@@ -33,7 +33,7 @@ function log_screen_world(){
 				}
 				draw_text(x_draw, y_draw, "Pixels: "+string(mouse_x)+","+string(mouse_y)+" Grid: "+string(_xx)+","+string(_yy));
 					y_draw+=32;
-				draw_text(x_draw, y_draw, "Cell: "+controller.world.cell_to_string(mouse_x, mouse_y));
+				draw_text(x_draw, y_draw, "Cell: "+cell_to_string(mouse_x, mouse_y));
 					y_draw+=32;
 			
 					

@@ -12,7 +12,7 @@ if room != Room0 {
 				
 		// once per month
 		if time.sim_month_entry
-				world.rain();		
+			rain();		
 	
 
 	}

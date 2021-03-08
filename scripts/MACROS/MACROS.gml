@@ -43,6 +43,7 @@ function MACROS(){
 #macro WORLD_WATER_PER_LEAF_KG 2 // 2			// per month
 #macro SOIL_FIELD_CAPACITY 0.5 //  (gr water/ gr dry soil), depends on soil type (field capacity - wilting point)
 #macro SOIL_WEIGHT_PER_CELL 3500 // 1500
+#macro BIOMASS_ADULT_BIG_THRESHOLD  100		// the threshold among small and big plants
 
 // === TIME
 

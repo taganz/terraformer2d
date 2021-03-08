@@ -5,7 +5,11 @@
 function Cell() constructor {
 	x_cell = -1;
 	y_cell = -1;
-	list_creatures = ds_list_create();
+	//list_creatures = ds_list_create();
+	list_producers_small = ds_list_create();
+	list_producers_big = ds_list_create();
+	list_primaries = ds_list_create();
+	list_secondaries = ds_list_create();
 	list_dead_creatures = ds_list_create();
 	soil_type = SOIL.DEFAULT;
 	soil_available_water_max = SOIL_FIELD_CAPACITY * SOIL_WEIGHT_PER_CELL;  // l/CELL
@@ -26,8 +30,17 @@ function Cell() constructor {
 		
 		// concatenate creatures
 		ss += "Creatures: ";
-		for (var i = 0; i< ds_list_size(list_creatures);i++) {
-			ss = ss + string(ds_list_find_value(list_creatures, i))+ ".";
+		for (var i = 0; i< ds_list_size(list_producers_small);i++) {
+			ss = ss + string(ds_list_find_value(list_producers_small, i))+ ".";
+		}
+		for (var i = 0; i< ds_list_size(list_producers_big);i++) {
+			ss = ss + string(ds_list_find_value(list_producers_big, i))+ ".";
+		}
+		for (var i = 0; i< ds_list_size(list_primaries);i++) {
+			ss = ss + string(ds_list_find_value(list_primaries, i))+ ".";
+		}
+		for (var i = 0; i< ds_list_size(list_secondaries);i++) {
+			ss = ss + string(ds_list_find_value(list_secondaries, i))+ ".";
 		}
 		// concatenate dead creatures
 		ss = ss + "\nDead creatures: ";
