@@ -1,5 +1,4 @@
 
-
 if room != Room0 {
 
 	if !controller.sim_paused {

@@ -20,7 +20,6 @@ if room == Room0 {
 	// holds species statistics, initial species definitions
 	species = new Species();
 
-	
 	log_open();
 	log_events_init_world();
 

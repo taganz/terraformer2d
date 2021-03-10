@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Log",
-    "path": "folders/Scripts/Log.yy",
+    "name": "GUI",
+    "path": "folders/Scripts/GUI.yy",
   },
   "resourceVersion": "1.0",
-  "name": "log_screen_world",
+  "name": "gui_follow",
   "tags": [],
   "resourceType": "GMScript",
 }
