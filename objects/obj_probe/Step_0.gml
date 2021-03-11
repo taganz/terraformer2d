@@ -30,7 +30,7 @@ if !controller.sim_paused {
 			
 		//log_event(LOGEVENT.WORLD_PROBE_WATER, id, controller.world.get_water(x, y), 
 		log_event(LOGEVENT.WORLD_PROBE_WATER, id, string(my_cell.available_water) , 
-			probe_name +"_"+ cell_to_string(x, y)); 
+			probe_name +"_"+ cell_to_string(cell_from_pixel(x, y))); 
 			
 			
 		//last_sim_step = controller.time.current_sim_step;

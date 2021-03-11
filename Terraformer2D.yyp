@@ -109,7 +109,6 @@
     {"id":{"name":"spr_emu_demo_birb_red","path":"sprites/spr_emu_demo_birb_red/spr_emu_demo_birb_red.yy",},"order":6,},
     {"id":{"name":"world_creature_remove","path":"scripts/world_creature_remove/world_creature_remove.yy",},"order":8,},
     {"id":{"name":"specie_code_y","path":"scripts/specie_code_y/specie_code_y.yy",},"order":8,},
-    {"id":{"name":"log_text_creature","path":"scripts/log_text_creature/log_text_creature.yy",},"order":0,},
     {"id":{"name":"gui_debug_toogle","path":"scripts/gui_debug_toogle/gui_debug_toogle.yy",},"order":7,},
     {"id":{"name":"spr_emu_radio","path":"sprites/spr_emu_radio/spr_emu_radio.yy",},"order":15,},
     {"id":{"name":"scribble_autotype_get","path":"scripts/scribble_autotype_get/scribble_autotype_get.yy",},"order":3,},
