@@ -24,13 +24,13 @@ else {
 		simulation_container.Render();
 		EmuOverlay.Render();		
 		
-		// show creature info 
-		if keyboard_check(vk_shift) {
+		// show creature info on mouse position
+		if input_show_creature_info {
 			gui_draw_creature_info();
 		}
 		
-		// show cell info
-		if keyboard_check(vk_control) {
+		// show cell info on mouse position
+		if input_show_cell_info {
 			gui_draw_cell_info();
 		}
 

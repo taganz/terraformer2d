@@ -17,7 +17,9 @@ function gui_draw_creature_info(){
 		
 				draw_set_colour(c_black);
 				draw_set_font(fnt_small);
-				draw_text(50, 400, _log_text_creature(_id));
+				draw_set_valign(fa_top);
+				
+				draw_text(50, 200, _log_text_creature(_id));
 				showing_debug_data_for_creature = _id;
 		
 				// if q is pressed, activate log for this creature
@@ -38,10 +40,10 @@ function gui_draw_creature_info(){
 function _log_text_creature(_id){
 
 	return string(_id) 
-	+ "\n"+gen_to_string(_id.genome[GEN.SPECIE_CODE])
-	+ "\ninitial_specie: "+string(_id.genome[GEN.INITIAL_SPECIE])
-	+ "\n"+string_format(units_to_kg(_id.structure.biomass), 4, 1)+"kg"
-	+ "\n"+string(sim_steps_to_years(_id.structure.age))+"y"
+	+ "\nSpecie: "+gen_to_string(_id.genome[GEN.SPECIE_CODE])
+	+ "\nInitial specie: "+string(_id.genome[GEN.INITIAL_SPECIE])
+	+ "\nBiomass: "+string_format(units_to_kg(_id.structure.biomass), 4, 1)+"kg"
+	+ "\nAge: "+string(sim_steps_to_years(_id.structure.age))+"y"
 	+ "\nSTATE: " + _id.state.to_string()
 	+ "\nCELL:"+cell_to_string(_id.my_cell)
 	;

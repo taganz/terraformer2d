@@ -28,6 +28,10 @@ options_unlimited_water = DEBUG_RAIN_UNLIMITED;
 options_log = new log_user_options();
 options_gui = new gui_user_options();
 
+// === key input
+input_show_cell_info = false;
+input_show_creature_info = false;
+
 // === gui containers
 home_container = -1;
 simulation_container = -1;

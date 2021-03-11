@@ -43,37 +43,6 @@ function World() constructor {
 	
 #endregion
 
-/*
-
-	// decrement nutrient in the cell and return obtained value
-	nutrients_eaten = function (_nutrient, _quant_wanted, _x, _y) {
-		var _quant_got =  grid_cells[# _x div CELL_SIZE, _y div CELL_SIZE].map_nutrients[? _nutrient];
-		ASSERT(is_undefined(_quant_got)==false, 0, "world.nutrients_eaten error getting nutrient "+string(_nutrient)+ " at "+string(_x)+","+string(_y));
-		if _quant_got > _quant_wanted {
-			_quant_got = _quant_wanted;
-		}
-		grid_cells[# _x div CELL_SIZE, _y div CELL_SIZE].map_nutrients[? _nutrient] -= _quant_got;
-		return _quant_got;
-	}
-
-*/
-
-/*
-	// return nutrients in the cell	
-	get_nutrients_2 = function (_nutrient, _x, _y) {
-		var _cell = grid_cells[# _x div CELL_SIZE, _y div CELL_SIZE];
-		return _cell == 0 ? 0 : _cell.map_nutrients[? _nutrient];
-	}
-
-*/
-
-/*
-	// return available water in cell	
-	get_water = function (_x, _y) {
-		var _cell = grid_cells[# _x div CELL_SIZE, _y div CELL_SIZE];
-		return _cell == 0 ? 0 : _cell.available_water;
-	}
-*/	
 
 
 	

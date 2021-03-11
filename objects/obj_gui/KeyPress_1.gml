@@ -31,7 +31,6 @@ if room!= Room0 {
 	}
 
 
-
 	// simulation speed decrease
 	if keyboard_check(ord("2")) 
 		time_sim_slower();
@@ -40,6 +39,11 @@ if room!= Room0 {
 	if keyboard_check(ord("4")) {
 		gui_debug_toogle();
 	}
+
+	input_show_creature_info = keyboard_check(vk_shift);
+	input_show_cell_info = keyboard_check(vk_control);
+
+
 
 	/*
 	// next room

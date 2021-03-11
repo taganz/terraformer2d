@@ -11,6 +11,7 @@ if room != Room0 {
 if room == Room0 {
 	sim_paused = false;
 	global.debug = false;
+	debug_morphology_creatures_as_dots = false;
 	time = new Time();
 
 	world = new World();
