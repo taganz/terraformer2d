@@ -11,5 +11,6 @@ function log_user_options () constructor {
 	LOG_CREATURES_ALL		= false;	// false = log CREATURE events only for followed creature
 	LOG_BORN_DEAD_SUMMARY	= false;	// log info at birth and dead for all creatures
 	LOG_WORLD				= false;	// log WORLD events
+	log_user_spawned_creatures	= true;		// set log for user spawned creatures
 
 }

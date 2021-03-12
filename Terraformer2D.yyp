@@ -271,7 +271,6 @@
     {"id":{"name":"genome_create","path":"scripts/genome_create/genome_create.yy",},"order":4,},
     {"id":{"name":"class_creature_plant","path":"objects/class_creature_plant/class_creature_plant.yy",},"order":10,},
     {"id":{"name":"scribble_set_starting_format","path":"scripts/scribble_set_starting_format/scribble_set_starting_format.yy",},"order":8,},
-    {"id":{"name":"gui_follow","path":"scripts/gui_follow/gui_follow.yy",},"order":11,},
     {"id":{"name":"scribble_set_transform","path":"scripts/scribble_set_transform/scribble_set_transform.yy",},"order":10,},
     {"id":{"name":"spr_tree_head_sheet_4x4_1","path":"sprites/spr_tree_head_sheet_4x4_1/spr_tree_head_sheet_4x4_1.yy",},"order":0,},
     {"id":{"name":"Time_backup","path":"scripts/Time_backup/Time_backup.yy",},"order":4,},

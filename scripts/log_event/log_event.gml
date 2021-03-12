@@ -59,8 +59,8 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 			
 				// should we log this event?
 				if (obj_gui.options_log.LOG_CREATURES_ALL
-						or (obj_gui.options_log.LOG_CREATURES_FOLLOWING and _id1 == obj_gui.gui.creature_to_follow)) 
-						or _id1.creature_log==true {
+						//or (obj_gui.options_log.LOG_CREATURES_FOLLOWING and _id1 == obj_gui.gui.creature_to_follow)) 
+						or (obj_gui.options_log.LOG_CREATURES_FOLLOWING and _id1.creature_log==true)) {
 						
 					ASSERT(_id1!=0, _id1, "log_event id1==0 event "+LOGEVENT_to_string(_event));
 					
@@ -195,8 +195,8 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 			case LOGEVENT.CREATURE_DEAD_INFO_NUM:
 				if obj_gui.options_log.LOG_BORN_DEAD_SUMMARY 
 				|| obj_gui.options_log.LOG_CREATURES_ALL
-				|| (obj_gui.options_log.LOG_CREATURES_FOLLOWING and _id1 == obj_gui.gui.creature_to_follow) 
-				|| _id1.creature_log==true {
+				//|| (obj_gui.options_log.LOG_CREATURES_FOLLOWING and _id1 == obj_gui.gui.creature_to_follow) 
+				||  (obj_gui.options_log.LOG_CREATURES_FOLLOWING and _id1.creature_log==true) {
 						// common 
 						_col_id1 = string(_id1);
 						_col_name = _id1.creature_log_name;
