@@ -240,6 +240,7 @@
     {"id":{"name":"spr_primary_tiny","path":"sprites/spr_primary_tiny/spr_primary_tiny.yy",},"order":3,},
     {"id":{"name":"spr_plant_small_eat","path":"sprites/spr_plant_small_eat/spr_plant_small_eat.yy",},"order":2,},
     {"id":{"name":"world_nearby_creatures","path":"scripts/world_nearby_creatures/world_nearby_creatures.yy",},"order":10,},
+    {"id":{"name":"Room2_per_test_climates","path":"rooms/Room2_per_test_climates/Room2_per_test_climates.yy",},"order":13,},
     {"id":{"name":"spr_spawner","path":"sprites/spr_spawner/spr_spawner.yy",},"order":4,},
     {"id":{"name":"spr_primary_small_dead","path":"sprites/spr_primary_small_dead/spr_primary_small_dead.yy",},"order":1,},
     {"id":{"name":"scribble_autotype_fade_out","path":"scripts/scribble_autotype_fade_out/scribble_autotype_fade_out.yy",},"order":2,},
@@ -329,6 +330,7 @@
     {"roomId":{"name":"rm_continental","path":"rooms/rm_continental/rm_continental.yy",},},
     {"roomId":{"name":"rm_desertic","path":"rooms/rm_desertic/rm_desertic.yy",},},
     {"roomId":{"name":"rm_debug","path":"rooms/rm_debug/rm_debug.yy",},},
+    {"roomId":{"name":"Room2_per_test_climates","path":"rooms/Room2_per_test_climates/Room2_per_test_climates.yy",},},
   ],
   "Folders": [
     {"folderPath":"folders/Sprites.yy","order":1,"resourceVersion":"1.0","name":"Sprites","tags":[],"resourceType":"GMFolder",},
