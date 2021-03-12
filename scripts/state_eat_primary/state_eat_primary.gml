@@ -37,7 +37,6 @@ function _process_producers_list(_id, _producers_list) {
 				// all plants can be eaten now <-----
 						
 				// move to plant position, it is near
-				//world_creature_move(_id, _prey.x + 8, _prey.y + 8);
 				world_creature_move(_id, _prey.x, _prey.y);
 						
 				// capture a part of biomass from one of the plants 

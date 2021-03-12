@@ -124,7 +124,9 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 					if _event == LOGEVENT.CREATURE_BIOMASS_REPRODUCTION {
 						var _percent = (_arg1/_id1.structure.biomass);
 						_col_num1 = string(units_to_kg(_arg1));	
-						_col_num2 = string(_percent);
+						if (_id1.structure.biomass > 0) {
+							_col_num2 = string(_percent);
+						}
 						_col_txt1 = string(_percent)+"% biomass"
 					}
 					if _event == LOGEVENT.CREATURE_BIOMASS_RESERVE {

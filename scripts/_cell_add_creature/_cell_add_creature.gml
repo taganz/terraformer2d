@@ -1,4 +1,5 @@
 // add creature to a cell without changing statistics. create cell if it doesn't exist yet 
+// return new cell
 function _cell_add_creature (_id, _x_cell, _y_cell) {
 			
 	with controller.world {
