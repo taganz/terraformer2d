@@ -15,12 +15,22 @@ function gui_draw_creature_info(){
 			&&  (showing_debug_data_for_creature == -1 or showing_debug_data_for_creature == _id) {
 							
 		
+				// draw info
+				
 				draw_set_colour(c_black);
 				draw_set_font(fnt_small);
 				draw_set_valign(fa_top);
 				
 				draw_text(50, 200, _log_text_creature(_id));
 				showing_debug_data_for_creature = _id;
+		
+				// draw cell rectanble
+		
+				if (_id.my_cell != 0) {
+					var _x0 = grid_pixel_x_from_cell_x(_id.my_cell.x_cell);
+					var _y0 = grid_pixel_y_from_cell_y(_id.my_cell.y_cell);
+					draw_rectangle(_x0, _y0, _x0 + CELL_SIZE, _y0 + CELL_SIZE, true );
+				}
 		
 				// if q is pressed, activate log for this creature
 				if (keyboard_check_pressed(ord(KEY_ACTIVATE_LOG_CREATURE_IN_SCREEN))) {

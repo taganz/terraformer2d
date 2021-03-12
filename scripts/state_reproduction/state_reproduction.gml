@@ -14,6 +14,9 @@ function state_reproduction(_id){
 
 	// do for all offspring
 
+	var _biomass_to_give_to_offspring = _id.structure.biomass_reproduction / _id.genome[GEN.REPRODUCTION_QUANTITY];
+	var _offspring_count = 0;
+	
 	for (var off=0; off < _id.genome[GEN.REPRODUCTION_QUANTITY]; off++) {
 
 		// calculate birth place
@@ -31,21 +34,20 @@ function state_reproduction(_id){
 			_child.genome = genome_offspring_copy(_id, world_get_radiation(_id.x, _id.y));
 										
 			// give biomass to child
-			//var _biomass_give = - _id.structure.biomass_modify(-_id.structure.biomass_reproduction); 
-			var _biomass_give = - biomass_modify(_id, -_id.structure.biomass_reproduction); 
-			_id.structure.biomass_reproduction -= _biomass_give;	// reset biomass_reproduction
+			var _biomass_give = - biomass_modify(_id, -_biomass_to_give_to_offspring); 
+			//_id.structure.biomass_reproduction -= _biomass_give;	// reset biomass_reproduction
 		
 			_child.structure.biomass = _biomass_give;
-			//_child.structure.biomass_at_birth = _biomass_give;
-
+			
 			// increment generation number
 			_child.structure.generation = _id.structure.generation + 1;
 
-
-			log_event(LOGEVENT.CREATURE_LIFE_EVENT, _id, "reproduction", "biomass: "+string(units_to_kg(_id.structure.biomass)));
+			_offspring_count++;
+			
 			log_event(LOGEVENT.CREATURE_REPRODUCTION, _id, _child, _biomass_give);
 		}		
 	}
+
 
 	// store age at last reproduction to apply interval
 	_id.structure.reproduction_age_last_time = _id.structure.age;
@@ -53,8 +55,7 @@ function state_reproduction(_id){
 	// remember hom many reproduction times
 	_id.structure.reproduction_count++;
 		
-	// reset reproduction state
-	//_id.structure.reproduction_is_ready = false;
+	log_event(LOGEVENT.CREATURE_LIFE_EVENT, _id, "reproduction", "offspring count: "+string(_offspring_count));
 	
 	_id.state.next_state = STATE.IDLE;
 
