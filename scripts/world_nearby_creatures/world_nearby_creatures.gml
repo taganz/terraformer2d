@@ -31,11 +31,14 @@ function world_get_nearby_creatures(_x, _y, kind){
 		
 		// if nothing at same cell look for nearby cells
 		
-		if ds_list_size(_list) == 0 {			
+		//if ds_list_size(_list) == 0 {			
+		if ds_list_empty(_list) == true {
 
 			// chose first cell at random to avoid everybody moving in the same direction to eat
-			var i1 = choose(4, 5, 6);
-			var j1 = choose(4, 5, 6);
+			//var i1 = choose(4, 5, 6);
+			//var j1 = choose(4, 5, 6);
+			var i1 = choose(3, 4, 5);
+			var j1 = choose(3, 4, 5);
 			for (var i = i1; i < i1 +3; i++) {
 				for (var j = j1; j < j1+3; j++) {
 					var _xx_check = _xx + (i mod 3) -1;
@@ -43,7 +46,7 @@ function world_get_nearby_creatures(_x, _y, kind){
 					
 					if world_is_inside_cell(_xx_check, _yy_check) {
 					
-						// check if there is a initialized cell. if so, get list_creatures
+						// if there is a initialized cell get list_creatures
 						var _cell = grid_cells[# _xx_check, _yy_check];
 						if _cell!= 0 {				
 							switch (kind) {
@@ -56,8 +59,9 @@ function world_get_nearby_creatures(_x, _y, kind){
 								case "primary":
 									_list = _cell.list_primaries;
 							}
-							if ds_list_empty(_list)
+							if ds_list_empty(_list) == false {
 								break;
+							}
 						}
 					}
 				}
