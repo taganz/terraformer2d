@@ -1,7 +1,10 @@
 // -- BIOMASS ALLOCATION
 // in
 //		age_is_adult
-//		_LMFa
+//		biomass_adult
+//		_biomass_eat_allocation
+//		my_id.genome[GEN.BIOMASS_ADULT]
+//		_biomass_reproduction_max
 // updates
 //		biomass
 //		biomass_reproduction
@@ -18,9 +21,12 @@ function biomass_allocation(_id) {
 			
 			// == growing
 			
-			// biomass_eat changes during growth
+			// during growth 
+			// - biomass_eat change from 90% of total biomass to _biomas_eat_allocation
+			// - biomass_reproduction is zero
 			biomass_eat = biomass *(_biomass_eat_allocation + (0.9 - _biomass_eat_allocation) * (1 - biomass / my_id.genome[GEN.BIOMASS_ADULT]));
-			biomass_body = biomass - biomass_eat - biomass_reproduction;
+			//biomass_body = biomass - biomass_eat - biomass_reproduction;
+			biomass_body = biomass - biomass_eat;
 			if biomass_body < 0 {
 				biomass_body = 0;
 			}
@@ -28,6 +34,12 @@ function biomass_allocation(_id) {
 		else {
 		
 			// == adult		
+		
+			// for adults
+			// - biomass eat = biomass adult * eat allocation
+			// - biomass reproduction = part of biomass over biomass_adult * reproductive allocation
+			// - biomass body = rest of biomass
+			//			
 		
 			// -- biomass eat
 			biomass_eat = biomass_adult * _biomass_eat_allocation;		

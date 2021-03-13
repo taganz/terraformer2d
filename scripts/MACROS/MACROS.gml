@@ -47,7 +47,7 @@ function MACROS(){
 
 // general life constants
 #macro BIOMASS_DECOMPOSITION_ZERO  10			// when biomass decompeses under this level instance is destroyed
-
+#macro INITIAL_SPECIES_SPAWN_AS_ADULTS true		// if false, depends on variable creature_spawn_as_adult
 
 }
 

@@ -21,7 +21,8 @@ function Structure(_id, _spawn_as_adult) constructor {
 
 	my_id = _id;
 	generation = 1;				
-	
+
+
 	// -- age
 	
 	age = 0 ;								// sim steps
@@ -34,8 +35,15 @@ function Structure(_id, _spawn_as_adult) constructor {
 	
 	// give some biomass by default for 1st generation creatures.
 	// parent will update with real value in step_reproduction() for next generations
-	biomass = _spawn_as_adult ? kg_to_units(_id.genome[GEN.BIOMASS_ADULT]) : kg_to_units(_id.genome[GEN.BIOMASS_BIRTH]);
+	biomass = kg_to_units(_id.genome[GEN.BIOMASS_BIRTH]);
 	biomass_adult = kg_to_units(_id.genome[GEN.BIOMASS_ADULT]);
+	
+	
+	if 	_spawn_as_adult or (generation==1 and INITIAL_SPECIES_SPAWN_AS_ADULTS) {
+		biomass = biomass_adult;
+		age_adult = true;
+	}
+
 
 	// -- biomass allocation = eat + body + reproduction + reserve (difference)
 	
@@ -84,7 +92,6 @@ function Structure(_id, _spawn_as_adult) constructor {
 	// -- private vars
 	
 	_first_execution = true;
-	
 
 #endregion
 

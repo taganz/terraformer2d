@@ -16,6 +16,7 @@ for (var i=0; i< spawner_quantity ;i++) {
 					
 		// create child creature
 		_id = instance_create_layer(_xTo, _yTo, "Instances", spawner_object_to_spawn);
+		_id.creature_spawn_as_adult = spawner_spawn_as_adult;
 		total++;
 							
 	}
