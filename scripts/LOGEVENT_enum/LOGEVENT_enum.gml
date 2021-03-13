@@ -39,10 +39,10 @@ function LOGEVENT_enum(){
 		
 		WORLD_POPULATION,				// total population for a trophic level for each sim step
 		WORLD_PROBE_NUTRIENTS,
-		WORLD_PROBE_WATER,					
+		//WORLD_PROBE_WATER,					
 		WORLD_PROBE_TEMPERATURE,					
 		WORLD_SPAWNER,
-		WORLD_WORLD_PROBE_RAIN_TEMP,					
+		WORLD_PROBE_RAIN_TEMP,					
 		
 		// Simulation information
 		

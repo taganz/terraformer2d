@@ -34,10 +34,10 @@ function LOGEVENT_to_string(_log_event){
 		case LOGEVENT.SPECIE_CLIMATE_DEAD:		_msg = "SPECIE_CLIMATE_DEAD"; break;
 		
 		case LOGEVENT.WORLD_PROBE_NUTRIENTS:			_msg = "WORLD_PROBE_NUTRIENTS"; break;
-		case LOGEVENT.WORLD_PROBE_WATER:				_msg = "WORLD_PROBE_WATER"; break;
+		//case LOGEVENT.WORLD_PROBE_WATER:				_msg = "WORLD_PROBE_WATER"; break;
 		case LOGEVENT.WORLD_SPAWNER:					_msg = "SPAWNER"; break;
 		case LOGEVENT.WORLD_POPULATION:			_msg = "WORLD_POPULATION"; break;
-		case LOGEVENT.WORLD_WORLD_PROBE_RAIN_TEMP:	_msg = "WORLD_PROBE_RAIN_TEMP"; break;
+		case LOGEVENT.WORLD_PROBE_RAIN_TEMP:	_msg = "WORLD_PROBE_RAIN_TEMP"; break;
 		
 		case LOGEVENT.INFO_WARNING:				_msg = "WARNING"; break;
 		case LOGEVENT.INFO_ERROR:				_msg = "ERROR"; break;
