@@ -11,7 +11,7 @@ if room != Room0 {
 				
 		// once per month
 		if time.sim_month_entry
-			rain();		
+			grid_update_cells_water();		
 	
 
 	}

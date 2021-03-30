@@ -14,13 +14,23 @@ function Cell() constructor {
 	
 	list_dead_creatures = ds_list_create();
 	
-	soil_type = SOIL.DEFAULT;
-	soil_available_water_max = SOIL_FIELD_CAPACITY * SOIL_WEIGHT_PER_CELL;  // l/CELL
-										// we'll take a soil volum reference of SOIL_WEIGHT_PER_CELL per cell
-	available_water = 0;				// (l/CELL) water a plant can get
+	// soil
+	
+	soil_type = -1;	
+	stored_water = 0;					// total water in cell (kg)
+	soil_max_stored_water = -1;			// soil wan't absorb rain water over this (run off will ocurr, not included in model)
+	soil_field_capacity = -1;			// % total water
+	soil_permanent_wilting_point = -1;	// % total water	
+	plant_available_water = 0;			// water plants can get, determined by field capacity and permanent wilting point (kg)
+	
+	water_infiltration_month = -1;				// kg
+	water_evaporation_month = -1;			// kg
+	
+	// climate 
+	
+	climate = -1;						// climate defines rain, temperature
 	rain_current_month = 0;				// rain fallen current month
 	temperature_current_month = 0;
-	climate = -1;						// climate defines rain, temperature
 	
 	map_nutrients = ds_map_create();
 	

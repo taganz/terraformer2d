@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "World",
-    "path": "folders/Scripts/World.yy",
+    "name": "soil",
+    "path": "folders/Scripts/World/soil.yy",
   },
   "resourceVersion": "1.0",
-  "name": "rain",
+  "name": "soil_to_string",
   "tags": [],
   "resourceType": "GMScript",
 }

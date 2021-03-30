@@ -286,22 +286,27 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 				}
 			}
 			break;
-
-			case LOGEVENT.WORLD_PROBE_NUTRIENTS:
+			
+			
+			//case LOGEVENT.WORLD_PROBE_NUTRIENTS:
 			//case LOGEVENT.WORLD_PROBE_WATER:
-			case LOGEVENT.WORLD_PROBE_RAIN_TEMP: {
+			case LOGEVENT.WORLD_PROBE_PLANT_AVAILABLE_WATER:
+			case LOGEVENT.WORLD_PROBE_RAIN_TEMP: 
+			{
 				_col_name = _id1.probe_name;
 				_col_x = string(_id1.my_cell.x_cell);
 				_col_y = string(_id1.my_cell.y_cell);
-				_col_txt1 = string_replace_all(_arg2, "\n", " - ");   // climate name
 				
-				if _event == LOGEVENT.WORLD_PROBE_NUTRIENTS
-					_col_num1 = string(units_to_kg(_arg1));
+				//if _event == LOGEVENT.WORLD_PROBE_NUTRIENTS
+				//	_col_num1 = string(units_to_kg(_arg1));
 					
-				//if _event == LOGEVENT.WORLD_PROBE_WATER
-				//	_col_num1 = string(_arg1);
+				if _event == LOGEVENT.WORLD_PROBE_PLANT_AVAILABLE_WATER {
+					_col_num1 = string(_arg1);
+					_col_txt1 = climate_to_string(_id1.my_cell.climate)
+					}
 										
 				if _event == LOGEVENT.WORLD_PROBE_RAIN_TEMP {
+					_col_txt1 = string_replace_all(_arg2, "\n", " - ");   // climate name
 					_col_num1 = string(_arg1);    // rain 
 					_col_num2 = string(_arg3);	  // temperature
 				}

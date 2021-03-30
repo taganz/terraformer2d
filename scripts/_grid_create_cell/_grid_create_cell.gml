@@ -23,13 +23,25 @@ function _grid_create_cell(_x_cell, _y_cell) {
 			var climate_at_tile= tile_get_index(tile_data);
 			cell.climate = climate_at_tile;
 		
-			// add water
-			var water = climate_rain(cell.climate, controller.time.current_sim_month);
-			cell.available_water = water < cell.soil_available_water_max ? water : cell.soil_available_water_max;
 			
 			// cell coordenates
 			cell.x_cell = _x_cell;
 			cell.y_cell = _y_cell;
+			
+			// soil parameters
+				
+			cell.soil_type = SOIL.DEFAULT;
+			cell.soil_max_stored_water = soil_max_stored_water(cell.soil_type); 
+			cell.soil_field_capacity = soil_get_field_capacity(cell.soil_type);				
+			cell.soil_permanent_wilting_point = soil_get_permanent_wilting_point(cell.soil_type);
+			
+			cell.water_infiltration_month = 2 * CELL_SIZE_REAL * CELL_SIZE_REAL;		// --> should depend on soil...?
+			cell.water_evaporation_month = 2 * CELL_SIZE_REAL * CELL_SIZE_REAL;		// --> should depend on soil and temperature... ?  -- depends also on plants!!
+	
+			// add water
+			var water = climate_rain(cell.climate, controller.time.current_sim_month);
+			cell.stored_water = min(water, cell.soil_max_stored_water);
+	
 		}
 		
 	}
