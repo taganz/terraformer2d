@@ -10,7 +10,7 @@ function MACROS(){
 
 #macro OBJ_CREATED_BY_CLIC obj_primary_tiny   // the object that will be created with left click
 #macro DEBUG_RAIN_UNLIMITED	false // climates give 999999 rain water
-
+#macro FILE_INITIAL_SPECIES_CSV "initial_species.csv"
 
 // === ROOM SETUP
 

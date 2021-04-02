@@ -4,6 +4,11 @@
 //  SPECIES_		logged if BORN_DEAD_SUMMARY is selected
 //  WORLD_			logged if WORLD is selected
 
+
+#macro BUFFER_LINES 5000
+#macro SIM_LOG_FILE_NAME "SIM_LOG"
+#macro CSV_SEPARATOR ";"
+
 function log_user_options () constructor {
 
 	LOG_ALLOW_LOG			= false;	// main log switch. if false, no log file is created

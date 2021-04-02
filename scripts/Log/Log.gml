@@ -8,9 +8,7 @@
 */
 
 
-#macro BUFFER_LINES 5000
-#macro SIM_LOG_FILE_NAME "SIM_LOG"
-#macro CSV_SEPARATOR ";"
+
 
 //#macro LOG_ID	controller.log.log_id						// <--- deprecated
 
