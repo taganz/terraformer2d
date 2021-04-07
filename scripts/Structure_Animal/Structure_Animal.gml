@@ -58,7 +58,7 @@ function Structure_Animal(_id, _spawn_as_adult):Structure(_id, _spawn_as_adult) 
 			
 			// === catabolism
 		
-			var _quant_catabolism = biomass_body * my_id.genome[GEN.METABOLIC_RATE];
+			var _quant_catabolism = biomass_body * my_id.genome[GEN.KC_METABOLIC_RATE];
 			log_event(LOGEVENT.CREATURE_CATABOLISM, my_id, _quant_catabolism);
 
 			// === change biomass

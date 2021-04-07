@@ -25,7 +25,7 @@ function log_events_creature_born(_id){
 		log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "GEN.TEMPERATURE_RANGE", string(_id.genome[GEN.TEMPERATURE_RANGE]));
 		log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "GEN.BIOMASS_BIRTH", string(_id.genome[GEN.BIOMASS_BIRTH]));
 		log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "GEN.ANABOLISM_BIOMASS_PER_WATER_L", string(_id.genome[GEN.ANABOLISM_BIOMASS_PER_WATER_L]));
-		log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "GEN.METABOLIC_RATE", string(_id.genome[GEN.METABOLIC_RATE]));
+		log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "GEN.KC_METABOLIC_RATE", string(_id.genome[GEN.KC_METABOLIC_RATE]));
 		log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "generation", generation);
 		log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "_reproduction_interval", sim_steps_to_years(_reproduction_interval));
 		log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "_reproduction_distance", _reproduction_distance);

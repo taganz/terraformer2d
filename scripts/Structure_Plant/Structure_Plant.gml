@@ -10,14 +10,17 @@ function Structure_Plant(_id, _spawn_as_adult):Structure(_id, _spawn_as_adult) c
 
 	// this is sent by world cell for each plant cycle 
 	
-	plant_received_water = 0;
+	plant_roots_absorbed_water = 0;
 	plant_received_sun = 0;
 	
 	
 	// calculate metabolism parameters LMF and k_growth	
-	_kc = my_id.genome[GEN.METABOLIC_RATE];
-	_ka = my_id.genome[GEN.ANABOLISM_BIOMASS_PER_WATER_L] * WORLD_WATER_PER_LEAF_KG;
-	_LMFa = _kc/_ka
+	//_kc = my_id.genome[GEN.KC_METABOLIC_RATE];
+	
+	
+	//_ka = my_id.genome[GEN.ANABOLISM_BIOMASS_PER_WATER_L] * WORLD_WATER_PER_LEAF_KG; 
+	var _ka = my_id.genome[GEN.ANABOLISM_BIOMASS_PER_WATER_L] * ET0_REFERENCE_CROP_EVOTRANSPIRATION * LEAF_M2_PER_KG; 
+	_LMFa = my_id.genome[GEN.KC_METABOLIC_RATE]/_ka
 	
 	
 	ASSERT((_LMFa > 0 && _LMFa < 1), my_id, "Invalid LMFa="+string(_LMFa)+" creature "+string(my_id));  
@@ -42,15 +45,15 @@ function Structure_Plant(_id, _spawn_as_adult):Structure(_id, _spawn_as_adult) c
 	//		biomass
 	//		_biomass_max
 	//		world.biomass		<---??
-	//		plant_received_water = 0
+	//		plant_roots_absorbed_water = 0
 	//		plant_received_sun = 0
 	
 	do_metabolism = function() {
 	
 		// can not do this at initialization
 		if _first_execution {
-			log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, my_id, "_ka", _ka);
-			log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, my_id, "_kc", _kc);
+			//log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, my_id, "_ka", _ka);
+			log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, my_id, "GEN.KC_METABOLIC_RATE", my_id.genome[GEN.KC_METABOLIC_RATE]);
 			log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, my_id, "_LMFa", _LMFa);
 			log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, my_id, "_Topt1", _Topt1);
 			log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, my_id, "_Topt2", _Topt2);
@@ -61,7 +64,7 @@ function Structure_Plant(_id, _spawn_as_adult):Structure(_id, _spawn_as_adult) c
 			_biomass_max = biomass;
 			_biomass_reserve_max = _biomass_max * my_id.genome[GEN.ALLOCATION_RESERVE];
 			biomass_reserve = biomass - (_biomass_max - _biomass_reserve_max);
-						biomass_allocation(my_id);
+			biomass_allocation(my_id);
 			if age_is_adult {
 				log_event(LOGEVENT.CREATURE_LIFE_EVENT, my_id, "spawn_as_adult", "biomass: "+string(biomass));
 			}
@@ -74,10 +77,12 @@ function Structure_Plant(_id, _spawn_as_adult):Structure(_id, _spawn_as_adult) c
 			if controller.time.sim_month_entry {
 
 
-					log_event(LOGEVENT.CREATURE_WATER_RECEIVED, my_id, plant_received_water);
+					log_event(LOGEVENT.CREATURE_WATER_RECEIVED, my_id, plant_roots_absorbed_water);
 					log_event(LOGEVENT.CREATURE_TEMPERATURE, my_id, my_id.my_cell.temperature_current_month);
 					log_event(LOGEVENT.CREATURE_RAIN, my_id, my_id.my_cell.rain_current_month);
-
+					log_event(LOGEVENT.CREATURE_RAIN, my_id, my_id.my_cell.rain_current_month);
+					log_event(LOGEVENT.CREATURE_CELL_PLANTS_AVAILABLE_WATER, my_id, my_id.my_cell.plants_available_water);
+								
 
 
 					// -- ANABOLISM
@@ -85,7 +90,7 @@ function Structure_Plant(_id, _spawn_as_adult):Structure(_id, _spawn_as_adult) c
 					// we expect to have received water: biomass_eat*WORLD_WATER_PER_LEAF_KG
 					// we are going to use it for compensate catabolism + growth + reserves
 				
-					var _quant_anabolism = plant_received_water * my_id.genome[GEN.ANABOLISM_BIOMASS_PER_WATER_L];
+					var _quant_anabolism = plant_roots_absorbed_water * my_id.genome[GEN.ANABOLISM_BIOMASS_PER_WATER_L];
 				
 					// temperature affects anabolism. under Tmin or over _Topt2 anabolism stops.
 					var _temp_factor = my_id.my_cell.temperature_current_month > _Topt2 
@@ -93,15 +98,15 @@ function Structure_Plant(_id, _spawn_as_adult):Structure(_id, _spawn_as_adult) c
 								: clamp((my_id.my_cell.temperature_current_month - _Tmin)/(_Topt1-_Tmin), 0, 1);
 					_quant_anabolism *= _temp_factor;
 					
-					log_event(LOGEVENT.CREATURE_ANABOLISM, my_id, _quant_anabolism, "received water: "+string(plant_received_water)+", T:" + string(my_id.my_cell.temperature_current_month)+", kt: "+string(_temp_factor));
-					plant_received_water = 0;
+					log_event(LOGEVENT.CREATURE_ANABOLISM, my_id, _quant_anabolism, "received water: "+string(plant_roots_absorbed_water)+", T:" + string(my_id.my_cell.temperature_current_month)+", kt: "+string(_temp_factor));
+					plant_roots_absorbed_water = 0;
 				
 				
 				
 					// -- CATABOLISM
 
 					// catabolims depends only on biomass_body
-					var _quant_catabolism = _kc * biomass_body
+					var _quant_catabolism = my_id.genome[GEN.KC_METABOLIC_RATE] * biomass_body
 					log_event(LOGEVENT.CREATURE_CATABOLISM, my_id, _quant_catabolism);
 
 					// -- change biomass

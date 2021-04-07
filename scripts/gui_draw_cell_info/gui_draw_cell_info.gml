@@ -24,7 +24,7 @@ function gui_draw_cell_info(){
 		
 		var _x0 = grid_pixel_x_from_cell_x(grid_pixel_to_cell_x(mouse_x));
 		var _y0 = grid_pixel_y_from_cell_y(grid_pixel_to_cell_y(mouse_y));
-		draw_rectangle(_x0, _y0, _x0 + CELL_SIZE, _y0 + CELL_SIZE, true );
+		draw_rectangle(_x0, _y0, _x0 + CELL_SIZE_PX, _y0 + CELL_SIZE_PX, true );
 					
 	}
 

@@ -29,7 +29,7 @@ function gui_draw_creature_info(){
 				if (_id.my_cell != 0) {
 					var _x0 = grid_pixel_x_from_cell_x(_id.my_cell.x_cell);
 					var _y0 = grid_pixel_y_from_cell_y(_id.my_cell.y_cell);
-					draw_rectangle(_x0, _y0, _x0 + CELL_SIZE, _y0 + CELL_SIZE, true );
+					draw_rectangle(_x0, _y0, _x0 + CELL_SIZE_PX, _y0 + CELL_SIZE_PX, true );
 				}
 		
 				// if q is pressed, activate log for this creature

@@ -42,7 +42,8 @@ function biomass_allocation(_id) {
 			//			
 		
 			// -- biomass eat
-			biomass_eat = biomass_adult * _biomass_eat_allocation;		
+			// 7/4/21  biomass_eat = biomass_adult * _biomass_eat_allocation;		
+			biomass_eat = biomass * _biomass_eat_allocation;		
 
 			// -- biomass_reproduction
 			biomass_reproduction = 	biomass > biomass_adult - _biomass_reproduction_max ? biomass - (biomass_adult - _biomass_reproduction_max) : 0;

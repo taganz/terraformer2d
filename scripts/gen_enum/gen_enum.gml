@@ -26,7 +26,7 @@ function gen_enum(){
 		TEMPERATURE_RANGE,			// 13 - temperature range where plants stops working
 		ANABOLISM_BIOMASS_PER_WATER_L,		// 14 - kg of biomass generatd per l
 		ALLOCATION_RESERVE,					// 15 - % of biomass used as reserve
-		METABOLIC_RATE,						// 16 - kg of biomass consumed per biomass kg per year
+		KC_METABOLIC_RATE,						// 16 - kg of biomass consumed per biomass kg per year
 		DEPRECATED_GROWTH_KG_YR,			// 17 - kg per year consumed during growth
 		DEPRECATED_AGE_ADULT,							// 18
 		PLANT_BODY_DENSITY,					// 19 - biomass kg / volum m3	

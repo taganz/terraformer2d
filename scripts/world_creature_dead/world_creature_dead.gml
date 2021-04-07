@@ -10,8 +10,8 @@ function world_creature_dead(_id){
 		// is position ok?
 		if world_is_inside_pixel(_x, _y) {
 			
-			var xx = floor(_x/CELL_SIZE);
-			var yy = floor(_y/CELL_SIZE);
+			var xx = floor(_x/CELL_SIZE_PX);
+			var yy = floor(_y/CELL_SIZE_PX);
 			
 			// remove from live creatures
 			_cell_remove_creature (_id, xx, yy);

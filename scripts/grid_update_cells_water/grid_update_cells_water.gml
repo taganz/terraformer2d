@@ -3,11 +3,11 @@
 // in
 //		time, rain depends on current month
 //		cell.climate, rain depends on climate
-//		cell.soil_max_stored_water
+//		cell.soil_saturation_water_kg
 //		cell.creatures.biomass_eat
 // out
 //		cell.stored_water
-//		cell.creature.plant_received_water: 
+//		cell.creature.plant_roots_absorbed_water: 
 //		cell.creature.plant_received_sun: 1 <---	
 function grid_update_cells_water() {
 
@@ -26,7 +26,7 @@ function grid_update_cells_water() {
 						
 					// process water losses
 					
-					_cell.stored_water = max( 0, _cell.stored_water - (_cell.water_infiltration_month + _cell.water_evaporation_month) );		// <-- precalculate
+					_cell.stored_water = max( 0, _cell.stored_water - _cell.losses_per_month_kg);
 					
 					// update temperature						
 					
@@ -36,17 +36,17 @@ function grid_update_cells_water() {
 					
 					_cell.rain_current_month = climate_rain(_cell.climate, controller.time.current_sim_month);
 					
-					// update stored water with rain. soil can absorb only water up to max_stored_water
+					// update stored water with rain. soil can absorb only water up to saturation level
 					// climate_rain units is mm, convert to kg
 					
-					_cell.stored_water = min(_cell.rain_current_month * CELL_SIZE_REAL * CELL_SIZE_REAL + _cell.stored_water, _cell.soil_max_stored_water); // <--- precalculate;	
+					_cell.stored_water = min(_cell.rain_current_month * CELL_AREA + _cell.stored_water, _cell.soil_saturation_water_kg); // <--- precalculate;	
 					
 					
 					// water available to plants depend on field capacity and permanent wilting point
 					
-					_cell.plant_available_water = _cell.stored_water > _cell.soil_max_stored_water * _cell.soil_field_capacity ? 
-													_cell.soil_max_stored_water * (_cell.soil_field_capacity - _cell.soil_permanent_wilting_point) :
-													max(0, _cell.stored_water - _cell.soil_max_stored_water * _cell.soil_permanent_wilting_point);
+					_cell.plants_available_water = _cell.stored_water > _cell.soil_saturation_water_kg * _cell.soil_field_capacity ? 
+													_cell.soil_saturation_water_kg * (_cell.soil_field_capacity - _cell.soil_permanent_wilting_point) :
+													max(0, _cell.stored_water - _cell.soil_saturation_water_kg * _cell.soil_permanent_wilting_point);
 
 
 					// distribute water among producers - first the TALL ones, they receive the light
@@ -55,38 +55,48 @@ function grid_update_cells_water() {
 							var producer_id = _cell.list_producers_big[|c];
 								
 							// give water to plant 
-							var _quant_water = clamp(producer_id.structure.biomass_eat*WORLD_WATER_PER_LEAF_KG, 0, _cell.plant_available_water);
-							producer_id.structure.plant_received_water += _quant_water;
-							_cell.plant_available_water -= _quant_water;
+							//var _quant_water = clamp(producer_id.structure.biomass_eat*WORLD_WATER_PER_LEAF_KG, 0, _cell.plant_roots_water_absorbtion);
+							var _plant_transpiration =
+											producer_id.structure.biomass_eat * LEAF_M2_PER_KG 
+											* ET0_REFERENCE_CROP_EVOTRANSPIRATION; 
+							var _quant_water = clamp(_plant_transpiration,0, _cell.plants_available_water);
+							_quant_water = clamp(_quant_water, 0, _cell.stored_water);
+							
+							producer_id.structure.plant_roots_absorbed_water += _quant_water;
+							_cell.plants_available_water -= _quant_water;
 							_cell.stored_water -= _quant_water;
 								
 							// updates solar energy received
 							producer_id.structure.plant_received_sun = 1;
 								
 							// no more water to give
-							if _cell.plant_available_water <= 0 
+							if _cell.plants_available_water <= 0 
 								break;
 								
 					}
 					
 					// if there is still some water distribute among SMALL producers
 					
-					if _cell.plant_available_water > 0 {
+					if _cell.plants_available_water > 0 {
 						
 						for (var c=0; c < ds_list_size(_cell.list_producers_small);c++) {
 								var producer_id = _cell.list_producers_small[|c];
 								
 								// give water to creature 
-								var _quant_water = clamp(producer_id.structure.biomass_eat*WORLD_WATER_PER_LEAF_KG, 0, _cell.plant_available_water);
-								producer_id.structure.plant_received_water += _quant_water;
-								_cell.plant_available_water -= _quant_water;
+								//var _quant_water = clamp(producer_id.structure.biomass_eat*WORLD_WATER_PER_LEAF_KG, 0, _cell.plant_roots_water_absorbtion);
+								var _plant_transpiration =
+												producer_id.structure.biomass_eat * LEAF_M2_PER_KG 
+												* ET0_REFERENCE_CROP_EVOTRANSPIRATION; 
+								var _quant_water = clamp(_plant_transpiration,0, _cell.plants_available_water);
+								producer_id.structure.plant_roots_absorbed_water += _quant_water;
+								_cell.plants_available_water -= _quant_water;
 								_cell.stored_water -= _quant_water;
 								
 								// updates solar energy received
 								producer_id.structure.plant_received_sun = 1;
 								
 								// no more water to give
-								if _cell.plant_available_water == 0 
+								if _cell.plants_available_water == 0 
 									break;
 								
 							

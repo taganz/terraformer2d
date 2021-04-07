@@ -7,8 +7,8 @@ function world_creature_born(_id, _x, _y) {
 		
 		if world_is_inside_pixel(_x, _y) {
 			
-			var xx = floor(_x/CELL_SIZE);
-			var yy = floor(_y/CELL_SIZE);
+			var xx = floor(_x/CELL_SIZE_PX);
+			var yy = floor(_y/CELL_SIZE_PX);
 			
 			var cell = _cell_add_creature (_id, xx, yy);
 				

@@ -9,8 +9,8 @@ function world_get_nearby_creatures(_x, _y, kind){
 	with controller.world {
 		
 		//var _msg = "";
-		var _xx = _x div CELL_SIZE;
-		var _yy = _y div CELL_SIZE;
+		var _xx = _x div CELL_SIZE_PX;
+		var _yy = _y div CELL_SIZE_PX;
 		
 		// try first same cell
 		

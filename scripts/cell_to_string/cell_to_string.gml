@@ -11,7 +11,7 @@ function cell_to_string(_cell){
 			var ss = "";
 		
 			ss+= "Grid pos: "+string(x_cell)+","+string(y_cell);
-			ss += "\nSoil: "+soil_to_string(soil_type)+ ", water max:"+ string(_cell.soil_max_stored_water);
+			ss += "\nSoil: "+soil_to_string(soil_type)+ ", water max:"+ string(_cell.soil_saturation_water_kg);
 			ss = ss + "\nClimate: "+ climate_to_string(climate);
 			ss = ss + "\nAvailable water: "+ string(stored_water);
 		

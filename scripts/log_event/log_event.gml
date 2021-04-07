@@ -43,6 +43,7 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 			case LOGEVENT.CREATURE_BIOMASS_REPRODUCTION:
 			case LOGEVENT.CREATURE_BIOMASS_RESERVE:
 			case LOGEVENT.CREATURE_BORN:
+			case LOGEVENT.CREATURE_CELL_PLANTS_AVAILABLE_WATER:
 			case LOGEVENT.CREATURE_DEBUG: 
 			case LOGEVENT.CREATURE_DEAD:
 			case LOGEVENT.CREATURE_EAT:
@@ -141,6 +142,10 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 							_col_num2 = string(_percent);
 							_col_txt1 = string(_percent)+" ERROR! reserve max == 0"
 						}
+					}
+					
+					if _event == LOGEVENT.CREATURE_CELL_PLANTS_AVAILABLE_WATER {
+						_col_num1 = string(_arg1);
 					}
 					if _event == LOGEVENT.CREATURE_DEAD {
 						_col_num1 = string(sim_steps_to_years(_id1.structure.age));	// age
