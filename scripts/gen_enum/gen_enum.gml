@@ -1,9 +1,9 @@
-// Script assets have changed for v2.3.0 see
-// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
+
 function gen_enum(){
 
 
 	#macro GEN_FIRST_MUTABLE 7		// first gen that can be affected by radiation
+	
 	#macro GEN_NUM 28				// gens total number (last gen + 1)
 
 	enum GEN {
@@ -15,29 +15,33 @@ function gen_enum(){
 		SPECIE_CODE,						// 3 - string
 		PARENT_SPECIE_CODE,					// 4 - string
 		EMPTY5,
-		EMPTY6,
+		EVOTRANSPIRATION_FACTOR,			// 6 - used to calculate leaf area reatio
 		// gens that can be affected by radiation
 		REPRODUCTION_QUANTITY,				// 7 - number of offspring each reproduction
 		REPRODUCTION_INTERVAL,				// 8 - years between reproduction
 		REPRODUCTION_DISTANCE,				// 9 - maximum distance where child will appear
-		ALLOCATION_DIGESTIVE,				// 10 - eaten biomass animals can store before metabolim
+		ALLOCATION_DIGESTIVE_ANIMALS,		// 10 - eaten biomass animals can store before metabolim
 		ALLOCATION_REPRODUCTIVE,			// 11 
 		TEMPERATURE_OPTIMAL,				// 12 - temperature where plants converts maximum biomass in anabolim
-		TEMPERATURE_RANGE,			// 13 - temperature range where plants stops working
+		TEMPERATURE_RANGE,					// 13 - temperature range where plants stops working
 		ANABOLISM_BIOMASS_PER_WATER_L,		// 14 - kg of biomass generatd per l
 		ALLOCATION_RESERVE,					// 15 - % of biomass used as reserve
-		KC_METABOLIC_RATE,						// 16 - kg of biomass consumed per biomass kg per year
-		DEPRECATED_GROWTH_KG_YR,			// 17 - kg per year consumed during growth
-		DEPRECATED_AGE_ADULT,							// 18
-		PLANT_BODY_DENSITY,					// 19 - biomass kg / volum m3	
-		PLANT_BODY_FORM_FACTOR,				// 20 - (sprite height m / sprite width m2) ** 2
-		PLANT_HEAD_DENSITY,					// 21 
-		PLANT_HEAD_FORM_FACTOR,				// 22
-		ANIMAL_ANABOLISM_BIOMASS_CONVERSION, // 23			// conversion from eaten biomass to creature biomass
-		BIOMASS_BIRTH,						// 24
-		DEPRECATED_BIOMASS_REPRODUCTION,				// 25		minimum mass to start reproduction
+		KC_METABOLIC_RATE,					// 16 - kg of biomass consumed per biomass kg per year
+		// DORMANCY
+		DORMANCY_TEMPERATURE_TRIGGER,		// 17 - dormancy state will be triggered when temperature factor reaches this level
+		DORMANCY_CATABOLISM_REDUCTION,		// 18 - catabolism will be by this factor and temperature during dormancy
+		DORMANCY_MONTHS,					// 19 - the number of months dormancy will be activate before returning to normal activity
+		// 20
+		PLANT_BODY_DENSITY,					// 20 - biomass kg / volum m3	
+		PLANT_BODY_FORM_FACTOR,				// 21 - (sprite height m / sprite width m2) ** 2
+		PLANT_HEAD_DENSITY,					// 22
+		PLANT_HEAD_FORM_FACTOR,				// 23
+		ANIMAL_ANABOLISM_BIOMASS_CONVERSION, // 24 conversion from eaten biomass to creature biomass
+		BIOMASS_BIRTH,						// 25
 		BIOMASS_ADULT,						// 26
 		AGE_DEAD							// 27
+		
+		// NOTE: GEN_NUM must be last gen number + 1
 	
 	}
 

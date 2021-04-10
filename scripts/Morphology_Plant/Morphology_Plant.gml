@@ -48,6 +48,9 @@ function Morphology_Plant(_id) constructor {
 		case 4:
 			sprite_head_image = (specie_code_x(my_id.genome) + specie_code_y(my_id.genome)) mod 4;
 			break;
+		case 6:
+			sprite_head_image = (specie_code_x(my_id.genome) + specie_code_y(my_id.genome)) mod 6;
+			break;
 		case 16:
 			sprite_head_image = specie_code_x(my_id.genome) + specie_code_y(my_id.genome) * 4; 
 			break;
@@ -64,6 +67,9 @@ function Morphology_Plant(_id) constructor {
 			break;
 		case 4:
 			sprite_body_image = (specie_code_x(my_id.genome) + specie_code_y(my_id.genome)) mod 4;
+			break;
+		case 6:
+			sprite_body_image = (specie_code_x(my_id.genome) + specie_code_y(my_id.genome)) mod 6;
 			break;
 		case 16:
 			sprite_body_image = specie_code_x(my_id.genome) + specie_code_y(my_id.genome) * 4; 

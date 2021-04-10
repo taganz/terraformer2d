@@ -38,10 +38,10 @@ function _grid_create_cell(_x_cell, _y_cell) {
 			
 			cell.losses_per_month_kg = soil_get_losses_rate(cell.soil_type) * CELL_AREA;   // kg
 			
-			// add water
-			var water = climate_rain(cell.climate, controller.time.current_sim_month);
+			// add some initial water - 10 years of water
+			
+			var water = climate_rain_year_average(cell.climate) * 12 * 10;
 			cell.stored_water = min(water, cell.soil_saturation_water_kg);
-	
 		}
 		
 	}

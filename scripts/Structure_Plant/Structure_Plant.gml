@@ -18,8 +18,8 @@ function Structure_Plant(_id, _spawn_as_adult):Structure(_id, _spawn_as_adult) c
 	//_kc = my_id.genome[GEN.KC_METABOLIC_RATE];
 	
 	
-	//_ka = my_id.genome[GEN.ANABOLISM_BIOMASS_PER_WATER_L] * WORLD_WATER_PER_LEAF_KG; 
-	var _ka = my_id.genome[GEN.ANABOLISM_BIOMASS_PER_WATER_L] * ET0_REFERENCE_CROP_EVOTRANSPIRATION * LEAF_M2_PER_KG; 
+
+	var _ka = my_id.genome[GEN.ANABOLISM_BIOMASS_PER_WATER_L] * my_id.genome[GEN.EVOTRANSPIRATION_FACTOR] * LEAF_M2_PER_KG; 
 	_LMFa = my_id.genome[GEN.KC_METABOLIC_RATE]/_ka
 	
 	
@@ -66,7 +66,7 @@ function Structure_Plant(_id, _spawn_as_adult):Structure(_id, _spawn_as_adult) c
 			biomass_reserve = biomass - (_biomass_max - _biomass_reserve_max);
 			biomass_allocation(my_id);
 			if age_is_adult {
-				log_event(LOGEVENT.CREATURE_LIFE_EVENT, my_id, "spawn_as_adult", "biomass: "+string(biomass));
+				log_event(LOGEVENT.CREATURE_LIFE_EVENT, my_id, "spawn_as_adult (generation="+string(generation)+")", "biomass: "+string(biomass));
 			}
 
 		}
@@ -93,21 +93,30 @@ function Structure_Plant(_id, _spawn_as_adult):Structure(_id, _spawn_as_adult) c
 					var _quant_anabolism = plant_roots_absorbed_water * my_id.genome[GEN.ANABOLISM_BIOMASS_PER_WATER_L];
 				
 					// temperature affects anabolism. under Tmin or over _Topt2 anabolism stops.
-					var _temp_factor = my_id.my_cell.temperature_current_month > _Topt2 
+					var _anabolism_temperature_factor = my_id.my_cell.temperature_current_month > _Topt2 
 								? 0 
 								: clamp((my_id.my_cell.temperature_current_month - _Tmin)/(_Topt1-_Tmin), 0, 1);
-					_quant_anabolism *= _temp_factor;
+					_quant_anabolism *= _anabolism_temperature_factor;
 					
-					log_event(LOGEVENT.CREATURE_ANABOLISM, my_id, _quant_anabolism, "received water: "+string(plant_roots_absorbed_water)+", T:" + string(my_id.my_cell.temperature_current_month)+", kt: "+string(_temp_factor));
+					log_event(LOGEVENT.CREATURE_ANABOLISM, my_id, _quant_anabolism, "received water: "+string(plant_roots_absorbed_water)+", T:" + string(my_id.my_cell.temperature_current_month)+", kt: "+string(_anabolism_temperature_factor));
 					plant_roots_absorbed_water = 0;
 				
 				
 				
 					// -- CATABOLISM
+					// MIN(biomass / TIME STEP, dna metabolic rate*biomass body * (0.9 * temp factor+0.1))
 
-					// catabolims depends only on biomass_body
-					var _quant_catabolism = my_id.genome[GEN.KC_METABOLIC_RATE] * biomass_body
-					log_event(LOGEVENT.CREATURE_CATABOLISM, my_id, _quant_catabolism);
+					// catabolims depends on biomass_body and temperature
+					// temp_factor is used to simulate dormancy
+					var _catabolism_temperature_factor =  clamp(
+										my_id.genome[GEN.DORMANCY_CATABOLISM_REDUCTION]
+										* (my_id.my_cell.temperature_current_month - _Tmin)
+										/ (_Topt1-_Tmin)
+										+ 1 - my_id.genome[GEN.DORMANCY_CATABOLISM_REDUCTION] 
+										, 0, 1);
+					var _quant_catabolism = my_id.genome[GEN.KC_METABOLIC_RATE] * biomass_body * _catabolism_temperature_factor;
+					log_event(LOGEVENT.CREATURE_CATABOLISM, my_id, _quant_catabolism,
+							"T:" + string(my_id.my_cell.temperature_current_month)+", Kctf: "+string(_catabolism_temperature_factor));
 
 					// -- change biomass
 

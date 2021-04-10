@@ -170,6 +170,7 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 					if _event == LOGEVENT.CREATURE_CATABOLISM {
 						_col_num1 = string(units_to_kg(_arg1));
 						_col_num2 = string_format(units_to_kg(_id1.structure.biomass), 4, 1);
+						_col_txt1 = _arg2;
 					}
 					if _event == LOGEVENT.CREATURE_TEMPERATURE {
 						//_col_specie = "";
@@ -280,15 +281,11 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 			
 #region  === WORLD EVENTS
 			
-			case LOGEVENT.WORLD_POPULATION: {
-				if obj_gui.options_log.LOG_WORLD {
-					_col_id1 = "";
-					_col_trophic_level = trophic_level_to_string(_arg1);
-					_col_num1 = string(_arg2);					
-				}
-				else {
-					_do_log = false;
-				}
+			case LOGEVENT.WORLD_POPULATION:	{
+				_do_log = obj_gui.options_log.LOG_WORLD;
+				_col_id1 = "";
+				_col_trophic_level = trophic_level_to_string(_arg1);
+				_col_num1 = string(_arg2);					
 			}
 			break;
 			
@@ -298,6 +295,7 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 			case LOGEVENT.WORLD_PROBE_PLANT_AVAILABLE_WATER:
 			case LOGEVENT.WORLD_PROBE_RAIN_TEMP: 
 			{
+				_do_log = obj_gui.options_log.LOG_WORLD;
 				_col_name = _id1.probe_name;
 				_col_x = string(_id1.my_cell.x_cell);
 				_col_y = string(_id1.my_cell.y_cell);
@@ -315,8 +313,8 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 					_col_num1 = string(_arg1);    // rain 
 					_col_num2 = string(_arg3);	  // temperature
 				}
-				break;
 			}
+			break;
 
 #endregion
 

@@ -58,7 +58,7 @@ function grid_update_cells_water() {
 							//var _quant_water = clamp(producer_id.structure.biomass_eat*WORLD_WATER_PER_LEAF_KG, 0, _cell.plant_roots_water_absorbtion);
 							var _plant_transpiration =
 											producer_id.structure.biomass_eat * LEAF_M2_PER_KG 
-											* ET0_REFERENCE_CROP_EVOTRANSPIRATION; 
+											* climate_ET0_evotranspiration(_cell.climate, controller.time.current_sim_month); 
 							var _quant_water = clamp(_plant_transpiration,0, _cell.plants_available_water);
 							_quant_water = clamp(_quant_water, 0, _cell.stored_water);
 							
@@ -86,7 +86,7 @@ function grid_update_cells_water() {
 								//var _quant_water = clamp(producer_id.structure.biomass_eat*WORLD_WATER_PER_LEAF_KG, 0, _cell.plant_roots_water_absorbtion);
 								var _plant_transpiration =
 												producer_id.structure.biomass_eat * LEAF_M2_PER_KG 
-												* ET0_REFERENCE_CROP_EVOTRANSPIRATION; 
+												* climate_ET0_evotranspiration(_cell.climate, controller.time.current_sim_month); 
 								var _quant_water = clamp(_plant_transpiration,0, _cell.plants_available_water);
 								producer_id.structure.plant_roots_absorbed_water += _quant_water;
 								_cell.plants_available_water -= _quant_water;

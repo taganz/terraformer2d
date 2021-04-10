@@ -25,9 +25,6 @@ function MACROS(){
 
 #macro CELL_SIZE_PX 64							// pixel size 
 
-#macro ET0_REFERENCE_CROP_EVOTRANSPIRATION		180   // (mm/month) <--- should depend on climate
-
-
 // cell area
 #macro CELL_SIZE_M				10			// m
 #macro CELL_AREA				100			// m2 

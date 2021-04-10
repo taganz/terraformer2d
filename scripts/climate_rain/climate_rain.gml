@@ -11,4 +11,5 @@ function climate_rain(climate, _month) {
 		return 999999
 	else 
 		return controller.world.climates[climate].rain[_month-1];
+
 }

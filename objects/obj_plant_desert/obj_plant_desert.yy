@@ -31,8 +31,8 @@
     {"propertyId":{"name":"creature_sprite_head","path":"objects/class_creature/class_creature.yy",},"objectId":{"name":"class_creature","path":"objects/class_creature/class_creature.yy",},"value":"spr_cactus_head","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
   ],
   "parent": {
-    "name": "Plants",
-    "path": "folders/Objects/Plants.yy",
+    "name": "Species",
+    "path": "folders/Objects/Species.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_plant_desert",
