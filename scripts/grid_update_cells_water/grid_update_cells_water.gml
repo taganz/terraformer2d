@@ -44,9 +44,8 @@ function grid_update_cells_water() {
 					
 					// water available to plants depend on field capacity and permanent wilting point
 					
-					_cell.plants_available_water = _cell.stored_water > _cell.soil_saturation_water_kg * _cell.soil_field_capacity ? 
-													_cell.soil_saturation_water_kg * (_cell.soil_field_capacity - _cell.soil_permanent_wilting_point) :
-													max(0, _cell.stored_water - _cell.soil_saturation_water_kg * _cell.soil_permanent_wilting_point);
+					_cell.plants_available_water = soil_plant_available_water(_cell.stored_water, _cell.soil_field_capacity_kg, _cell.soil_permanent_wilting_point_kg);
+					
 
 
 					// distribute water among producers - first the TALL ones, they receive the light

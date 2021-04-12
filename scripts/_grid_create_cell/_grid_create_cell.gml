@@ -29,19 +29,19 @@ function _grid_create_cell(_x_cell, _y_cell) {
 			cell.y_cell = _y_cell;
 			
 			// soil parameters
-				
-			cell.soil_type = SOIL.DEFAULT;
+			//    at present, each climate has a specific soil type
+			cell.soil_type = climate_get_soil(cell.climate);
+			
+						
 			// max stored water
 			cell.soil_saturation_water_kg = soil_saturation_water_kg(cell.soil_type); 
-			cell.soil_field_capacity = soil_get_field_capacity(cell.soil_type);				
-			cell.soil_permanent_wilting_point = soil_get_permanent_wilting_point(cell.soil_type);
+			cell.soil_field_capacity_kg = soil_get_field_capacity(cell.soil_type) * CELL_AREA * SOIL_DEPTH_MM;  //  kg = % * m2 * mm * 1 kg/m2/mm				
+			cell.soil_permanent_wilting_point_kg = soil_get_permanent_wilting_point(cell.soil_type) * CELL_AREA * SOIL_DEPTH_MM; // kg 
 			
-			cell.losses_per_month_kg = soil_get_losses_rate(cell.soil_type) * CELL_AREA;   // kg
+			cell.losses_per_month_kg = soil_get_losses_rate(cell.climate, cell.soil_type) * CELL_AREA ;   // kg = mm/month * m2 * 1kg/m2/mm
 			
-			// add some initial water - 10 years of water
-			
-			var water = climate_rain_year_average(cell.climate) * 12 * 10;
-			cell.stored_water = min(water, cell.soil_saturation_water_kg);
+			// initial water = saturation / 2			
+			cell.stored_water = cell.soil_saturation_water_kg / 2;
 		}
 		
 	}

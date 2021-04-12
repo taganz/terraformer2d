@@ -26,10 +26,10 @@ function MACROS(){
 #macro CELL_SIZE_PX 64							// pixel size 
 
 // cell area
-#macro CELL_SIZE_M				10			// m
-#macro CELL_AREA				100			// m2 
+#macro CELL_AREA				25			// m2 
+//#macro CELL_SIZE_M				5			// m
 //#macro WATER_IN_1_MM_AREA		100			// kg
-
+#macro SOIL_DEPTH_MM			1000			// mm - soil depth for available water calculations
 
 #macro BIOMASS_DECOMPOSITION_FACTOR 0.15  // per sim_step (animals) o sim_month (plants)
 #macro NUTRIENT_TILE_OFFSET  1000		// kg

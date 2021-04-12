@@ -5,15 +5,7 @@
 */
 
 
-enum CLIMATE {
-	CLIMATE_0,     // not valid
-	DRY,
-	TROPICAL,
-	MEDITERRANEAN,
-	CONTINENTAL,
-	TUNDRA
-}
-#macro CLIMATE_NUM 6
+
 
 function climate_read_array() {
 	
@@ -23,7 +15,7 @@ function climate_read_array() {
 		{
 			name : "Dry",
 			temperature : [ 20,  22,  25,  25,  27,  30,  35,  30,  24,  20,  17,  15],
-			rain : [ 0,  5,  0,  0,  0,  0,  10,  10,  15,  15,  20,  20]
+			rain : [ 10,  5,  5,  5,  5,  5,  10,  10,  15,  15,  20,  20]
 		};
 	climates[CLIMATE.TROPICAL] = 
 		{

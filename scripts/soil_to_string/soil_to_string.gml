@@ -1,4 +1,19 @@
 function soil_to_string(_soil) {
-	return "SOIL.DEFAULT";
+	var v = "";
+	switch (_soil) {
+		case SOIL.SAND:
+			v = "SAND";
+			break;
+		case SOIL.LOAM:
+			v = "LOAM";
+			break;
+		case SOIL.CLAY:
+			v = "CLAY";
+			break;
+		default:
+			return "invalid soil "+string(_soil);
+	}
+	
+	return v;
 }
 

@@ -5,7 +5,7 @@
 function climate_rain_year_average(climate){
 
 	if obj_gui.options_unlimited_water {
-		return 999999
+		return 999999/12;
 	}
 	else  {
 			
@@ -13,10 +13,10 @@ function climate_rain_year_average(climate){
 		
 		for (var _month = 0; _month < 12; _month++ ) {
 		
-			avg += controller.world.climates[climate].rain[_month-1] / 12;
+			avg += controller.world.climates[climate].rain[_month-1];
 		}
 	
-		return avg;
+		return avg/12;
 	}
 
 }

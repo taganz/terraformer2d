@@ -1,8 +1,10 @@
 
 function soil_ENUM() {
 	
-	enum SOIL {				// SAND, CLAY, SILT...
-		DEFAULT				
+	enum SOIL {				
+		SAND,
+		LOAM,
+		CLAY
 	}
 
 }
