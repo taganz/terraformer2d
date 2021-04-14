@@ -13,7 +13,7 @@ function _grid_create_cell(_x_cell, _y_cell) {
 			var layer_nutrients = layer_get_id(LAYER_NUTRIENTS);
 			var map_nutrients = layer_tilemap_get_id(layer_nutrients);
 			var tile_data = tilemap_get_at_pixel(map_nutrients, _x_cell * CELL_SIZE_PX, _y_cell * CELL_SIZE_PX);   // <--- TBC
-			var nutrients_at_tile = tile_get_index(tile_data) * kg_to_units(NUTRIENT_TILE_MULTIPLIER) + kg_to_units(NUTRIENT_TILE_OFFSET);
+			var nutrients_at_tile = tile_get_index(tile_data) * (NUTRIENT_TILE_MULTIPLIER) + (NUTRIENT_TILE_OFFSET);
 			cell.map_nutrients[? NUTRIENT.MINERAL] = nutrients_at_tile;
 		
 			// load climate from tileset

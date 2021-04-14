@@ -6,7 +6,7 @@
     "path": "folders/Scripts/Creatures/Structure.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Structure_Animal",
+  "name": "structure_born",
   "tags": [],
   "resourceType": "GMScript",
 }

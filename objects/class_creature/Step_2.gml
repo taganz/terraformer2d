@@ -1,7 +1,7 @@
 // Wait till end step to wait for other creatures to eat us...
 
-if controller.time.sim_step_entry and is_producer == false 
-	|| controller.time.sim_month_entry and is_producer == true {
+if controller.time.sim_step_entry and is_plant == false 
+	|| controller.time.sim_month_entry and is_plant == true {
 		
 	log_event(LOGEVENT.CREATURE_BIOMASS, id);
 	

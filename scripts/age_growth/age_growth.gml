@@ -16,7 +16,7 @@ function age_growth(_id){
 	
 	with _id.structure {
 	
-		age += _id.is_producer ? TIME_SIM_STEPS_PER_MONTH : 1;					// sim_steps
+		age += _id.is_plant ? TIME_SIM_STEPS_PER_MONTH : 1;					// sim_steps
 		
 
 		// -- to old?

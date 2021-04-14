@@ -35,7 +35,7 @@ function MACROS(){
 #macro NUTRIENT_TILE_OFFSET  1000		// kg
 #macro NUTRIENT_TILE_MULTIPLIER  100    // kg multiply with nutrients tile number to obtain nutrients
 #macro SIMULATION_WORLD_RADIATION 0.1		// 
-#macro SIMULATION_UNITS_PER_KG 1			
+//#macro SIMULATION_UNITS_PER_KG 1			
 //#macro WORLD_WATER_PER_LEAF_KG 2 // 2			// per month
 #macro LEAF_M2_PER_KG				1		// area/weight ratio for leafs 
 #macro SOIL_WEIGHT_PER_CELL			 3500 // 1500

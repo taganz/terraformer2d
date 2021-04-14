@@ -90,25 +90,25 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 					// 
 					if _event == LOGEVENT.CREATURE_BEEN_EATED {
 						_col_id2 = string(_arg1);
-						_col_num1 = string(units_to_kg(_arg2));		
+						_col_num1 = string((_arg2));		
 					}
 					if _event == LOGEVENT.CREATURE_REPRODUCTION {
 						_col_id2 = string(_arg1);
 						_col_num1 = string(sim_steps_to_years(_id1.structure.age));		
-						_col_num2 = string(units_to_kg(_arg2));		
+						_col_num2 = string((_arg2));		
 					}
 					if _event == LOGEVENT.CREATURE_EAT {
 						_col_id2 = string(_arg1);
-						_col_num1 = string(units_to_kg(_arg2));		// biomass got
+						_col_num1 = string((_arg2));		// biomass got
 						_col_txt1 = string(_arg3);		// msg
 					}
 					if _event == LOGEVENT.CREATURE_BIOMASS {
-						_col_num1 = string(units_to_kg(_id1.structure.biomass));
+						_col_num1 = string((_id1.structure.biomass));
 						_col_txt1 = "kg"
 					}
 					if _event == LOGEVENT.CREATURE_BIOMASS_EAT {
 						var _percent = (_arg1/_id1.structure.biomass);
-						_col_num1 = string(units_to_kg(_arg1));	
+						_col_num1 = string((_arg1));	
 						if (_id1.structure.biomass > 0) {
 							_col_num2 = string(_percent);
 						}
@@ -116,7 +116,7 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 					}
 					if _event == LOGEVENT.CREATURE_BIOMASS_BODY {
 						var _percent = (_arg1/_id1.structure.biomass);
-						_col_num1 = string(units_to_kg(_arg1));	
+						_col_num1 = string((_arg1));	
 						if (_id1.structure.biomass > 0) {
 							_col_num2 = string(_percent);
 						}
@@ -124,14 +124,14 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 					}
 					if _event == LOGEVENT.CREATURE_BIOMASS_REPRODUCTION {
 						var _percent = (_arg1/_id1.structure.biomass);
-						_col_num1 = string(units_to_kg(_arg1));	
+						_col_num1 = string((_arg1));	
 						if (_id1.structure.biomass > 0) {
 							_col_num2 = string(_percent);
 						}
 						_col_txt1 = string(_percent)+"% biomass"
 					}
 					if _event == LOGEVENT.CREATURE_BIOMASS_RESERVE {
-						_col_num1 = string(units_to_kg(_id1.structure._biomass_reserve_max));	
+						_col_num1 = string((_id1.structure._biomass_reserve_max));	
 						if (_id1.structure._biomass_reserve_max != 0) {
 							var _percent = _id1.structure.biomass_reserve/_id1.structure._biomass_reserve_max;
 							_col_num2 = string(_percent);
@@ -160,16 +160,16 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 						_col_txt1 = _arg1;
 					}
 					if _event == LOGEVENT.CREATURE_DECOMPOSE {
-						_col_num1 = string(units_to_kg(_arg1));	
+						_col_num1 = string((_arg1));	
 					}
 					if _event == LOGEVENT.CREATURE_ANABOLISM {
-						_col_num1 = string(units_to_kg(_arg1));
-						_col_num2 = string_format(units_to_kg(_id1.structure.biomass), 4, 1);
+						_col_num1 = string((_arg1));
+						_col_num2 = string_format((_id1.structure.biomass), 4, 1);
 						_col_txt1 = _arg2;
 					}
 					if _event == LOGEVENT.CREATURE_CATABOLISM {
-						_col_num1 = string(units_to_kg(_arg1));
-						_col_num2 = string_format(units_to_kg(_id1.structure.biomass), 4, 1);
+						_col_num1 = string((_arg1));
+						_col_num2 = string_format((_id1.structure.biomass), 4, 1);
 						_col_txt1 = _arg2;
 					}
 					if _event == LOGEVENT.CREATURE_TEMPERATURE {
@@ -254,13 +254,13 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 					
 					if _event == LOGEVENT.SPECIE_CLIMATE_BORN {
 						_col_txt1 = climate_to_string(_id1.my_cell.climate);								
-						_col_num1 = string(units_to_kg(_id1.structure.biomass));
+						_col_num1 = string((_id1.structure.biomass));
 						_col_txt2 = object_get_name(_id1.object_index);
 					}
 					
 					if _event == LOGEVENT.SPECIE_CLIMATE_DEAD {
 						_col_txt1 = climate_to_string(_id1.my_cell.climate);								
-						_col_num1 = string(units_to_kg(_id1.structure.biomass));
+						_col_num1 = string((_id1.structure.biomass));
 						_col_txt2 = object_get_name(_id1.object_index);
 					}
 				
@@ -301,7 +301,7 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 				_col_y = string(_id1.my_cell.y_cell);
 				
 				//if _event == LOGEVENT.WORLD_PROBE_NUTRIENTS
-				//	_col_num1 = string(units_to_kg(_arg1));
+				//	_col_num1 = string((_arg1));
 					
 				if _event == LOGEVENT.WORLD_PROBE_PLANT_AVAILABLE_WATER {
 					_col_num1 = string(_arg1);

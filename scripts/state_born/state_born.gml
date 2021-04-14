@@ -16,6 +16,15 @@ function state_born(_id){
 	// can not put this at create event to assure controller has already created world
 	world_creature_born(_id, _id.x, _id.y);
 	_id.my_cell = cell_from_pixel(_id.x, _id.y);
+		
+	// initialize structure
+	structure_born(_id);
+	
+	// initialize morphology
+	_id.morphology.born();
+			
+	// log parameters	
+	log_events_creature_born(_id);
 	
 	// add to species the initial species
 	if _id.structure.generation == 1 {
@@ -23,12 +32,6 @@ function state_born(_id){
 		//controller.species.specie_code_from_new_prefix(prefix, _id);  
 		specie_code_from_new_prefix(prefix, _id);  
 	}
-	
-	_id.morphology.born();
-			
-	// log parameters	
-	log_events_creature_born(_id);
-	
 	
 	_id.state.next_state = STATE.IDLE;
 		

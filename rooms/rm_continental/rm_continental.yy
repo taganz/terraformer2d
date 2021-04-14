@@ -48,7 +48,7 @@
     {"instances":[
         {"properties":[
             {"propertyId":{"name":"creature_log","path":"objects/class_creature/class_creature.yy",},"objectId":{"name":"class_creature","path":"objects/class_creature/class_creature.yy",},"value":"True","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
-          ],"isDnd":false,"objectId":{"name":"obj_plant_desert","path":"objects/obj_plant_desert/obj_plant_desert.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":384.0,"y":192.0,"resourceVersion":"1.0","name":"inst_3763D607","tags":[],"resourceType":"GMRInstance",},
+          ],"isDnd":false,"objectId":{"name":"obj_plant_desert","path":"objects/obj_plant_desert/obj_plant_desert.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":true,"inheritItemSettings":false,"x":384.0,"y":192.0,"resourceVersion":"1.0","name":"inst_3763D607","tags":[],"resourceType":"GMRInstance",},
         {"properties":[
             {"propertyId":{"name":"creature_log","path":"objects/class_creature/class_creature.yy",},"objectId":{"name":"class_creature","path":"objects/class_creature/class_creature.yy",},"value":"True","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
           ],"isDnd":false,"objectId":{"name":"obj_plant_desert","path":"objects/obj_plant_desert/obj_plant_desert.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":true,"inheritItemSettings":false,"x":672.0,"y":32.0,"resourceVersion":"1.0","name":"inst_2C7BD8E5","tags":[],"resourceType":"GMRInstance",},
@@ -61,6 +61,9 @@
         {"properties":[
             {"propertyId":{"name":"creature_log","path":"objects/class_creature/class_creature.yy",},"objectId":{"name":"class_creature","path":"objects/class_creature/class_creature.yy",},"value":"True","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
           ],"isDnd":false,"objectId":{"name":"obj_plant_desert","path":"objects/obj_plant_desert/obj_plant_desert.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":true,"inheritItemSettings":false,"x":736.0,"y":480.0,"resourceVersion":"1.0","name":"inst_6E44A487","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[
+            {"propertyId":{"name":"creature_log","path":"objects/class_creature/class_creature.yy",},"objectId":{"name":"class_creature","path":"objects/class_creature/class_creature.yy",},"value":"True","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+          ],"isDnd":false,"objectId":{"name":"obj_tree_continental","path":"objects/obj_tree_continental/obj_tree_continental.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":384.0,"y":192.0,"resourceVersion":"1.0","name":"inst_567412BD","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":200,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Instances","tags":[],"resourceType":"GMRInstanceLayer",},
     {"tilesetId":{"name":"tileset_climate","path":"tilesets/tileset_climate/tileset_climate.yy",},"x":0,"y":0,"tiles":{"SerialiseWidth":25,"SerialiseHeight":19,"TileSerialiseData":[
 2,2,2,2,2,2,2,2,2,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,
@@ -114,13 +117,14 @@
     {"name":"inst_79546ABD","path":"rooms/rm_continental/rm_continental.yy",},
     {"name":"inst_4658CDAF","path":"rooms/rm_continental/rm_continental.yy",},
     {"name":"inst_46697A51","path":"rooms/rm_continental/rm_continental.yy",},
-    {"name":"inst_3763D607","path":"rooms/rm_continental/rm_continental.yy",},
     {"name":"inst_2C7BD8E5","path":"rooms/rm_continental/rm_continental.yy",},
     {"name":"inst_78C29646","path":"rooms/rm_continental/rm_continental.yy",},
     {"name":"inst_E9E014C","path":"rooms/rm_continental/rm_continental.yy",},
     {"name":"inst_6E44A487","path":"rooms/rm_continental/rm_continental.yy",},
     {"name":"inst_12F0E28C","path":"rooms/rm_continental/rm_continental.yy",},
     {"name":"inst_29CDF5C4","path":"rooms/rm_continental/rm_continental.yy",},
+    {"name":"inst_3763D607","path":"rooms/rm_continental/rm_continental.yy",},
+    {"name":"inst_567412BD","path":"rooms/rm_continental/rm_continental.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,

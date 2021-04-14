@@ -1,15 +1,31 @@
 
-
 // -- our place in the world
 
 my_cell = 0;
 
 // -- dna
 
-//dna = new DNA(initial_specie);    
-//genome = initial_specie_genome(initial_specie);
 genome = genome_create(initial_specie);
-is_producer = genome[GEN.TROPHIC_LEVEL] == TROPHIC_LEVEL.PRODUCER;
+
+// we put code from both animal and plants here to simplify things. this is to differenciate them
+
+is_plant = genome[GEN.TROPHIC_LEVEL] == TROPHIC_LEVEL.PRODUCER;
+
+
+// -- structure 
+
+structure = new Structure(id, creature_spawn_as_adult);
+
+
+// -- morphology
+
+if is_plant {
+	morphology = new Morphology_Plant(id);   // will be initialized at state_born
+}
+else {
+	morphology = new Morphology(id);
+}
+
 
 // -- state
 
@@ -18,8 +34,12 @@ state.state_script[STATE.BORN] = state_born;
 state.state_script[STATE.IDLE] = state_idle;
 state.state_script[STATE.REPRODUCTION] = state_reproduction;
 state.state_script[STATE.DEAD] = state_dead;
-
-
-// -- structure and morphology defined in children class
+	
+if is_plant {
+	state.state_script[STATE.EAT] = -1;    // plants get water from world
+}
+else {	
+	state.state_script[STATE.EAT] = state_eat_primary;
+}
 
 

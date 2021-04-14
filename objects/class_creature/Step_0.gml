@@ -3,8 +3,8 @@ if !controller.sim_paused {
 	
 	// new sim step?
 	// producers use larger cycle
-	if controller.time.sim_step_entry and is_producer == false 
-	|| controller.time.sim_month_entry and is_producer == true {   
+	if controller.time.sim_step_entry and is_plant == false 
+	|| controller.time.sim_month_entry and is_plant == true {   
 
 		// next action
 		state.step();
@@ -17,14 +17,17 @@ if !controller.sim_paused {
 			
 			// absorb nutrients
 		
-			structure.do_metabolism();
+			if id.is_plant {
+				structure_metabolism_plant(id);
+			}
+			else {
+				structure_metabolism_animal(id);
+			}
 			
 			// once biomass is updated, reallocate it among biomass_eat, biomass_body and biomass_reproduction
 			
 			biomass_allocation(id);
 
-
-			
 		}
 
 		// update morphology parameters if necessary

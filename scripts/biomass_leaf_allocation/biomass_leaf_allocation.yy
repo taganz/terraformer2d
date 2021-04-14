@@ -6,7 +6,7 @@
     "path": "folders/Scripts/Creatures/Structure.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Structure_Plant",
+  "name": "biomass_leaf_allocation",
   "tags": [],
   "resourceType": "GMScript",
 }

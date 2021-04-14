@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Time",
-    "path": "folders/Scripts/Time.yy",
+    "name": "Structure",
+    "path": "folders/Scripts/Creatures/Structure.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Time_backup",
+  "name": "structure_metabolism_plant",
   "tags": [],
   "resourceType": "GMScript",
 }

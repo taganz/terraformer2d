@@ -16,37 +16,29 @@
 function Structure(_id, _spawn_as_adult) constructor {
 
 
-
-#region Initilizations
-
 	my_id = _id;
 	generation = 1;				
-
+	
+	// some metabolic functions are different in plants and animals
+	
 
 	// -- age
 	
-	age = 0 ;						// sim steps
-	age_is_adult = false;			// biomass_adult has been attained
-	age_die = years_to_sim_steps(my_id.genome[GEN.AGE_DEAD])*random_range(0.9, 1.5);		
-
+	age = 0 ;							// sim steps
+	age_is_adult = _spawn_as_adult;		// biomass_adult has been attained
+	age_die = -1;
+	
 
 	
 	// -- biomass
 	
 	// give some biomass by default for 1st generation creatures.
 	// parent will update with real value in step_reproduction() for next generations
-	biomass = kg_to_units(_id.genome[GEN.BIOMASS_BIRTH]);
-	biomass_adult = kg_to_units(_id.genome[GEN.BIOMASS_ADULT]);
-	
-	
-	if 	_spawn_as_adult or (generation==1 and INITIAL_SPECIES_SPAWN_AS_ADULTS) {
-		biomass = biomass_adult;
-		age_is_adult = true;
-	}
-
+	biomass = -1;
+	biomass_adult = -1;
+		
 
 	// -- biomass allocation = eat + body + reproduction + reserve (difference)
-	
 	biomass_eat = 0;					// leaf for plants
 	biomass_body = 0;					// trunk for plants
 	biomass_reproduction = 0;			
@@ -60,9 +52,9 @@ function Structure(_id, _spawn_as_adult) constructor {
 	biomass_reserve = 0;
 	biomass_reproduction_adult = 0;		// used for animals <---
 
-	_biomass_reserve_max = 0;
-	_biomass_max = biomass;
-	_biomass_reproduction_max = biomass_adult * my_id.genome[GEN.ALLOCATION_REPRODUCTIVE]; 
+	_biomass_reserve_max = -1;
+	_biomass_max = -1;
+	_biomass_reproduction_max = -1;
 
 	
 	// -- health
@@ -76,26 +68,31 @@ function Structure(_id, _spawn_as_adult) constructor {
 	
 	reproduction_count = 0;			// times reproduction done
 	reproduction_age_last_time = -1;		// age at last reproduction
-	_reproduction_interval = years_to_sim_steps(my_id.genome[GEN.REPRODUCTION_INTERVAL])*random_range(0.9, 1.1);	// steps
-	_reproduction_distance = my_id.genome[GEN.REPRODUCTION_DISTANCE]*random_range(0.9, 1.1);		
-
+	_reproduction_interval = -1;
+	_reproduction_distance = -1;
+	
 	// anabolism is affected by a temperature coefficient
 	//  - below Tmin:  kt = 0
 	//	- range Tmin - Topt1:  kt =  grow linearly from 0 to 1
 	//  - range Topt1 - Topt2: kt = 1 
 	//	- above Topt2: kt = 0
-	_Topt2 = my_id.genome[GEN.TEMPERATURE_OPTIMAL] + my_id.genome[GEN.TEMPERATURE_RANGE];
-	_Topt1 = my_id.genome[GEN.TEMPERATURE_OPTIMAL];
-	_Tmin  = my_id.genome[GEN.TEMPERATURE_OPTIMAL] - my_id.genome[GEN.TEMPERATURE_RANGE];
+	_Topt2 = -1;
+	_Topt1 = -1;
+	_Tmin  = -1;
 	
 	
-	// -- private vars
 	
-	_first_execution = true;
-
-#endregion
+	//_first_execution = true;
 
 
+	// === animal specific
+	animal_eaten_biomass = 0;
+
+
+	// === plant specific 
 	
+	// this is updated by world cell for each plant cycle 
+	plant_roots_absorbed_water = 0;
+	plant_received_sun = 0;
 
 }

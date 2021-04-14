@@ -4,7 +4,7 @@ function gen_enum(){
 
 	#macro GEN_FIRST_MUTABLE 7		// first gen that can be affected by radiation
 	
-	#macro GEN_NUM 28				// gens total number (last gen + 1)
+	#macro GEN_NUM 29				// gens total number (last gen + 1)
 
 	enum GEN {
 		// immutable gens
@@ -14,8 +14,10 @@ function gen_enum(){
 		// current specie gens
 		SPECIE_CODE,						// 3 - string
 		PARENT_SPECIE_CODE,					// 4 - string
-		EMPTY5,
-		EVOTRANSPIRATION_FACTOR,			// 6 - used to calculate leaf area reatio
+		EMPTY5,								// 5 - reserved for specie definition
+		EMTPY6,								// 6 - reserved for specie definition
+		
+		
 		// gens that can be affected by radiation
 		REPRODUCTION_QUANTITY,				// 7 - number of offspring each reproduction
 		REPRODUCTION_INTERVAL,				// 8 - years between reproduction
@@ -39,7 +41,8 @@ function gen_enum(){
 		ANIMAL_ANABOLISM_BIOMASS_CONVERSION, // 24 conversion from eaten biomass to creature biomass
 		BIOMASS_BIRTH,						// 25
 		BIOMASS_ADULT,						// 26
-		AGE_DEAD							// 27
+		AGE_DEAD,							// 27
+		EVOTRANSPIRATION_FACTOR,			// 28 - used to calculate leaf area reatio
 		
 		// NOTE: GEN_NUM must be last gen number + 1
 	
