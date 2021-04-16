@@ -6,7 +6,7 @@
     "path": "folders/Scripts/Creatures/Morphology.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Morphology",
+  "name": "morphology_plant_step",
   "tags": [],
   "resourceType": "GMScript",
 }

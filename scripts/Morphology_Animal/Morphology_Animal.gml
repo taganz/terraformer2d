@@ -1,4 +1,4 @@
-function Morphology(_id) constructor {
+function Morphology_Animal(_id) constructor {
 
 	my_id = _id;
 	

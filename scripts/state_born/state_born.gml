@@ -21,7 +21,12 @@ function state_born(_id){
 	structure_born(_id);
 	
 	// initialize morphology
-	_id.morphology.born();
+	if _id.is_plant {
+		morphology_plant_born(_id);		
+	}
+	else {
+		_id.morphology.born();
+	}
 			
 	// log parameters	
 	log_events_creature_born(_id);

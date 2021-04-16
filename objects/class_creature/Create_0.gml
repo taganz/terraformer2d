@@ -23,7 +23,7 @@ if is_plant {
 	morphology = new Morphology_Plant(id);   // will be initialized at state_born
 }
 else {
-	morphology = new Morphology(id);
+	morphology = new Morphology_Animal(id);
 }
 
 

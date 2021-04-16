@@ -7,8 +7,14 @@ if obj_gui.show_escape_screen == false {
 
 	// === draw creature
 
-	if structure.age > 1 
-		morphology.draw();
+	if structure.age > 1 {
+		if id.is_plant {
+			morphology_plant_draw(id);		
+		}
+		else {
+			morphology.draw();
+		}
+	}
 
 	// === draw a red circle if creature is in log mode
 
