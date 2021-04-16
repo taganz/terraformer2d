@@ -1,35 +1,38 @@
-// Script assets have changed for v2.3.0 see
-// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
+// see state diagram in state_ENUM
+// only animals need to EAT, plants receive water directly from world)
+		
 function state_idle(_id){
 
 
 	
-	var _struct = _id.structure;		//  shorthand
+	with _id.structure {
 	
 	
-	// growing?
-	if _struct.age_is_adult == false {
-		// always eating when growing
-		_id.state.next_state = STATE.EAT;
-	}
-	// adult
-	// to old?
-	else if _struct.is_dead {
-		_id.state.next_state = STATE.DEAD;
-	}
-	// starving? - if starving don't reproduce
-	else if _struct.is_starving {
+		// growing?
+		if age_is_adult == false {
+			// always eating when growing
+			_id.state.next_state = _id.is_plant ? STATE.IDLE : STATE.EAT;
+		}
+		// adult
+		// to old?
+		else if is_dead {
+			_id.state.next_state = STATE.DEAD;
+		}
+		// starving? - if starving don't reproduce
+		else if is_starving {
 		
-		_id.state.next_state = STATE.EAT;
-	}
-	// time for reproduction? 
-	else if reproduction_ready(_id)  {
+			_id.state.next_state = _id.is_plant ? STATE.IDLE : STATE.EAT;
+		}
+		// time for reproduction? 
+		else if reproduction_ready(_id)  {
 				
-		_id.state.next_state = STATE.REPRODUCTION;
+			_id.state.next_state = STATE.REPRODUCTION;
+		}
+		// eat
+		else if is_hungry {
+			_id.state.next_state = _id.is_plant ? STATE.IDLE : STATE.EAT;
+		}
 	}
-	// eat
-	else if _struct.is_hungry {
-		_id.state.next_state = STATE.EAT;
-	}
-		
+	
+	
 }
