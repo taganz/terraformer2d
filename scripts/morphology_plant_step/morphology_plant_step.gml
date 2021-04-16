@@ -18,20 +18,20 @@ function morphology_plant_step(_id){
 		// ratio head biomass and body biomass depends on density <--
 		
 		// crown
-		if (my_id.genome[GEN.PLANT_HEAD_DENSITY] > 0 ) {
-			var _head_volum_sqrt = sqrt(my_id.structure.biomass_eat/my_id.genome[GEN.PLANT_HEAD_DENSITY]);
-			_head_h_scale = _head_volum_sqrt * my_id.genome[GEN.PLANT_HEAD_FORM_FACTOR] ;
+		if (_id.genome[GEN.PLANT_HEAD_DENSITY] > 0 ) {
+			var _head_volum_sqrt = sqrt(_id.structure.biomass_eat/_id.genome[GEN.PLANT_HEAD_DENSITY]);
+			_head_h_scale = _head_volum_sqrt * _id.genome[GEN.PLANT_HEAD_FORM_FACTOR] ;
 			_head_h = _head_h_scale * sprite_get_height(sprite_head);
-			_head_w_scale = _head_volum_sqrt / my_id.genome[GEN.PLANT_HEAD_FORM_FACTOR] ; 
+			_head_w_scale = _head_volum_sqrt / _id.genome[GEN.PLANT_HEAD_FORM_FACTOR] ; 
 			_head_w = _head_w_scale * sprite_get_width(sprite_head); 
 		}
 		
 		// truck
-		if (my_id.genome[GEN.PLANT_BODY_DENSITY] > 0 ) {
-			var _body_volum_sqrt = sqrt(my_id.structure.biomass_body/my_id.genome[GEN.PLANT_BODY_DENSITY]);
-			_body_h_scale = _body_volum_sqrt * my_id.genome[GEN.PLANT_BODY_FORM_FACTOR] ;
+		if (_id.genome[GEN.PLANT_BODY_DENSITY] > 0 ) {
+			var _body_volum_sqrt = sqrt(_id.structure.biomass_body/_id.genome[GEN.PLANT_BODY_DENSITY]);
+			_body_h_scale = _body_volum_sqrt * _id.genome[GEN.PLANT_BODY_FORM_FACTOR] ;
 			_body_h = _body_h_scale * sprite_get_height(sprite_body);
-			_body_w_scale = _body_volum_sqrt / my_id.genome[GEN.PLANT_BODY_FORM_FACTOR] ;
+			_body_w_scale = _body_volum_sqrt / _id.genome[GEN.PLANT_BODY_FORM_FACTOR] ;
 			_body_w = _body_w_scale * sprite_get_width(sprite_body);
 		}		
 			

@@ -13,7 +13,7 @@ function Morphology_Plant(_id) constructor {
 	
 #region private attributes
 
-	my_id = _id;
+	//my_id = _id;
 	
 	// -- size parameters
 	
