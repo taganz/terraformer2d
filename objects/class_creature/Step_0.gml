@@ -7,7 +7,8 @@ if !controller.sim_paused {
 	|| controller.time.sim_month_entry and is_plant == true {   
 
 		// next action
-		state.step();
+		//state.step();
+		state_step(id);
 
 		if structure.is_dead==false {
 			

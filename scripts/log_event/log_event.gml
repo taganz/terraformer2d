@@ -93,9 +93,9 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 						_col_num1 = string((_arg2));		
 					}
 					if _event == LOGEVENT.CREATURE_REPRODUCTION {
-						_col_id2 = string(_arg1);
-						_col_num1 = string(sim_steps_to_years(_id1.structure.age));		
-						_col_num2 = string((_arg2));		
+						_col_id2 = string(_arg1);										// child id
+						_col_num1 = string(sim_steps_to_years(_id1.structure.age));		// parent age years
+						_col_num2 = string((_arg2));									// child biomass
 					}
 					if _event == LOGEVENT.CREATURE_EAT {
 						_col_id2 = string(_arg1);

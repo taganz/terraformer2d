@@ -54,7 +54,8 @@ function _log_text_creature(_id){
 	+ "\nInitial specie: "+string(_id.genome[GEN.INITIAL_SPECIE])
 	+ "\nBiomass: "+string_format((_id.structure.biomass), 4, 1)+"kg"
 	+ "\nAge: "+string(sim_steps_to_years(_id.structure.age))+"y"
-	+ "\nSTATE: " + _id.state.to_string()
+	//+ "\nSTATE: " + _id.state.to_string()
+	+ "\nSTATE: " + state_to_string(_id.state.state)
 	+ "\nCELL:"+cell_to_string(_id.my_cell)
 	;
 

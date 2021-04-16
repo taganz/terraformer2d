@@ -4,13 +4,7 @@
 
 */
 
-enum STATE {
-	BORN,
-	IDLE,
-	REPRODUCTION,
-	EAT,
-	DEAD
-}
+
 
 function State_Machine(_id, _initial_state) constructor {
 
@@ -27,6 +21,8 @@ function State_Machine(_id, _initial_state) constructor {
 	state_script[STATE.REPRODUCTION] = -1;
 	state_script[STATE.DEAD] = -1;
 
+
+/*
 	// execute script for current state
 
 	step = function () {
@@ -61,7 +57,9 @@ function State_Machine(_id, _initial_state) constructor {
 	
 
 	}
+	*/
 	
+	/*
 	to_string = function() {
 		var _t = "";
 		switch(state) {
@@ -75,5 +73,5 @@ function State_Machine(_id, _initial_state) constructor {
 		return _t;
 	}
 	
-	
+	*/
 }
