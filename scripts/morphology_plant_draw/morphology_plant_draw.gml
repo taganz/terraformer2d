@@ -2,18 +2,18 @@
 // === draw 
 	
 // draw head and body
+// can draw as a dot if "controller.debug_morphology_creatures_as_dots"=true
+//
 // in:
 //		state
 //		sprite head/body/image
 //		_head/body_w/h
 //		_head/body_w/h_scale:
+
 function morphology_plant_draw(_id){
 
-
-
-
 	with _id.morphology {
-		
+	
 		
 		if controller.debug_morphology_creatures_as_dots {
 			

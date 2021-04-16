@@ -1,12 +1,15 @@
 	
 // === born
 	
-// adjust sprite to specie
+// adjust sprite image to specie
 // in:
 //		- sprite_head/body
 //		- my_id.genome
 // output
-//		- sprite_head/body/dead_image
+//		- sprite_head_image
+//		- sprite_trunk_image
+//		- sprite_dead_image = 0
+
 function morphology_plant_born(_id){
 	
 
