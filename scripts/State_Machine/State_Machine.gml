@@ -13,7 +13,7 @@ function State_Machine(_id, _initial_state) constructor {
 	next_state= _initial_state;
 	state_entry = true;
 	frames_in_state = -1;
-	my_id = _id;
+	//my_id = _id;
 	
 	state_script[STATE.BORN] = -1;
 	state_script[STATE.IDLE] = -1;

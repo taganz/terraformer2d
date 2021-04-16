@@ -7,7 +7,7 @@ function state_step(_id){
 	
 		// check if something bad happened between state execution
 		
-		if my_id.structure.is_dead
+		if _id.structure.is_dead
 			next_state = STATE.DEAD;
 		
 		
@@ -23,10 +23,10 @@ function state_step(_id){
 		// execute script
 
 		if state_script[state] != -1
-			script_execute(state_script[state], my_id); 
+			script_execute(state_script[state], _id); 
 		else 
 			{
-				ASSERT(true, my_id, "state_script[state] != -1 "+string(my_id));
+				ASSERT(true, _id, "state_script[state] != -1 "+string(_id));
 				next_state = STATE.IDLE;
 			}
 			
