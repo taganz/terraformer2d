@@ -92,7 +92,7 @@ function Structure(_id, _spawn_as_adult) constructor {
 	// === plant specific 
 	
 	// this is updated by world cell for each plant cycle 
-	plant_roots_absorbed_water = 0;
-	plant_received_sun = 0;
+	plant_roots_absorbed_water = -1;
+	plant_received_sun = -1;
 
 }

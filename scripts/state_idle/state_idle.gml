@@ -3,10 +3,7 @@
 		
 function state_idle(_id){
 
-
-	
 	with _id.structure {
-	
 	
 		// growing?
 		if age_is_adult == false {
@@ -33,6 +30,4 @@ function state_idle(_id){
 			_id.state.next_state = _id.is_plant ? STATE.IDLE : STATE.EAT;
 		}
 	}
-	
-	
 }

@@ -61,7 +61,8 @@ function grid_update_cells_water() {
 							var _quant_water = clamp(_plant_transpiration,0, _cell.plants_available_water);
 							_quant_water = clamp(_quant_water, 0, _cell.stored_water);
 							
-							producer_id.structure.plant_roots_absorbed_water += _quant_water;
+							//producer_id.structure.plant_roots_absorbed_water += _quant_water; 
+							producer_id.structure.plant_roots_absorbed_water = _quant_water; // don't accumulate water from previous month
 							_cell.plants_available_water -= _quant_water;
 							_cell.stored_water -= _quant_water;
 								
@@ -87,7 +88,8 @@ function grid_update_cells_water() {
 												producer_id.structure.biomass_eat * LEAF_M2_PER_KG 
 												* climate_ET0_evotranspiration(_cell.climate, controller.time.current_sim_month); 
 								var _quant_water = clamp(_plant_transpiration,0, _cell.plants_available_water);
-								producer_id.structure.plant_roots_absorbed_water += _quant_water;
+								//producer_id.structure.plant_roots_absorbed_water += _quant_water;
+								producer_id.structure.plant_roots_absorbed_water = _quant_water;			// don't accumulate water from previous month
 								_cell.plants_available_water -= _quant_water;
 								_cell.stored_water -= _quant_water;
 								

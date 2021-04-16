@@ -21,12 +21,12 @@
 			}
 			
 			// modify biomass
-			biomass += _quant_got;
+			biomass = min(biomass + _quant_got, biomass_adult * 1.1);
 			
 			// adults can not growth bigger than biomass_adult
-			if (age_is_adult and biomass > biomass_adult) {
-				biomass = biomass_adult;
-			}
+			//if (age_is_adult and biomass > biomass_adult) {
+			//	biomass = biomass_adult;
+			//}
 		
 			// _biomass_max surpassed?
 			if biomass > _biomass_max {				
