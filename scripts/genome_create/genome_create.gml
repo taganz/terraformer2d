@@ -1,6 +1,15 @@
+/*
+   Return a genome for a first generation creature
+   (In case of second generation creature, parent will execute genome_offspring_copy after instance creation
+   in order to make it inherit from parent)
+   
+*/
 function genome_create(_initial_specie){
 
+	// genome is an array
 	var _genome = array_create (GEN_NUM, 0);
+	
+	// we are going to read specie values from initial_species_grid (columns are species, rows are gens)
 	var ww = ds_grid_width(controller.species._initial_species_grid);
 	var hh = ds_grid_height(controller.species._initial_species_grid);
 	
@@ -10,6 +19,7 @@ function genome_create(_initial_specie){
 	ASSERT(ds_grid_value_exists(controller.species._initial_species_grid, 1, y_initial_specie, ww, y_initial_specie, _initial_specie), 0, "INITIAL SPECIES COLUMN NOT FOUND "+string(_initial_specie));
 	var x_initial_specie = ds_grid_value_x(controller.species._initial_species_grid, 1, y_initial_specie, ww, y_initial_specie, _initial_specie);
 
+	// get every gen
 	for (var i=0; i<GEN_NUM;i++) {
 	
 		// get row for this gen
@@ -29,11 +39,13 @@ function genome_create(_initial_specie){
 	}
 	
 	
-	//_genome[GEN.INITIAL_SPECIE] = _initial_specie;    
+	// this will last only for 1st generation creatures
 	_genome[GEN.PARENT_SPECIE_CODE] = "NOPARENT";
-	_genome[GEN.SPECIE_CODE] = specie_code_initial(_genome[GEN.TROPHIC_LEVEL], _initial_specie);    
+	
+	// calculate specie code
+	_genome[GEN.SPECIE_CODE] = specie_code_from_genome(_genome);    
 		
-
+		
 	return _genome;
 	
 }

@@ -1,6 +1,15 @@
+/*
 
-// called by state_born
-// initialize structure vars
+ called by state_born
+ initialize structure vars
+
+	RETURN
+		is_dead, dead_cause: if something goes wrong, creature died at birth
+		...
+
+
+*/
+
 
 function structure_born(my_id){
 
@@ -49,6 +58,13 @@ function structure_born(my_id){
 		
 		if my_id.is_plant {
 			_biomass_eat_allocation = biomass_leaf_allocation(my_id);	
+			
+			// if leaf_allocation is not valid creature die
+			if _biomass_eat_allocation == -1 {
+				is_dead = true;
+				dead_cause = DEADCAUSE.BIRTH;
+				log_events_creature_dead(my_id);
+			}
 		}
 		else {
 			_biomass_eat_allocation = my_id.genome[GEN.ALLOCATION_DIGESTIVE_ANIMALS];

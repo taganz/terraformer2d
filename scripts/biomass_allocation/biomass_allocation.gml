@@ -10,6 +10,7 @@
 //		biomass_reproduction
 //		biomass_eat
 //		biomass_body 
+//		is_dead, dead_cause - if some biomass is going negative creature dies ILL
 
 function biomass_allocation(_id) {
 
@@ -48,6 +49,12 @@ function biomass_allocation(_id) {
 			// -- biomass_body
 			biomass_body = max(biomass - biomass_eat - biomass_reproduction, 0);
 			
+		}
+		
+		if biomass_eat < 0 or biomass_body < 0 {
+			is_dead = true;
+			dead_cause = DEADCAUSE.ILL;
+			log_events_creature_dead(_id);
 		}
 	}
 }

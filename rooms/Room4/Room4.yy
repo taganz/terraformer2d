@@ -120,6 +120,7 @@
         {"properties":[],"isDnd":false,"objectId":{"name":"obj_plant_artic","path":"objects/obj_plant_artic/obj_plant_artic.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":224.0,"y":320.0,"resourceVersion":"1.0","name":"inst_16F03D6C","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"obj_plant_artic","path":"objects/obj_plant_artic/obj_plant_artic.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":128.0,"y":416.0,"resourceVersion":"1.0","name":"inst_57799DD8","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"obj_plant_artic","path":"objects/obj_plant_artic/obj_plant_artic.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":416.0,"y":32.0,"resourceVersion":"1.0","name":"inst_4D4F85CF","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"obj_plant_tree_5","path":"objects/obj_plant_tree_5/obj_plant_tree_5.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":352.0,"y":320.0,"resourceVersion":"1.0","name":"inst_3A139DE6","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":200,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Instances","tags":[],"resourceType":"GMRInstanceLayer",},
     {"tilesetId":{"name":"tileset_climate","path":"tilesets/tileset_climate/tileset_climate.yy",},"x":0,"y":0,"tiles":{"SerialiseWidth":25,"SerialiseHeight":19,"TileSerialiseData":[
 2,2,2,2,2,2,2,2,2,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,
@@ -224,6 +225,7 @@
     {"name":"inst_16F03D6C","path":"rooms/Room4/Room4.yy",},
     {"name":"inst_57799DD8","path":"rooms/Room4/Room4.yy",},
     {"name":"inst_4D4F85CF","path":"rooms/Room4/Room4.yy",},
+    {"name":"inst_3A139DE6","path":"rooms/Room4/Room4.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,

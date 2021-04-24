@@ -4,7 +4,7 @@
 // adjust sprite image to specie
 // in:
 //		- sprite_head/body
-//		- my_id.genome
+//		- my_id.genome  --> we'll taks specie_code_x(genome) and specie_code_y(genome)
 // output
 //		- sprite_head_image
 //		- sprite_trunk_image

@@ -1,10 +1,10 @@
 function Morphology_Plant(_id) constructor {
 
-	
 	sprite_head = _id.creature_sprite_head;
 	sprite_body = _id.creature_sprite_body;
 	sprite_dead = _id.creature_sprite_dead; 
 
+	// those are assigned at morphology_born depending on genome
 	sprite_head_image = -1;
 	sprite_body_image = -1;
 	sprite_dead_image = -1;

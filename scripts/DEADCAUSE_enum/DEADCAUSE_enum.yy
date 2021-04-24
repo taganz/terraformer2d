@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "old",
-    "path": "folders/Scripts/DNA/genome/old.yy",
+    "name": "Structure",
+    "path": "folders/Scripts/Creatures/Structure.yy",
   },
   "resourceVersion": "1.0",
-  "name": "genome_to_string_lines",
+  "name": "DEADCAUSE_enum",
   "tags": [],
   "resourceType": "GMScript",
 }

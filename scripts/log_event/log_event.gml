@@ -244,12 +244,14 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 			case LOGEVENT.SPECIE_CLIMATE_DEAD: 
 			case LOGEVENT.SPECIE_NEW: {
 				if obj_gui.options_log.LOG_BORN_DEAD_SUMMARY {
-					_col_id1 = string(_id1);
-					_col_trophic_level = trophic_level_to_string(_id1.genome[GEN.TROPHIC_LEVEL]);
-					_col_specie = string(_id1.genome[GEN.SPECIE_CODE]);
-					if (_id1.my_cell != 0) {
-						_col_x = string(_id1.my_cell.x_cell);
-						_col_y = string(_id1.my_cell.y_cell);
+					if (_id1 != 0) {
+						_col_id1 = string(_id1);
+						_col_trophic_level = trophic_level_to_string(_id1.genome[GEN.TROPHIC_LEVEL]);
+						_col_specie = string(_id1.genome[GEN.SPECIE_CODE]);
+						if (_id1.my_cell != 0) {
+							_col_x = string(_id1.my_cell.x_cell);
+							_col_y = string(_id1.my_cell.y_cell);
+						}
 					}
 					
 					if _event == LOGEVENT.SPECIE_CLIMATE_BORN {
@@ -266,9 +268,8 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 				
 				
 					if _event == LOGEVENT.SPECIE_NEW {
-						_col_txt1 = string(_arg1);		// new specie prefix
-						_col_txt2 = string(_arg2);		// new specie code
-						_col_txt3 = string(_arg3);		// parent specie code
+						_col_txt1 = string(_arg1);		// offspring specie code
+						_col_txt2 = string(_arg2);		// parent specie code
 					}
 				}
 				else {

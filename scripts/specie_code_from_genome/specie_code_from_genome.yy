@@ -6,7 +6,7 @@
     "path": "folders/Scripts/DNA/Species.yy",
   },
   "resourceVersion": "1.0",
-  "name": "specie_code_format",
+  "name": "specie_code_from_genome",
   "tags": [],
   "resourceType": "GMScript",
 }

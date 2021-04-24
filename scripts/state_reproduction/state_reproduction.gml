@@ -30,7 +30,9 @@ function state_reproduction(_id){
 			// create child creature
 			var _child = instance_create_layer(_xTo, _yTo, "Instances", _id.object_index);
 					
-			// give genome to child
+			// give genome to child. 
+			// the instance_create_layer has executed create event for _child and it already has a genome instance
+			// let's make it inherited from parent's genome
 			_child.genome = genome_offspring_copy(_id, world_get_radiation(_id.x, _id.y));
 										
 			// give biomass to child
