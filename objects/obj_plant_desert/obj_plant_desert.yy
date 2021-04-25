@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_cactus_head",
-    "path": "sprites/spr_cactus_head/spr_cactus_head.yy",
+    "name": "spr_cactus_head_4x1",
+    "path": "sprites/spr_cactus_head_4x1/spr_cactus_head_4x1.yy",
   },
   "solid": false,
   "visible": true,
@@ -28,11 +28,11 @@
   "overriddenProperties": [
     {"propertyId":{"name":"initial_specie","path":"objects/class_creature/class_creature.yy",},"objectId":{"name":"class_creature","path":"objects/class_creature/class_creature.yy",},"value":"SPECIE.PLANT_DESERT","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
     {"propertyId":{"name":"class_creature","path":"objects/class_creature/class_creature.yy",},"objectId":{"name":"class_creature","path":"objects/class_creature/class_creature.yy",},"value":"state_eat_producer","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
-    {"propertyId":{"name":"creature_sprite_head","path":"objects/class_creature/class_creature.yy",},"objectId":{"name":"class_creature","path":"objects/class_creature/class_creature.yy",},"value":"spr_cactus_head","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+    {"propertyId":{"name":"creature_sprite_head","path":"objects/class_creature/class_creature.yy",},"objectId":{"name":"class_creature","path":"objects/class_creature/class_creature.yy",},"value":"spr_cactus_head_4x1","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
   ],
   "parent": {
-    "name": "Species",
-    "path": "folders/Objects/Species.yy",
+    "name": "Plants",
+    "path": "folders/Objects/Plants.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_plant_desert",

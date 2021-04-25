@@ -8,8 +8,9 @@ function MACROS(){
 
 // ===	GAME
 
-#macro OBJ_CREATED_BY_CLIC obj_primary_tiny   // the object that will be created with left click
-#macro DEBUG_RAIN_UNLIMITED	false // climates give 999999 rain water
+#macro RANDOMIZE_AT_START		true			// controller will randomize at create event
+#macro OBJ_CREATED_BY_CLIC		obj_primary_tiny   // the object that will be created with left click
+#macro DEBUG_RAIN_UNLIMITED		false			// climates give 999999 rain water
 #macro FILE_INITIAL_SPECIES_CSV "initial_species.csv"
 
 // === ROOM SETUP
@@ -23,20 +24,20 @@ function MACROS(){
 
 // === WORLD 
 
-#macro CELL_SIZE_PX 64							// pixel size 
+#macro RADIATION_GEN_MUTATION_MIN	0.1			// gen mutation factor in offspring_copy
+#macro RADIATION_GEN_MUTATION_MAX	0.5			// gen mutation factor in offspring_copy
 
-// cell area
-#macro CELL_AREA				25			// m2 
-//#macro CELL_SIZE_M				5			// m
-//#macro WATER_IN_1_MM_AREA		100			// kg
+
+
+#macro CELL_SIZE_PX 64							// pixel size - screen area
+#macro CELL_AREA				25			// m2 - real world area
+
 #macro SOIL_DEPTH_MM			1000			// mm - soil depth for available water calculations
 
 #macro BIOMASS_DECOMPOSITION_FACTOR 0.15  // per sim_step (animals) o sim_month (plants)
 #macro NUTRIENT_TILE_OFFSET  1000		// kg
 #macro NUTRIENT_TILE_MULTIPLIER  100    // kg multiply with nutrients tile number to obtain nutrients
 #macro SIMULATION_WORLD_RADIATION 0.1		// 
-//#macro SIMULATION_UNITS_PER_KG 1			
-//#macro WORLD_WATER_PER_LEAF_KG 2 // 2			// per month
 #macro LEAF_M2_PER_KG				1		// area/weight ratio for leafs 
 #macro SOIL_WEIGHT_PER_CELL			 3500 // 1500
 #macro BIOMASS_ADULT_BIG_THRESHOLD  100		// the threshold among small and big plants

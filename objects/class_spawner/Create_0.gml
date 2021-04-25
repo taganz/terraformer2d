@@ -19,7 +19,8 @@ for (var i=0; i< spawner_quantity ;i++) {
 		_id.creature_spawn_as_adult = spawner_spawn_as_adult;
 		// mutate child
 		_id.genome = genome_offspring_copy(_id, world_get_radiation(_id.x, _id.y));
-		show_debug_message("Spawned "+_id.genome[GEN.SPECIE_CODE]);
+		show_debug_message("Spawned "+_id.genome[GEN.SPECIE_CODE]+
+				" x="+string(specie_code_x(_id.genome))+" y="+string(specie_code_y(_id.genome)));
 		total++;
 							
 	}

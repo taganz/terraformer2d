@@ -1,3 +1,8 @@
+// === randomize
+
+if RANDOMIZE_AT_START
+	randomize();
+
 
 //  === default values, can be adjusted by user from gui
 

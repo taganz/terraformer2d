@@ -15,18 +15,29 @@ function genome_offspring_copy(_id_parent, _radiation){
 
 	var _genome_child =  array_create(GEN_NUM, 0);
 	
-	// === inmutable gens
+	// === copy parent genome
 	
-	_genome_child[GEN.TROPHIC_LEVEL] = _id_parent.genome[GEN.TROPHIC_LEVEL];
-	_genome_child[GEN.INITIAL_SPECIE] = _id_parent.genome[GEN.INITIAL_SPECIE];
-	_genome_child[GEN.INITIAL_SPECIE_NAME] = _id_parent.genome[GEN.INITIAL_SPECIE_NAME];
-				
-	// === mutable gens can be changed by radiation
-	
-	for (var i = GEN_FIRST_MUTABLE; i < GEN_NUM;i++) {
-		_genome_child[i] = _id_parent.genome[i] * (1 + random_range(-_radiation, _radiation));
-	}
+	var len = array_length(_id_parent.genome);
+	array_copy(_genome_child, 0, _id_parent.genome, 0, len);
 
+	
+				
+	// === mutation happens?
+	
+	var gen_to_mutate = -1;
+	var mutation_happens = random(1) < _radiation;
+	if mutation_happens {
+		gen_to_mutate = irandom_range(GEN_FIRST_MUTABLE, GEN_NUM-1);
+		var mutation_level = 
+				1 
+				+
+				(1-2*irandom_range(0,1))
+				* ((RADIATION_GEN_MUTATION_MAX - RADIATION_GEN_MUTATION_MIN) * _radiation - RADIATION_GEN_MUTATION_MIN);
+		_genome_child[gen_to_mutate] *= mutation_level;
+		
+	}
+	
+		
 
 	// === current specie gen - specie code and parent specie could change depending on radiation
 	
