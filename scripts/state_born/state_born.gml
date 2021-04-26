@@ -33,10 +33,10 @@ function state_born(_id){
 	
 	
 	// add to species the initial species
-	if _id.structure.generation == 1 {
-		var prefix = specie_code_prefix(_id.genome);
-		ds_map_add(controller.species._prefixes_map, prefix, 0);
-	}
+	//if _id.structure.generation == 1 {
+	//	var prefix = specie_code_prefix(_id.genome);
+	//	ds_map_add(controller.species._prefixes_map, prefix, 0);
+	//}
 	
 	
 	_id.state.next_state = STATE.IDLE;

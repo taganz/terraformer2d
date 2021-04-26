@@ -9,7 +9,7 @@ INITIAL_SPECIE;1;2;3;11;9;4;5;10;7;6;8
 INITIAL_SPECIE_NAME;Tree;Tree tropical;Tree continental;Tree continental 2;Plant desert;Plant bush;Plant bush 2;Plant artic;Primary small;Primary tiny;Secondary small
 SPECIE_CODE;0;0;0;0;0;0;0;0;0;0;0
 PARENT_SPECIE_CODE;0;0;0;0;0;0;0;0;0;0;0
-EMPTY5;0;0;0;0;0;0;0;0;0;0;0
+SPECIE_HUE;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1
 EMPTY6;0;0;0;0;0;0;0;0;0;0;0
 EVOTRANSPIRATION_FACTOR;30;30;30;30;3;30;30;30;0;0;0
 DEPRECATED_10;0;0;0;0;0;0;0;0;0;0;0

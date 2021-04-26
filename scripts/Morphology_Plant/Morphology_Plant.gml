@@ -9,6 +9,8 @@ function Morphology_Plant(_id) constructor {
 	sprite_body_image = -1;
 	sprite_dead_image = -1;
 		
+	// color adjustment
+	specie_blend = -1;		// default blend
 
 	
 #region private attributes

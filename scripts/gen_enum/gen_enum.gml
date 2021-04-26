@@ -14,7 +14,7 @@ function gen_enum(){
 		// current specie gens
 		SPECIE_CODE,						// 3 - string
 		PARENT_SPECIE_CODE,					// 4 - string
-		EMPTY5,								// 5 - reserved for specie definition
+		SPECIE_HUE,							// 5 - real, used to build blend color
 		EMTPY6,								// 6 - reserved for specie definition
 		
 		

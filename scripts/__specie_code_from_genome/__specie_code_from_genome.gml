@@ -10,6 +10,8 @@
 
 */
 
+/*
+
 function specie_code_from_genome(_genome){
 			
 	var code = "";
@@ -65,3 +67,6 @@ function _get_code_y(genome){
 	return string(code);
 
 }
+
+
+*/

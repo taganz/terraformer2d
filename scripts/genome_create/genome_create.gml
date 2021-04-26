@@ -16,7 +16,7 @@ function genome_create(_initial_specie){
 	
 			// get value 
 			var val = initial_specie_gen_value(_initial_specie, i);
-			if (val != -1) {
+			if (val != -999999999) {
 				_genome[i] = val;
 			}
 			else {
@@ -31,7 +31,7 @@ function genome_create(_initial_specie){
 	_genome[GEN.PARENT_SPECIE_CODE] = "NOPARENT";
 	
 	// calculate specie code
-	_genome[GEN.SPECIE_CODE] = specie_code_from_genome(_genome);    
+	_genome[GEN.SPECIE_CODE] = initial_specie_specie_code(_genome);    
 		
 		
 	return _genome;

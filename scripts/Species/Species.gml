@@ -5,7 +5,7 @@
 function Species() constructor {
 
 	// this map stores  prefixes - number of variants for this prefix
-	_prefixes_map = ds_map_create();
+	//_prefixes_map = ds_map_create();
 	
 	// === read gen values for initial species grid
 	// columns are initial species
@@ -20,7 +20,9 @@ function Species() constructor {
 	ASSERT(ds_grid_value_exists(_initial_species_grid, 0, 0, 0, _initial_species_max_rows, "INITIAL_SPECIE"), 0, "INITIAL SPECIES ROW NOT FOUND IN SPECIES FILE");
 	_initial_species_code_row = ds_grid_value_y(_initial_species_grid, 0, 0, 1, _initial_species_max_rows, "INITIAL_SPECIE");
 	
+	
+	// store last variant for each initial specie
+	_initial_species_last_variant = array_create(_initial_species_max_species);
 			
-		
 
 }

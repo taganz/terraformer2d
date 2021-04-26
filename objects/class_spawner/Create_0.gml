@@ -1,3 +1,5 @@
+show_debug_message("Spawned started. Radiation?"+string(spawner_apply_radiation));
+
 for (var i=0; i< spawner_quantity ;i++) {
 	
 	var _xTo = -1;
@@ -17,8 +19,12 @@ for (var i=0; i< spawner_quantity ;i++) {
 		// create child creature
 		_id = instance_create_layer(_xTo, _yTo, "Instances", spawner_object_to_spawn);
 		_id.creature_spawn_as_adult = spawner_spawn_as_adult;
+		
 		// mutate child
-		_id.genome = genome_offspring_copy(_id, world_get_radiation(_id.x, _id.y));
+		if spawner_apply_radiation  {
+			_id.genome = genome_offspring_copy(_id, world_get_radiation(_id.x, _id.y));
+		}
+		
 		show_debug_message("Spawned "+_id.genome[GEN.SPECIE_CODE]+
 				" x="+string(specie_code_x(_id.genome))+" y="+string(specie_code_y(_id.genome)));
 		total++;
