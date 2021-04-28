@@ -11,7 +11,7 @@ function MACROS(){
 #macro RANDOMIZE_AT_START		true			// controller will randomize at create event
 #macro OBJ_CREATED_BY_CLIC		obj_primary_tiny   // the object that will be created with left click
 #macro DEBUG_RAIN_UNLIMITED		false			// climates give 999999 rain water
-#macro FILE_INITIAL_SPECIES_CSV "initial_species.csv"
+#macro FILE_GENUSS_CSV "genus.csv"
 
 // === ROOM SETUP
 
@@ -55,7 +55,7 @@ function MACROS(){
 
 // general life constants
 #macro BIOMASS_DECOMPOSITION_ZERO  10			// when biomass decompeses under this level instance is destroyed
-#macro INITIAL_SPECIES_SPAWN_AS_ADULTS true		// if false, depends on variable creature_spawn_as_adult
+#macro GENUSS_SPAWN_AS_ADULTS true		// if false, depends on variable creature_spawn_as_adult
 
 }
 

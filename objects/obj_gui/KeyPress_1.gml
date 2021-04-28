@@ -1,5 +1,5 @@
-/// @description Inserte aquí la descripción
-// Puede escribir su código en este editor
+// Input keys
+
 
 #macro KEY_ACTIVATE_LOG_CREATURE_IN_SCREEN "3"  // used in Log
 #macro KEYS_TEXT_LINE "ESC: Options P: Pause  R: Restart  1: Faster  2:Slower  3:Follow  4:Debug  "
@@ -43,16 +43,5 @@ if room!= Room0 {
 	input_show_creature_info = keyboard_check(vk_shift);
 	input_show_cell_info = keyboard_check(vk_control);
 
-
-
-	/*
-	// next room
-	if keyboard_check(ord("5")) {
-		if room_next(room) != -1
-	    {
-			room_goto_next();
-	    }
-	}
-	*/
 
 }

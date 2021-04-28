@@ -4,7 +4,7 @@
    in order to make it inherit from parent)
    
 */
-function genome_create(_initial_specie){
+function genome_create(_genus){
 
 	// genome is an array
 	var _genome = array_create (GEN_NUM, 0);
@@ -15,13 +15,13 @@ function genome_create(_initial_specie){
 		for (var i=0; i<GEN_NUM;i++) {
 	
 			// get value 
-			var val = initial_specie_gen_value(_initial_specie, i);
+			var val = genus_gen_value(_genus, i);
 			if (val != -999999999) {
 				_genome[i] = val;
 			}
 			else {
 				_genome[i] = 0;
-				log_error("*** ERROR *** genome_create - error getting gen "+gen_to_string(i)+" for specie "+initial_specie_to_string(_initial_specie))
+				log_error("*** ERROR *** genome_create - error getting gen "+gen_to_string(i)+" for specie "+genus_to_string(_genus))
 			}
 	
 		}
@@ -31,7 +31,7 @@ function genome_create(_initial_specie){
 	_genome[GEN.PARENT_SPECIE_CODE] = "NOPARENT";
 	
 	// calculate specie code
-	_genome[GEN.SPECIE_CODE] = initial_specie_specie_code(_genome);    
+	_genome[GEN.SPECIE_CODE] = _genus_specie_code(_genome);    
 		
 		
 	return _genome;

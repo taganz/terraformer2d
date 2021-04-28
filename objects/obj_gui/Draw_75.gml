@@ -1,4 +1,4 @@
-
+// draw text on simulation screen
 
 if room != Room0 and show_escape_screen == false {
 	gui_text_on_simulation_screen();

@@ -5,7 +5,7 @@ my_cell = 0;
 
 // -- dna
 
-genome = genome_create(initial_specie);
+genome = genome_create(genus);
 
 // we put code from both animal and plants here to simplify things. this is to differenciate them
 

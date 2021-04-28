@@ -1,12 +1,12 @@
 
 
-// Should much initial_species excel definition
+// Should match genus in excel definition
 
 
-function initial_specie_enum(){
+function genus_enum(){
 
-	enum SPECIE {
-		NOPARENT,				// 0 parent specie for initial species
+	enum GENUS {
+		NOPARENT,				// 0 parent specie for genus
 		PLANT_TREE,				// 1
 		TREE_TROPICAL,			// 2
 		TREE_CONTINENTAL,		// 3

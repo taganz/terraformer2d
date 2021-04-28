@@ -6,8 +6,8 @@ var msg = "";
 		// immutable gens
 		switch(gen) {
 			case GEN.TROPHIC_LEVEL:			msg="TROPHIC_LEVEL"; break;
-			case GEN.INITIAL_SPECIE:		msg="INITIAL_SPECIE"; break;
-			case GEN.INITIAL_SPECIE_NAME:	msg="INITIAL_SPECIE_NAME"; break;
+			case GEN.GENUS:		msg="GENUS"; break;
+			case GEN.GENUS_NAME:	msg="GENUS_NAME"; break;
 			case GEN.SPECIE_CODE:			msg="SPECIE_CODE"; break;
 			case GEN.PARENT_SPECIE_CODE:	msg="PARENT_SPECIE_CODE"; break;
 			case GEN.SPECIE_HUE:				msg="SPECIE_HUE"; break;

@@ -6,7 +6,7 @@
     "path": "folders/Scripts/DNA/Species.yy",
   },
   "resourceVersion": "1.0",
-  "name": "_initial_specie_load_csv",
+  "name": "genus_enum",
   "tags": [],
   "resourceType": "GMScript",
 }

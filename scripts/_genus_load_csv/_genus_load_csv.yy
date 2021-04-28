@@ -6,7 +6,7 @@
     "path": "folders/Scripts/DNA/Species.yy",
   },
   "resourceVersion": "1.0",
-  "name": "initial_specie_new_variant",
+  "name": "_genus_load_csv",
   "tags": [],
   "resourceType": "GMScript",
 }

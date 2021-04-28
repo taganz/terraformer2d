@@ -9,8 +9,8 @@ function gen_enum(){
 	enum GEN {
 		// immutable gens
 		TROPHIC_LEVEL,						// 0
-		INITIAL_SPECIE,						// 1
-		INITIAL_SPECIE_NAME,				// 2 - string
+		GENUS,						// 1
+		GENUS_NAME,				// 2 - string
 		// current specie gens
 		SPECIE_CODE,						// 3 - string
 		PARENT_SPECIE_CODE,					// 4 - string

@@ -16,7 +16,7 @@ function specie_code_from_genome(_genome){
 			
 	var code = "";
 	code = trophic_level_to_char(_genome[GEN.TROPHIC_LEVEL])	// 1 char
-			+initial_specie_to_string(_genome[GEN.INITIAL_SPECIE]) // 2 chars
+			+genus_to_string(_genome[GEN.GENUS]) // 2 chars
 			+ _get_code_x(_genome)		// 1 char
 			+ _get_code_y(_genome)		// 1 char
 			+"000";						// variant
@@ -31,8 +31,8 @@ function _get_code_x(genome){
 	
 	// char x
 
-	var k0 = initial_specie_gen_value(genome[GEN.INITIAL_SPECIE], GEN.BIOMASS_ADULT)
-				* initial_specie_gen_value(genome[GEN.INITIAL_SPECIE], GEN.KC_METABOLIC_RATE);
+	var k0 = (genome[GEN.GENUS], GEN.BIOMASS_ADULT)
+				* (genome[GEN.GENUS], GEN.KC_METABOLIC_RATE);
 	var k1 = genome[GEN.BIOMASS_ADULT]* genome[GEN.KC_METABOLIC_RATE];
 	var variation = k1/k0 - 1;
 	
@@ -54,7 +54,7 @@ function _get_code_y(genome){
 	var code = 0;
 	
 	// initial specie code
-	var initial_specie_value = initial_specie_gen_value(genome[GEN.INITIAL_SPECIE], GEN.TEMPERATURE_OPTIMAL);
+	var initial_specie_value = (genome[GEN.GENUS], GEN.TEMPERATURE_OPTIMAL);
 	// variation 
 	var variation = genome[GEN.TEMPERATURE_OPTIMAL]/initial_specie_value - 1;
 	// y depends on variation

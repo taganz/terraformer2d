@@ -264,6 +264,7 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 						_col_txt1 = climate_to_string(_id1.my_cell.climate);								
 						_col_num1 = string((_id1.structure.biomass));
 						_col_txt2 = object_get_name(_id1.object_index);
+						_col_txt3 = deadcause_to_string(_id1.structure.dead_cause);
 					}
 				
 				

@@ -14,11 +14,16 @@ function gui_draw_cell_info(){
 		var x_draw = 50;
 		var y_draw = 300;
 				
-		draw_text(x_draw, y_draw, "Pixels: "+string(mouse_x)+","+string(mouse_y));
-		y_draw +=32;
+		
+		draw_text(x_draw, y_draw, "Pixel: "+string(mouse_x)+","+string(mouse_y));
+		y_draw +=16;
+		
+		draw_text(x_draw, y_draw, "Cell: "+string(grid_pixel_to_cell_x(mouse_x))
+						+","+string(grid_pixel_to_cell_y(mouse_y)));
+		y_draw +=16;
 			
-		draw_text(x_draw, y_draw, "Cell: "+cell_to_string(cell_from_pixel(mouse_x, mouse_y)));
-		y_draw +=32;
+		draw_text(x_draw, y_draw, +cell_to_string(cell_from_pixel(mouse_x, mouse_y)));
+		y_draw +=16;
 			
 		// draw cell rectanble
 		

@@ -27,7 +27,7 @@ function structure_born(my_id){
 		// give some biomass by default for 1st generation creatures.
 		// parent will update with real value in step_reproduction() for next generations
 	
-		if 	age_is_adult or (generation==1 and INITIAL_SPECIES_SPAWN_AS_ADULTS) {
+		if 	age_is_adult or (generation==1 and GENUSS_SPAWN_AS_ADULTS) {
 			biomass = biomass_adult;
 			age_is_adult = true;
 		}

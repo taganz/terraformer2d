@@ -6,7 +6,7 @@ function log_events_creature_born(_id){
 	
 	with _id.structure {
 		log_event(LOGEVENT.CREATURE_BORN, _id);
-		log_event(LOGEVENT.CREATURE_BORN_INFO, _id, "GEN.INITIAL_SPECIE_NAME", string(_id.genome[GEN.INITIAL_SPECIE_NAME]));
+		log_event(LOGEVENT.CREATURE_BORN_INFO, _id, "GEN.GENUS_NAME", string(_id.genome[GEN.GENUS_NAME]));
 		log_event(LOGEVENT.CREATURE_BORN_INFO, _id, "GEN.SPECIE_CODE", string(_id.genome[GEN.SPECIE_CODE]));
 		log_event(LOGEVENT.CREATURE_BORN_INFO, _id, "creature_sprite_head", sprite_get_name(_id.creature_sprite_head));
 		log_event(LOGEVENT.CREATURE_BORN_INFO, _id, "Climate", climate_to_string(_id.my_cell.climate));
@@ -19,6 +19,7 @@ function log_events_creature_born(_id){
 		log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "GEN.ALLOCATION_DIGESTIVE_ANIMALS", string(_id.genome[GEN.ALLOCATION_DIGESTIVE_ANIMALS]));
 		log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "GEN.ALLOCATION_RESERVE", string(_id.genome[GEN.ALLOCATION_RESERVE]));
 		log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "GEN.ANIMAL_ANABOLISM_BIOMASS_CONVERSION", string(_id.genome[GEN.ANIMAL_ANABOLISM_BIOMASS_CONVERSION]));
+		log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "GEN.SPECIE_HUE", string(_id.genome[GEN.SPECIE_HUE]));
 		log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "GEN.TEMPERATURE_OPTIMAL", string(_id.genome[GEN.TEMPERATURE_OPTIMAL]));
 		log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "GEN.TEMPERATURE_RANGE", string(_id.genome[GEN.TEMPERATURE_RANGE]));
 		log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "GEN.BIOMASS_BIRTH", string(_id.genome[GEN.BIOMASS_BIRTH]));
