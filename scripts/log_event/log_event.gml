@@ -10,7 +10,9 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 		
 		
 		// === init format fields
-			
+
+		// --- to add a field, add also heading in Log constructor
+
 		var _col_id1 = "";
 		var _col_name = "";
 		var _col_trophic_level = "";
@@ -20,6 +22,7 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 		var _col_y = "";
 		var _col_num1 = "";
 		var _col_num2 = "";
+		var _col_num3 = "";
 		var _col_txt1 = "";
 		var _col_txt2 = "";
 		var _col_txt3 = "";
@@ -199,8 +202,7 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 			case LOGEVENT.CREATURE_BORN_INFO_NUM:
 			case LOGEVENT.CREATURE_DEAD_INFO:
 			case LOGEVENT.CREATURE_DEAD_INFO_NUM:
-				if obj_gui.options_log.LOG_BORN_DEAD_SUMMARY 
-				|| obj_gui.options_log.LOG_CREATURES_ALL
+				if obj_gui.options_log.LOG_CREATURES_ALL
 				//|| (obj_gui.options_log.LOG_CREATURES_FOLLOWING and _id1 == obj_gui.gui.creature_to_follow) 
 				||  (obj_gui.options_log.LOG_CREATURES_FOLLOWING and _id1.creature_log==true) {
 						// common 
@@ -240,38 +242,52 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 
 #region === SPECIE EVENTS
 
-			case LOGEVENT.SPECIE_CLIMATE_BORN: 
-			case LOGEVENT.SPECIE_CLIMATE_DEAD: 
-			case LOGEVENT.SPECIE_NEW: {
-				if obj_gui.options_log.LOG_BORN_DEAD_SUMMARY {
+			case LOGEVENT.SPECIE_BORN: 
+			case LOGEVENT.SPECIE_DEAD: 
+			case LOGEVENT.SPECIE_NEW: 
+			case LOGEVENT.SPECIE_GENOME:
+			case LOGEVENT.SPECIE_GENOME_NUM: {
+				if obj_gui.options_log.LOG_SPECIES {
 					if (_id1 != 0) {
 						_col_id1 = string(_id1);
 						_col_trophic_level = trophic_level_to_string(_id1.genome[GEN.TROPHIC_LEVEL]);
-						_col_specie = string(_id1.genome[GEN.SPECIE_CODE]);
+						_col_specie = string(_id1.genome[GEN.SPECIE_CODE]);			// specie
 						if (_id1.my_cell != 0) {
 							_col_x = string(_id1.my_cell.x_cell);
 							_col_y = string(_id1.my_cell.y_cell);
 						}
 					}
 					
-					if _event == LOGEVENT.SPECIE_CLIMATE_BORN {
-						_col_txt1 = climate_to_string(_id1.my_cell.climate);								
-						_col_num1 = string((_id1.structure.biomass));
-						_col_txt2 = object_get_name(_id1.object_index);
+					if _event == LOGEVENT.SPECIE_BORN {
+						_col_num1 = string((_id1.structure.biomass));				// biomass
+						_col_txt1 = climate_to_string(_id1.my_cell.climate);		// climate
+						_col_txt2 = object_get_name(_id1.object_index);				// genus
 					}
 					
-					if _event == LOGEVENT.SPECIE_CLIMATE_DEAD {
-						_col_txt1 = climate_to_string(_id1.my_cell.climate);								
-						_col_num1 = string((_id1.structure.biomass));
-						_col_txt2 = object_get_name(_id1.object_index);
-						_col_txt3 = deadcause_to_string(_id1.structure.dead_cause);
+					if _event == LOGEVENT.SPECIE_DEAD {
+						_col_num1 = string(_id1.structure.biomass);					// biomass
+						_col_num2 = string(_id1.structure.age);						// age
+						_col_num3 = string(_id1.structure.reproduction_count);		// reproduction times (not offspring!)
+						_col_txt1 = climate_to_string(_id1.my_cell.climate);		// climate
+						_col_txt2 = object_get_name(_id1.object_index);				// genus
+						_col_txt3 = deadcause_to_string(_id1.structure.dead_cause);	// dead cause
 					}
-				
-				
 					if _event == LOGEVENT.SPECIE_NEW {
 						_col_txt1 = string(_arg1);		// offspring specie code
 						_col_txt2 = string(_arg2);		// parent specie code
+						_col_txt3 = string(_arg3);		// parent specie code
 					}
+					if _event == LOGEVENT.SPECIE_GENOME {
+						_col_specie = _arg1;		// specie
+						_col_txt1 = _arg2;			// tag
+						_col_txt2 = _arg3;			// string value
+					}
+					if _event == LOGEVENT.SPECIE_GENOME_NUM {
+						_col_specie = _arg1;		// specie
+						_col_txt1 = _arg2;			// tag
+						_col_num1 = string(_arg3);	// num value
+					}
+					
 				}
 				else {
 					_do_log = false;
@@ -286,8 +302,8 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 			case LOGEVENT.WORLD_POPULATION:	{
 				_do_log = obj_gui.options_log.LOG_WORLD;
 				_col_id1 = "";
-				_col_trophic_level = trophic_level_to_string(_arg1);
-				_col_num1 = string(_arg2);					
+				_col_trophic_level = trophic_level_to_string(_arg1);    // trophic level
+				_col_num1 = string(_arg2);								// individuals alive
 			}
 			break;
 			
@@ -383,6 +399,8 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 						+ _col_num1
 						+ CSV_SEPARATOR
 						+ _col_num2
+						+ CSV_SEPARATOR
+						+ _col_num3
 						+ CSV_SEPARATOR
 						+ _col_txt1
 						+ CSV_SEPARATOR

@@ -5,7 +5,8 @@ if (controller.time.current_step == 1) {
 	world_create_cell_pixel(x,y);
 	my_cell =  cell_from_pixel(x,y);
 	show_debug_message("Starting probe "+string(id)+" "+probe_name);
-	
+	log_event(LOGEVENT.INFO_PARAMETERS, "Probe "+probe_name
+		+" at cell "+string(my_cell.x_cell)+", "+string(my_cell.y_cell)+"  climate "+climate_to_string(my_cell.climate)); 
 	
 }
 

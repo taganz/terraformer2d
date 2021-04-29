@@ -199,6 +199,7 @@
     {"id":{"name":"scribble_set_wrap","path":"scripts/scribble_set_wrap/scribble_set_wrap.yy",},"order":11,},
     {"id":{"name":"climate_rain_year_average","path":"scripts/climate_rain_year_average/climate_rain_year_average.yy",},"order":5,},
     {"id":{"name":"EmuBitfield","path":"scripts/EmuBitfield/EmuBitfield.yy",},"order":1,},
+    {"id":{"name":"log_events_specie_genome","path":"scripts/log_events_specie_genome/log_events_specie_genome.yy",},"order":19,},
     {"id":{"name":"scribble_get_bbox","path":"scripts/scribble_get_bbox/scribble_get_bbox.yy",},"order":10,},
     {"id":{"name":"soil_to_string","path":"scripts/soil_to_string/soil_to_string.yy",},"order":3,},
     {"id":{"name":"deadcause_to_string","path":"scripts/deadcause_to_string/deadcause_to_string.yy",},"order":4,},

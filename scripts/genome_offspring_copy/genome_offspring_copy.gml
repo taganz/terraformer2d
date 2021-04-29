@@ -4,10 +4,7 @@
 	- copy basic parameters
 	- recalculate mutable parameters based on radiation
 	- detects if mutations generate new specie 
-		if so
-		- saves new specie to world species register
-		- updated child genome with new specie information
-
+		
 		
 */
 
@@ -32,7 +29,8 @@ function genome_offspring_copy(_id_parent, _radiation){
 				1 
 				+
 				(1-2*irandom_range(0,1))
-				* ((RADIATION_GEN_MUTATION_MAX - RADIATION_GEN_MUTATION_MIN) * _radiation - RADIATION_GEN_MUTATION_MIN);
+				* ((RADIATION_GEN_MUTATION_MAX - RADIATION_GEN_MUTATION_MIN) * _radiation + RADIATION_GEN_MUTATION_MIN); 
+				//* ((RADIATION_GEN_MUTATION_MAX - RADIATION_GEN_MUTATION_MIN) * _radiation - RADIATION_GEN_MUTATION_MIN);
 		_genome_child[gen_to_mutate] *= mutation_level;
 		
 	}
@@ -65,7 +63,8 @@ function genome_offspring_copy(_id_parent, _radiation){
 		_genome_child[GEN.SPECIE_HUE] = specie_hue_from_genome(_genome_child);
 		
 		// log a new specie		
-		log_event(LOGEVENT.SPECIE_NEW, 0, _genome_child[GEN.SPECIE_CODE], _id_parent.genome[GEN.SPECIE_CODE]);
+		log_event(LOGEVENT.SPECIE_NEW, 0, _genome_child[GEN.SPECIE_CODE], _id_parent.genome[GEN.SPECIE_CODE], climate_to_string(_id_parent.my_cell.climate));	
+		log_events_specie_genome(_genome_child);
 			
 	}
 	

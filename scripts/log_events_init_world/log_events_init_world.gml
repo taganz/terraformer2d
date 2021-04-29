@@ -1,6 +1,7 @@
 
 function log_events_init_world(){
 
+	log_event(LOGEVENT.INFO_PARAMETERS, "Room:      "+string(room_get_name(room))); 
 	log_event(LOGEVENT.INFO_PARAMETERS, "Screen pixels:      "+string(controller.world.world_max_x)+", "+string(controller.world.world_max_y));
 	log_event(LOGEVENT.INFO_PARAMETERS, "World cells:        "+string(controller.world.world_w)+", "+string(controller.world.world_h));
 	log_event(LOGEVENT.INFO_PARAMETERS, "TIME_SIM_STEPS_PER_MONTH:         "+ string(TIME_SIM_STEPS_PER_MONTH));

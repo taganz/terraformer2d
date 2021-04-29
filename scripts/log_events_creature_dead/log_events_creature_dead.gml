@@ -8,6 +8,6 @@ function log_events_creature_dead(_id){
 		log_event(LOGEVENT.CREATURE_DEAD_INFO_NUM, _id,	"biomass", (_id.structure.biomass));
 		log_event(LOGEVENT.CREATURE_DEAD_INFO, _id,		"cell", cell_to_string(_id.my_cell));
 		
-		log_event(LOGEVENT.SPECIE_CLIMATE_DEAD, _id);
+		log_event(LOGEVENT.SPECIE_DEAD, _id);
 
 }

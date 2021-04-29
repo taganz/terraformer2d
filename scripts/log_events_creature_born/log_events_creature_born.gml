@@ -38,9 +38,11 @@ function log_events_creature_born(_id){
 		log_event(LOGEVENT.CREATURE_LIFE_EVENT,		_id, "spawn_as_adult="+string(age_is_adult)+", generation="+string(generation)+", biomass: "+string(biomass), "");
 		log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "_biomass_eat_allocation", _biomass_eat_allocation);
 	
+
+	
 	}
 	
-	log_event(LOGEVENT.SPECIE_CLIMATE_BORN, _id);
+	log_event(LOGEVENT.SPECIE_BORN, _id);
 
 
 }

@@ -29,5 +29,6 @@ function specie_new_specie(genome){
 		return code;
 				
 	}
+	
 
 }

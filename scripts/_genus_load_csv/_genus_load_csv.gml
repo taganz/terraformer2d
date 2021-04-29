@@ -1,13 +1,13 @@
 function _genus_load_csv(){
 
 
-	if ! file_exists(FILE_GENUSS_CSV) {
-		show_message("File "+FILE_GENUSS_CSV+" not found");
+	if ! file_exists(FILE_GENUS_CSV) {
+		show_message("File "+FILE_GENUS_CSV+" not found");
 		return -1;
 	}
 	else {
 		
-		file_grid = csv_to_grid(FILE_GENUSS_CSV);
+		file_grid = csv_to_grid(FILE_GENUS_CSV);
 	
 		/*
 		var ww = ds_grid_width(file_grid);

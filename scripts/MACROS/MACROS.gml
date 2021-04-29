@@ -11,7 +11,7 @@ function MACROS(){
 #macro RANDOMIZE_AT_START		true			// controller will randomize at create event
 #macro OBJ_CREATED_BY_CLIC		obj_primary_tiny   // the object that will be created with left click
 #macro DEBUG_RAIN_UNLIMITED		false			// climates give 999999 rain water
-#macro FILE_GENUSS_CSV "genus.csv"
+#macro FILE_GENUS_CSV "genus.csv"
 
 // === ROOM SETUP
 
@@ -24,8 +24,8 @@ function MACROS(){
 
 // === WORLD 
 
-#macro RADIATION_GEN_MUTATION_MIN	0.1			// gen mutation factor in offspring_copy
-#macro RADIATION_GEN_MUTATION_MAX	0.5			// gen mutation factor in offspring_copy
+#macro RADIATION_GEN_MUTATION_MIN	0.2			// gen mutation factor in offspring_copy
+#macro RADIATION_GEN_MUTATION_MAX	0.7			// gen mutation factor in offspring_copy
 
 
 

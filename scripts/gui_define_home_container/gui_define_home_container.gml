@@ -131,6 +131,21 @@ var check = new EmuCheckbox(OPTIONS_COLUMN_Y, yy, 256, 32, "Log file", obj_gui.o
 _home_container.AddContent(check);
 yy+=32;
 
+// --- log world
+
+var check = new EmuCheckbox(OPTIONS_COLUMN_Y  + 32, yy, 256, 32, "Log world summary", obj_gui.options_log.LOG_WORLD, function() {
+    obj_gui.options_log.LOG_WORLD = value;
+});
+_home_container.AddContent(check);
+yy+=32;
+
+// --- log species
+
+var check = new EmuCheckbox(OPTIONS_COLUMN_Y  + 32, yy, 256, 32, "Log species", obj_gui.options_log.LOG_SPECIES, function() {
+    obj_gui.options_log.LOG_SPECIES = value;
+});
+_home_container.AddContent(check);
+yy+=32;
 
 // --- log creatures selected
 
@@ -148,21 +163,7 @@ var check = new EmuCheckbox(OPTIONS_COLUMN_Y  + 32, yy, 256, 32, "Log all creatu
 _home_container.AddContent(check);
 yy+=32;
 
-// --- log summary
 
-var check = new EmuCheckbox(OPTIONS_COLUMN_Y  + 32, yy, 256, 32, "Log summary", obj_gui.options_log.LOG_BORN_DEAD_SUMMARY, function() {
-    obj_gui.options_log.LOG_BORN_DEAD_SUMMARY = value;
-});
-_home_container.AddContent(check);
-yy+=32;
-
-// --- log world
-
-var check = new EmuCheckbox(OPTIONS_COLUMN_Y  + 32, yy, 256, 32, "Log world population", obj_gui.options_log.LOG_WORLD, function() {
-    obj_gui.options_log.LOG_WORLD = value;
-});
-_home_container.AddContent(check);
-yy+=32;
 
 
 

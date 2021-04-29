@@ -33,8 +33,10 @@ function LOGEVENT_enum(){
 		// Species stats
 		
 		SPECIE_NEW,							
-		SPECIE_CLIMATE_BORN,				// individuals born per climate
-		SPECIE_CLIMATE_DEAD,				
+		SPECIE_BORN,				// individuals born per climate
+		SPECIE_DEAD,			
+		SPECIE_GENOME,
+		SPECIE_GENOME_NUM,
 		
 		// World stats
 		

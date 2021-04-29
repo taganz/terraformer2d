@@ -66,7 +66,7 @@ function Structure(_id, _spawn_as_adult) constructor {
 	
 	// -- reproduction
 	
-	reproduction_count = 0;			// times reproduction done
+	reproduction_count = 0;					// times reproduction done
 	reproduction_age_last_time = -1;		// age at last reproduction
 	_reproduction_interval = -1;
 	_reproduction_distance = -1;
