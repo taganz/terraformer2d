@@ -69,6 +69,16 @@ function gui_define_escape_screen_container(){
 	_escape_screen_container.AddContent(_button);
 	yy+=32;
 
+	// info
+
+	var text = new EmuText(COLUMN_1_X, yy, 512, 32, "sim step: " + string(controller.time.current_sim_step));
+	_escape_screen_container.AddContent(text);
+	yy+=32;
+	var text = new EmuText(COLUMN_1_X, yy, 512, 32, "step: " + string(controller.time.current_step) );
+	_escape_screen_container.AddContent(text);
+	yy+=32;
+
+
 
 	// === COLUMN 2
 
