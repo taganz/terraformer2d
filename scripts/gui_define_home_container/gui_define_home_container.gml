@@ -12,6 +12,7 @@ var OPTIONS_COLUMN_Y = 400;
 
 var _home_container = new EmuCore(32, 32, 640, 640);
 
+
 // === room selection column
 
 var yy = 0;

@@ -1,4 +1,9 @@
 
+// get biomass from plants in the same cell
+// try small producers first, then big producers
+// increment structure.animal_eaten_biomass
+
+
 function state_eat_primary(_id) {
 	
 
@@ -34,20 +39,26 @@ function _process_producers_list(_id, _producers_list) {
 			if is_undefined(_prey)== false {
 						
 											
-				// all plants can be eaten now <-----
+				// *** can eat plants if our biomass is at least half the plant ***
 						
-				// move to plant position, it is near
-				world_creature_move(_id, _prey.x, _prey.y);
+				if _id.structure.biomass > _prey.structure.biomass * PRIMARY_TO_PLANT_RATIO_TO_EAT  {
+					
+					// move to plant position, it is near
+					world_creature_move(_id, _prey.x, _prey.y);
 						
-				// capture a part of biomass from one of the plants 
-				var _biomass_got = been_eated(_prey, _id, _id.structure.biomass_eat);
-				_id.structure.animal_eaten_biomass += _biomass_got; 
+					// capture a part of biomass from one of the plants 
+					var _biomass_got = been_eated(_prey, _id, _id.structure.biomass_eat);
+					_id.structure.animal_eaten_biomass += _biomass_got; 
 						
-				// log eat event
-				var _txt = "animal_eaten_biomass: "+string((_id.structure.animal_eaten_biomass))+"  biomass prey: "+string((_prey.structure.biomass));
-				log_event(LOGEVENT.CREATURE_EAT, _id, _prey, _biomass_got, _txt);
-						
-				return true;
+					// log eat event
+					var _txt = "animal_eaten_biomass: "+string((_id.structure.animal_eaten_biomass))+"  biomass prey: "+string((_prey.structure.biomass));
+					log_event(LOGEVENT.CREATURE_EAT, _id, _prey, _biomass_got, _txt);
+				
+					// store to draw
+					last_prey_eaten = _prey;
+				
+					return true;	
+				}
 			}
 		}
 		return false;

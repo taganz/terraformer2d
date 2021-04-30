@@ -55,8 +55,8 @@ function MACROS(){
 
 // general life constants
 #macro BIOMASS_DECOMPOSITION_ZERO  10			// when biomass decompeses under this level instance is destroyed
-#macro GENUSS_SPAWN_AS_ADULTS true		// if false, depends on variable creature_spawn_as_adult
-
+#macro GENUSS_SPAWN_AS_ADULTS true				// if false, depends on variable creature_spawn_as_adult
+#macro PRIMARY_TO_PLANT_RATIO_TO_EAT 0.5		// primaries biomass need be greater than this fraction of plant biomass to eat it
 }
 
 

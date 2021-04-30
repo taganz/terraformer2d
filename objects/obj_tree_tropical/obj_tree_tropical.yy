@@ -35,7 +35,7 @@
     "path": "folders/Objects/Plants.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_plant_tree_tropical",
+  "name": "obj_tree_tropical",
   "tags": [],
   "resourceType": "GMObject",
 }

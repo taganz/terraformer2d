@@ -37,8 +37,8 @@
     {"propertyId":{"name":"creature_sprite_body","path":"objects/class_creature/class_creature.yy",},"objectId":{"name":"class_creature","path":"objects/class_creature/class_creature.yy",},"value":"spr_plant_body_default","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
   ],
   "parent": {
-    "name": "Species",
-    "path": "folders/Objects/Species.yy",
+    "name": "Plants",
+    "path": "folders/Objects/Plants.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_plant_bush",

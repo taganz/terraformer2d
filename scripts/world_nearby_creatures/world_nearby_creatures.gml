@@ -3,6 +3,7 @@
 // in
 //   x, y
 //	 kind = "small_producer" or "big_producer" or "primary"
+
 function world_get_nearby_creatures(_x, _y, kind){
 
 

@@ -16,8 +16,8 @@
 	
 function structure_metabolism_animal(my_id){
 
-		
-		
+	with my_id.structure {
+				
 		// === anabolism
 		
 		var _quant_anabolism = animal_eaten_biomass * my_id.genome[GEN.ANIMAL_ANABOLISM_BIOMASS_CONVERSION];
@@ -30,13 +30,18 @@ function structure_metabolism_animal(my_id){
 		animal_eaten_biomass -= _quant_anabolism;				  
 			
 		// === catabolism
-		
+		var _catabolism_temperature_factor =  clamp(
+					my_id.genome[GEN.DORMANCY_CATABOLISM_REDUCTION]
+					* (my_id.my_cell.temperature_current_month - _Tmin)
+					/ (_Topt1-_Tmin)
+					+ 1 - my_id.genome[GEN.DORMANCY_CATABOLISM_REDUCTION] 
+						, 0, 1);
 		var _quant_catabolism = biomass_body * my_id.genome[GEN.KC_METABOLIC_RATE];
-		log_event(LOGEVENT.CREATURE_CATABOLISM, my_id, _quant_catabolism);
-
+		log_event(LOGEVENT.CREATURE_CATABOLISM, my_id, _quant_catabolism, 
+						"T:" + string(my_id.my_cell.temperature_current_month)+", Kctf: "+string(_catabolism_temperature_factor));
 		// === change biomass
 
 		biomass_modify (my_id, _quant_anabolism - _quant_catabolism);
-				
+	}			
 		
 }	
