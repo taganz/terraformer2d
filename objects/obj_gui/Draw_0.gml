@@ -2,9 +2,32 @@
 
 // === main menu screen
 
+
 if room == Room0 {
-	home_container.Render();
-	EmuOverlay.Render();
+
+	// states 0: selecting room, 1: configuring, 2: ready to do next_roomm
+	switch(state) {
+		case 0:
+			container_home.Render();
+			EmuOverlay.Render();
+			break;
+		case 1:
+			container_config_room_1.Render();
+			EmuOverlay.Render();
+			break;
+			// room selected show 
+		break;
+		case 2:
+		break;
+		default:
+			ASSERT(false, 0, "obj_gui, switch state error"+string(state));
+	}
+
+	
+}
+
+if room == Room0 {
+
 	
 }
 
@@ -12,7 +35,7 @@ else {
 
 	// === escape screen (simulation options)
 	if show_escape_screen {
-		escape_screen_container.Render();
+		container_escape_screen.Render();
 		EmuOverlay.Render();
 	}
 	
@@ -21,7 +44,7 @@ else {
 	else  {
 		
 		// buttons
-		simulation_container.Render();
+		container_simulation.Render();
 		EmuOverlay.Render();		
 		
 		// show creature info on mouse position

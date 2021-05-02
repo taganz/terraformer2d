@@ -13,7 +13,6 @@ function World() constructor {
 	// grid_cells
 	// statistics
 
-#region Initialize vars
 
 	climate_change_temperature_increment = 0;		// used by GUI to simulate climate change
 
@@ -41,11 +40,7 @@ function World() constructor {
 	
 	radiation = SIMULATION_WORLD_RADIATION;
 	
-#endregion
 
-
-
-	
 
 
 	// simulating decomposers tranforming corpse into organic nutrients

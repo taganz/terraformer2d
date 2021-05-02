@@ -11,6 +11,12 @@ function climate_read_array() {
 	
 	var climates = array_create(CLIMATE_NUM, 0);
 	
+	climates[CLIMATE.DEFAULT] = 
+		{
+			name : "Default",
+			temperature : [ 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0],
+			rain : [ 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0]
+		};
 	climates[CLIMATE.DRY] = 
 		{
 			name : "Dry",

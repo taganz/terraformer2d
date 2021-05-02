@@ -6,81 +6,60 @@
 
 function gui_define_home_container(){
 	
-var TITLE_COLUMN_X = 32;
-var ROOMS_COLUMN_X = 32;
+var ROOMS_COLUMN_Y = 32;
 var OPTIONS_COLUMN_Y = 400;
 
 var _home_container = new EmuCore(32, 32, 640, 640);
 
-
 // === room selection column
 
-var yy = 0;
+var yy = 32;
 
-var text = new EmuText(TITLE_COLUMN_X, yy, 512, 32, "TERRAFORMER 2D");
-_home_container.AddContent(text);
-yy+=32;
-
-var text = new EmuText(TITLE_COLUMN_X, yy, 512, 32, "Yet another ecosystem simulator");
-_home_container.AddContent(text);
-yy+=32;
-
-yy+=32
-
-var text = new EmuText(ROOMS_COLUMN_X, yy, 256, 32, "Select zone");
-_home_container.AddContent(text);
-yy+=32;
-
-
-var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "All climates (4)", function() {
-    room_goto(Room4);
-});
-_home_container.AddContent(_button);
-yy+=32;
-
-var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Tropical", function() {
+var _button = new EmuButton(ROOMS_COLUMN_Y, yy, 256, 32, "Tropical", function() {
     room_goto(rm_tropical);
 });
 _home_container.AddContent(_button);
 yy+=32;
 
-var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Artic", function() {
+var _button = new EmuButton(ROOMS_COLUMN_Y, yy, 256, 32, "Artic", function() {
     room_goto(rm_artic);
 });
 _home_container.AddContent(_button);
 yy+=32;
 
-var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Mediterranean", function() {
+var _button = new EmuButton(ROOMS_COLUMN_Y, yy, 256, 32, "Mediterranean", function() {
     room_goto(rm_mediterranean);
 });
 _home_container.AddContent(_button);
 yy+=32;
 
-var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Continental", function() {
+var _button = new EmuButton(ROOMS_COLUMN_Y, yy, 256, 32, "Continental", function() {
     room_goto(rm_continental);
 });
 _home_container.AddContent(_button);
 yy+=32;
 
 
-var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Desertic", function() {
+var _button = new EmuButton(ROOMS_COLUMN_Y, yy, 256, 32, "Desertic", function() {
     room_goto(rm_desertic);
 });
 _home_container.AddContent(_button);
 yy+=32;
 
-// separating debug rooms
-yy+=32;
 
-
-var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Climate test (2)", function() {
+var _button = new EmuButton(ROOMS_COLUMN_Y, yy, 256, 32, "Climate test (2)", function() {
     room_goto(Room2);
 });
 _home_container.AddContent(_button);
 yy+=32;
 
+var _button = new EmuButton(ROOMS_COLUMN_Y, yy, 256, 32, "All climates (4)", function() {
+    room_goto(Room4);
+});
+_home_container.AddContent(_button);
+yy+=32;
 
-var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Debug", function() {
+var _button = new EmuButton(ROOMS_COLUMN_Y, yy, 256, 32, "Debug", function() {
     room_goto(rm_debug);
 });
 _home_container.AddContent(_button);
@@ -88,7 +67,7 @@ yy+=32;
 
 
 
-var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Room1 - Test", function() {
+var _button = new EmuButton(ROOMS_COLUMN_Y, yy, 256, 32, "Room1 - Test", function() {
     room_goto(Room1);
 });
 _home_container.AddContent(_button);
@@ -98,13 +77,7 @@ yy+=32;
 
 
 // === options column
-
-
 yy = 32;
-
-yy+=32;
-yy+=32;
-
 
 var text = new EmuText(OPTIONS_COLUMN_Y, yy, 512, 32, "OPTIONS ");
 _home_container.AddContent(text);
@@ -132,21 +105,6 @@ var check = new EmuCheckbox(OPTIONS_COLUMN_Y, yy, 256, 32, "Log file", obj_gui.o
 _home_container.AddContent(check);
 yy+=32;
 
-// --- log world
-
-var check = new EmuCheckbox(OPTIONS_COLUMN_Y  + 32, yy, 256, 32, "Log world summary", obj_gui.options_log.LOG_WORLD, function() {
-    obj_gui.options_log.LOG_WORLD = value;
-});
-_home_container.AddContent(check);
-yy+=32;
-
-// --- log species
-
-var check = new EmuCheckbox(OPTIONS_COLUMN_Y  + 32, yy, 256, 32, "Log species", obj_gui.options_log.LOG_SPECIES, function() {
-    obj_gui.options_log.LOG_SPECIES = value;
-});
-_home_container.AddContent(check);
-yy+=32;
 
 // --- log creatures selected
 
@@ -164,7 +122,21 @@ var check = new EmuCheckbox(OPTIONS_COLUMN_Y  + 32, yy, 256, 32, "Log all creatu
 _home_container.AddContent(check);
 yy+=32;
 
+// --- log summary
 
+var check = new EmuCheckbox(OPTIONS_COLUMN_Y  + 32, yy, 256, 32, "Log summary", obj_gui.options_log.LOG_BORN_DEAD_SUMMARY, function() {
+    obj_gui.options_log.LOG_BORN_DEAD_SUMMARY = value;
+});
+_home_container.AddContent(check);
+yy+=32;
+
+// --- log world
+
+var check = new EmuCheckbox(OPTIONS_COLUMN_Y  + 32, yy, 256, 32, "Log world population", obj_gui.options_log.LOG_WORLD, function() {
+    obj_gui.options_log.LOG_WORLD = value;
+});
+_home_container.AddContent(check);
+yy+=32;
 
 
 

@@ -117,7 +117,7 @@
     "125": {"x":224,"y":2,"w":4,"h":20,"character":125,"shift":6,"offset":1,},
     "126": {"x":215,"y":2,"w":7,"h":20,"character":126,"shift":8,"offset":0,},
     "186": {"x":152,"y":24,"w":5,"h":20,"character":186,"shift":7,"offset":1,},
-    "9647": {"x":67,"y":68,"w":10,"h":20,"character":9647,"shift":16,"offset":3,},
+    "9647": {"x":67,"y":68,"w":4,"h":20,"character":9647,"shift":10,"offset":3,},
   },
   "kerningPairs": [
     {"first":65,"second":84,"amount":-1,},

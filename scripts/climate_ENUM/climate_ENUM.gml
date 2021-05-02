@@ -2,7 +2,7 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function climate_ENUM(){
 	enum CLIMATE {
-		CLIMATE_0,     // not valid. need this because tile 0 is not valid
+		DEFAULT,     // not a valid climate. need this because tile 0 is not valid
 		DRY,
 		TROPICAL,
 		MEDITERRANEAN,

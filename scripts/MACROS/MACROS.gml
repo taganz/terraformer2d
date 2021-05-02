@@ -29,7 +29,7 @@ function MACROS(){
 
 
 
-#macro CELL_SIZE_PX 64							// pixel size - screen area
+#macro CELL_SIZE_PX				32			// pixel size - screen area (climate cells are 32x32px)
 #macro CELL_AREA				25			// m2 - real world area
 
 #macro SOIL_DEPTH_MM			1000			// mm - soil depth for available water calculations

@@ -11,10 +11,8 @@ function gui_define_escape_screen_container(){
 	var _escape_screen_container = new EmuCore(32, 32, 640, 640);
 	var yy = 32;
 	
-	
-	// === COLUMN 1
 
-	// --- help
+	// === help
 
 	var _button = new EmuButton(COLUMN_1_X, yy, 256, 32, "Help", function() {
 	    var dialog = new EmuDialog(640, 640, "Terraformer2D");
@@ -27,7 +25,9 @@ function gui_define_escape_screen_container(){
 	_escape_screen_container.AddContent(_button);
 	yy+=32;
 
-	// --- debug
+
+
+	// === debug
 
 	var _button = new EmuButton(COLUMN_1_X, yy, 256, 32, "Debug (4)", function() {
 		gui_debug_toogle();
@@ -51,13 +51,6 @@ function gui_define_escape_screen_container(){
 	_escape_screen_container.AddContent(_button);
 	yy+=32;
 
-	
-	
-	yy+=32;
-	yy+=32;
-	yy+=32;
-	yy+=32;
-
 	// checkbox
 
 	var checkbox = new EmuCheckbox(COLUMN_1_X, yy, 256, 32, "Toggle", false, function() {
@@ -76,22 +69,12 @@ function gui_define_escape_screen_container(){
 	_escape_screen_container.AddContent(_button);
 	yy+=32;
 
-	// info
-
-	var text = new EmuText(COLUMN_1_X, yy, 512, 32, "sim step: " + string(controller.time.current_sim_step));
-	_escape_screen_container.AddContent(text);
-	yy+=32;
-	var text = new EmuText(COLUMN_1_X, yy, 512, 32, "step: " + string(controller.time.current_step) );
-	_escape_screen_container.AddContent(text);
-	yy+=32;
-
-
 
 	// === COLUMN 2
-	
-	yy=0;
 
 	// spawn specie selection
+
+	yy=0;
 
 
 	var radio = new EmuRadioArray(COLUMN_2_X, yy, 256, 32, "Specie to spawn on left click:", 0, function() {

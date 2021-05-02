@@ -2,7 +2,7 @@
 
 	Initializes gui containers
   
-		home_container, for Room0
+		container_home, for Room0
 		TBD
 
 	This object must be placed in all screens
@@ -14,24 +14,28 @@
 */
 
 
-	
-//scribble_add_font("fnt_small");
-	
-gui = new GUI();
-show_escape_screen = false;
 depth = -15000;
 
 // === user settings
 options_unlimited_water = DEBUG_RAIN_UNLIMITED;
-//options_log = LOG_ALLOW_LOG;
 options_log = new log_user_options();
-options_gui = new gui_user_options();
 
-// === key input
+// === simulation screen
 input_show_cell_info = false;
 input_show_creature_info = false;
+warning_no_creature_alive_issued = - 1;
+showing_debug_data_for_creature = - 1;
+show_escape_screen = false;
 
-// === gui containers
-home_container = -1;
-simulation_container = -1;
-escape_screen_container = -1;		// 
+// === home screen
+state = 0;					
+selected_room = -1;
+selected_climate = -1;
+selected_soil_type = -1;
+
+// === gui containers for each screen
+container_home= -1;
+container_config_room_1 = -1;
+container_simulation = -1;
+container_escape_screen = -1;		 
+

@@ -2,12 +2,20 @@
 // Puede escribir su código en este editor
 
 if room == Room0 {
-	home_container = gui_define_home_container();
+	container_home= gui_define_container_home();
+	container_config_room_1= gui_define_container_config_room_1();
 }
 else {
+	show_debug_message("Opening simulation. Selected room: "+ room_get_name(selected_room));
+	show_debug_message("Opening simulation. Selected climate: "+ string(selected_climate));
+	show_debug_message("Opening simulation. Selected soil: "+ string(selected_soil_type));
+	
+	// prepare climate replacement
+	controller.user_options.climate_replace = selected_climate;
+	
 	warning_no_creature_alive_issued = false;
-	simulation_container = gui_define_simulation_container();
-	escape_screen_container = gui_define_escape_screen_container();
+	container_simulation = gui_define_container_simulation();
+	container_escape_screen = gui_define_container_escape_screen();
 }
 
 

@@ -1,0 +1,141 @@
+Trees: Mega Pack CC-BY 3.0
+This resource is a compilation of next works
+ 
+----------------------------------------
+Title: Lots of Hyptosis&#039; tiles organized!
+Author: Hyptosis
+Collaborators: Hyptosis
+URL: https://opengameart.org/content/lots-of-hyptosis-tiles-organized
+License(s): * CC-BY 3.0 ( http://creativecommons.org/licenses/by/3.0/legalcode )
+SPECIAL ATTRIBUTION INSTRUCTIONS:
+    Hyptosis created everything, Zabin organized tiles, and the lamp fixture was created by Curt, Sharm, William.Thompsonj, & mold
+File(s):
+    * trees.png
+    * trees_plants.png
+    * trees_plants_rocks.png
+    * town.png
+----------------------------------------
+Title: 2d Lost Garden Zelda style tiles resized to 32x32 with additions
+Author: Daniel Cook, Jetrel, Saphy (TMW), Zabin, Bertram
+Collaborators: Jetrel, Bertram
+URL: https://opengameart.org/content/2d-lost-garden-zelda-style-tiles-resized...
+License(s): * CC-BY 3.0 ( http://creativecommons.org/licenses/by/3.0/legalcode )
+SPECIAL ATTRIBUTION INSTRUCTIONS:
+    Credit goes to Daniel Cook&#039;s 2d Circle Graphic Archive, Jetrel&#039;s mockups resized 32x32, Bertram&#039;s improvements, Zabin&#039;s modification and additions, Saphy (TMW) tall grass and please provide a link back to OGA and this submission.
+File(s):
+    * mountain_landscape.png
+----------------------------------------
+Title: LPC Submissions Merged
+Author: DeadlyEssence01
+URL: https://opengameart.org/content/lpc-submissions-merged
+License(s): * CC-BY 3.0 ( http://creativecommons.org/licenses/by/3.0/legalcode )
+Copyright/Attribution Notice:
+    See the Attributions folder... or almost all the LPC submissions..
+File(s):
+    * LPC Submissions.zip
+    * Animations.zip
+----------------------------------------
+Title: 2D Circle Graphic Archive
+Author: Daniel Cook
+URL: https://opengameart.org/content/2d-circle-graphic-archive
+License(s): * CC-BY 3.0 ( http://creativecommons.org/licenses/by/3.0/legalcode )
+File(s): * 2d circle graphic archive.zip
+----------------------------------------
+Title: Gnarled Tree
+Author: geloescht
+URL: https://opengameart.org/content/gnarled-tree
+License(s): * CC-BY 3.0 ( http://creativecommons.org/licenses/by/3.0/legalcode )
+File(s):
+    * baum.png
+----------------------------------------
+Title: 32x32 (and 16x16) RPG Tiles--Forest and some Interior Tiles
+Author: Stephen Challener (Redshrike), commissioned by Gaurav Munjal
+URL: https://opengameart.org/content/32x32-and-16x16-rpg-tiles-forest-and-som...
+License(s): * CC-BY 3.0 ( http://creativecommons.org/licenses/by/3.0/legalcode )
+Copyright/Attribution Notice:
+    Stephen Challener and the Open Surge team ( http://opensnc.sourceforge.net), hosted by OpenGameArt.org
+File(s):
+    * dark_forest.png
+    * light_forest_tileset_0.png
+    * testtiles32x32_castle.png
+----------------------------------------
+Title: Tree Collection - Bleed&#039;s Game Art
+Author: Bleed
+URL: https://opengameart.org/content/tree-collection-bleeds-game-art
+License(s): * CC-BY 3.0 ( http://creativecommons.org/licenses/by/3.0/legalcode )
+SPECIAL ATTRIBUTION INSTRUCTIONS:
+    Credit is not necessary but appreciated. You can use my name "Bleed" and if you&#039;re feeling extra generous here&#039;s a link to my portfolio that you can include "http://remusprites.carbonmade.com/" Again, all this is optional.
+File(s):
+    * _01.zip
+    * _02.zip
+    * _03.zip
+    * _04.zip
+    * _05.zip
+----------------------------------------
+Title: Tree Collection v2.6 - Bleed&#039;s Game Art
+Author: Bleed
+URL: https://opengameart.org/content/tree-collection-v26-bleeds-game-art
+License(s): * CC-BY 3.0 ( http://creativecommons.org/licenses/by/3.0/legalcode )
+Copyright/Attribution Notice:
+    "Bleed - http://remusprites.carbonmade.com/"
+File(s):
+    * _tree_01.zip
+    * _tree_02.zip
+    * _tree_03.zip
+    * _tree_04.zip
+    * _tree_05.zip
+    * _tree_06.zip
+    * _tree_07.zip
+    * _tree_08.zip
+    * _tree_09.zip
+    * _tree_10.zip
+    * _tree_11.zip
+    * _tree_12.zip
+    * _tree_13.zip
+    * _tree_14.zip
+----------------------------------------
+Title: Animated Isometric Tree - Bleed&#039;s Game Art
+Author: Bleed
+URL: https://opengameart.org/content/animated-isometric-tree-bleeds-game-art
+License(s): * CC-BY 3.0 ( http://creativecommons.org/licenses/by/3.0/legalcode )
+Copyright/Attribution Notice:
+    "Bleed - http://remusprites.carbonmade.com/"
+File(s):
+    * Animated Swietenia.zip
+----------------------------------------
+Title: Forest Tileset
+Author: 2DPIXX
+URL: https://opengameart.org/content/forest-tileset
+License(s): * CC-BY 3.0 ( http://creativecommons.org/licenses/by/3.0/legalcode )
+File(s): * 2dpixx_ccart_forest_tiles.tar.gz
+----------------------------------------
+Title: Retro Tileset
+Author: paulb
+URL: https://opengameart.org/content/retro-tileset
+License(s): * CC-BY 3.0 ( http://creativecommons.org/licenses/by/3.0/legalcode )
+Copyright/Attribution Notice:
+    You must credit Paul Barden for tiles included in this set, the original main tile author "Damian Gasinski aka Gassasin".
+File(s):
+    * tilesets.zip
+----------------------------------------
+Title: Isometric 64x64 Outside Tileset
+Author: Yar
+URL: https://opengameart.org/content/isometric-64x64-outside-tileset
+License(s): * CC-BY 3.0 ( http://creativecommons.org/licenses/by/3.0/legalcode )
+File(s):
+    * iso-64x64-outside.png
+----------------------------------------
+Title: Drawn Tree Sprites for levels/backgrounds
+Author: Glondo
+URL: https://opengameart.org/content/drawn-tree-sprites-for-levelsbackgrounds
+License(s): * CC-BY 3.0 ( http://creativecommons.org/licenses/by/3.0/legalcode )
+File(s): * Glondo_Game_Tree_Sprites.zip
+----------------------------------------
+Title: Pine Trees
+Author: Sidhi0n
+URL: https://opengameart.org/content/pine-trees
+License(s): * CC-BY 3.0 ( http://creativecommons.org/licenses/by/3.0/legalcode )
+File(s):
+    * Pines.png
+    * Pines.png
+----------------------------------------
