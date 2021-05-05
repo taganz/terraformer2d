@@ -1,3 +1,4 @@
+/*
 // there are 4 types of log events
 //  INFO_			logged always if ALLOW_LOG is selected
 //  CREATURE_		logged if CREATURES_FOLLOWIN or CREATURES_ALL is selected
@@ -8,6 +9,7 @@
 #macro BUFFER_LINES 5000
 #macro SIM_LOG_FILE_NAME "SIM_LOG"
 #macro CSV_SEPARATOR ";"
+#macro LOG_MAXIMUM_CREATURES_ALL	100		// when number of creatures exceed this stops logging LOG_CREATURES_ALL
 
 function log_user_options () constructor {
 
@@ -19,3 +21,4 @@ function log_user_options () constructor {
 	log_user_spawned_creatures	= true;		// set log for user spawned creatures
 
 }
+*/

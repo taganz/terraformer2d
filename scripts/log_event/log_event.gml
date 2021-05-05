@@ -5,9 +5,10 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 	
 		// === main log switch option
 		
-		if obj_gui.options_log.LOG_ALLOW_LOG == false
+		if controller.user_options.LOG_ALLOW_LOG == false
 			return;
 		
+	
 		
 		// === init format fields
 
@@ -62,9 +63,9 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 			{
 			
 				// should we log this event?
-				if (obj_gui.options_log.LOG_CREATURES_ALL
-						//or (obj_gui.options_log.LOG_CREATURES_FOLLOWING and _id1 == obj_gui.gui.creature_to_follow)) 
-						or (obj_gui.options_log.LOG_CREATURES_FOLLOWING and _id1.creature_log==true)) {
+				if (controller.user_options.LOG_CREATURES_ALL
+						//or (controller.user_options.LOG_CREATURES_FOLLOWING and _id1 == obj_gui.gui.creature_to_follow)) 
+						or (controller.user_options.LOG_CREATURES_FOLLOWING and _id1.creature_log==true)) {
 						
 					ASSERT(_id1!=0, _id1, "log_event id1==0 event "+LOGEVENT_to_string(_event));
 					
@@ -177,7 +178,9 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 					}
 					if _event == LOGEVENT.CREATURE_TEMPERATURE {
 						//_col_specie = "";
-						_col_num1 = string(_arg1);
+						_col_num1 = string(_arg1);							// T
+						_col_num2 = string_format(_arg2, 5, 3);				// kt anabolism
+						_col_num3 = string_format(_arg3, 5, 3);				// kt catabolism
 						_col_txt1 = string(_arg1)+"ºC";	
 					}
 					if _event == LOGEVENT.CREATURE_RAIN {
@@ -202,9 +205,9 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 			case LOGEVENT.CREATURE_BORN_INFO_NUM:
 			case LOGEVENT.CREATURE_DEAD_INFO:
 			case LOGEVENT.CREATURE_DEAD_INFO_NUM:
-				if obj_gui.options_log.LOG_CREATURES_ALL
-				//|| (obj_gui.options_log.LOG_CREATURES_FOLLOWING and _id1 == obj_gui.gui.creature_to_follow) 
-				||  (obj_gui.options_log.LOG_CREATURES_FOLLOWING and _id1.creature_log==true) {
+				if controller.user_options.LOG_CREATURES_ALL
+				//|| (controller.user_options.LOG_CREATURES_FOLLOWING and _id1 == obj_gui.gui.creature_to_follow) 
+				||  (controller.user_options.LOG_CREATURES_FOLLOWING and _id1.creature_log==true) {
 						// common 
 						_col_id1 = string(_id1);
 						_col_name = _id1.creature_log_name;
@@ -247,7 +250,7 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 			case LOGEVENT.SPECIE_NEW: 
 			case LOGEVENT.SPECIE_GENOME:
 			case LOGEVENT.SPECIE_GENOME_NUM: {
-				if obj_gui.options_log.LOG_SPECIES {
+				if controller.user_options.LOG_SPECIES {
 					if (_id1 != 0) {
 						_col_id1 = string(_id1);
 						_col_trophic_level = trophic_level_to_string(_id1.genome[GEN.TROPHIC_LEVEL]);
@@ -300,7 +303,7 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 #region  === WORLD EVENTS
 			
 			case LOGEVENT.WORLD_POPULATION:	{
-				_do_log = obj_gui.options_log.LOG_WORLD;
+				_do_log = controller.user_options.LOG_WORLD;
 				_col_id1 = "";
 				_col_trophic_level = trophic_level_to_string(_arg1);    // trophic level
 				_col_num1 = string(_arg2);								// individuals alive
@@ -313,7 +316,7 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 			case LOGEVENT.WORLD_PROBE_PLANT_AVAILABLE_WATER:
 			case LOGEVENT.WORLD_PROBE_RAIN_TEMP: 
 			{
-				_do_log = obj_gui.options_log.LOG_WORLD;
+				_do_log = controller.user_options.LOG_WORLD;
 				_col_name = _id1.probe_name;
 				_col_x = string(_id1.my_cell.x_cell);
 				_col_y = string(_id1.my_cell.y_cell);

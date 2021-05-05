@@ -6,7 +6,7 @@
     "path": "folders/Scripts/Log.yy",
   },
   "resourceVersion": "1.0",
-  "name": "log_user_options",
+  "name": "__log_user_options",
   "tags": [],
   "resourceType": "GMScript",
 }

@@ -19,10 +19,10 @@ function log_events_init_world(){
 	
 	show_debug_message("obj_gui. starting room:            "+room_get_name(room));
 	show_debug_message("obj_gui. options_unlimited_water:  "+string(obj_gui.options_unlimited_water));
-	show_debug_message("obj_gui. options_log:              "+string(obj_gui.options_log));
+	show_debug_message("controller.user_options:            "+string(controller.user_options));
 
 	log_event(LOGEVENT.INFO_PARAMETERS, "starting room:            "+room_get_name(room));
 	log_event(LOGEVENT.INFO_PARAMETERS, "options_unlimited_water:  "+string(obj_gui.options_unlimited_water));
-	log_event(LOGEVENT.INFO_PARAMETERS, "options_log:              "+string(obj_gui.options_log));
+	log_event(LOGEVENT.INFO_PARAMETERS, "user_options:              "+string(controller.user_options));
 
 }

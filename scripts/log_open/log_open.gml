@@ -5,7 +5,7 @@ function log_open(){
 		
 
 
-		if obj_gui.options_log.LOG_ALLOW_LOG {
+		if controller.user_options.LOG_ALLOW_LOG {
 
 			//_filename = SIM_LOG_FILE_NAME + string(current_day)+"_"+string(current_hour) + "_" + string(current_minute) + ".csv";
 			_filename = SIM_LOG_FILE_NAME + ".csv";
@@ -16,7 +16,7 @@ function log_open(){
 
 		}
 		else {
-			show_debug_message("*** obj_gui.options_log is FALSE. Not generating log file");
+			show_debug_message("*** controller.user_options is FALSE. Not generating log file");
 		}
 	}
 }

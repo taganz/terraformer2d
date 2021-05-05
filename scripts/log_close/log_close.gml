@@ -1,7 +1,7 @@
 // clase file
 function log_close(){
 
-	if obj_gui.options_log.LOG_ALLOW_LOG {
+	if controller.user_options.LOG_ALLOW_LOG {
 		
 		with controller.log {
 		

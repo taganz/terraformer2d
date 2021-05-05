@@ -29,7 +29,6 @@ function structure_metabolism_plant(my_id){
 
 
 				log_event(LOGEVENT.CREATURE_WATER_RECEIVED, my_id, plant_roots_absorbed_water);
-				log_event(LOGEVENT.CREATURE_TEMPERATURE, my_id, my_id.my_cell.temperature_current_month);
 				log_event(LOGEVENT.CREATURE_RAIN, my_id, my_id.my_cell.rain_current_month);
 				log_event(LOGEVENT.CREATURE_CELL_PLANTS_AVAILABLE_WATER, my_id, my_id.my_cell.plants_available_water);
 								
@@ -67,7 +66,8 @@ function structure_metabolism_plant(my_id){
 				var _quant_catabolism = my_id.genome[GEN.KC_METABOLIC_RATE] * biomass_body * _catabolism_temperature_factor;
 				log_event(LOGEVENT.CREATURE_CATABOLISM, my_id, _quant_catabolism,
 						"T:" + string(my_id.my_cell.temperature_current_month)+", Kctf: "+string(_catabolism_temperature_factor));
-
+				log_event(LOGEVENT.CREATURE_TEMPERATURE, my_id, my_id.my_cell.temperature_current_month, _anabolism_temperature_factor, _catabolism_temperature_factor );
+				
 				// -- change biomass
 
 				biomass_modify (my_id, _quant_anabolism - _quant_catabolism);

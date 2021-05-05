@@ -8,7 +8,7 @@ if room!=Room0 and show_escape_screen == false {
 	//gui_follow(id_new);
 	
 	// follow created creatures
-	if obj_gui.options_log.log_user_spawned_creatures {
+	if controller.user_options.log_user_spawned_creatures {
 		id_new.creature_log = true;
 	}
 }

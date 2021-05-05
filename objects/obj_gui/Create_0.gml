@@ -18,7 +18,7 @@ depth = -15000;
 
 // === user settings
 options_unlimited_water = DEBUG_RAIN_UNLIMITED;
-options_log = new log_user_options();
+//options_log = new log_user_options();
 
 // === simulation screen
 input_show_cell_info = false;

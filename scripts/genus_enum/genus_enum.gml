@@ -17,7 +17,8 @@ function genus_enum(){
 		SECONDARY_SMALL,		// 8
 		PLANT_DESERT,			// 9
 		PLANT_ARTIC,			// 10
-		TREE_CONTINENTAL_2		// 11
+		TREE_CONTINENTAL_2,		// 11
+		CROP_BUSH				// 12
 	}
 
 }

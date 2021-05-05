@@ -151,40 +151,40 @@ yy+=32;
 
 // --- general log
 
-var check = new EmuCheckbox(OPTIONS_COLUMN_Y, yy, 256, 32, "Log file", obj_gui.options_log.LOG_ALLOW_LOG, function() {
-    obj_gui.options_log.LOG_ALLOW_LOG = value;
+var check = new EmuCheckbox(OPTIONS_COLUMN_Y, yy, 256, 32, "Log file", controller.user_options.LOG_ALLOW_LOG, function() {
+    controller.user_options.LOG_ALLOW_LOG = value;
 });
 _container.AddContent(check);
 yy+=32;
 
 // --- log world
 
-var check = new EmuCheckbox(OPTIONS_COLUMN_Y  + 32, yy, 256, 32, "Log world summary", obj_gui.options_log.LOG_WORLD, function() {
-    obj_gui.options_log.LOG_WORLD = value;
+var check = new EmuCheckbox(OPTIONS_COLUMN_Y  + 32, yy, 256, 32, "Log world summary", controller.user_options.LOG_WORLD, function() {
+    controller.user_options.LOG_WORLD = value;
 });
 _container.AddContent(check);
 yy+=32;
 
 // --- log species
 
-var check = new EmuCheckbox(OPTIONS_COLUMN_Y  + 32, yy, 256, 32, "Log species", obj_gui.options_log.LOG_SPECIES, function() {
-    obj_gui.options_log.LOG_SPECIES = value;
+var check = new EmuCheckbox(OPTIONS_COLUMN_Y  + 32, yy, 256, 32, "Log species", controller.user_options.LOG_SPECIES, function() {
+    controller.user_options.LOG_SPECIES = value;
 });
 _container.AddContent(check);
 yy+=32;
 
 // --- log creatures selected
 
-var check = new EmuCheckbox(OPTIONS_COLUMN_Y + 32, yy, 256, 32, "Log selected creatures", obj_gui.options_log.LOG_CREATURES_FOLLOWING, function() {
-    obj_gui.options_log.LOG_CREATURES_FOLLOWING = value;
+var check = new EmuCheckbox(OPTIONS_COLUMN_Y + 32, yy, 256, 32, "Log selected creatures", controller.user_options.LOG_CREATURES_FOLLOWING, function() {
+    controller.user_options.LOG_CREATURES_FOLLOWING = value;
 });
 _container.AddContent(check);
 yy+=32;
 
 // --- log creatures all
 
-var check = new EmuCheckbox(OPTIONS_COLUMN_Y  + 32, yy, 256, 32, "Log all creatures", obj_gui.options_log.LOG_CREATURES_ALL, function() {
-    obj_gui.options_log.LOG_CREATURES_ALL = value;
+var check = new EmuCheckbox(OPTIONS_COLUMN_Y  + 32, yy, 256, 32, "Log all creatures", controller.user_options.LOG_CREATURES_ALL, function() {
+    controller.user_options.LOG_CREATURES_ALL = value;
 });
 _container.AddContent(check);
 yy+=32;

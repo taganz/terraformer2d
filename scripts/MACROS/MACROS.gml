@@ -38,7 +38,6 @@ function MACROS(){
 #macro NUTRIENT_TILE_OFFSET  1000		// kg
 #macro NUTRIENT_TILE_MULTIPLIER  100    // kg multiply with nutrients tile number to obtain nutrients
 #macro SIMULATION_WORLD_RADIATION 0.1		// 
-#macro LEAF_M2_PER_KG				1		// area/weight ratio for leafs 
 #macro SOIL_WEIGHT_PER_CELL			 3500 // 1500
 #macro BIOMASS_ADULT_BIG_THRESHOLD  100		// the threshold among small and big plants
 
@@ -52,6 +51,7 @@ function MACROS(){
 
 // === CREATURES 
 
+#macro LEAF_M2_PER_KG				0.1			// area/weight ratio for leafs 
 
 // general life constants
 #macro BIOMASS_DECOMPOSITION_ZERO  10			// when biomass decompeses under this level instance is destroyed

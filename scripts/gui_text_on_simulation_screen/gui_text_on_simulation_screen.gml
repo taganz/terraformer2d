@@ -14,7 +14,7 @@ function gui_text_on_simulation_screen(){
 				+ "  fps: "+string(clamp(fps_real, 0, game_get_speed(gamespeed_fps)))
 				+ "  Speed: "+string(ceil(controller.time.steps_per_sim_step))
 				+ "  Spawn: "+controller.user_options.object_spawn_on_click_options[controller.user_options.object_spawn_on_click]
-				+ (obj_gui.options_log.LOG_ALLOW_LOG ? " LOG" : "")
+				+ (controller.user_options.LOG_ALLOW_LOG ? " LOG" : "")
 				+ "  T inc: "+string(controller.world.climate_change_temperature_increment)+"ºC";
 				;
 		
