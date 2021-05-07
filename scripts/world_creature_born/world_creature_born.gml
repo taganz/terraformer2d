@@ -24,7 +24,7 @@ function world_creature_born(_id, _x, _y) {
 				trophic_level_live_now[_id.genome[GEN.TROPHIC_LEVEL]]++;
 				creatures_born ++;
 				creatures_peak = creatures_peak <= creatures_live_now ? creatures_live_now : creatures_peak;
-
+				
 				//log_event(LOGEVENT.SPECIE_BORN, _id, climate_to_string(cell.climate));
 			}
 		}

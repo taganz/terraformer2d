@@ -6,7 +6,7 @@ function LOGEVENT_enum(){
 		//CREATURE_ADULT,
 		CREATURE_BORN,
 		CREATURE_BORN_INFO,
-		CREATURE_BORN_INFO_NUM,
+		//CREATURE_BORN_INFO_NUM,
 		CREATURE_ANABOLISM,					// obtained biomass during metabolism
 		CREATURE_CATABOLISM,				// consumed biomass during metabolism
 		CREATURE_DEAD,
@@ -36,11 +36,12 @@ function LOGEVENT_enum(){
 		SPECIE_BORN,				// individuals born per climate
 		SPECIE_DEAD,			
 		SPECIE_GENOME,
-		SPECIE_GENOME_NUM,
+		//SPECIE_GENOME_NUM,
 		
 		// World stats
 		
-		WORLD_POPULATION,				// total population for a trophic level for each sim step
+		WORLD_POPULATION,				// total population for a trophic level at a given sim step
+		WORLD_BIOMASS,					// total biomass for a trophic level at a given sim step
 		//WORLD_PROBE_NUTRIENTS,
 		//WORLD_PROBE_WATER,					
 		WORLD_PROBE_TEMPERATURE,					

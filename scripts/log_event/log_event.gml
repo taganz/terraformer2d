@@ -5,10 +5,14 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 	
 		// === main log switch option
 		
-		if controller.user_options.LOG_ALLOW_LOG == false
+		if controller.user_options.LOG_ALLOW_LOG == false 
 			return;
-		
-	
+		else if controller.time.current_sim_year > LOG_MAXIMUM_YEAR {
+			// check to many years of logging
+			show_debug_message("*** WARNING **** LOG_MAXIMUM_YEAR attained. Log will stop "+string(LOG_MAXIMUM_YEAR));
+			controller.user_options.LOG_ALLOW_LOG = false;
+			return;
+		}
 		
 		// === init format fields
 
@@ -202,7 +206,7 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 				break;
 			}
 			case LOGEVENT.CREATURE_BORN_INFO:
-			case LOGEVENT.CREATURE_BORN_INFO_NUM:
+			//case LOGEVENT.CREATURE_BORN_INFO_NUM:
 			case LOGEVENT.CREATURE_DEAD_INFO:
 			case LOGEVENT.CREATURE_DEAD_INFO_NUM:
 				if controller.user_options.LOG_CREATURES_ALL
@@ -220,10 +224,10 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 							_col_txt1 = _arg1;		// tag
 							_col_txt2 = _arg2;		// string value
 						}
-						if _event == LOGEVENT.CREATURE_BORN_INFO_NUM {
-							_col_txt1 = _arg1;				// tag
-							_col_num1 = string(_arg2);		// num value
-						}
+						//if _event == LOGEVENT.CREATURE_BORN_INFO_NUM {
+						//	_col_txt1 = _arg1;				// tag
+						//	_col_num1 = string(_arg2);		// num value
+						//}
 						if _event == LOGEVENT.CREATURE_DEAD_INFO {
 							_col_txt1 = _arg1;		// tag
 							_col_txt2 = _arg2;		// string value
@@ -249,7 +253,8 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 			case LOGEVENT.SPECIE_DEAD: 
 			case LOGEVENT.SPECIE_NEW: 
 			case LOGEVENT.SPECIE_GENOME:
-			case LOGEVENT.SPECIE_GENOME_NUM: {
+			//case LOGEVENT.SPECIE_GENOME_NUM: 
+			{
 				if controller.user_options.LOG_SPECIES {
 					if (_id1 != 0) {
 						_col_id1 = string(_id1);
@@ -285,11 +290,11 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 						_col_txt1 = _arg2;			// tag
 						_col_txt2 = _arg3;			// string value
 					}
-					if _event == LOGEVENT.SPECIE_GENOME_NUM {
-						_col_specie = _arg1;		// specie
-						_col_txt1 = _arg2;			// tag
-						_col_num1 = string(_arg3);	// num value
-					}
+					//if _event == LOGEVENT.SPECIE_GENOME_NUM {
+					//	_col_specie = _arg1;		// specie
+					//	_col_txt1 = _arg2;			// tag
+					//	_col_num1 = string(_arg3);	// num value
+					//}
 					
 				}
 				else {
@@ -302,6 +307,7 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 			
 #region  === WORLD EVENTS
 			
+			case LOGEVENT.WORLD_BIOMASS:	
 			case LOGEVENT.WORLD_POPULATION:	{
 				_do_log = controller.user_options.LOG_WORLD;
 				_col_id1 = "";

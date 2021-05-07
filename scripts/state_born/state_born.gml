@@ -22,6 +22,10 @@ function state_born(_id){
 		
 		// initialize structure
 		structure_born(_id);
+
+		// update biomass general stats
+		controller.world.trophic_level_biomass_now[_id.genome[GEN.TROPHIC_LEVEL]]+= _id.structure.biomass;
+
 	
 		// initialize morphology
 		if _id.is_plant {
@@ -40,11 +44,10 @@ function state_born(_id){
 		log_events_creature_dead(_id);
 	}
 	
-	// add to species the initial species
-	//if _id.structure.generation == 1 {
-	//	var prefix = specie_code_prefix(_id.genome);
-	//	ds_map_add(controller.species._prefixes_map, prefix, 0);
-	//}
+	//  log genome for initial creatures
+	if _id.structure.generation == 1 {
+		log_events_specie_genome(_id.genome);
+	}
 	
 	
 	_id.state.next_state = STATE.IDLE;

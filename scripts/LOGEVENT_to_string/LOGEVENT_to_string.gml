@@ -13,7 +13,7 @@ function LOGEVENT_to_string(_log_event){
 		case LOGEVENT.CREATURE_BIOMASS_RESERVE: _msg = "BM_RESERVE"; break;
 		case LOGEVENT.CREATURE_BORN:			_msg = "BORN"; break;
 		case LOGEVENT.CREATURE_BORN_INFO:		_msg = "BORN_INFO"; break;
-		case LOGEVENT.CREATURE_BORN_INFO_NUM:	_msg = "BORN_INFO_NUM"; break;
+		//case LOGEVENT.CREATURE_BORN_INFO_NUM:	_msg = "BORN_INFO_NUM"; break;
 		case LOGEVENT.CREATURE_CATABOLISM:		_msg = "CATABOLISM"; break;
 		case LOGEVENT.CREATURE_CELL_PLANTS_AVAILABLE_WATER: _msg = "CELL PAW_AVAIL WATER"; break
 		case LOGEVENT.CREATURE_DECOMPOSE:		_msg = "DECOMPOSE"; break;
@@ -34,13 +34,14 @@ function LOGEVENT_to_string(_log_event){
 		case LOGEVENT.SPECIE_BORN:				_msg = "SPECIE_BORN"; break;
 		case LOGEVENT.SPECIE_DEAD:				_msg = "SPECIE_DEAD"; break;
 		case LOGEVENT.SPECIE_GENOME:			_msg = "SPECIE_GENOME"; break;
-		case LOGEVENT.SPECIE_GENOME_NUM:		_msg = "SPECIE_GENOME_NUM"; break;
+		//case LOGEVENT.SPECIE_GENOME_NUM:		_msg = "SPECIE_GENOME_NUM"; break;
 				
 		
 		//case LOGEVENT.WORLD_PROBE_NUTRIENTS:			_msg = "WORLD_PROBE_NUTRIENTS"; break;
 		//case LOGEVENT.WORLD_PROBE_WATER:				_msg = "WORLD_PROBE_WATER"; break;
 		case LOGEVENT.WORLD_SPAWNER:					_msg = "SPAWNER"; break;
 		case LOGEVENT.WORLD_POPULATION:					_msg = "WORLD_POPULATION"; break;
+		case LOGEVENT.WORLD_BIOMASS:					_msg = "WORLD_BIOMASS"; break;
 		case LOGEVENT.WORLD_PROBE_RAIN_TEMP:			_msg = "WORLD_PROBE_RAIN_TEMP"; break;
 		case LOGEVENT.WORLD_PROBE_PLANT_AVAILABLE_WATER: _msg = "PLANT_AVAILABLE_WATER"; break;
 		

@@ -21,7 +21,9 @@
 			}
 			
 			// modify biomass
+			var biomass_previous = biomass;
 			biomass = min(biomass + _quant_got, biomass_adult * 1.1);
+			controller.world.trophic_level_biomass_now[_id.genome[GEN.TROPHIC_LEVEL]]+= (biomass - biomass_previous);
 			
 			// adults can not growth bigger than biomass_adult
 			//if (age_is_adult and biomass > biomass_adult) {

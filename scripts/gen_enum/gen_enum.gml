@@ -4,7 +4,7 @@ function gen_enum(){
 
 	#macro GEN_FIRST_MUTABLE 7		// first gen that can be affected by radiation
 	
-	#macro GEN_NUM 29				// gens total number (last gen + 1)
+	#macro GEN_NUM 31				// gens total number (last gen + 1)
 
 	enum GEN {
 		// immutable gens
@@ -15,7 +15,7 @@ function gen_enum(){
 		SPECIE_CODE,						// 3 - string
 		PARENT_SPECIE_CODE,					// 4 - string
 		SPECIE_HUE,							// 5 - real, used to build blend color
-		EMTPY6,								// 6 - reserved for specie definition
+		INDIVIDUALS_PER_CREATURE,			// 6 - the genus represents a "crop" of individuals
 		
 		
 		// gens that can be affected by radiation
@@ -30,9 +30,9 @@ function gen_enum(){
 		ALLOCATION_RESERVE,					// 15 - % of biomass used as reserve
 		KC_METABOLIC_RATE,					// 16 - kg of biomass consumed per biomass kg per year
 		// DORMANCY
-		DORMANCY_TEMPERATURE_TRIGGER,		// 17 - dormancy state will be triggered when temperature factor reaches this level
-		DORMANCY_CATABOLISM_REDUCTION,		// 18 - catabolism will be by this factor and temperature during dormancy
-		DORMANCY_MONTHS,					// 19 - the number of months dormancy will be activate before returning to normal activity
+		DORMANCY_TEMPERATURE_TRIGGER,		// 17 - NOT USED --- dormancy state will be triggered when temperature factor reaches this level
+		DORMANCY_CATABOLISM_REDUCTION,		// 18 - catabolim level at low temperatures... NOT IMPLEMENTED THIS WAY: catabolism will be by this factor and temperature during dormancy
+		DORMANCY_MONTHS,					// 19 - NOT USED --- the number of months dormancy will be activate before returning to normal activity
 		// 20
 		PLANT_BODY_DENSITY,					// 20 - biomass kg / volum m3	
 		PLANT_BODY_FORM_FACTOR,				// 21 - (sprite height m / sprite width m2) ** 2
@@ -43,8 +43,9 @@ function gen_enum(){
 		BIOMASS_ADULT,						// 26
 		AGE_DEAD,							// 27
 		EVOTRANSPIRATION_FACTOR,			// 28 - used to calculate leaf area reatio
-		
-		// NOTE: GEN_NUM must be last gen number + 1
+		COMBAT_ATTACK_POINTS,				// 29
+		COMBAT_DEFENSE_POINTS				// 30 
+		// Remember to update GEN_NUM!!  must be last gen number + 1
 	
 	}
 

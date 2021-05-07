@@ -39,9 +39,10 @@ function _process_producers_list(_id, _producers_list) {
 			if is_undefined(_prey)== false {
 						
 											
-				// *** can eat plants if our biomass is at least half the plant ***
+				// can eat plant?
 						
-				if _id.structure.biomass > _prey.structure.biomass * PRIMARY_TO_PLANT_RATIO_TO_EAT  {
+				//if _id.structure.biomass > _prey.structure.biomass / _prey.genome[GEN.INDIVIDUALS_PER_CREATURE] * PRIMARY_TO_PLANT_RATIO_TO_EAT  {
+				if _id.genome[GEN.COMBAT_ATTACK_POINTS] > _prey.genome[GEN.COMBAT_DEFENSE_POINTS] {
 					
 					// move to plant position, it is near
 					world_creature_move(_id, _prey.x, _prey.y);

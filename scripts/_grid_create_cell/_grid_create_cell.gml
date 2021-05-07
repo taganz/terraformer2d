@@ -21,9 +21,9 @@ function _grid_create_cell(_x_cell, _y_cell) {
 		
 		
 			// check climate change by user
-			if controller.user_options.climate_replace > 0 {
-				cell.climate = controller.user_options.climate_replace;
-			}
+			//if controller.user_options.climate_replace > 0 {
+			//	cell.climate = controller.user_options.climate_replace;
+			//}
 
 
 			// === CLIMATE
@@ -66,7 +66,7 @@ function _grid_create_cell(_x_cell, _y_cell) {
 			cell.losses_per_month_kg = soil_get_losses_rate(cell.climate, cell.soil_type) * CELL_AREA ;   // kg = mm/month * m2 * 1kg/m2/mm
 			
 			// initial water = saturation / 2			
-			cell.stored_water = cell.soil_saturation_water_kg / 2;
+			cell.stored_water = cell.soil_saturation_water_kg * CELL_INITIAL_STORED_WATER;
 		}
 		
 	}

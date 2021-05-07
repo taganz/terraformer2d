@@ -3,7 +3,7 @@ function MACROS(){
 
 // === LOG
 
-// see log_user_options
+// see user_options
 
 
 // ===	GAME
@@ -31,6 +31,7 @@ function MACROS(){
 
 #macro CELL_SIZE_PX				32			// pixel size - screen area (climate cells are 32x32px)
 #macro CELL_AREA				25			// m2 - real world area
+#macro CELL_INITIAL_STORED_WATER  0.9		// stored water in cells at creation as a factor of soil saturation water
 
 #macro SOIL_DEPTH_MM			1000			// mm - soil depth for available water calculations
 

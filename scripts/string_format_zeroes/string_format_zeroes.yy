@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Log",
-    "path": "folders/Scripts/Log.yy",
+    "name": "util",
+    "path": "folders/Scripts/util.yy",
   },
   "resourceVersion": "1.0",
-  "name": "__log_user_options",
+  "name": "string_format_zeroes",
   "tags": [],
   "resourceType": "GMScript",
 }

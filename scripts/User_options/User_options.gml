@@ -17,7 +17,7 @@
 #macro SIM_LOG_FILE_NAME "SIM_LOG"
 #macro CSV_SEPARATOR ";"
 #macro LOG_MAXIMUM_CREATURES_ALL	100		// when number of creatures exceed this stops logging LOG_CREATURES_ALL
-
+#macro LOG_MAXIMUM_YEAR				999		// will not log events after this year (powerbi app limit)
 
 function User_options() constructor {
 
@@ -48,6 +48,7 @@ function User_options() constructor {
 									, "obj_plant_desert"
 									, "obj_plant_bush"
 									, "obj_plant_bush_2"
+									, "obj_crop_bush"
 									, "obj_plant_artic"
 									, "obj_primary_small"
 									, "obj_primary_tiny" 
@@ -62,6 +63,7 @@ function User_options() constructor {
 									, obj_plant_desert
 									, obj_plant_bush
 									, obj_plant_bush_2
+									, obj_crop_bush
 									, obj_plant_artic
 									, obj_primary_small 
 									, obj_primary_tiny 

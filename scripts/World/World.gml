@@ -28,12 +28,17 @@ function World() constructor {
 	creatures_dead = 0;
 	creatures_born = 0;
 	creatures_peak = 0;
-	trophic_level_live_now = [];
 	biomass = 0;
 	
+	trophic_level_live_now = [];
 	trophic_level_live_now[TROPHIC_LEVEL.PRODUCER]=0;
 	trophic_level_live_now[TROPHIC_LEVEL.PRIMARY]=0;
 	trophic_level_live_now[TROPHIC_LEVEL.SECONDARY]=0;
+	
+	trophic_level_biomass_now = [];
+	trophic_level_biomass_now[TROPHIC_LEVEL.PRODUCER]=0;
+	trophic_level_biomass_now[TROPHIC_LEVEL.PRIMARY]=0;
+	trophic_level_biomass_now[TROPHIC_LEVEL.SECONDARY]=0;
 	
 	climates = [];
 	climates = climate_read_array();

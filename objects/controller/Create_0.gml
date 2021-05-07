@@ -13,6 +13,7 @@ default_world_radiation = SIMULATION_WORLD_RADIATION;
 // === user options for next simulation
 
 user_options = new User_options();
+sim_paused = -1;			// simulation is paused
 
 // === log class
 

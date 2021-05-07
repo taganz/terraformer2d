@@ -1,26 +1,9 @@
-// Script assets have changed for v2.3.0 see
-// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
+// log all specie gens
 function log_events_specie_genome(genome){
-
 	
-		
+		// list gens
+		for (var i=0;i<GEN_NUM;i++) {
+			log_event(LOGEVENT.SPECIE_GENOME, 0, genome[GEN.SPECIE_CODE], string_format_zeroes(i,2,0) + " " + gen_to_string(i), string(genome[i]));
+		}
 
-		log_event(LOGEVENT.SPECIE_GENOME, 0,	 genome[GEN.SPECIE_CODE], "GEN.GENUS_NAME", string(genome[GEN.GENUS_NAME]));
-		log_event(LOGEVENT.SPECIE_GENOME, 0,	 genome[GEN.SPECIE_CODE], "GEN.SPECIE_CODE", string(genome[GEN.SPECIE_CODE]));
-		log_event(LOGEVENT.SPECIE_GENOME_NUM, 0, genome[GEN.SPECIE_CODE], "biomass birth", (genome[GEN.BIOMASS_BIRTH]));
-		log_event(LOGEVENT.SPECIE_GENOME_NUM, 0, genome[GEN.SPECIE_CODE], "biomass adult", (genome[GEN.BIOMASS_ADULT]));
-		log_event(LOGEVENT.SPECIE_GENOME_NUM, 0, genome[GEN.SPECIE_CODE], "GEN.ALLOCATION_REPRODUCTIVE", string(genome[GEN.ALLOCATION_REPRODUCTIVE]));
-		log_event(LOGEVENT.SPECIE_GENOME_NUM, 0, genome[GEN.SPECIE_CODE], "GEN.ALLOCATION_DIGESTIVE_ANIMALS", string(genome[GEN.ALLOCATION_DIGESTIVE_ANIMALS]));
-		log_event(LOGEVENT.SPECIE_GENOME_NUM, 0, genome[GEN.SPECIE_CODE], "GEN.ALLOCATION_RESERVE", string(genome[GEN.ALLOCATION_RESERVE]));
-		log_event(LOGEVENT.SPECIE_GENOME_NUM, 0, genome[GEN.SPECIE_CODE], "GEN.ANIMAL_ANABOLISM_BIOMASS_CONVERSION", string(genome[GEN.ANIMAL_ANABOLISM_BIOMASS_CONVERSION]));
-		log_event(LOGEVENT.SPECIE_GENOME_NUM, 0, genome[GEN.SPECIE_CODE], "GEN.SPECIE_HUE", string(genome[GEN.SPECIE_HUE]));
-		log_event(LOGEVENT.SPECIE_GENOME_NUM, 0, genome[GEN.SPECIE_CODE], "GEN.TEMPERATURE_OPTIMAL", string(genome[GEN.TEMPERATURE_OPTIMAL]));
-		log_event(LOGEVENT.SPECIE_GENOME_NUM, 0, genome[GEN.SPECIE_CODE], "GEN.TEMPERATURE_RANGE", string(genome[GEN.TEMPERATURE_RANGE]));
-		log_event(LOGEVENT.SPECIE_GENOME_NUM, 0, genome[GEN.SPECIE_CODE], "GEN.BIOMASS_BIRTH", string(genome[GEN.BIOMASS_BIRTH]));
-		log_event(LOGEVENT.SPECIE_GENOME_NUM, 0, genome[GEN.SPECIE_CODE], "GEN.ANABOLISM_BIOMASS_PER_WATER_L", string(genome[GEN.ANABOLISM_BIOMASS_PER_WATER_L]));
-		log_event(LOGEVENT.SPECIE_GENOME_NUM, 0, genome[GEN.SPECIE_CODE], "GEN.KC_METABOLIC_RATE", string(genome[GEN.KC_METABOLIC_RATE]));
-		log_event(LOGEVENT.SPECIE_GENOME_NUM, 0, genome[GEN.SPECIE_CODE], "GEN.DORMANCY_CATABOLISM_REDUCTION", string(genome[GEN.DORMANCY_CATABOLISM_REDUCTION]));
-		log_event(LOGEVENT.SPECIE_GENOME_NUM, 0, genome[GEN.SPECIE_CODE], "GEN.EVOTRANSPIRATION_FACTOR", string(genome[GEN.EVOTRANSPIRATION_FACTOR]));
-		
-	
 }

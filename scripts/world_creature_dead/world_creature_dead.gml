@@ -24,7 +24,7 @@ function world_creature_dead(_id){
 			trophic_level_live_now[_id.genome[GEN.TROPHIC_LEVEL]]--;
 			creatures_dead ++;
 			creatures_peak = creatures_peak <= creatures_live_now ? creatures_live_now : creatures_peak;
-
+			
 			// log
 			//controller.log.creature_dead(_id);
 			
