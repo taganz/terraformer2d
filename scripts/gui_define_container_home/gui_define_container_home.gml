@@ -196,8 +196,8 @@ yy+=32;
 // --- temperature input
 
 var input = new EmuInput(OPTIONS_COLUMN_Y, yy, 350, 32, "Temperature incr.", 
-	string(controller.default_climate_change_temperature_increment), "-50 - 50", 3, E_InputTypes.REAL, function() {
-    controller.default_climate_change_temperature_increment = value;
+	string(controller.user_options.default_climate_change_temperature_increment), "-50 - 50", 3, E_InputTypes.REAL, function() {
+    controller.user_options.default_climate_change_temperature_increment = value;
 });
 input.SetRealNumberBounds(-50, 50);
 _container.AddContent(input);
@@ -205,11 +205,11 @@ yy+=32;
 
 // --- radiation input
 
-var input = new EmuInput(OPTIONS_COLUMN_Y, yy, 350, 32, "Radiation", 
-	string(controller.default_world_radiation), "0 - 1", 5, E_InputTypes.REAL, function() {
-    controller.default_world_radiation = value;
+var input = new EmuInput(OPTIONS_COLUMN_Y, yy, 350, 32, "Radiation",
+	string(controller.user_options.default_world_radiation), "0 - 9", 1, E_InputTypes.REAL, function() {
+    controller.user_options.default_world_radiation = value/10;
 });
-input.SetRealNumberBounds(0, 1);
+input.SetRealNumberBounds(0, 9);
 _container.AddContent(input);
 yy+=32;
 

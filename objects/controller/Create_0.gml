@@ -6,8 +6,8 @@ if RANDOMIZE_AT_START
 
 //  === default values, can be adjusted by user from gui
 
-default_climate_change_temperature_increment = 0;
-default_world_radiation = SIMULATION_WORLD_RADIATION;
+//default_climate_change_temperature_increment = 0;
+//default_world_radiation = SIMULATION_WORLD_RADIATION;
 
 
 // === user options for next simulation

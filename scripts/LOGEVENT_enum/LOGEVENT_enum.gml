@@ -27,7 +27,7 @@ function LOGEVENT_enum(){
 		CREATURE_REPRODUCTION,
 		CREATURE_TEMPERATURE,				// at cell this month
 		CREATURE_RAIN,						// at cell this month
-		CREATURE_WATER_RECEIVED,			// plants
+		CREATURE_NUTRIENTS_RECEIVED,			// plants
 		CREATURE_CELL_PLANTS_AVAILABLE_WATER,	// PAW at creature cell
 		
 		// Species stats

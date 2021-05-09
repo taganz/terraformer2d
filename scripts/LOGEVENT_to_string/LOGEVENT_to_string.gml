@@ -27,7 +27,7 @@ function LOGEVENT_to_string(_log_event){
 		case LOGEVENT.CREATURE_REPRODUCTION:	_msg = "REPRODUCTION"; break;
 		case LOGEVENT.CREATURE_STARVING:		_msg = "STARVING"; break;
 		case LOGEVENT.CREATURE_TEMPERATURE:		_msg = "TEMPERATURE"; break;
-		case LOGEVENT.CREATURE_WATER_RECEIVED:	_msg = "WATER_RECEIVED"; break;
+		case LOGEVENT.CREATURE_NUTRIENTS_RECEIVED:	_msg = "WATER_RECEIVED"; break;
 		case LOGEVENT.CREATURE_DEBUG:			_msg = "CREATURE_DEBUG"; break;
 		
 		case LOGEVENT.SPECIE_NEW:				_msg = "SPECIE_NEW"; break;

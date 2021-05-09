@@ -45,7 +45,12 @@ function state_reproduction(_id){
 			_child.structure.generation = _id.structure.generation + 1;
 
 			_offspring_count++;
-			
+
+			// 1st offspring of followed creature is also followed
+			if _id.creature_log == true and _offspring_count==1 and _id.structure.reproduction_count==0 and LOG_CREATURE_FOLLOWING_FOLLOW_CHILDREN == true {
+				_child.creature_log = true;
+			}
+
 			log_event(LOGEVENT.CREATURE_REPRODUCTION, _id, _child, _biomass_give);
 		}		
 	}

@@ -5,7 +5,8 @@ if !controller.sim_paused {
 	// producers use larger cycle
 	if controller.time.sim_step_entry and is_plant == false 
 	|| controller.time.sim_month_entry and is_plant == true {   
-
+		
+		
 		// next action
 		//state.step();
 		state_step(id);

@@ -23,7 +23,7 @@ function User_options() constructor {
 
 
 	// === log
-	
+#macro LOG_CREATURE_FOLLOWING_FOLLOW_CHILDREN true  // first child of followed creature is also followed	
 	LOG_ALLOW_LOG				= false;	// main log switch. if false, no log file is created
 	LOG_CREATURES_FOLLOWING		= false;	// log all CREATURE events
 	LOG_CREATURES_ALL			= false;	// false = log CREATURE events only for followed creature
@@ -36,6 +36,8 @@ function User_options() constructor {
 
 	climate_replace = -1;			// if > 0 all climate tiles will be replaced with this value
 	soil_type_replace = -1;			// if > 0 all soil tiles will be replaced with this value
+	default_world_radiation = WORLD_RADIATION_DEFAULT
+	default_climate_change_temperature_increment = 0;
 
 
 	object_spawn_on_click = 8;

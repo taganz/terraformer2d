@@ -63,8 +63,9 @@ function grid_update_cells_water() {
 							
 							//producer_id.structure.plant_roots_absorbed_water += _quant_water; 
 							producer_id.structure.plant_roots_absorbed_water = _quant_water; // don't accumulate water from previous month
-							_cell.plants_available_water -= _quant_water;
 							_cell.stored_water -= _quant_water;
+							_cell.plants_available_water = soil_plant_available_water(_cell.stored_water, _cell.soil_field_capacity_kg, _cell.soil_permanent_wilting_point_kg);
+					
 								
 							// updates solar energy received
 							producer_id.structure.plant_received_sun = 1;
@@ -88,16 +89,18 @@ function grid_update_cells_water() {
 												producer_id.structure.biomass_eat * LEAF_M2_PER_KG 
 												* climate_ET0_evotranspiration(_cell.climate, controller.time.current_sim_month); 
 								var _quant_water = clamp(_plant_transpiration,0, _cell.plants_available_water);
+								_quant_water = clamp(_quant_water, 0, _cell.stored_water);
+								
 								//producer_id.structure.plant_roots_absorbed_water += _quant_water;
 								producer_id.structure.plant_roots_absorbed_water = _quant_water;			// don't accumulate water from previous month
-								_cell.plants_available_water -= _quant_water;
 								_cell.stored_water -= _quant_water;
+								_cell.plants_available_water = soil_plant_available_water(_cell.stored_water, _cell.soil_field_capacity_kg, _cell.soil_permanent_wilting_point_kg);
 								
 								// updates solar energy received
 								producer_id.structure.plant_received_sun = 1;
 								
 								// no more water to give
-								if _cell.plants_available_water == 0 
+								if _cell.plants_available_water <= 0 
 									break;
 								
 							

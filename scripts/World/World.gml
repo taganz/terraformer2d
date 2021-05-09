@@ -43,7 +43,7 @@ function World() constructor {
 	climates = [];
 	climates = climate_read_array();
 	
-	radiation = SIMULATION_WORLD_RADIATION;
+	radiation = -1;
 	
 
 

@@ -15,8 +15,9 @@ if room == Room0 {
 	time = new Time();
 
 	world = new World();
-	world.climate_change_temperature_increment = default_climate_change_temperature_increment;
-	world.radiation = default_world_radiation;
+	world.climate_change_temperature_increment = user_options.default_climate_change_temperature_increment;
+	//world.radiation = default_world_radiation;
+	world.radiation = user_options.default_world_radiation;
 
 	// holds species statistics, initial species definitions
 	species = new Species();
