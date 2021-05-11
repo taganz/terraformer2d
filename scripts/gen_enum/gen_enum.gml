@@ -28,7 +28,7 @@ function gen_enum(){
 		TEMPERATURE_RANGE,					// 13 - temperature range where plants stops working
 		ANABOLISM_BIOMASS_PER_WATER_L,		// 14 - kg of biomass generatd per l
 		ALLOCATION_RESERVE,					// 15 - % of biomass used as reserve
-		KC_METABOLIC_RATE,					// 16 - kg of biomass consumed per biomass kg per year
+		KC_METABOLIC_RATE,					// 16 - kg of biomass consumed per biomass kg per month
 		// DORMANCY
 		DORMANCY_TEMPERATURE_TRIGGER,		// 17 - NOT USED --- dormancy state will be triggered when temperature factor reaches this level
 		DORMANCY_CATABOLISM_REDUCTION,		// 18 - catabolim level at low temperatures... NOT IMPLEMENTED THIS WAY: catabolism will be by this factor and temperature during dormancy
@@ -38,7 +38,7 @@ function gen_enum(){
 		PLANT_BODY_FORM_FACTOR,				// 21 - (sprite height m / sprite width m2) ** 2
 		PLANT_HEAD_DENSITY,					// 22
 		PLANT_HEAD_FORM_FACTOR,				// 23
-		ANIMAL_ANABOLISM_BIOMASS_CONVERSION, // 24 conversion from eaten biomass to creature biomass
+		ANIMAL_ANABOLISM_BIOMASS_CONVERSION, // 24 conversion from eaten biomass to creature biomass  kg/kg/month
 		BIOMASS_BIRTH,						// 25
 		BIOMASS_ADULT,						// 26
 		AGE_DEAD,							// 27

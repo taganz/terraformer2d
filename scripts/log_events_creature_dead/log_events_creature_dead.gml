@@ -7,6 +7,8 @@ function log_events_creature_dead(_id){
 		log_event(LOGEVENT.CREATURE_DEAD_INFO_NUM, _id,	"age", sim_steps_to_years(_id.structure.age));
 		log_event(LOGEVENT.CREATURE_DEAD_INFO_NUM, _id,	"biomass", (_id.structure.biomass));
 		log_event(LOGEVENT.CREATURE_DEAD_INFO, _id,		"cell", cell_to_string(_id.my_cell));
+		log_event(LOGEVENT.CREATURE_DEAD_INFO_NUM, _id,	"reproduction_count", (_id.structure.reproduction_count));
+		log_event(LOGEVENT.CREATURE_DEAD_INFO_NUM, _id,	"reproduction_offspring_count", (_id.structure.reproduction_offspring_count));
 		
 		log_event(LOGEVENT.SPECIE_DEAD, _id);
 

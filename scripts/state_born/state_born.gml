@@ -39,6 +39,7 @@ function state_born(_id){
 		log_events_creature_born(_id);
 	}
 	else {
+		// born dead
 		_id.structure.is_dead = true;
 		_id.structure.dead_cause = DEADCAUSE.BIRTH;		
 		log_events_creature_dead(_id);

@@ -1,11 +1,7 @@
 /*
 
  called by state_born
- initialize structure vars
-
-	RETURN
-		is_dead, dead_cause: if something goes wrong, creature died at birth
-		...
+ initialize structure vars after genome has mutated
 
 
 */
@@ -27,7 +23,7 @@ function structure_born(my_id){
 		// give some biomass by default for 1st generation creatures.
 		// parent will update with real value in step_reproduction() for next generations
 	
-		if 	age_is_adult or (generation==1 and GENUSS_SPAWN_AS_ADULTS) {
+		if 	age_is_adult or (generation==1 and GENUS_SPAWN_AS_ADULTS) {
 			biomass = biomass_adult;
 			age_is_adult = true;
 		}
@@ -49,7 +45,7 @@ function structure_born(my_id){
 		_Tmin  = my_id.genome[GEN.TEMPERATURE_OPTIMAL] - my_id.genome[GEN.TEMPERATURE_RANGE];
 	
 		
-		_reproduction_interval = years_to_sim_steps(my_id.genome[GEN.REPRODUCTION_INTERVAL])*random_range(0.9, 1.1);	// steps
+		_reproduction_interval = years_to_sim_steps(my_id.genome[GEN.REPRODUCTION_INTERVAL])*random_range(0.8, 1.2);	// steps
 		_reproduction_distance = my_id.genome[GEN.REPRODUCTION_DISTANCE]*random_range(0.9, 1.1);		
 	
 		

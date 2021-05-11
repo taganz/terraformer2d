@@ -60,7 +60,8 @@ function state_reproduction(_id){
 	_id.structure.reproduction_age_last_time = _id.structure.age;
 		
 	// remember hom many reproduction times
-	_id.structure.reproduction_count++;
+	_id.structure.reproduction_count ++;
+	_id.structure.reproduction_count += _offspring_count;
 		
 	log_event(LOGEVENT.CREATURE_LIFE_EVENT, _id, "reproduction", "offspring count: "+string(_offspring_count));
 	

@@ -27,7 +27,8 @@ function LOGEVENT_to_string(_log_event){
 		case LOGEVENT.CREATURE_REPRODUCTION:	_msg = "REPRODUCTION"; break;
 		case LOGEVENT.CREATURE_STARVING:		_msg = "STARVING"; break;
 		case LOGEVENT.CREATURE_TEMPERATURE:		_msg = "TEMPERATURE"; break;
-		case LOGEVENT.CREATURE_NUTRIENTS_RECEIVED:	_msg = "WATER_RECEIVED"; break;
+		case LOGEVENT.CREATURE_EATEN_BIOMASS:	_msg = "EATEN_BIOMASS"; break;
+		case LOGEVENT.CREATURE_WATER_RECEIVED:	_msg = "WATER_RECEIVED"; break;
 		case LOGEVENT.CREATURE_DEBUG:			_msg = "CREATURE_DEBUG"; break;
 		
 		case LOGEVENT.SPECIE_NEW:				_msg = "SPECIE_NEW"; break;
@@ -39,7 +40,7 @@ function LOGEVENT_to_string(_log_event){
 		
 		//case LOGEVENT.WORLD_PROBE_NUTRIENTS:			_msg = "WORLD_PROBE_NUTRIENTS"; break;
 		//case LOGEVENT.WORLD_PROBE_WATER:				_msg = "WORLD_PROBE_WATER"; break;
-		case LOGEVENT.WORLD_SPAWNER:					_msg = "SPAWNER"; break;
+		//case LOGEVENT.WORLD_SPAWNER:					_msg = "SPAWNER"; break;
 		case LOGEVENT.WORLD_POPULATION:					_msg = "WORLD_POPULATION"; break;
 		case LOGEVENT.WORLD_BIOMASS:					_msg = "WORLD_BIOMASS"; break;
 		case LOGEVENT.WORLD_PROBE_RAIN_TEMP:			_msg = "WORLD_PROBE_RAIN_TEMP"; break;

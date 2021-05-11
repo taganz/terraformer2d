@@ -2,8 +2,8 @@
 
   Time handles the different time scales
   - Game Maker steps 
-  - Simulation step - creatures uses this one
-  - Simulation month - used to calculate water cycle
+  - Simulation step - animals metabolism is calculated at this frequency
+  - Simulation month - plants and water cycle are calculate at this frequency
   
 		
 

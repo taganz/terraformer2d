@@ -8,7 +8,7 @@ function MACROS(){
 // ===	GAME
 
 #macro RANDOMIZE_AT_START		true			// controller will randomize at create event
-#macro OBJ_CREATED_BY_CLIC		obj_primary_tiny   // the object that will be created with left click
+#macro OBJ_CREATED_BY_CLIC		obj_primary_tiny  // the object that will be created with left click
 #macro DEBUG_RAIN_UNLIMITED		false			// climates give 999999 rain water
 #macro FILE_GENUS_CSV "genus.csv"
 
@@ -58,7 +58,7 @@ function MACROS(){
 // general life constants
 #macro BIOMASS_DECOMPOSITION_ZERO  10			// when biomass decompeses under this level instance is destroyed
 #macro BIOMASS_DECOMPOSITION_FACTOR 0.15  // per sim_step (animals) o sim_month (plants)
-#macro GENUSS_SPAWN_AS_ADULTS true				// if false, depends on variable creature_spawn_as_adult
+#macro GENUS_SPAWN_AS_ADULTS true				// if false, depends on variable creature_spawn_as_adult
 #macro PRIMARY_TO_PLANT_RATIO_TO_EAT 0.5		// primaries biomass need be greater than this fraction of plant biomass to eat it
 }
 

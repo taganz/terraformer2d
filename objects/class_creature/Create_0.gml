@@ -16,7 +16,7 @@ is_plant = genome[GEN.TROPHIC_LEVEL] == TROPHIC_LEVEL.PRODUCER;
 
 structure = new Structure(id, creature_spawn_as_adult);
 
-last_prey_eaten = -1;
+last_prey_eaten = -1;			// TBC
 
 // -- morphology
 

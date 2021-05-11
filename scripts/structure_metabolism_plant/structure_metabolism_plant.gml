@@ -27,7 +27,7 @@ function structure_metabolism_plant(my_id){
 	
 		if controller.time.sim_month_entry {
 
-				log_event(LOGEVENT.CREATURE_NUTRIENTS_RECEIVED, my_id, plant_roots_absorbed_water);
+				log_event(LOGEVENT.CREATURE_WATER_RECEIVED, my_id, plant_roots_absorbed_water);
 				log_event(LOGEVENT.CREATURE_RAIN, my_id, my_id.my_cell.rain_current_month);
 				log_event(LOGEVENT.CREATURE_CELL_PLANTS_AVAILABLE_WATER, my_id, my_id.my_cell.plants_available_water);
 								

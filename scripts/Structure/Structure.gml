@@ -50,10 +50,12 @@ function Structure(_id, _spawn_as_adult) constructor {
 	//		below 0.5: creature is starving
 	//		below 0: creature dies
 	biomass_reserve = 0;
-	biomass_reproduction_adult = 0;		// used for animals <---
+	
+	// -- biomass reproduction
+	//biomass_reproduction_adult = 0;		// used for animals <---
 
 	_biomass_reserve_max = -1;
-	_biomass_max = -1;
+	_biomass_max = -1;						// max biomass attained by creature
 	_biomass_reproduction_max = -1;
 
 	
@@ -67,6 +69,7 @@ function Structure(_id, _spawn_as_adult) constructor {
 	// -- reproduction
 	
 	reproduction_count = 0;					// times reproduction done
+	reproduction_offspring_count = 0;		// total number of offspring 
 	reproduction_age_last_time = -1;		// age at last reproduction
 	_reproduction_interval = -1;
 	_reproduction_distance = -1;
@@ -86,6 +89,7 @@ function Structure(_id, _spawn_as_adult) constructor {
 
 
 	// === animal specific
+	
 	animal_eaten_biomass = 0;
 
 

@@ -51,9 +51,12 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 			case LOGEVENT.CREATURE_BIOMASS_REPRODUCTION:
 			case LOGEVENT.CREATURE_BIOMASS_RESERVE:
 			case LOGEVENT.CREATURE_BORN:
+			case LOGEVENT.CREATURE_BORN_INFO:
 			case LOGEVENT.CREATURE_CELL_PLANTS_AVAILABLE_WATER:
 			case LOGEVENT.CREATURE_DEBUG: 
 			case LOGEVENT.CREATURE_DEAD:
+			case LOGEVENT.CREATURE_DEAD_INFO:
+			case LOGEVENT.CREATURE_DEAD_INFO_NUM:
 			case LOGEVENT.CREATURE_EAT:
 			case LOGEVENT.CREATURE_DECOMPOSE:	
 			case LOGEVENT.CREATURE_DECOMPOSE_COMPLETED:
@@ -63,13 +66,15 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 			case LOGEVENT.CREATURE_REPRODUCTION:
 			case LOGEVENT.CREATURE_STARVING:
 			case LOGEVENT.CREATURE_TEMPERATURE:
-			case LOGEVENT.CREATURE_NUTRIENTS_RECEIVED:
+			case LOGEVENT.CREATURE_EATEN_BIOMASS:
+			case LOGEVENT.CREATURE_WATER_RECEIVED:
 			{
 			
 				// should we log this event?
 				if (controller.user_options.LOG_CREATURES_ALL
-						//or (controller.user_options.LOG_CREATURES_FOLLOWING and _id1 == obj_gui.gui.creature_to_follow)) 
-						or (controller.user_options.LOG_CREATURES_FOLLOWING and _id1.creature_log==true)) {
+						or (controller.user_options.LOG_CREATURES_FOLLOWING and _id1.creature_log==true))
+					and (controller.user_options.LOG_CREATURES_PRODUCERS == true or _id1.is_plant == false)
+					{
 						
 					ASSERT(_id1!=0, _id1, "log_event id1==0 event "+LOGEVENT_to_string(_event));
 					
@@ -171,9 +176,9 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 						_col_num1 = string((_arg1));	
 					}
 					if _event == LOGEVENT.CREATURE_ANABOLISM {
-						_col_num1 = string((_arg1));
-						_col_num2 = string_format((_id1.structure.biomass), 4, 1);
-						_col_txt1 = _arg2;
+						_col_num1 = string((_arg1));									// anabolism
+						_col_num2 = string_format(_id1.structure.biomass, 4, 1);		// biomass
+						_col_txt1 = _arg2;												// info text
 					}
 					if _event == LOGEVENT.CREATURE_CATABOLISM {
 						_col_num1 = string((_arg1));
@@ -192,58 +197,33 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 						_col_num1 = string(_arg1);
 						_col_txt1 = string(_arg1)+"mm";	
 					}
-					if _event == LOGEVENT.CREATURE_NUTRIENTS_RECEIVED {
-						//_col_specie = "";
+					if _event == LOGEVENT.CREATURE_WATER_RECEIVED {
 						_col_num1 = string(_arg1);
-						_col_txt1 = string(_arg1)+"l (tbc)";	
 					}
-
-				}
-				else {							
-					_do_log = false;
-				}
-
-				break;
-			}
-			case LOGEVENT.CREATURE_BORN_INFO:
-			//case LOGEVENT.CREATURE_BORN_INFO_NUM:
-			case LOGEVENT.CREATURE_DEAD_INFO:
-			case LOGEVENT.CREATURE_DEAD_INFO_NUM:
-				if controller.user_options.LOG_CREATURES_ALL
-				//|| (controller.user_options.LOG_CREATURES_FOLLOWING and _id1 == obj_gui.gui.creature_to_follow) 
-				||  (controller.user_options.LOG_CREATURES_FOLLOWING and _id1.creature_log==true) {
-						// common 
-						_col_id1 = string(_id1);
-						_col_name = _id1.creature_log_name;
-						_col_trophic_level = trophic_level_to_string(_id1.genome[GEN.TROPHIC_LEVEL]);
-						_col_specie = string(_id1.genome[GEN.SPECIE_CODE]);
-						_col_x = string(_id1.my_cell.x_cell);
-						_col_y = string(_id1.my_cell.y_cell);
-				
-						if _event == LOGEVENT.CREATURE_BORN_INFO {
-							_col_txt1 = _arg1;		// tag
-							_col_txt2 = _arg2;		// string value
-						}
-						//if _event == LOGEVENT.CREATURE_BORN_INFO_NUM {
-						//	_col_txt1 = _arg1;				// tag
-						//	_col_num1 = string(_arg2);		// num value
-						//}
-						if _event == LOGEVENT.CREATURE_DEAD_INFO {
-							_col_txt1 = _arg1;		// tag
-							_col_txt2 = _arg2;		// string value
-						}
-						if _event == LOGEVENT.CREATURE_DEAD_INFO_NUM{
-							_col_txt1 = _arg1;				// tag
-							_col_num1 = string(_arg2);		// num value
-						}
+					if _event == LOGEVENT.CREATURE_EATEN_BIOMASS {
+						_col_num1 = string(_arg1);
+					}
+					if _event == LOGEVENT.CREATURE_BORN_INFO {
+						_col_txt1 = _arg1;		// tag
+						_col_txt2 = _arg2;		// string value
+					}
+					if _event == LOGEVENT.CREATURE_DEAD_INFO {
+						_col_txt1 = _arg1;		// tag
+						_col_txt2 = _arg2;		// string value
+					}
+					if _event == LOGEVENT.CREATURE_DEAD_INFO_NUM {
+						_col_txt1 = _arg1;				// tag
+						_col_num1 = string(_arg2);		// num value
+					}
 				}
 				else
 				{
 					_do_log = false;
 				}
 				break;
-			case LOGEVENT.WORLD_SPAWNER:
-				break;
+			}
+			//case LOGEVENT.WORLD_SPAWNER:
+			//	break;
 				
 #endregion
 
@@ -267,13 +247,13 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 					}
 					
 					if _event == LOGEVENT.SPECIE_BORN {
-						_col_num1 = string((_id1.structure.biomass));				// biomass
+						_col_num1 = string(_id1.structure.biomass);				// biomass
 						_col_txt1 = climate_to_string(_id1.my_cell.climate);		// climate
 						_col_txt2 = object_get_name(_id1.object_index);				// genus
 					}
 					
 					if _event == LOGEVENT.SPECIE_DEAD {
-						_col_num1 = string(_id1.structure.biomass);					// biomass
+						_col_num1 = string(_id1.structure._biomass_max);			// max biomass attained
 						_col_num2 = string(_id1.structure.age);						// age
 						_col_num3 = string(_id1.structure.reproduction_count);		// reproduction times (not offspring!)
 						_col_txt1 = climate_to_string(_id1.my_cell.climate);		// climate

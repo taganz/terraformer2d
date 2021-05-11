@@ -25,10 +25,11 @@ function User_options() constructor {
 	// === log
 #macro LOG_CREATURE_FOLLOWING_FOLLOW_CHILDREN true  // first child of followed creature is also followed	
 	LOG_ALLOW_LOG				= false;	// main log switch. if false, no log file is created
-	LOG_CREATURES_FOLLOWING		= false;	// log all CREATURE events
+	LOG_CREATURES_FOLLOWING		= true;		// log all CREATURE events
 	LOG_CREATURES_ALL			= false;	// false = log CREATURE events only for followed creature
-	LOG_SPECIES		= false;	// log info at birth and dead for all creatures
-	LOG_WORLD					= false;	// log WORLD events
+	LOG_SPECIES					= false;	// log info at birth and dead for all creatures
+	LOG_WORLD					= true;	// log WORLD events
+	LOG_CREATURES_PRODUCERS		= false				// log_creature events applies to producers
 	log_user_spawned_creatures	= true;		// set log for user spawned creatures
 
 
@@ -54,6 +55,7 @@ function User_options() constructor {
 									, "obj_plant_artic"
 									, "obj_primary_small"
 									, "obj_primary_tiny" 
+									, "obj_primary_tiny_2" 
 									, "obj_secondary_small"
 									];
 	
@@ -69,6 +71,7 @@ function User_options() constructor {
 									, obj_plant_artic
 									, obj_primary_small 
 									, obj_primary_tiny 
+									, obj_primary_tiny_2 
 									, obj_secondary_small
 									];
 
