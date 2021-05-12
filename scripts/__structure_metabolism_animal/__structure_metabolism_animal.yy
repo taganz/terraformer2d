@@ -6,7 +6,7 @@
     "path": "folders/Scripts/Creatures/Structure.yy",
   },
   "resourceVersion": "1.0",
-  "name": "structure_metabolism_plant",
+  "name": "__structure_metabolism_animal",
   "tags": [],
   "resourceType": "GMScript",
 }

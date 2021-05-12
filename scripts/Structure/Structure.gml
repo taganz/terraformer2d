@@ -74,29 +74,25 @@ function Structure(_id, _spawn_as_adult) constructor {
 	_reproduction_interval = -1;
 	_reproduction_distance = -1;
 	
-	// anabolism is affected by a temperature coefficient
-	//  - below Tmin:  kt = 0
-	//	- range Tmin - Topt1:  kt =  grow linearly from 0 to 1
-	//  - range Topt1 - Topt2: kt = 1 
-	//	- above Topt2: kt = 0
+
 	_Topt2 = -1;
 	_Topt1 = -1;
 	_Tmin  = -1;
 	
-	
-	
-	//_first_execution = true;
 
 
+	anabolism_input = -1;
+	_metabolism_steps_per_month = -1; // time correction factor for animals
+	
 	// === animal specific
 	
-	animal_eaten_biomass = 0;
+	//animal_eaten_biomass = 0;
 
 
 	// === plant specific 
 	
 	// this is updated by world cell for each plant cycle 
-	plant_roots_absorbed_water = -1;
-	plant_received_sun = -1;
+	//plant_roots_absorbed_water = -1;
+	//plant_received_sun = -1;
 
 }

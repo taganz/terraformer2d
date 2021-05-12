@@ -39,14 +39,14 @@ function Morphology_Animal(_id) constructor {
 		switch (my_id.state.state) {
 			case STATE.EAT:		
 				if my_id.structure.is_starving  {
-					if my_id.structure.animal_eaten_biomass > 0
+					if my_id.structure.anabolism_input > 0
 						sprite = my_id.creature_sprite_starving_eat; 
 					else
 						// not really eating
 						sprite = my_id.creature_sprite_starving; 
 				}
 				else {
-					if my_id.structure.animal_eaten_biomass > 0
+					if my_id.structure.anabolism_input > 0
 						sprite = my_id.creature_sprite_eat; 
 					else 
 						// not really eating

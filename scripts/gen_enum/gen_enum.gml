@@ -26,7 +26,7 @@ function gen_enum(){
 		ALLOCATION_REPRODUCTIVE,			// 11 
 		TEMPERATURE_OPTIMAL,				// 12 - temperature where plants converts maximum biomass in anabolim
 		TEMPERATURE_RANGE,					// 13 - temperature range where plants stops working
-		ANABOLISM_BIOMASS_PER_WATER_L,		// 14 - kg of biomass generatd per l
+		EMPTY14,							// 14 - 
 		ALLOCATION_RESERVE,					// 15 - % of biomass used as reserve
 		KC_METABOLIC_RATE,					// 16 - kg of biomass consumed per biomass kg per month
 		// DORMANCY
@@ -38,7 +38,7 @@ function gen_enum(){
 		PLANT_BODY_FORM_FACTOR,				// 21 - (sprite height m / sprite width m2) ** 2
 		PLANT_HEAD_DENSITY,					// 22
 		PLANT_HEAD_FORM_FACTOR,				// 23
-		ANIMAL_ANABOLISM_BIOMASS_CONVERSION, // 24 conversion from eaten biomass to creature biomass  kg/kg/month
+		KA_ANABOLISM_FACTOR,				// 24 conversion from anabolism_input to creature biomass  kg/kg/month
 		BIOMASS_BIRTH,						// 25
 		BIOMASS_ADULT,						// 26
 		AGE_DEAD,							// 27

@@ -49,10 +49,10 @@ function _process_producers_list(_id, _producers_list) {
 						
 					// capture a part of biomass from one of the plants 
 					var _biomass_got = been_eated(_prey, _id, _id.structure.biomass_eat);
-					_id.structure.animal_eaten_biomass += _biomass_got; 
+					_id.structure.anabolism_input += _biomass_got; 
 						
 					// log eat event
-					var _txt = "animal_eaten_biomass: "+string((_id.structure.animal_eaten_biomass))+"  biomass prey: "+string((_prey.structure.biomass));
+					var _txt = "anabolism_input: "+string((_id.structure.anabolism_input))+"  biomass prey: "+string((_prey.structure.biomass));
 					log_event(LOGEVENT.CREATURE_EAT, _id, _prey, _biomass_got, _txt);
 				
 					// store to draw

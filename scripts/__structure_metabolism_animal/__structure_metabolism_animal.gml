@@ -1,4 +1,4 @@
-
+/*
 	// doc to be reviews
 	
 	// === do_metabolism	
@@ -18,20 +18,20 @@ function structure_metabolism_animal(my_id){
 
 	with my_id.structure {
 				
-		log_event(LOGEVENT.CREATURE_EATEN_BIOMASS, my_id, animal_eaten_biomass);
+		log_event(LOGEVENT.CREATURE_ANABOLISM_INPUT, my_id, anabolism_input);
 		log_event(LOGEVENT.CREATURE_RAIN, my_id, my_id.my_cell.rain_current_month);
 		log_event(LOGEVENT.CREATURE_CELL_PLANTS_AVAILABLE_WATER, my_id, my_id.my_cell.plants_available_water);
 				
 		// === anabolism
 		
-		var _quant_anabolism = animal_eaten_biomass * my_id.genome[GEN.ANIMAL_ANABOLISM_BIOMASS_CONVERSION]  / TIME_SIM_STEPS_PER_MONTH;  // kc kg/kg /month;
+		var _quant_anabolism = anabolism_input * my_id.genome[GEN.KA_ANABOLISM_FACTOR]  / TIME_SIM_STEPS_PER_MONTH;  // kc kg/kg /month;
 		// temperature affects anabolism. under Tmin or over _Topt2 anabolism stops.
 		var _anabolism_temperature_factor = my_id.my_cell.temperature_current_month > _Topt2 
 					? 0 
 					: clamp((my_id.my_cell.temperature_current_month - _Tmin)/(_Topt1-_Tmin), 0, 1);
 		_quant_anabolism *= _anabolism_temperature_factor;
-		log_event(LOGEVENT.CREATURE_ANABOLISM, my_id, _quant_anabolism, "animal_eaten_biomass: "+string(animal_eaten_biomass)+", T:" + string(my_id.my_cell.temperature_current_month)+", kt: "+string(_anabolism_temperature_factor));
-		animal_eaten_biomass -= _quant_anabolism / my_id.genome[GEN.ANIMAL_ANABOLISM_BIOMASS_CONVERSION]  * TIME_SIM_STEPS_PER_MONTH;				  
+		log_event(LOGEVENT.CREATURE_ANABOLISM, my_id, _quant_anabolism, "animal_eaten_biomass: "+string(anabolism_input)+", T:" + string(my_id.my_cell.temperature_current_month)+", kt: "+string(_anabolism_temperature_factor));
+		anabolism_input -= _quant_anabolism / my_id.genome[GEN.KA_ANABOLISM_FACTOR]  * TIME_SIM_STEPS_PER_MONTH;				  
 			
 		// === catabolism
 		var _catabolism_temperature_factor =  clamp(
@@ -51,3 +51,5 @@ function structure_metabolism_animal(my_id){
 	}			
 		
 }	
+
+*/

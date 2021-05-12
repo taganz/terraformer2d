@@ -62,13 +62,13 @@ function grid_update_cells_water() {
 							_quant_water = clamp(_quant_water, 0, _cell.stored_water);
 							
 							//producer_id.structure.plant_roots_absorbed_water += _quant_water; 
-							producer_id.structure.plant_roots_absorbed_water = _quant_water; // don't accumulate water from previous month
+							producer_id.structure.anabolism_input = _quant_water; // don't accumulate water from previous month
 							_cell.stored_water -= _quant_water;
 							_cell.plants_available_water = soil_plant_available_water(_cell.stored_water, _cell.soil_field_capacity_kg, _cell.soil_permanent_wilting_point_kg);
 					
 								
 							// updates solar energy received
-							producer_id.structure.plant_received_sun = 1;
+							//producer_id.structure.plant_received_sun = 1;
 								
 							// no more water to give
 							if _cell.plants_available_water <= 0 
@@ -92,12 +92,12 @@ function grid_update_cells_water() {
 								_quant_water = clamp(_quant_water, 0, _cell.stored_water);
 								
 								//producer_id.structure.plant_roots_absorbed_water += _quant_water;
-								producer_id.structure.plant_roots_absorbed_water = _quant_water;			// don't accumulate water from previous month
+								producer_id.structure.anabolism_input = _quant_water;			// don't accumulate water from previous month
 								_cell.stored_water -= _quant_water;
 								_cell.plants_available_water = soil_plant_available_water(_cell.stored_water, _cell.soil_field_capacity_kg, _cell.soil_permanent_wilting_point_kg);
 								
 								// updates solar energy received
-								producer_id.structure.plant_received_sun = 1;
+								//producer_id.structure.plant_received_sun = 1;
 								
 								// no more water to give
 								if _cell.plants_available_water <= 0 

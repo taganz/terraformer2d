@@ -20,7 +20,7 @@ function LOGEVENT_enum(){
 		CREATURE_DECOMPOSE,
 		CREATURE_DECOMPOSE_COMPLETED,
 		CREATURE_EAT,
-		CREATURE_EATEN_BIOMASS,			// plants
+		CREATURE_ANABOLISM_INPUT,			// plants
 		CREATURE_BEEN_EATED,
 		CREATURE_DEBUG,
 		CREATURE_LIFE_EVENT,
@@ -28,7 +28,7 @@ function LOGEVENT_enum(){
 		CREATURE_REPRODUCTION,
 		CREATURE_TEMPERATURE,				// at cell this month
 		CREATURE_RAIN,						// at cell this month
-		CREATURE_WATER_RECEIVED,			// plants
+		//CREATURE_WATER_RECEIVED,			// plants
 		CREATURE_CELL_PLANTS_AVAILABLE_WATER,	// PAW at creature cell
 		
 		// Species stats

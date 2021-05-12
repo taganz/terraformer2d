@@ -1,4 +1,4 @@
-﻿version;11/05/2021 1:08;;;;;;;;;;;;
+﻿version;12/05/2021 3:37;;;;;;;;;;;;
 climate_ET0_evotranspiration;180;;;;;All gen value must be numeric - no empty cells;;;;;;;
 LEAF_M2_PER_KG;0,1;;;;;Per baixar aigua consumida cal baixar KC vigilant que LMFa quedi > 0,01;;;;;;;
 ;;;;;;;;;;;;;
@@ -25,14 +25,14 @@ BIOMASS_ADULT;800;250;200;300;8;8;400;10;10;10;5;7;50
 ALLOCATION_DIGESTIVE_ANIMALS;0;0;0;0;0;0;0;0;0;0,2;0,4;0,4;0,2
 ALLOCATION_REPRODUCTIVE;0,1;0,1;0,1;0,1;0,2;0,1;0,1;0,1;0,1;0,2;0,2;0,3;0,2
 ALLOCATION_RESERVE;0,4;0,4;0,4;0,4;0,4;0,4;0,4;0,4;0,4;0,4;0,2;0,2;0,4
-ANIMAL_ANABOLISM_BIOMASS_CONVERSION;0;0;0;0;0;0;0;0;0;0,3;0,1;0,3;0,1
+KA_ANABOLISM_FACTOR;0,4;0,01;0,05;0,06;1;0,04;0,17;0,04;0,04;0,3;0,1;0,3;0,1
 KC_METABOLIC_RATE;0,2;0,01;0,09;0,8;0,1;0,2;0,2;0,4;0,4;0,05;0,05;0,1;0,12
 TEMPERATURE_OPTIMAL;30;24;15;5;20;25;20;20;-10;0;15;15;0
 TEMPERATURE_RANGE;15;3;5;10;10;6;10;5;20;50;15;15;50
 DORMANCY_TEMPERATURE_TRIGGER;0;0;0;0;0;0;0;0;0;0;0;0;0
 DORMANCY_CATABOLISM_REDUCTION;0,9;0,9;0,9;0,9;0,1;0,9;0,7;0,9;0,9;0;0;0;0
 DORMANCY_MONTHS;0;0;0;0;0;0;0;0;0;0;0;0;0
-ANABOLISM_BIOMASS_PER_WATER_L;0,4;0,01;0,05;0,06;1;0,04;0,13;0,04;0,04;0;0;0;0
+EMPTY14;0;0;0;0;0;0;0;0;0;0;0;0;0
 PLANT_BODY_DENSITY;1600;0;0;400;0;0;0;0;0;0;0;0;0
 PLANT_BODY_FORM_FACTOR;1,2;0;0;1,2;0;0;0;0;0;0;0;0;0
 PLANT_HEAD_DENSITY;50;175;175;50;40;30;350;10;5;0;0;0;0
@@ -44,8 +44,8 @@ GEN_END;;;;;;;;;;;;;
 Comments;;;;Trunk;High temp, high reserve;;;;Low temp, high reserve;;;;
 ;;;;;;;;;;;;;
 ;;;;;;;;;;;;;
-LMFa;0,167;0,333;0,600;4,444;0,333;1,667;0,085;3,333;3,33;;;;
+LMFa;0,167;0,333;0,600;4,444;0,333;1,667;0,065;3,333;3,333;#¡DIV/0!;#¡DIV/0!;#¡DIV/0!;#¡DIV/0!
 ;;;;;;;;;;;;;
-Water absorbed wanted;2400;1500;2160;24000;48;240;615;600;600;;;;
+Water absorbed wanted;2400;1500;2160;24000;48;240;471;600;600;;;;
 Anabolism adult wanted;160;3;18;240;1;2;80;4;4;;;;
 Catabolism adult;160;3;18;240;1;2;80;4;4;;;;

@@ -66,8 +66,8 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 			case LOGEVENT.CREATURE_REPRODUCTION:
 			case LOGEVENT.CREATURE_STARVING:
 			case LOGEVENT.CREATURE_TEMPERATURE:
-			case LOGEVENT.CREATURE_EATEN_BIOMASS:
-			case LOGEVENT.CREATURE_WATER_RECEIVED:
+			case LOGEVENT.CREATURE_ANABOLISM_INPUT:
+			//case LOGEVENT.CREATURE_WATER_RECEIVED:
 			{
 			
 				// should we log this event?
@@ -197,10 +197,10 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 						_col_num1 = string(_arg1);
 						_col_txt1 = string(_arg1)+"mm";	
 					}
-					if _event == LOGEVENT.CREATURE_WATER_RECEIVED {
-						_col_num1 = string(_arg1);
-					}
-					if _event == LOGEVENT.CREATURE_EATEN_BIOMASS {
+					//if _event == LOGEVENT.CREATURE_WATER_RECEIVED {
+					//	_col_num1 = string(_arg1);
+					//}
+					if _event == LOGEVENT.CREATURE_ANABOLISM_INPUT {
 						_col_num1 = string(_arg1);
 					}
 					if _event == LOGEVENT.CREATURE_BORN_INFO {

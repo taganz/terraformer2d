@@ -25,4 +25,8 @@ function log_events_init_world(){
 	log_event(LOGEVENT.INFO_PARAMETERS, "options_unlimited_water"	+string(obj_gui.options_unlimited_water));
 	log_event(LOGEVENT.INFO_PARAMETERS, "user_options"				+string(controller.user_options));
 	
+	if controller.user_options.LOG_CREATURES_PRODUCERS == false {
+		log_error("WARNING! LOG_CREATURES_PRODUCERS == false");
+	}
+	
 }

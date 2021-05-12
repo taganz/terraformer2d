@@ -1,4 +1,4 @@
-
+/*
 //TO BE REVIEWED
 
 	// === do_metabolism    
@@ -27,7 +27,7 @@ function structure_metabolism_plant(my_id){
 	
 		if controller.time.sim_month_entry {
 
-				log_event(LOGEVENT.CREATURE_WATER_RECEIVED, my_id, plant_roots_absorbed_water);
+				log_event(LOGEVENT.CREATURE_ANABOLISM_INPUT, my_id, anabolism_input);
 				log_event(LOGEVENT.CREATURE_RAIN, my_id, my_id.my_cell.rain_current_month);
 				log_event(LOGEVENT.CREATURE_CELL_PLANTS_AVAILABLE_WATER, my_id, my_id.my_cell.plants_available_water);
 								
@@ -38,7 +38,7 @@ function structure_metabolism_plant(my_id){
 				// we expect to have received water: biomass_eat*WORLD_WATER_PER_LEAF_KG
 				// we are going to use it for compensate catabolism + growth + reserves
 				
-				var _quant_anabolism = plant_roots_absorbed_water * my_id.genome[GEN.ANABOLISM_BIOMASS_PER_WATER_L];
+				var _quant_anabolism = anabolism_input * my_id.genome[GEN.KA_ANABOLISM_FACTOR];
 				
 				// temperature affects anabolism. under Tmin or over _Topt2 anabolism stops.
 				var _anabolism_temperature_factor = my_id.my_cell.temperature_current_month > _Topt2 
@@ -46,8 +46,8 @@ function structure_metabolism_plant(my_id){
 							: clamp((my_id.my_cell.temperature_current_month - _Tmin)/(_Topt1-_Tmin), 0, 1);
 				_quant_anabolism *= _anabolism_temperature_factor;
 					
-				log_event(LOGEVENT.CREATURE_ANABOLISM, my_id, _quant_anabolism, "received water: "+string(plant_roots_absorbed_water)+", T:" + string(my_id.my_cell.temperature_current_month)+", kt: "+string(_anabolism_temperature_factor));
-				plant_roots_absorbed_water = 0;
+				log_event(LOGEVENT.CREATURE_ANABOLISM, my_id, _quant_anabolism, "received water: "+string(anabolism_input)+", T:" + string(my_id.my_cell.temperature_current_month)+", kt: "+string(_anabolism_temperature_factor));
+				anabolism_input = 0;
 				
 				
 				
@@ -76,3 +76,4 @@ function structure_metabolism_plant(my_id){
 	}
 
 }
+*/

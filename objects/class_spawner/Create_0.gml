@@ -25,6 +25,11 @@ for (var i=0; i< spawner_quantity ;i++) {
 			_id.genome = genome_offspring_copy(_id, world_get_radiation(_id.x, _id.y));
 		}
 		
+		// creature should log?
+		if random(1) < spawner_creature_log_probability {
+			_id.creature_log = true;
+		}
+		
 		show_debug_message("Spawned "+_id.genome[GEN.SPECIE_CODE]+
 				" x="+string(specie_code_x(_id.genome))+" y="+string(specie_code_y(_id.genome)));
 		total++;

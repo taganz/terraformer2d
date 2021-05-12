@@ -28,7 +28,7 @@ function structure_born(my_id){
 			age_is_adult = true;
 		}
 
-		// 
+		
 		_biomass_max = biomass;
 		_biomass_reproduction_max = biomass_adult * my_id.genome[GEN.ALLOCATION_REPRODUCTIVE]; 
 
@@ -39,11 +39,20 @@ function structure_born(my_id){
 		
 
 		// anabolism is affected by a temperature coefficient
+		//  - below Tmin:  kt = 0
+		//	- range Tmin - Topt1:  kt =  grow linearly from 0 to 1
+		//  - range Topt1 - Topt2: kt = 1 
+		//	- above Topt2: kt = 0
 
 		_Topt2 = my_id.genome[GEN.TEMPERATURE_OPTIMAL] + my_id.genome[GEN.TEMPERATURE_RANGE];
 		_Topt1 = my_id.genome[GEN.TEMPERATURE_OPTIMAL];
 		_Tmin  = my_id.genome[GEN.TEMPERATURE_OPTIMAL] - my_id.genome[GEN.TEMPERATURE_RANGE];
-	
+
+		// anabolims input is the quantity that will convert to metabolism mass increment 
+		//  - absorbed water for plants
+		//  - eaten biomass for animals
+		anabolism_input = 0;
+		_metabolism_steps_per_month = my_id.is_plant ? 1 : TIME_SIM_STEPS_PER_MONTH;
 		
 		_reproduction_interval = years_to_sim_steps(my_id.genome[GEN.REPRODUCTION_INTERVAL])*random_range(0.8, 1.2);	// steps
 		_reproduction_distance = my_id.genome[GEN.REPRODUCTION_DISTANCE]*random_range(0.9, 1.1);		

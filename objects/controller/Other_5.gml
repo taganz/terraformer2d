@@ -18,6 +18,8 @@ if room == Room0 {
 	world.climate_change_temperature_increment = user_options.default_climate_change_temperature_increment;
 	//world.radiation = default_world_radiation;
 	world.radiation = user_options.default_world_radiation;
+	// add water
+	grid_update_cells_water();	
 
 	// holds species statistics, initial species definitions
 	species = new Species();
