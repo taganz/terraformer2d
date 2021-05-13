@@ -4,18 +4,18 @@ function gen_enum(){
 
 	#macro GEN_FIRST_MUTABLE 7		// first gen that can be affected by radiation
 	
-	#macro GEN_NUM 31				// gens total number (last gen + 1)
+	#macro GEN_NUM 29				// gens total number (last active gen + 1)
 
 	enum GEN {
 		// immutable gens
 		TROPHIC_LEVEL,						// 0
-		GENUS,						// 1
-		GENUS_NAME,				// 2 - string
+		GENUS,								// 1
+		GENUS_NAME,							// 2 - string
 		// current specie gens
 		SPECIE_CODE,						// 3 - string
 		PARENT_SPECIE_CODE,					// 4 - string
 		SPECIE_HUE,							// 5 - real, used to build blend color
-		INDIVIDUALS_PER_CREATURE,			// 6 - the genus represents a "crop" of individuals
+		DEPRECATED_10,						// 6 -  
 		
 		
 		// gens that can be affected by radiation
@@ -26,7 +26,7 @@ function gen_enum(){
 		ALLOCATION_REPRODUCTIVE,			// 11 
 		TEMPERATURE_OPTIMAL,				// 12 - temperature where plants converts maximum biomass in anabolim
 		TEMPERATURE_RANGE,					// 13 - temperature range where plants stops working
-		EMPTY14,							// 14 - 
+		COMBAT_DEFENSE_POINTS,				// 14 - 
 		ALLOCATION_RESERVE,					// 15 - % of biomass used as reserve
 		KC_METABOLIC_RATE,					// 16 - kg of biomass consumed per biomass kg per month
 		// DORMANCY
@@ -39,14 +39,17 @@ function gen_enum(){
 		PLANT_HEAD_DENSITY,					// 22
 		PLANT_HEAD_FORM_FACTOR,				// 23
 		KA_ANABOLISM_FACTOR,				// 24 conversion from anabolism_input to creature biomass  kg/kg/month
-		BIOMASS_BIRTH,						// 25
+		COMBAT_ATTACK_POINTS,				// 25
 		BIOMASS_ADULT,						// 26
 		AGE_DEAD,							// 27
 		EVOTRANSPIRATION_FACTOR,			// 28 - used to calculate leaf area reatio
-		COMBAT_ATTACK_POINTS,				// 29
-		COMBAT_DEFENSE_POINTS				// 30 
-		// Remember to update GEN_NUM!!  must be last gen number + 1
-	
+		//
+		// REMEMBER to update GEN_NUM!!  must be last used gen number + 1
+		//
+		// end of active gens
+		EMPTY15,							// 29
+		EMPTY14								// 30 
+		
 	}
 
 }

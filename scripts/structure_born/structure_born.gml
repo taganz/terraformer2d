@@ -17,9 +17,9 @@ function structure_born(my_id){
 
 		// -- biomass
 	
-		biomass = (my_id.genome[GEN.BIOMASS_BIRTH]);
 		biomass_adult = (my_id.genome[GEN.BIOMASS_ADULT]);
-	
+		biomass = biomass_adult * my_id.genome[GEN.ALLOCATION_REPRODUCTIVE] / my_id.genome[GEN.REPRODUCTION_QUANTITY];
+		
 		// give some biomass by default for 1st generation creatures.
 		// parent will update with real value in step_reproduction() for next generations
 	

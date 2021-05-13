@@ -13,8 +13,7 @@ function log_events_creature_born(_id){
 		log_event(LOGEVENT.CREATURE_BORN_INFO,	   _id, "Soil", soil_to_string(_id.my_cell.soil_type));
 		log_event(LOGEVENT.CREATURE_BORN_INFO, _id, "age", string(sim_steps_to_years(_id.structure.age)));
 		log_event(LOGEVENT.CREATURE_BORN_INFO, _id, "age_die", string(sim_steps_to_years(age_die)));
-		log_event(LOGEVENT.CREATURE_BORN_INFO, _id, "biomass", string(biomass));
-		log_event(LOGEVENT.CREATURE_BORN_INFO, _id, "biomass birth", string(_id.genome[GEN.BIOMASS_BIRTH]));
+		log_event(LOGEVENT.CREATURE_BORN_INFO, _id, "biomass birth", string(biomass));
 		log_event(LOGEVENT.CREATURE_BORN_INFO, _id, "biomass adult", string(_id.genome[GEN.BIOMASS_ADULT]));
 		log_event(LOGEVENT.CREATURE_BORN_INFO, _id, "generation", string(generation));
 		log_event(LOGEVENT.CREATURE_BORN_INFO, _id, "_reproduction_interval", string(sim_steps_to_years(_reproduction_interval)));
