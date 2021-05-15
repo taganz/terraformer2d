@@ -27,7 +27,7 @@ function gen_enum(){
 		TEMPERATURE_OPTIMAL,				// 12 - temperature where plants converts maximum biomass in anabolim
 		TEMPERATURE_RANGE,					// 13 - temperature range where plants stops working
 		COMBAT_DEFENSE_POINTS,				// 14 - 
-		ALLOCATION_RESERVE,					// 15 - % of biomass used as reserve
+		BIOMASS_LIFE_FACTOR,					// 15 - % of biomass max need for live
 		KC_METABOLIC_RATE,					// 16 - kg of biomass consumed per biomass kg per month
 		// DORMANCY
 		DORMANCY_TEMPERATURE_TRIGGER,		// 17 - NOT USED --- dormancy state will be triggered when temperature factor reaches this level

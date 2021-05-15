@@ -99,6 +99,7 @@
     {"id":{"name":"spr_emu_close","path":"sprites/spr_emu_close/spr_emu_close.yy",},"order":5,},
     {"id":{"name":"obj_gui","path":"objects/obj_gui/obj_gui.yy",},"order":8,},
     {"id":{"name":"scribble_page_get","path":"scripts/scribble_page_get/scribble_page_get.yy",},"order":1,},
+    {"id":{"name":"obj_primary_tiny_3","path":"objects/obj_primary_tiny_3/obj_primary_tiny_3.yy",},"order":4,},
     {"id":{"name":"reproduction_ready","path":"scripts/reproduction_ready/reproduction_ready.yy",},"order":8,},
     {"id":{"name":"world_is_inside_pixel","path":"scripts/world_is_inside_pixel/world_is_inside_pixel.yy",},"order":13,},
     {"id":{"name":"biomass_modify","path":"scripts/biomass_modify/biomass_modify.yy",},"order":6,},
@@ -806,7 +807,6 @@
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"Terraformer2D analysis.pbix","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"conversions terraformer2d.xlsx","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"genus.csv","resourceType":"GMIncludedFile",},
-    {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"genus.xlsx","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
     "IDEVersion": "2.3.2.560",

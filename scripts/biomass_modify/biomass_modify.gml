@@ -15,61 +15,46 @@
 		
 		with _id.structure {
 			
-			// enough biomass to reduce?
-			if biomass + _quant < 0 {
-				_quant_got = -biomass;		
-			}
+			// keep biomass within limits
+			_quant = clamp(_quant, 0 -  biomass, 1.2 * _biomass_adult_max - biomass);
 			
-			// modify biomass
+			// modify biomass 
 			var biomass_previous = biomass;
-			biomass = min(biomass + _quant_got, biomass_adult * 1.1);
-			controller.world.trophic_level_biomass_now[_id.genome[GEN.TROPHIC_LEVEL]]+= (biomass - biomass_previous);
+			biomass += _quant;
 			
-			// adults can not growth bigger than biomass_adult
-			//if (age_is_adult and biomass > biomass_adult) {
-			//	biomass = biomass_adult;
-			//}
-		
-			// _biomass_max surpassed?
-			if biomass > _biomass_max {				
-				_biomass_max = biomass;
-				// "non reserve" is the part of the biomass we need to live
-				_biomass_reserve_max = _biomass_max * my_id.genome[GEN.ALLOCATION_RESERVE];
-			}
-			
-			// actual reserve = biomass - "non reserve max"
-			biomass_reserve = biomass - (_biomass_max - _biomass_reserve_max);
-			
-			
-			// update statistics. if animal eat animal sum is zero. not in decomposition or plants growth 
+			// update statistics
+			controller.world.trophic_level_biomass_now[_id.genome[GEN.TROPHIC_LEVEL]]+= (biomass - biomass_previous); 
 			controller.world.biomass += _quant_got;
 					
 			
-			// check not dead and decomposing
+			// check not dead and decomposing before updating living creatures parameters
 			if is_dead == false {
-			
-				if is_hungry == false {
-					
-					// reserve start decreasing?
-					if biomass_reserve < 0.8 * _biomass_reserve_max {
-						is_hungry = true;
-					}
-					is_starving = false;   // first time hungry, not starving
-				}
-				else {
-					
-					// reserve is full again?
-					if biomass_reserve > 0.95 * _biomass_reserve_max {
-						is_hungry = false;
-					}
-					is_starving = biomass_reserve < 0.5 * _biomass_reserve_max; 
-				}
-			
-				// has enough reserve to keep alive?
-				if (biomass_reserve <= 0)  {
+				
+
+				// dead by starving
+				if (biomass < _biomass_life )  {
 					is_dead = true;			
 					dead_cause = DEADCAUSE.STARVING;
 				}
+				else {
+					
+					// _biomass_max surpassed?
+					if biomass > _biomass_max {				
+						_biomass_max = biomass;
+						_biomass_life = _biomass_max * _id.genome[GEN.BIOMASS_LIFE_FACTOR];
+					}
+			
+					// hungry histeresys cycle
+					if is_hungry == false {
+						is_hungry = (biomass < 0.8 * _biomass_adult_max);
+						is_starving = false;   // first time hungry, not starving
+					}
+					else {
+						is_hungry = biomass < 1.1 *_biomass_adult_max;
+						is_starving = biomass < 2 * _biomass_life ; 
+					}
+				}			
+
 			}
 		}		
 		

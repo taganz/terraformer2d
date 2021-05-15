@@ -15,29 +15,34 @@ function structure_born(my_id){
 		age_die = years_to_sim_steps(my_id.genome[GEN.AGE_DEAD])*random_range(0.9, 1.5);		
 
 
-		// -- biomass
+		// -- biomass specie parameters
 	
 		biomass_adult = (my_id.genome[GEN.BIOMASS_ADULT]);
-		biomass = biomass_adult * my_id.genome[GEN.ALLOCATION_REPRODUCTIVE] / my_id.genome[GEN.REPRODUCTION_QUANTITY];
-		
-		// give some biomass by default for 1st generation creatures.
-		// parent will update with real value in step_reproduction() for next generations
-	
-		if 	age_is_adult or (generation==1 and GENUS_SPAWN_AS_ADULTS) {
-			biomass = biomass_adult;
-			age_is_adult = true;
-		}
-
-		
-		_biomass_max = biomass;
+		_biomass_adult_max = biomass_adult * (1 + my_id.genome[GEN.ALLOCATION_REPRODUCTIVE]) * 1.1;				// max biomass attainable by creature
 		_biomass_reproduction_max = biomass_adult * my_id.genome[GEN.ALLOCATION_REPRODUCTIVE]; 
-
 		
-		// reserve
-		_biomass_reserve_max = _biomass_max * my_id.genome[GEN.ALLOCATION_RESERVE];
-		biomass_reserve = biomass - (_biomass_max - _biomass_reserve_max);
 		
+		// -- set biomass at birth
+		
+		if 	generation==1 and GENUS_SPAWN_AS_ADULTS {
+			biomass_modify(my_id, biomass_adult);
+		}
+		else {
+			// parent will update with real value in step_reproduction() for next generations
+			//biomass = biomass_adult * my_id.genome[GEN.ALLOCATION_REPRODUCTIVE] / my_id.genome[GEN.REPRODUCTION_QUANTITY];
+			biomass_modify(my_id, biomass_adult * my_id.genome[GEN.ALLOCATION_REPRODUCTIVE] / my_id.genome[GEN.REPRODUCTION_QUANTITY]);
+			
+		}	
+		
+		
+		// -- reproduction
+		
+		_reproduction_interval = years_to_sim_steps(my_id.genome[GEN.REPRODUCTION_INTERVAL])*random_range(0.8, 1.2);	// steps
+		_reproduction_distance = my_id.genome[GEN.REPRODUCTION_DISTANCE]*random_range(0.9, 1.1);		
+	
 
+		// -- anabolism 
+	
 		// anabolism is affected by a temperature coefficient
 		//  - below Tmin:  kt = 0
 		//	- range Tmin - Topt1:  kt =  grow linearly from 0 to 1
@@ -54,9 +59,7 @@ function structure_born(my_id){
 		anabolism_input = 0;
 		_metabolism_steps_per_month = my_id.is_plant ? 1 : TIME_SIM_STEPS_PER_MONTH;
 		
-		_reproduction_interval = years_to_sim_steps(my_id.genome[GEN.REPRODUCTION_INTERVAL])*random_range(0.8, 1.2);	// steps
-		_reproduction_distance = my_id.genome[GEN.REPRODUCTION_DISTANCE]*random_range(0.9, 1.1);		
-	
+
 		
 		// calculate Leaf Mass Allocation
 		
@@ -76,7 +79,7 @@ function structure_born(my_id){
 		}
 		
 
-		// initial biomass allocation
+		// == initial biomass allocation
 				
 		biomass_allocation(my_id);
 		

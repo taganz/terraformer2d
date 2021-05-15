@@ -4,15 +4,9 @@
 function state_idle(_id){
 
 	with _id.structure {
-	
-		// growing?
-		if age_is_adult == false {
-			// always eating when growing
-			_id.state.next_state = _id.is_plant ? STATE.IDLE : STATE.EAT;
-		}
-		// adult
+			
 		// to old?
-		else if is_dead {
+		if is_dead {
 			_id.state.next_state = STATE.DEAD;
 		}
 		// starving? - if starving don't reproduce

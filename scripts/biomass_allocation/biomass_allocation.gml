@@ -18,14 +18,15 @@ function biomass_allocation(_id) {
 
 	with _id.structure {
 		
-		if age_is_adult == false {
+		//if age_is_adult == false {
+		if biomass < biomass_adult {
 			
 			// == growing
 			
 			// during growth 
 			// - biomass_eat change from 90% of total biomass to _biomas_eat_allocation
 			// - biomass_reproduction is zero
-			biomass_eat = max(biomass *(_biomass_eat_allocation + (0.9 - _biomass_eat_allocation) * (1 - biomass / my_id.genome[GEN.BIOMASS_ADULT])),0);
+			biomass_eat = max(biomass *(_biomass_eat_allocation + (0.9 - _biomass_eat_allocation) * (1 - biomass / biomass_adult)),0);
 			biomass_body = max(biomass - biomass_eat, 0);
 			
 		}
@@ -41,13 +42,14 @@ function biomass_allocation(_id) {
 		
 			// -- biomass eat
 			// 7/4/21  biomass_eat = biomass_adult * _biomass_eat_allocation;		
-			biomass_eat = max(biomass * _biomass_eat_allocation, 0);		
+			biomass_eat = biomass * _biomass_eat_allocation;		
 
 			// -- biomass_reproduction
-			biomass_reproduction = 	biomass > biomass_adult - _biomass_reproduction_max ? biomass - (biomass_adult - _biomass_reproduction_max) : 0;
+			//biomass_reproduction = 	biomass > biomass_adult - _biomass_reproduction_max ? biomass - (biomass_adult - _biomass_reproduction_max) : 0;
+			biomass_reproduction = 	clamp(biomass - biomass_adult, 0, _biomass_reproduction_max);
 	
 			// -- biomass_body
-			biomass_body = max(biomass - biomass_eat - biomass_reproduction, 0);
+			biomass_body = biomass - biomass_eat - biomass_reproduction;
 			
 		}
 		

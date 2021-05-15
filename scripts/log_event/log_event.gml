@@ -19,12 +19,12 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 		// --- to add a field, add also heading in Log constructor
 
 		var _col_id1 = "";
-		var _col_name = "";
+		var _col_name_DEPRECATED = "";
 		var _col_trophic_level = "";
 		var _col_specie = "";						
 		var _col_id2 = "";
 		var _col_x = "";
-		var _col_y = "";
+		var _col_y = "";	
 		var _col_num1 = "";
 		var _col_num2 = "";
 		var _col_num3 = "";
@@ -80,7 +80,7 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 					
 					// common 
 					_col_id1 = string(_id1);
-					_col_name = _id1.creature_log_name;
+					//_col_name = _id1.creature_log_name;
 					_col_trophic_level = trophic_level_to_string(_id1.genome[GEN.TROPHIC_LEVEL]);
 					_col_specie = string(_id1.genome[GEN.SPECIE_CODE]);
 					
@@ -144,16 +144,14 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 						_col_txt1 = string(_percent)+"% biomass"
 					}
 					if _event == LOGEVENT.CREATURE_BIOMASS_RESERVE {
-						_col_num1 = string((_id1.structure._biomass_reserve_max));	
-						if (_id1.structure._biomass_reserve_max != 0) {
-							var _percent = _id1.structure.biomass_reserve/_id1.structure._biomass_reserve_max;
+						_col_num1 = string(_id1.structure.biomass - _id1.structure._biomass_life);	// reserve
+						if (_id1.structure._biomass_life < _id1.structure._biomass_max) {
+							var _percent = _col_num1/(_id1.structure._biomass_max - _id1.structure._biomass_life); // % reserve max
 							_col_num2 = string(_percent);
 							_col_txt1 = string(_percent)+"% reserve max"
 						}
 						else {
-							var _percent = 0;
-							_col_num2 = string(_percent);
-							_col_txt1 = string(_percent)+" ERROR! reserve max == 0"
+							_col_txt1 = "error calculating % reserve max: biomass_life >= biomass_max"
 						}
 					}
 					
@@ -303,7 +301,7 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 			case LOGEVENT.WORLD_PROBE_RAIN_TEMP: 
 			{
 				_do_log = controller.user_options.LOG_WORLD;
-				_col_name = _id1.probe_name;
+				//_col_name_DEPRECATED = _id1.probe_name;
 				_col_x = string(_id1.my_cell.x_cell);
 				_col_y = string(_id1.my_cell.y_cell);
 				

@@ -16,7 +16,7 @@
 #macro BUFFER_LINES 5000
 #macro SIM_LOG_FILE_NAME "SIM_LOG"
 #macro CSV_SEPARATOR ";"
-#macro LOG_MAXIMUM_CREATURES_ALL	1000		// when number of creatures exceed this stops logging LOG_CREATURES_ALL
+#macro LOG_MAXIMUM_CREATURES_ALL	1000	// when number of creatures exceed this stops logging LOG_CREATURES_ALL
 #macro LOG_MAXIMUM_YEAR				999		// will not log events after this year (powerbi app limit)
 
 function User_options() constructor {
@@ -28,8 +28,8 @@ function User_options() constructor {
 	LOG_CREATURES_FOLLOWING		= true;		// log all CREATURE events
 	LOG_CREATURES_ALL			= false;	// false = log CREATURE events only for followed creature
 	LOG_SPECIES					= false;	// log info at birth and dead for all creatures
-	LOG_WORLD					= true;	// log WORLD events
-	LOG_CREATURES_PRODUCERS		= true;				// log_creature events applies to producers
+	LOG_WORLD					= true;		// log WORLD events
+	LOG_CREATURES_PRODUCERS		= false;	// log_creature events applies to producers
 	log_user_spawned_creatures	= true;		// set log for user spawned creatures
 
 
@@ -56,6 +56,7 @@ function User_options() constructor {
 									, "obj_primary_small"
 									, "obj_primary_tiny" 
 									, "obj_primary_tiny_2" 
+									, "obj_primary_tiny_3" 
 									, "obj_secondary_small"
 									];
 	
@@ -72,6 +73,7 @@ function User_options() constructor {
 									, obj_primary_small 
 									, obj_primary_tiny 
 									, obj_primary_tiny_2 
+									, obj_primary_tiny_3 
 									, obj_secondary_small
 									];
 

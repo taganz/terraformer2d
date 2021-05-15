@@ -26,19 +26,7 @@ function age_growth(_id){
 			dead_cause = DEADCAUSE.OLD;
 		}
 				
-		// -- grown up?
-			
-		else {
-			
-			// already adult?
-			
-			if age_is_adult == false and biomass >= biomass_adult * (1-_id.genome[GEN.ALLOCATION_REPRODUCTIVE]) {
-				age_is_adult = true;
-				log_event(LOGEVENT.CREATURE_LIFE_EVENT, _id, "adult_growth", "biomass: "+string(biomass)+" _biomass_reproduction_max: "+string(_biomass_reproduction_max));
-			}
 
-	
-		}
 	}
 }
 
