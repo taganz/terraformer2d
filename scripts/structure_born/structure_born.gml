@@ -29,9 +29,7 @@ function structure_born(my_id){
 		}
 		else {
 			// parent will update with real value in step_reproduction() for next generations
-			//biomass = biomass_adult * my_id.genome[GEN.ALLOCATION_REPRODUCTIVE] / my_id.genome[GEN.REPRODUCTION_QUANTITY];
 			biomass_modify(my_id, biomass_adult * my_id.genome[GEN.ALLOCATION_REPRODUCTIVE] / my_id.genome[GEN.REPRODUCTION_QUANTITY]);
-			
 		}	
 		
 		

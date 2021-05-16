@@ -4,11 +4,11 @@ if room == Room0 {
 
 	// states 0: selecting room, 1: configuring, 2: ready to do next_roomm
 	switch(state) {
-		case 0:
+		case GUI_STATE.MENU_INPUT:
 		break;
-		case 1:
+		case GUI_STATE.CONFIG_ROOM:
 		break;
-		case 2:
+		case GUI_STATE.LAUNCH_SIMULATION:
 			ASSERT(selected_room != -1, 0, "obj_gui, room not selected");
 			room_goto(selected_room);
 			break;

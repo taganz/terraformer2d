@@ -41,7 +41,7 @@ function MACROS(){
 #macro NUTRIENT_TILE_MULTIPLIER  100    // kg multiply with nutrients tile number to obtain nutrients
 
 #macro SOIL_WEIGHT_PER_CELL			 3500 // 1500
-#macro BIOMASS_ADULT_BIG_THRESHOLD  100		// the threshold among small and big plants
+#macro HEIGHT_PLANT_TRESHOLD  5		// the threshold among small and big plants
 
 
 
@@ -57,7 +57,7 @@ function MACROS(){
 
 // general life constants
 #macro BIOMASS_DECOMPOSITION_ZERO  10			// when biomass decompeses under this level instance is destroyed
-#macro BIOMASS_DECOMPOSITION_FACTOR 0.15  // per sim_step (animals) o sim_month (plants)
+#macro BIOMASS_DECOMPOSITION_FACTOR 0.4			// per sim_month 
 #macro GENUS_SPAWN_AS_ADULTS true				// if false, depends on variable creature_spawn_as_adult
 #macro PRIMARY_TO_PLANT_RATIO_TO_EAT 0.5		// primaries biomass need be greater than this fraction of plant biomass to eat it
 }

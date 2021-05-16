@@ -13,7 +13,7 @@ function _cell_remove_creature (_id, _x_cell, _y_cell) {
 		
 		switch _id.genome[GEN.TROPHIC_LEVEL] {
 			case TROPHIC_LEVEL.PRODUCER:
-				if _id.genome[GEN.BIOMASS_ADULT] > BIOMASS_ADULT_BIG_THRESHOLD {
+				if _id.genome[GEN.HEIGHT] > HEIGHT_PLANT_TRESHOLD {
 					var pos_in_list = ds_list_find_index(grid_cells[# _x_cell, _y_cell].list_producers_big, _id);
 					ASSERT(pos_in_list != -1, _id, "_cell_remove_creature big producer not found");
 					ds_list_delete(grid_cells[# _x_cell, _y_cell].list_producers_big, pos_in_list);

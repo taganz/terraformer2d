@@ -28,7 +28,7 @@ showing_debug_data_for_creature = - 1;
 show_escape_screen = false;
 
 // === home screen
-state = 0;					
+state = GUI_STATE.MENU_INPUT;					
 selected_room = -1;
 selected_climate = -1;
 selected_soil_type = -1;

@@ -39,7 +39,8 @@ function state_reproduction(_id){
 			var _biomass_give = - biomass_modify(_id, -_biomass_to_give_to_offspring); 
 			//_id.structure.biomass_reproduction -= _biomass_give;	// reset biomass_reproduction
 		
-			_child.structure.biomass = _biomass_give;
+			biomass_modify(_child, -_child.structure.biomass);
+			biomass_modify(_child, _biomass_give);
 			
 			// increment generation number
 			_child.structure.generation = _id.structure.generation + 1;

@@ -16,19 +16,20 @@
 		with _id.structure {
 			
 			// keep biomass within limits
-			_quant = clamp(_quant, 0 -  biomass, 1.2 * _biomass_adult_max - biomass);
+			_quant_got = clamp(_quant, 0 -  biomass, 1.2 * _biomass_adult_max - biomass);
 			
 			// modify biomass 
-			var biomass_previous = biomass;
-			biomass += _quant;
+			biomass += _quant_got;
 			
 			// update statistics
-			controller.world.trophic_level_biomass_now[_id.genome[GEN.TROPHIC_LEVEL]]+= (biomass - biomass_previous); 
+			//controller.world.trophic_level_biomass_now[_id.genome[GEN.TROPHIC_LEVEL]]+= (biomass - biomass_previous); 
+			controller.world.trophic_level_biomass_now[_id.genome[GEN.TROPHIC_LEVEL]]+= _quant_got; 
 			controller.world.biomass += _quant_got;
 					
 			
 			// check not dead and decomposing before updating living creatures parameters
-			if is_dead == false {
+			// and not initializing
+			if is_dead == false and _id.structure.age > 0 {
 				
 
 				// dead by starving

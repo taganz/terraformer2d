@@ -15,9 +15,9 @@ function gen_enum(){
 		SPECIE_CODE,						// 3 - string
 		PARENT_SPECIE_CODE,					// 4 - string
 		SPECIE_HUE,							// 5 - real, used to build blend color
-		DEPRECATED_10,						// 6 -  
+		HEIGHT,								// 6 - used for giving light to plants. small < 5, tall > 5 
 		
-		
+	
 		// gens that can be affected by radiation
 		REPRODUCTION_QUANTITY,				// 7 - number of offspring each reproduction
 		REPRODUCTION_INTERVAL,				// 8 - years between reproduction
@@ -48,8 +48,7 @@ function gen_enum(){
 		//
 		// end of active gens
 		EMPTY15,							// 29
-		EMPTY14								// 30 
-		
+		DEPRECATED_10
 	}
 
 }

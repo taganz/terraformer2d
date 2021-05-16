@@ -19,6 +19,7 @@ function Structure(_id, _spawn_as_adult) constructor {
 	my_id = _id;
 	generation = 1;				
 	
+	
 	// some metabolic functions are different in plants and animals
 	
 
@@ -32,7 +33,7 @@ function Structure(_id, _spawn_as_adult) constructor {
 	// -- biomass
 	
 	biomass = -1;
-	
+		
 	// biomass allocation 
 	biomass_eat = 0;					// leaf for plants
 	biomass_body = 0;					// trunk for plants

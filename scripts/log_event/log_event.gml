@@ -290,7 +290,7 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 				_do_log = controller.user_options.LOG_WORLD;
 				_col_id1 = "";
 				_col_trophic_level = trophic_level_to_string(_arg1);    // trophic level
-				_col_num1 = string(_arg2);								// individuals alive
+				_col_num1 = string(_arg2);								// value
 			}
 			break;
 			
@@ -371,7 +371,7 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 						+ CSV_SEPARATOR 
 						+ _col_id1
 						+ CSV_SEPARATOR
-						+ _col_name
+						+ _col_name_DEPRECATED
 						+ CSV_SEPARATOR
 						+ _col_trophic_level 
 						+ CSV_SEPARATOR

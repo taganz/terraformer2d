@@ -24,7 +24,7 @@ function state_born(_id){
 		structure_born(_id);
 
 		// update biomass general stats
-		controller.world.trophic_level_biomass_now[_id.genome[GEN.TROPHIC_LEVEL]]+= _id.structure.biomass;
+		//controller.world.trophic_level_biomass_now[_id.genome[GEN.TROPHIC_LEVEL]]+= _id.structure.biomass;
 
 	
 		// initialize morphology

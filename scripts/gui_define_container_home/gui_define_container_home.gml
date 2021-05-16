@@ -42,42 +42,42 @@ yy+=32;
 
 
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Predator/Prey", function() {
-	obj_gui.state = 1;
+	obj_gui.state = GUI_STATE.CONFIG_ROOM;
 	obj_gui.selected_room = OneClimate;
 });
 _container.AddContent(_button);
 yy+=32;
 
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "All climates (4)", function() {
-	obj_gui.state = 2;
+	obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;
 	obj_gui.selected_room = Room4;
 });
 _container.AddContent(_button);
 yy+=32;
 
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Tropical", function() {
-	obj_gui.state = 2;
+	obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;
 	obj_gui.selected_room = rm_tropical;
 });
 _container.AddContent(_button);
 yy+=32;
 
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Artic", function() {
-	obj_gui.state = 2;
+	obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;
 	obj_gui.selected_room = rm_artic;
 });
 _container.AddContent(_button);
 yy+=32;
 
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Mediterranean", function() {
-	obj_gui.state = 2;
+	obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;
 	obj_gui.selected_room = rm_mediterranean;
 });
 _container.AddContent(_button);
 yy+=32;
 
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Continental", function() {
-	obj_gui.state = 2;
+	obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;
 	obj_gui.selected_room = rm_continental;
 });
 _container.AddContent(_button);
@@ -85,7 +85,7 @@ yy+=32;
 
 
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Desertic", function() {
-	obj_gui.state = 2;
+	obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;
 	obj_gui.selected_room = rm_desertic;
 });
 _container.AddContent(_button);
@@ -96,7 +96,7 @@ yy+=32;
 
 
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Climate test (2)", function() {
-	obj_gui.state = 2;
+	obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;
 	obj_gui.selected_room = Room2;
 });
 _container.AddContent(_button);
@@ -104,7 +104,7 @@ yy+=32;
 
 
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Debug", function() {
-	obj_gui.state = 2;
+	obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;
 	obj_gui.selected_room = rm_debug;
 });
 _container.AddContent(_button);
@@ -112,9 +112,9 @@ yy+=32;
 
 
 
-var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Room1 - Test", function() {
-	obj_gui.state = 2;
-	obj_gui.selected_room = Room1;
+var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "CarryingCapacity", function() {
+	obj_gui.state = GUI_STATE.CONFIG_ROOM;
+	obj_gui.selected_room = CarryingCapacity;
 });
 _container.AddContent(_button);
 yy+=32;

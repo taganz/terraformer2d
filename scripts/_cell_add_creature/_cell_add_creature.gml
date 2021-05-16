@@ -20,7 +20,7 @@ function _cell_add_creature (_id, _x_cell, _y_cell) {
 			// add creature to cell;
 			switch( _id.genome[GEN.TROPHIC_LEVEL]) {
 				case TROPHIC_LEVEL.PRODUCER:
-					if _id.genome[GEN.BIOMASS_ADULT] > BIOMASS_ADULT_BIG_THRESHOLD 
+					if _id.genome[GEN.HEIGHT] > HEIGHT_PLANT_TRESHOLD 
 						ds_list_add(grid_cells[# _x_cell, _y_cell].list_producers_big, _id);
 					else
 						ds_list_add(grid_cells[# _x_cell, _y_cell].list_producers_small, _id);
