@@ -36,12 +36,6 @@
 ],},"visible":false,"depth":0,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"cell_grid","tags":[],"resourceType":"GMRTileLayer",},
     {"instances":[
         {"properties":[
-            {"propertyId":{"name":"spawner_object_to_spawn","path":"objects/class_spawner/class_spawner.yy",},"objectId":{"name":"class_spawner","path":"objects/class_spawner/class_spawner.yy",},"value":"obj_plant_bush","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
-            {"propertyId":{"name":"spawner_distance_max","path":"objects/class_spawner/class_spawner.yy",},"objectId":{"name":"class_spawner","path":"objects/class_spawner/class_spawner.yy",},"value":"300","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
-            {"propertyId":{"name":"spawner_spawn_as_adult","path":"objects/class_spawner/class_spawner.yy",},"objectId":{"name":"class_spawner","path":"objects/class_spawner/class_spawner.yy",},"value":"True","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
-            {"propertyId":{"name":"spawner_quantity","path":"objects/class_spawner/class_spawner.yy",},"objectId":{"name":"class_spawner","path":"objects/class_spawner/class_spawner.yy",},"value":"250","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
-          ],"isDnd":false,"objectId":{"name":"class_spawner","path":"objects/class_spawner/class_spawner.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":true,"inheritItemSettings":false,"x":416.0,"y":288.0,"resourceVersion":"1.0","name":"plant_bush","tags":[],"resourceType":"GMRInstance",},
-        {"properties":[
             {"propertyId":{"name":"spawner_object_to_spawn","path":"objects/class_spawner/class_spawner.yy",},"objectId":{"name":"class_spawner","path":"objects/class_spawner/class_spawner.yy",},"value":"obj_tree_continental","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
             {"propertyId":{"name":"spawner_distance_max","path":"objects/class_spawner/class_spawner.yy",},"objectId":{"name":"class_spawner","path":"objects/class_spawner/class_spawner.yy",},"value":"150","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
             {"propertyId":{"name":"spawner_spawn_as_adult","path":"objects/class_spawner/class_spawner.yy",},"objectId":{"name":"class_spawner","path":"objects/class_spawner/class_spawner.yy",},"value":"True","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
@@ -66,13 +60,20 @@
             {"propertyId":{"name":"spawner_spawn_as_adult","path":"objects/class_spawner/class_spawner.yy",},"objectId":{"name":"class_spawner","path":"objects/class_spawner/class_spawner.yy",},"value":"True","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
             {"propertyId":{"name":"spawner_quantity","path":"objects/class_spawner/class_spawner.yy",},"objectId":{"name":"class_spawner","path":"objects/class_spawner/class_spawner.yy",},"value":"8","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
             {"propertyId":{"name":"spawner_creature_log_probability","path":"objects/class_spawner/class_spawner.yy",},"objectId":{"name":"class_spawner","path":"objects/class_spawner/class_spawner.yy",},"value":"0.3","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
-          ],"isDnd":false,"objectId":{"name":"class_spawner","path":"objects/class_spawner/class_spawner.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":true,"inheritItemSettings":false,"x":384.0,"y":288.0,"resourceVersion":"1.0","name":"primary_tiny_3","tags":[],"resourceType":"GMRInstance",},
+          ],"isDnd":false,"objectId":{"name":"class_spawner","path":"objects/class_spawner/class_spawner.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":384.0,"y":288.0,"resourceVersion":"1.0","name":"primary_tiny_3","tags":[],"resourceType":"GMRInstance",},
         {"properties":[
             {"propertyId":{"name":"spawner_object_to_spawn","path":"objects/class_spawner/class_spawner.yy",},"objectId":{"name":"class_spawner","path":"objects/class_spawner/class_spawner.yy",},"value":"obj_crop_bush","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
             {"propertyId":{"name":"spawner_distance_max","path":"objects/class_spawner/class_spawner.yy",},"objectId":{"name":"class_spawner","path":"objects/class_spawner/class_spawner.yy",},"value":"250","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
             {"propertyId":{"name":"spawner_spawn_as_adult","path":"objects/class_spawner/class_spawner.yy",},"objectId":{"name":"class_spawner","path":"objects/class_spawner/class_spawner.yy",},"value":"True","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
             {"propertyId":{"name":"spawner_quantity","path":"objects/class_spawner/class_spawner.yy",},"objectId":{"name":"class_spawner","path":"objects/class_spawner/class_spawner.yy",},"value":"150","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
-          ],"isDnd":false,"objectId":{"name":"class_spawner","path":"objects/class_spawner/class_spawner.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":true,"inheritItemSettings":false,"x":320.0,"y":352.0,"resourceVersion":"1.0","name":"inst_33671D39","tags":[],"resourceType":"GMRInstance",},
+          ],"isDnd":false,"objectId":{"name":"class_spawner","path":"objects/class_spawner/class_spawner.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":true,"inheritItemSettings":false,"x":320.0,"y":352.0,"resourceVersion":"1.0","name":"crop_bush_2","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[
+            {"propertyId":{"name":"spawner_object_to_spawn","path":"objects/class_spawner/class_spawner.yy",},"objectId":{"name":"class_spawner","path":"objects/class_spawner/class_spawner.yy",},"value":"obj_plant_desert","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+            {"propertyId":{"name":"spawner_distance_max","path":"objects/class_spawner/class_spawner.yy",},"objectId":{"name":"class_spawner","path":"objects/class_spawner/class_spawner.yy",},"value":"300","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+            {"propertyId":{"name":"spawner_spawn_as_adult","path":"objects/class_spawner/class_spawner.yy",},"objectId":{"name":"class_spawner","path":"objects/class_spawner/class_spawner.yy",},"value":"True","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+            {"propertyId":{"name":"spawner_quantity","path":"objects/class_spawner/class_spawner.yy",},"objectId":{"name":"class_spawner","path":"objects/class_spawner/class_spawner.yy",},"value":"200","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+            {"propertyId":{"name":"spawner_creature_log_probability","path":"objects/class_spawner/class_spawner.yy",},"objectId":{"name":"class_spawner","path":"objects/class_spawner/class_spawner.yy",},"value":"0.05","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+          ],"isDnd":false,"objectId":{"name":"class_spawner","path":"objects/class_spawner/class_spawner.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":true,"inheritItemSettings":false,"x":384.0,"y":320.0,"resourceVersion":"1.0","name":"plant_desert","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":100,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Instances","tags":[],"resourceType":"GMRInstanceLayer",},
     {"instances":[
         {"properties":[],"isDnd":false,"objectId":{"name":"obj_probe","path":"objects/obj_probe/obj_probe.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":192.0,"y":128.0,"resourceVersion":"1.0","name":"inst_3E61FF63","tags":[],"resourceType":"GMRInstance",},
@@ -133,12 +134,11 @@
   "creationCodeFile": "",
   "inheritCode": false,
   "instanceCreationOrder": [
-    {"name":"plant_bush","path":"rooms/CarryingCapacity/CarryingCapacity.yy",},
     {"name":"tree_continental","path":"rooms/CarryingCapacity/CarryingCapacity.yy",},
     {"name":"primary_small","path":"rooms/CarryingCapacity/CarryingCapacity.yy",},
     {"name":"crop_bush","path":"rooms/CarryingCapacity/CarryingCapacity.yy",},
     {"name":"primary_tiny_3","path":"rooms/CarryingCapacity/CarryingCapacity.yy",},
-    {"name":"inst_33671D39","path":"rooms/CarryingCapacity/CarryingCapacity.yy",},
+    {"name":"crop_bush_2","path":"rooms/CarryingCapacity/CarryingCapacity.yy",},
     {"name":"inst_3E61FF63","path":"rooms/CarryingCapacity/CarryingCapacity.yy",},
     {"name":"inst_2058A21A","path":"rooms/CarryingCapacity/CarryingCapacity.yy",},
     {"name":"inst_CD0FA3D","path":"rooms/CarryingCapacity/CarryingCapacity.yy",},
@@ -148,6 +148,7 @@
     {"name":"inst_27D7DB9","path":"rooms/CarryingCapacity/CarryingCapacity.yy",},
     {"name":"inst_4D41F4D6","path":"rooms/CarryingCapacity/CarryingCapacity.yy",},
     {"name":"inst_5F2810D6","path":"rooms/CarryingCapacity/CarryingCapacity.yy",},
+    {"name":"plant_desert","path":"rooms/CarryingCapacity/CarryingCapacity.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,

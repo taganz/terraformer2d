@@ -286,17 +286,44 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 #region  === WORLD EVENTS
 			
 			case LOGEVENT.WORLD_BIOMASS:	
-			case LOGEVENT.WORLD_POPULATION:	{
+			case LOGEVENT.WORLD_POPULATION:	
 				_do_log = controller.user_options.LOG_WORLD;
 				_col_id1 = "";
 				_col_trophic_level = trophic_level_to_string(_arg1);    // trophic level
 				_col_num1 = string(_arg2);								// value
-			}
-			break;
+				break;
 			
 			
 			//case LOGEVENT.WORLD_PROBE_NUTRIENTS:
 			//case LOGEVENT.WORLD_PROBE_WATER:
+			case LOGEVENT.WORLD_INITIAL_GENUS:
+				_do_log = controller.user_options.LOG_WORLD;
+				_col_id1 = string(_id1);
+				_col_x = string(_id1.my_cell.x_cell);
+				_col_y = string(_id1.my_cell.y_cell);
+				_col_trophic_level = trophic_level_to_string(_id1.genome[GEN.TROPHIC_LEVEL]);
+				_col_specie = string(_id1.genome[GEN.SPECIE_CODE]);
+				_col_num1 = string(_id1.genome[GEN.GENUS]);		// genus code
+				_col_txt1 = _id1.genome[GEN.GENUS_NAME];		// genus string
+				break;
+				
+			case LOGEVENT.WORLD_PROBE_SOIL: 
+				_do_log = controller.user_options.LOG_WORLD;
+				_col_id1 = string(_id1);
+				_col_x = string(_id1.my_cell.x_cell);
+				_col_y = string(_id1.my_cell.y_cell);
+				_col_txt1 = soil_to_string(_id1.my_cell.soil_type);		// soil name								// value
+				break;
+				
+			case LOGEVENT.WORLD_PROBE_CLIMATE: 
+				_do_log = controller.user_options.LOG_WORLD;
+				_col_id1 = string(_id1);
+				_col_x = string(_id1.my_cell.x_cell);
+				_col_y = string(_id1.my_cell.y_cell);
+				_col_txt1 = climate_to_string(_id1.my_cell.climate);	// climate name								// value
+				break;
+			break;
+			
 			case LOGEVENT.WORLD_PROBE_PLANT_AVAILABLE_WATER:
 			case LOGEVENT.WORLD_PROBE_RAIN_TEMP: 
 			{

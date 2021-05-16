@@ -43,10 +43,11 @@ function LOGEVENT_enum(){
 		
 		WORLD_POPULATION,				// total population for a trophic level at a given sim step
 		WORLD_BIOMASS,					// total biomass for a trophic level at a given sim step
-		//WORLD_PROBE_NUTRIENTS,
-		//WORLD_PROBE_WATER,					
+		WORLD_PROBE_SOIL,				// soil data 
+		WORLD_PROBE_CLIMATE,			// climate data					
 		WORLD_PROBE_TEMPERATURE,					
 		//WORLD_SPAWNER,
+		WORLD_INITIAL_GENUS,			// report initial situation
 		WORLD_PROBE_RAIN_TEMP,					
 		WORLD_PROBE_PLANT_AVAILABLE_WATER,					
 		

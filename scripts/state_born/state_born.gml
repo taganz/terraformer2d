@@ -48,6 +48,7 @@ function state_born(_id){
 	//  log genome for initial creatures
 	if _id.structure.generation == 1 {
 		log_events_specie_genome(_id.genome);
+		log_event(LOGEVENT.WORLD_INITIAL_GENUS, _id);		
 	}
 	
 	

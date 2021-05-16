@@ -7,11 +7,11 @@ if room == Room0 {
 }
 else {
 	show_debug_message("Opening simulation. Selected room: "+ room_get_name(selected_room));
-	show_debug_message("Opening simulation. Selected climate: "+ string(selected_climate));
-	show_debug_message("Opening simulation. Selected soil: "+ string(selected_soil_type));
+	show_debug_message("Opening simulation. Selected climate: "+ string(controller.user_options.climate_replace));
+	show_debug_message("Opening simulation. Selected soil: "+ string(controller.user_options.soil_type_replace));
 	
 	// prepare climate replacement
-	controller.user_options.climate_replace = selected_climate;
+	//controller.user_options.climate_replace = selected_climate;
 	
 	warning_no_creature_alive_issued = false;
 	container_simulation = gui_define_container_simulation();

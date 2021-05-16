@@ -31,7 +31,7 @@ function gui_define_container_config_room_1(){
 	    var selected_index = GetSelection();
 	    if (selected_index >= 0) {
 	        show_debug_message("Climate selected: " + string(selected_index));
-			controller.user_options.selected_climate = selected_index;	
+			controller.user_options.climate_replace = selected_index;	
 	    }
 		});
 	list.SetMultiSelect(false, false, false);
@@ -68,9 +68,9 @@ function gui_define_container_config_room_1(){
 
 	var _button = new EmuButton(COLUMN_1_X, yy, 100, 32, "Cancel", function() {
 		
-		controller.user_options.selected_climate = -1;
+		controller.user_options.climate_replace = -1;
 		controller.user_options.selected_room = -1;
-		obj_gui.state = 0;
+		obj_gui.state = GUI_STATE.MENU_INPUT;
 		
 		
 	});

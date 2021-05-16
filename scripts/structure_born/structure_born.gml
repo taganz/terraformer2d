@@ -25,7 +25,8 @@ function structure_born(my_id){
 		// -- set biomass at birth
 		
 		if 	generation==1 and GENUS_SPAWN_AS_ADULTS {
-			biomass_modify(my_id, biomass_adult);
+			// add random biomass to avoid all creatures giving birth at the same time
+			biomass_modify(my_id, biomass_adult + random(my_id.genome[GEN.ALLOCATION_REPRODUCTIVE]));
 		}
 		else {
 			// parent will update with real value in step_reproduction() for next generations
@@ -38,6 +39,10 @@ function structure_born(my_id){
 		_reproduction_interval = years_to_sim_steps(my_id.genome[GEN.REPRODUCTION_INTERVAL])*random_range(0.8, 1.2);	// steps
 		_reproduction_distance = my_id.genome[GEN.REPRODUCTION_DISTANCE]*random_range(0.9, 1.1);		
 	
+		// avoid 1st generation giving birth at the same time
+		if generation == 1 {
+			reproduction_age_last_time = - random(my_id.genome[GEN.REPRODUCTION_INTERVAL]);
+		}
 
 		// -- anabolism 
 	

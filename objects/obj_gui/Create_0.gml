@@ -30,8 +30,8 @@ show_escape_screen = false;
 // === home screen
 state = GUI_STATE.MENU_INPUT;					
 selected_room = -1;
-selected_climate = -1;
-selected_soil_type = -1;
+//selected_climate = -1;
+//selected_soil_type = -1;
 
 // === gui containers for each screen
 container_home= -1;

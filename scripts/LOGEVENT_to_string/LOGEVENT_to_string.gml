@@ -40,7 +40,9 @@ function LOGEVENT_to_string(_log_event){
 		
 		//case LOGEVENT.WORLD_PROBE_NUTRIENTS:			_msg = "WORLD_PROBE_NUTRIENTS"; break;
 		//case LOGEVENT.WORLD_PROBE_WATER:				_msg = "WORLD_PROBE_WATER"; break;
-		//case LOGEVENT.WORLD_SPAWNER:					_msg = "SPAWNER"; break;
+		case LOGEVENT.WORLD_INITIAL_GENUS:				_msg = "WORLD_INITIAL_GENUS"; break;
+		case LOGEVENT.WORLD_PROBE_SOIL:					_msg = "WORLD_PROBE_SOIL"; break;
+		case LOGEVENT.WORLD_PROBE_CLIMATE:				_msg = "WORLD_PROBE_CLIMATE"; break;
 		case LOGEVENT.WORLD_POPULATION:					_msg = "WORLD_POPULATION"; break;
 		case LOGEVENT.WORLD_BIOMASS:					_msg = "WORLD_BIOMASS"; break;
 		case LOGEVENT.WORLD_PROBE_RAIN_TEMP:			_msg = "WORLD_PROBE_RAIN_TEMP"; break;

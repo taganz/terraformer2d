@@ -22,9 +22,10 @@ function gui_text_on_simulation_screen(){
 				+"  Dead: " + string(controller.world.creatures_dead)
 				+"  Now: " + string(controller.world.creatures_live_now)
 				+"  Peak: " + string(controller.world.creatures_peak)
-				+" -  Producers: "+string(controller.world.trophic_level_live_now[TROPHIC_LEVEL.PRODUCER])
-				+"  Primaries: "+string(controller.world.trophic_level_live_now[TROPHIC_LEVEL.PRIMARY])
-				+"  Secondaries: "+string(controller.world.trophic_level_live_now[TROPHIC_LEVEL.SECONDARY])
+				+" - Prod: "+string(controller.world.trophic_level_live_now[TROPHIC_LEVEL.PRODUCER])
+				+"  Prim: "+string(controller.world.trophic_level_live_now[TROPHIC_LEVEL.PRIMARY])
+				+"  Sec: "+string(controller.world.trophic_level_live_now[TROPHIC_LEVEL.SECONDARY])
+				+" - Biomass: "+string(round(controller.world.biomass))
 				;
 		//var _t4 = "T inc: "+string(controller.world.climate_change_temperature_increment)+"ºC";
 
