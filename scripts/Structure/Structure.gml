@@ -32,8 +32,10 @@ function Structure(_id, _spawn_as_adult) constructor {
 	
 	// -- biomass
 	
-	biomass = -1;
+	biomass = 0;
 		
+	_biomass_given_by_parent = -1;
+	
 	// biomass allocation 
 	biomass_eat = 0;					// leaf for plants
 	biomass_body = 0;					// trunk for plants

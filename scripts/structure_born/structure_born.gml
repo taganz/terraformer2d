@@ -22,15 +22,16 @@ function structure_born(my_id){
 		_biomass_reproduction_max = biomass_adult * my_id.genome[GEN.ALLOCATION_REPRODUCTIVE]; 
 		
 		
-		// -- set biomass at birth
+		// -- set biomass at birth. 1st generations is always adult
 		
-		if 	generation==1 and GENUS_SPAWN_AS_ADULTS {
+		//if 	generation==1 and GENUS_SPAWN_AS_ADULTS {
+		if 	generation==1  {
 			// add random biomass to avoid all creatures giving birth at the same time
 			biomass_modify(my_id, biomass_adult + random(my_id.genome[GEN.ALLOCATION_REPRODUCTIVE]));
 		}
 		else {
 			// parent will update with real value in step_reproduction() for next generations
-			biomass_modify(my_id, biomass_adult * my_id.genome[GEN.ALLOCATION_REPRODUCTIVE] / my_id.genome[GEN.REPRODUCTION_QUANTITY]);
+			biomass_modify(my_id, _biomass_given_by_parent);
 		}	
 		
 		

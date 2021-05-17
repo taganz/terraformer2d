@@ -36,11 +36,12 @@ function state_reproduction(_id){
 			_child.genome = genome_offspring_copy(_id, world_get_radiation(_id.x, _id.y));
 										
 			// give biomass to child
-			var _biomass_give = - biomass_modify(_id, -_biomass_to_give_to_offspring); 
+			_child.structure._biomass_given_by_parent = - biomass_modify(_id, -_biomass_to_give_to_offspring); 
 			//_id.structure.biomass_reproduction -= _biomass_give;	// reset biomass_reproduction
 		
-			biomass_modify(_child, -_child.structure.biomass);
-			biomass_modify(_child, _biomass_give);
+			//biomass_modify(_child, -_child.structure.biomass);
+			//ASSERT(_child.structure.biomass == 0, _child, "state_reproduction biomass not zero??")
+			
 			
 			// increment generation number
 			_child.structure.generation = _id.structure.generation + 1;
@@ -52,7 +53,7 @@ function state_reproduction(_id){
 				_child.creature_log = true;
 			}
 
-			log_event(LOGEVENT.CREATURE_REPRODUCTION, _id, _child, _biomass_give);
+			log_event(LOGEVENT.CREATURE_REPRODUCTION, _id, _child, _child.structure._biomass_given_by_parent);
 		}		
 	}
 

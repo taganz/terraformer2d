@@ -1,3 +1,6 @@
+var total = 0;
+var logging = 0;
+
 show_debug_message("Spawned started. Radiation?"+string(spawner_apply_radiation));
 
 for (var i=0; i< spawner_quantity ;i++) {
@@ -5,7 +8,6 @@ for (var i=0; i< spawner_quantity ;i++) {
 	var _xTo = -1;
 	var _yTo = -1;
 	var _try = 0;
-	var total = 0;
 
 	// calculate birt place
 	while world_is_inside_pixel(_xTo, _yTo) == false || _try++ > 10 {
@@ -28,10 +30,10 @@ for (var i=0; i< spawner_quantity ;i++) {
 		// creature should log?
 		if random(1) < spawner_creature_log_probability {
 			_id.creature_log = true;
+			logging++;
 		}
 		
-		show_debug_message("Spawned "+_id.genome[GEN.SPECIE_CODE]+
-				" x="+string(specie_code_x(_id.genome))+" y="+string(specie_code_y(_id.genome)));
+		show_debug_message("Spawned "+_id.genome[GEN.SPECIE_CODE]);
 		total++;
 							
 	}
@@ -39,4 +41,5 @@ for (var i=0; i< spawner_quantity ;i++) {
 }
 
 show_debug_message("Spawned "+string(total)+" creatures "+ object_get_name(spawner_object_to_spawn)+ " from spawner "+string(id)+". Destroying...");
+show_debug_message("Logging "+string(logging)+" creatures ");
 instance_destroy();

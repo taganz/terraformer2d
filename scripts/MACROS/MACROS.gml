@@ -29,7 +29,7 @@ function MACROS(){
 #macro RADIATION_GEN_MUTATION_MAX	0.7			// gen mutation factor in offspring_copy
 
 // terrain
-#macro CELL_SIZE_PX				32			// pixel size - screen area (climate cells are 32x32px)
+#macro CELL_SIZE_PX				48			// pixel size - screen area (climate cells are 32x32px)
 #macro CELL_AREA				25			// m2 - real world area
 #macro CELL_INITIAL_STORED_WATER  0.9		// stored water in cells at creation as a factor of soil saturation water
 
@@ -58,7 +58,7 @@ function MACROS(){
 // general life constants
 #macro BIOMASS_DECOMPOSITION_ZERO  10			// when biomass decompeses under this level instance is destroyed
 #macro BIOMASS_DECOMPOSITION_FACTOR 0.4			// per sim_month 
-#macro GENUS_SPAWN_AS_ADULTS true				// if false, depends on variable creature_spawn_as_adult
+//#macro GENUS_SPAWN_AS_ADULTS true				// if false, depends on variable creature_spawn_as_adult
 #macro PRIMARY_TO_PLANT_RATIO_TO_EAT 0.5		// primaries biomass need be greater than this fraction of plant biomass to eat it
 }
 
