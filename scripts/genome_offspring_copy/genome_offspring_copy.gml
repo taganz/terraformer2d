@@ -10,7 +10,7 @@
 
 function genome_offspring_copy(_id_parent, _radiation){
 
-	var _genome_child =  array_create(GEN_NUM, 0);
+	var _genome_child =  array_create(GEN._LENGTH_, 0);
 	
 	// === copy parent genome
 	
@@ -24,7 +24,7 @@ function genome_offspring_copy(_id_parent, _radiation){
 	var gen_to_mutate = -1;
 	var mutation_happens = random(1) < _radiation;
 	if mutation_happens {
-		gen_to_mutate = irandom_range(GEN_FIRST_MUTABLE, GEN_NUM-1);
+		gen_to_mutate = irandom_range(GEN_FIRST_MUTABLE, GEN._LENGTH_-1);
 		var mutation_level = 
 				1 
 				+
@@ -40,11 +40,11 @@ function genome_offspring_copy(_id_parent, _radiation){
 	// === current specie gen - specie code and parent specie could change depending on radiation
 	
 	// check if offspring is a different specie than parent
-	//var _child_prefix = specie_code_prefix(_genome_child);
-	//if _child_prefix  == specie_code_prefix(_id_parent.genome) {
+ 
 	if specie_is_same_specie(_genome_child, _id_parent.genome) {
 		
 		// same prefix, this means same specie as parent. let's copy full specie code
+		
 		_genome_child[GEN.SPECIE_CODE] = _id_parent.genome[GEN.SPECIE_CODE];    
 		
 		// parent specie is the same as parent's parent specie
@@ -53,14 +53,24 @@ function genome_offspring_copy(_id_parent, _radiation){
 	}
 	else {
 		
+		// this is a different specie
+		
 		// get new specie code
-		_genome_child[GEN.SPECIE_CODE] = specie_new_specie(_genome_child);
+		controller.species._genus_last_variant[_id_parent.genome[GEN.GENUS]]++; 	
+		_genome_child[GEN.SPECIE_CODE] = specie_code_from_genome(_genome_child);
 		
 		// parent specie is parent's specie
 		_genome_child[GEN.PARENT_SPECIE_CODE] = _id_parent.genome[GEN.SPECIE_CODE];    
 		
 		// get new specie hue
 		_genome_child[GEN.SPECIE_HUE] = specie_hue_from_genome(_genome_child);
+		
+		// get new morphology parameters
+		#macro MORPHOLOGY_MUTATION 0.1
+		_genome_child[GEN.PLANT_BODY_DENSITY] *= random_range(1-MORPHOLOGY_MUTATION, 1+MORPHOLOGY_MUTATION);
+		_genome_child[GEN.PLANT_BODY_DENSITY] *= random_range(1-MORPHOLOGY_MUTATION, 1+MORPHOLOGY_MUTATION);
+		_genome_child[GEN.PLANT_BODY_DENSITY] *= random_range(1-MORPHOLOGY_MUTATION, 1+MORPHOLOGY_MUTATION);
+		_genome_child[GEN.PLANT_BODY_DENSITY] *= random_range(1-MORPHOLOGY_MUTATION, 1+MORPHOLOGY_MUTATION);
 		
 		// log a new specie		
 		log_event(LOGEVENT.SPECIE_NEW, 0, _genome_child[GEN.SPECIE_CODE], _id_parent.genome[GEN.SPECIE_CODE], climate_to_string(_id_parent.my_cell.climate));	

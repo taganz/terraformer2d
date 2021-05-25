@@ -1,4 +1,5 @@
-// add creature to a cell without changing statistics. create cell if it doesn't exist yet 
+// add creature to a cell without changing statistics.
+// create cell if it doesn't exist yet 
 // return new cell or -1 if error
 function _cell_add_creature (_id, _x_cell, _y_cell) {
 			
@@ -17,23 +18,33 @@ function _cell_add_creature (_id, _x_cell, _y_cell) {
 				_grid_create_cell(_x_cell, _y_cell)
 			}
 
-			// add creature to cell;
-			switch( _id.genome[GEN.TROPHIC_LEVEL]) {
-				case TROPHIC_LEVEL.PRODUCER:
-					if _id.genome[GEN.HEIGHT] > HEIGHT_PLANT_TRESHOLD 
-						ds_list_add(grid_cells[# _x_cell, _y_cell].list_producers_big, _id);
-					else
-						ds_list_add(grid_cells[# _x_cell, _y_cell].list_producers_small, _id);
+			with grid_cells[# _x_cell, _y_cell] {
+				
+				// add creature to cell;
+				switch( _id.genome[GEN.TROPHIC_LEVEL]) {
+					case TROPHIC_LEVEL.PRODUCER:
+						if _grid_producers_current < CELL_MAX_PRODUCERS {
+							grid_producers[# 0, _grid_producers_current] = _id;
+							grid_producers[# 1, _grid_producers_current] = _id.structure.my_height;
+							grid_producers_need_sort = true;
+							_grid_producers_current++;
+						}
+					
+						else {
+							// no more room for producers
+							return -1;
+						}
+						break;
+					case TROPHIC_LEVEL.PRIMARY:
+						ds_list_add(list_primaries, _id);
 					break;
-				case TROPHIC_LEVEL.PRIMARY:
-					ds_list_add(grid_cells[# _x_cell, _y_cell].list_primaries, _id);
-				break;
-				case TROPHIC_LEVEL.SECONDARY:
-					ds_list_add(grid_cells[# _x_cell, _y_cell].list_secondaries, _id);
-				break;
-				default:
-					ASSERT(false, _id, "_cell_add_creature invalid trophic level");
-					return -1;
+					case TROPHIC_LEVEL.SECONDARY:
+						ds_list_add(list_secondaries, _id);
+					break;
+					default:
+						ASSERT(false, _id, "_cell_add_creature invalid trophic level");
+						return -1;
+				}
 			}
 			
 			return grid_cells[# _x_cell, _y_cell];

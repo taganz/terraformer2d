@@ -17,7 +17,7 @@ function Structure(_id, _spawn_as_adult) constructor {
 
 
 	my_id = _id;
-	generation = 1;				
+	generation = 0;				
 	
 	
 	// some metabolic functions are different in plants and animals
@@ -49,6 +49,10 @@ function Structure(_id, _spawn_as_adult) constructor {
 	_biomass_max = -1;						// max biomass attained by creature
 	_biomass_reproduction_max = -1;
 		
+	// height
+	
+	my_height = -1;						// can not use 'height' for some GM technical issues
+	_height_growth_factor = -1;
 	
 	// -- health
 	

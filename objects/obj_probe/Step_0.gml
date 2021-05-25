@@ -4,6 +4,7 @@
 if (controller.time.current_step == 1) {
 	world_create_cell_pixel(x,y);
 	my_cell =  cell_from_pixel(x,y);
+	my_cell.probe_logging = true;
 	show_debug_message("Starting probe "+string(id)+" "+probe_name);
 	log_event(LOGEVENT.INFO_PARAMETERS, "Probe "+probe_name
 		+" at cell "+string(my_cell.x_cell)+", "+string(my_cell.y_cell)+"  climate "+climate_to_string(my_cell.climate)); 
@@ -12,6 +13,7 @@ if (controller.time.current_step == 1) {
 	
 }
 
+/*
 
 if !controller.sim_paused {
 	
@@ -24,7 +26,7 @@ if !controller.sim_paused {
 			climate_to_string(my_cell.climate),
 			string(my_cell.temperature_current_month));
 			
-		log_event(LOGEVENT.WORLD_PROBE_PLANT_AVAILABLE_WATER, id, id.my_cell.plants_available_water);
+		log_event(LOGEVENT.WORLD_PROBE_PLANT_AVAILABLE_WATER, id);
 
 		// log water
 		//log_event(LOGEVENT.WORLD_PROBE_WATER, id, string(my_cell.stored_water) , 
@@ -33,3 +35,5 @@ if !controller.sim_paused {
 	}
 		
 }
+
+*/

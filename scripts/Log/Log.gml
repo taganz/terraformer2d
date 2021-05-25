@@ -47,11 +47,23 @@ function Log() constructor{
 				 + CSV_SEPARATOR
 				 + "num3"
 				 + CSV_SEPARATOR
+				 + "num4"
+				 + CSV_SEPARATOR
+				 + "num5"
+				 + CSV_SEPARATOR
+				 + "num6"
+				 + CSV_SEPARATOR
 				 + "txt1"
 				 + CSV_SEPARATOR
 				 + "txt2"
 				 + CSV_SEPARATOR
 				 + "txt3"
+				 + CSV_SEPARATOR
+				 + "txt4"
+				 + CSV_SEPARATOR
+				 + "txt5"
+				 + CSV_SEPARATOR
+				 + "txt6"
 				 ;
 
 

@@ -1,10 +1,10 @@
-// Script assets have changed for v2.3.0 see
-// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
+
 function world_creature_born(_id, _x, _y) {
 
 	var born_ok = true;
 
 	// add creature to grid_cells at cell corresponding to pixels _x, _y
+	
 	with controller.world {
 		
 		if world_is_inside_pixel(_x, _y) {

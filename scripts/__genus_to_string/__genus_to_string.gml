@@ -1,4 +1,4 @@
-
+/*
 function genus_to_string(genus_code){
 	
 	return string_replace_all(
@@ -6,3 +6,6 @@ function genus_to_string(genus_code){
 		, " ", "0");
 
 }
+
+
+*/

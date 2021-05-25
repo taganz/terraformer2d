@@ -7,21 +7,22 @@
 function genome_create(_genus){
 
 	// genome is an array
-	var _genome = array_create (GEN_NUM, 0);
+	var _genome = array_create (GEN._LENGTH_, 0);
 
 	with controller.species {
 		
 		// get gen values for all gens 
-		for (var i=0; i<GEN_NUM;i++) {
+		for (var i=0; i<GEN._LENGTH_;i++) {
 	
 			// get value 
-			var val = genus_gen_value(_genus, i);
+			var val = _genus_grid_gen_value(_genus, i);
 			if (val != -999999999) {
 				_genome[i] = val;
 			}
 			else {
 				_genome[i] = 0;
-				log_error("*** ERROR *** genome_create - error getting gen "+gen_to_string(i)+" for specie "+genus_to_string(_genus))
+				//log_error("*** ERROR *** genome_create - error getting gen "+gen_to_string(i)+" for specie "+genus_to_string(_genus))
+				log_error("*** ERROR *** genome_create - error getting gen "+gen_to_string(i)+" for genus "+string(_genus))
 			}
 	
 		}
@@ -31,7 +32,7 @@ function genome_create(_genus){
 	_genome[GEN.PARENT_SPECIE_CODE] = "NOPARENT";
 	
 	// calculate specie code
-	_genome[GEN.SPECIE_CODE] = _genus_specie_code(_genome);    
+	_genome[GEN.SPECIE_CODE] = specie_code_from_genome(_genome);    
 		
 		
 	return _genome;

@@ -39,14 +39,16 @@ function state_born(_id){
 		log_events_creature_born(_id);
 	}
 	else {
-		// born dead
+		
+		// something bad happened during birth, creature is dead
+		
 		_id.structure.is_dead = true;
 		_id.structure.dead_cause = DEADCAUSE.BIRTH;		
 		log_events_creature_dead(_id);
 	}
 	
 	//  log genome for initial creatures
-	if _id.structure.generation == 1 {
+	if _id.structure.generation == 0 {
 		log_events_specie_genome(_id.genome);
 		log_event(LOGEVENT.WORLD_INITIAL_GENUS, _id);		
 	}

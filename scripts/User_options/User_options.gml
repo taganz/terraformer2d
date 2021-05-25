@@ -45,10 +45,10 @@ function User_options() constructor {
 	object_spawn_on_click = 8;
 	
 	object_spawn_on_click_options = [
-									"obj_plant_tree"
+									"obj_plant_tree_5"
 									, "obj_tree_tropical"
 									, "obj_tree_continental"
-									, "obj_tree_continental_2"
+									, "obj_tree_mediterranean"
 									, "obj_plant_desert"
 									, "obj_plant_bush"
 									, "obj_plant_bush_2"
@@ -62,10 +62,10 @@ function User_options() constructor {
 									];
 	
 	object_spawn_on_click_objects = [
-									obj_plant_tree
+									obj_plant_tree_5
 									, obj_tree_tropical
 									, obj_tree_continental
-									, obj_tree_continental_2
+									, obj_tree_mediterranean
 									, obj_plant_desert
 									, obj_plant_bush
 									, obj_plant_bush_2

@@ -17,13 +17,10 @@ function cell_to_string(_cell){
 			ss = ss + "\nPlant avail water:" + string(plants_available_water);
 			
 			// concatenate creatures
-			ss += "\nSmall producers: ";
-			for (var i = 0; i< ds_list_size(list_producers_small);i++) {
-				ss = ss + string(ds_list_find_value(list_producers_small, i))+ ".";
-			}
-			ss+= "\nBig producers:";
-			for (var i = 0; i< ds_list_size(list_producers_big);i++) {
-				ss = ss + string(ds_list_find_value(list_producers_big, i))+ ".";
+			
+			ss += "\nProducers: ";
+			for (var i = 0; i< _cell._grid_producers_current;i++) {
+				ss = ss + string(_cell.grid_producers[# 0, i])+ ".";
 			}
 			ss+= "\nPrimaries:";
 			for (var i = 0; i< ds_list_size(list_primaries);i++) {

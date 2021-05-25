@@ -6,7 +6,7 @@
     "path": "folders/Scripts/DNA/Species.yy",
   },
   "resourceVersion": "1.0",
-  "name": "genus_to_string",
+  "name": "__genus_to_string",
   "tags": [],
   "resourceType": "GMScript",
 }

@@ -32,16 +32,18 @@ function MACROS(){
 #macro CELL_SIZE_PX				48			// pixel size - screen area (climate cells are 32x32px)
 #macro CELL_AREA				25			// m2 - real world area
 #macro CELL_INITIAL_STORED_WATER  0.9		// stored water in cells at creation as a factor of soil saturation water
+#macro CELL_MAX_PRODUCERS		10			// producers a cell can hold
 
 // soil
 #macro SOIL_DEPTH_MM			1000			// mm - soil depth for available water calculations
+#macro SOIL_DEPTH_SMALL_ROOTS	0.1				// small producers root get access to this % PAW
 #macro SOIL_WATER_LOSS_DEFAULT	4				// mm/month
 
 #macro NUTRIENT_TILE_OFFSET  1000		// kg
 #macro NUTRIENT_TILE_MULTIPLIER  100    // kg multiply with nutrients tile number to obtain nutrients
 
 #macro SOIL_WEIGHT_PER_CELL			 3500 // 1500
-#macro HEIGHT_PLANT_TRESHOLD  5		// the threshold among small and big plants
+//#macro HEIGHT_PLANT_TRESHOLD  5		// the threshold among small and big plants
 
 
 
@@ -54,6 +56,7 @@ function MACROS(){
 // === CREATURES 
 
 #macro LEAF_M2_PER_KG				0.1			// area/weight ratio for leafs 
+#macro PRODUCERS_MAX_HEIGHT			50			// roots will get maximum water at this plant height
 
 // general life constants
 #macro BIOMASS_DECOMPOSITION_ZERO  10			// when biomass decompeses under this level instance is destroyed

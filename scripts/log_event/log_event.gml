@@ -28,9 +28,15 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 		var _col_num1 = "";
 		var _col_num2 = "";
 		var _col_num3 = "";
+		var _col_num4 = "";
+		var _col_num5 = "";
+		var _col_num6 = "";
 		var _col_txt1 = "";
 		var _col_txt2 = "";
 		var _col_txt3 = "";
+		var _col_txt4 = "";
+		var _col_txt5 = "";
+		var _col_txt6 = "";
 		
 		var _do_log = true;
 		
@@ -159,8 +165,8 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 						_col_num1 = string(_arg1);
 					}
 					if _event == LOGEVENT.CREATURE_DEAD {
-						_col_num1 = string(sim_steps_to_years(_id1.structure.age));	// age
-						_col_txt1 = string(_arg1);				// deadcause
+						_col_num1 = string(sim_steps_to_years(_id1.structure.age));		// age
+						_col_txt1 = deadcause_to_string(_id1.structure.dead_cause);		// deadcause
 					}
 					if _event == LOGEVENT.CREATURE_LIFE_EVENT {
 						_col_num1 = string(sim_steps_to_years(_id1.structure.age));		
@@ -202,15 +208,15 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 						_col_num1 = string(_arg1);
 					}
 					if _event == LOGEVENT.CREATURE_BORN_INFO {
-						_col_txt1 = _arg1;		// tag
-						_col_txt2 = _arg2;		// string value
+						_col_txt1 = string(_arg1);		// tag
+						_col_txt2 = string(_arg2);		// string value
 					}
 					if _event == LOGEVENT.CREATURE_DEAD_INFO {
-						_col_txt1 = _arg1;		// tag
-						_col_txt2 = _arg2;		// string value
+						_col_txt1 = string(_arg1);		// tag
+						_col_txt2 = string(_arg2);		// string value
 					}
 					if _event == LOGEVENT.CREATURE_DEAD_INFO_NUM {
-						_col_txt1 = _arg1;				// tag
+						_col_txt1 = string(_arg1);				// tag
 						_col_num1 = string(_arg2);		// num value
 					}
 				}
@@ -233,52 +239,52 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 			case LOGEVENT.SPECIE_GENOME:
 			//case LOGEVENT.SPECIE_GENOME_NUM: 
 			{
-				if controller.user_options.LOG_SPECIES {
-					if (_id1 != 0) {
-						_col_id1 = string(_id1);
-						_col_trophic_level = trophic_level_to_string(_id1.genome[GEN.TROPHIC_LEVEL]);
-						_col_specie = string(_id1.genome[GEN.SPECIE_CODE]);			// specie
-						if (_id1.my_cell != 0) {
-							_col_x = string(_id1.my_cell.x_cell);
-							_col_y = string(_id1.my_cell.y_cell);
-						}
+				_do_log = controller.user_options.LOG_SPECIES;
+				
+				if (_id1 != 0) {
+					_col_id1 = string(_id1);
+					_col_trophic_level = trophic_level_to_string(_id1.genome[GEN.TROPHIC_LEVEL]);
+					_col_specie = string(_id1.genome[GEN.SPECIE_CODE]);			// specie
+					if (_id1.my_cell != 0) {
+						_col_x = string(_id1.my_cell.x_cell);
+						_col_y = string(_id1.my_cell.y_cell);
 					}
+				}
 					
-					if _event == LOGEVENT.SPECIE_BORN {
-						_col_num1 = string(_id1.structure.biomass);				// biomass
-						_col_txt1 = climate_to_string(_id1.my_cell.climate);		// climate
-						_col_txt2 = object_get_name(_id1.object_index);				// genus
-					}
+				if _event == LOGEVENT.SPECIE_BORN {
+					_col_num1 = string(_id1.structure.biomass);				// biomass
+					_col_txt1 = climate_to_string(_id1.my_cell.climate);		// climate
+					_col_txt2 = object_get_name(_id1.object_index);				// genus
+				}
 					
-					if _event == LOGEVENT.SPECIE_DEAD {
-						_col_num1 = string(_id1.structure._biomass_max);			// max biomass attained
-						_col_num2 = string(_id1.structure.age);						// age
-						_col_num3 = string(_id1.structure.reproduction_count);		// reproduction times (not offspring!)
-						_col_txt1 = climate_to_string(_id1.my_cell.climate);		// climate
-						_col_txt2 = object_get_name(_id1.object_index);				// genus
-						_col_txt3 = deadcause_to_string(_id1.structure.dead_cause);	// dead cause
-					}
-					if _event == LOGEVENT.SPECIE_NEW {
-						_col_txt1 = string(_arg1);		// offspring specie code
-						_col_txt2 = string(_arg2);		// parent specie code
-						_col_txt3 = string(_arg3);		// parent specie code
-					}
-					if _event == LOGEVENT.SPECIE_GENOME {
-						_col_specie = _arg1;		// specie
-						_col_txt1 = _arg2;			// tag
-						_col_txt2 = _arg3;			// string value
-					}
-					//if _event == LOGEVENT.SPECIE_GENOME_NUM {
-					//	_col_specie = _arg1;		// specie
-					//	_col_txt1 = _arg2;			// tag
-					//	_col_num1 = string(_arg3);	// num value
-					//}
+				if _event == LOGEVENT.SPECIE_DEAD {
+					_col_num1 = string(_id1.structure._biomass_max);			// max biomass attained
+					_col_num2 = string(_id1.structure.age);						// age
+					_col_num3 = string(_id1.structure.reproduction_count);		// reproduction times (not offspring!)
+					_col_num4 = string(_id1.structure.generation);				// generation among specie
+					if _id1.my_cell != 0
+						_col_txt1 = climate_to_string(_id1.my_cell.climate);	// climate
+					_col_txt2 = object_get_name(_id1.object_index);				// genus
+					_col_txt3 = deadcause_to_string(_id1.structure.dead_cause);	// dead cause
+					_col_txt4 = string(_id1.genome[GEN.PARENT_SPECIE_CODE]);	// 
+				}
+				if _event == LOGEVENT.SPECIE_NEW {
+					_col_txt1 = string(_arg1);		// offspring specie code
+					_col_txt2 = string(_arg2);		// parent specie code
+					_col_txt3 = string(_arg3);		// parent specie code
+				}
+				if _event == LOGEVENT.SPECIE_GENOME {
+					_col_specie = _arg1;		// specie
+					_col_txt1 = _arg2;			// tag
+					_col_txt2 = _arg3;			// string value
+				}
+				//if _event == LOGEVENT.SPECIE_GENOME_NUM {
+				//	_col_specie = _arg1;		// specie
+				//	_col_txt1 = _arg2;			// tag
+				//	_col_num1 = string(_arg3);	// num value
+				//}
 					
 				}
-				else {
-					_do_log = false;
-				}
-			}
 			break;
 			
 #endregion
@@ -318,36 +324,42 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 			case LOGEVENT.WORLD_PROBE_CLIMATE: 
 				_do_log = controller.user_options.LOG_WORLD;
 				_col_id1 = string(_id1);
-				_col_x = string(_id1.my_cell.x_cell);
-				_col_y = string(_id1.my_cell.y_cell);
+				if (_id1.my_cell != 0) {
+					_col_x = string(_id1.my_cell.x_cell);
+					_col_y = string(_id1.my_cell.y_cell);
+				}
 				_col_txt1 = climate_to_string(_id1.my_cell.climate);	// climate name								// value
 				break;
 			break;
 			
-			case LOGEVENT.WORLD_PROBE_PLANT_AVAILABLE_WATER:
-			case LOGEVENT.WORLD_PROBE_RAIN_TEMP: 
-			{
+			case LOGEVENT.WORLD_PROBE_PLANT_AVAILABLE_WATER:	{	
 				_do_log = controller.user_options.LOG_WORLD;
-				//_col_name_DEPRECATED = _id1.probe_name;
-				_col_x = string(_id1.my_cell.x_cell);
-				_col_y = string(_id1.my_cell.y_cell);
-				
-				//if _event == LOGEVENT.WORLD_PROBE_NUTRIENTS
-				//	_col_num1 = string((_arg1));
-					
-				if _event == LOGEVENT.WORLD_PROBE_PLANT_AVAILABLE_WATER {
-					_col_num1 = string(_arg1);
-					_col_txt1 = climate_to_string(_id1.my_cell.climate)
-					}
-										
-				if _event == LOGEVENT.WORLD_PROBE_RAIN_TEMP {
-					_col_txt1 = string_replace_all(_arg2, "\n", " - ");   // climate name
-					_col_num1 = string(_arg1);    // rain 
-					_col_num2 = string(_arg3);	  // temperature
+				_col_id1 = string(_id1);									// producer
+				if (_id1.my_cell != 0) {
+					_col_x = string(_id1.my_cell.x_cell);		
+					_col_y = string(_id1.my_cell.y_cell);
 				}
+				_col_trophic_level = trophic_level_to_string(_id1.genome[GEN.TROPHIC_LEVEL]);
+				_col_specie = string(_id1.genome[GEN.SPECIE_CODE]);
+				_col_num1 = string(_id1.my_cell.plants_available_water);
+				_col_num2 = string(_id1.structure.anabolism_input);
+				_col_num3 = string(_id1.structure.my_height);
+				_col_num4 = string(_arg1);									// plant transpiration
+				_col_num5 = string(_arg2);									// position cell plant height
+				_col_txt1 = climate_to_string(_id1.my_cell.climate)
+				_col_txt2 = string(_id1.genome[GEN.GENUS_NAME]);
+				_col_txt3 = string(_id1.genome[GEN.SPECIE_CODE]);
+				break;
 			}
+			case LOGEVENT.WORLD_PROBE_RAIN_TEMP:  {					// _id1 = cell
+				_do_log = controller.user_options.LOG_WORLD;
+				_col_x = string(_id1.x_cell);
+				_col_y = string(_id1.y_cell);
+				_col_txt1 = climate_to_string(_id1.climate);		// climate name
+				_col_num1 = string(_id1.rain_current_month);		// rain 
+				_col_num2 = string(_id1.temperature_current_month);	 // temperature
 			break;
-
+			}
 #endregion
 
 #region  === INFO EVENTS
@@ -416,11 +428,23 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 						+ CSV_SEPARATOR
 						+ _col_num3
 						+ CSV_SEPARATOR
+						+ _col_num4
+						+ CSV_SEPARATOR
+						+ _col_num5
+						+ CSV_SEPARATOR
+						+ _col_num6
+						+ CSV_SEPARATOR
 						+ _col_txt1
 						+ CSV_SEPARATOR
 						+ _col_txt2
 						+ CSV_SEPARATOR
 						+ _col_txt3
+						+ CSV_SEPARATOR
+						+ _col_txt4
+						+ CSV_SEPARATOR
+						+ _col_txt5
+						+ CSV_SEPARATOR
+						+ _col_txt6
 						;
 				
 				//if (_id1 == obj_gui.gui.creature_to_follow)

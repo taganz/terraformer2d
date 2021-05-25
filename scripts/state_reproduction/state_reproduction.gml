@@ -44,7 +44,10 @@ function state_reproduction(_id){
 			
 			
 			// increment generation number
-			_child.structure.generation = _id.structure.generation + 1;
+			if _child.genome[GEN.SPECIE_CODE] == _id.genome[GEN.SPECIE_CODE]
+				_child.structure.generation = _id.structure.generation + 1;
+			else
+				_child.structure.generation = 1;
 
 			_offspring_count++;
 
@@ -63,7 +66,7 @@ function state_reproduction(_id){
 		
 	// remember hom many reproduction times
 	_id.structure.reproduction_count ++;
-	_id.structure.reproduction_count += _offspring_count;
+	_id.structure.reproduction_offspring_count += _offspring_count;
 		
 	log_event(LOGEVENT.CREATURE_LIFE_EVENT, _id, "reproduction", "offspring count: "+string(_offspring_count));
 	

@@ -19,7 +19,7 @@ if room == Room0 {
 	//world.radiation = default_world_radiation;
 	world.radiation = user_options.default_world_radiation;
 	// add water
-	grid_update_cells_water();	
+	grid_do_rain();	
 
 	// holds species statistics, initial species definitions
 	species = new Species();

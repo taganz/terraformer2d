@@ -21,13 +21,17 @@ function structure_born(my_id){
 		_biomass_adult_max = biomass_adult * (1 + my_id.genome[GEN.ALLOCATION_REPRODUCTIVE]) * 1.1;				// max biomass attainable by creature
 		_biomass_reproduction_max = biomass_adult * my_id.genome[GEN.ALLOCATION_REPRODUCTIVE]; 
 		
+		// height will grow linearly with biomass up to height_adult 
+		_height_growth_factor = my_id.genome[GEN.HEIGHT_ADULT]/my_id.genome[GEN.BIOMASS_ADULT];
 		
 		// -- set biomass at birth. 1st generations is always adult
 		
 		//if 	generation==1 and GENUS_SPAWN_AS_ADULTS {
-		if 	generation==1  {
+		if 	generation==0  {
 			// add random biomass to avoid all creatures giving birth at the same time
-			biomass_modify(my_id, biomass_adult + random(my_id.genome[GEN.ALLOCATION_REPRODUCTIVE]));
+			biomass_modify(my_id, biomass_adult + random(_biomass_reproduction_max));
+			// assign random age
+			age = age_die * random_range(0.2, 0.9);
 		}
 		else {
 			// parent will update with real value in step_reproduction() for next generations
@@ -41,7 +45,7 @@ function structure_born(my_id){
 		_reproduction_distance = my_id.genome[GEN.REPRODUCTION_DISTANCE]*random_range(0.9, 1.1);		
 	
 		// avoid 1st generation giving birth at the same time
-		if generation == 1 {
+		if generation == 0 {
 			reproduction_age_last_time = - random(my_id.genome[GEN.REPRODUCTION_INTERVAL]);
 		}
 

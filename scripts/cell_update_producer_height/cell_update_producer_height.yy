@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Species",
-    "path": "folders/Scripts/DNA/Species.yy",
+    "name": "cell",
+    "path": "folders/Scripts/World/cell.yy",
   },
   "resourceVersion": "1.0",
-  "name": "_genus_specie_code",
+  "name": "cell_update_producer_height",
   "tags": [],
   "resourceType": "GMScript",
 }

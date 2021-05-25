@@ -6,7 +6,7 @@
     "path": "folders/Scripts/World/_grid.yy",
   },
   "resourceVersion": "1.0",
-  "name": "grid_update_cells_water",
+  "name": "grid_do_rain",
   "tags": [],
   "resourceType": "GMScript",
 }

@@ -1,6 +1,6 @@
 // returns value for gen in initial specie
 // returns -999999999 if error
-function genus_gen_value(genus, gen){
+function _genus_grid_gen_value(genus, gen){
 
 	
 	// read specie values from initial_species_grid (columns are species, rows are gens)

@@ -3,7 +3,9 @@ function _grid_create_cell(_x_cell, _y_cell) {
 
 
 	with controller.world {
+		
 		// check if cell already exists
+		
 		if grid_cells[# _x_cell, _y_cell]==0 {
 			// create cell
 			ds_grid_add(grid_cells, _x_cell, _y_cell, new Cell())

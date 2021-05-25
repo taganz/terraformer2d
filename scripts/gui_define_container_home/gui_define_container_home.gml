@@ -95,9 +95,9 @@ yy+=32;
 yy+=32;
 
 
-var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Climate test (2)", function() {
+var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Test climates", function() {
 	obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;
-	obj_gui.selected_room = Room2;
+	obj_gui.selected_room = TestClimates;
 });
 _container.AddContent(_button);
 yy+=32;
@@ -181,6 +181,15 @@ var check = new EmuCheckbox(OPTIONS_COLUMN_Y + 32, yy, 256, 32, "Log selected cr
 _container.AddContent(check);
 yy+=32;
 
+// --- LOG_CREATURES_PRODUCERS
+
+var check = new EmuCheckbox(OPTIONS_COLUMN_Y  + 64, yy, 256, 32, "Include producers", controller.user_options.LOG_CREATURES_PRODUCERS, function() {
+    controller.user_options.LOG_CREATURES_PRODUCERS = value;
+});
+_container.AddContent(check);
+yy+=32;
+
+
 // --- log creatures all
 
 var check = new EmuCheckbox(OPTIONS_COLUMN_Y  + 32, yy, 256, 32, "Log all creatures", controller.user_options.LOG_CREATURES_ALL, function() {
@@ -188,8 +197,6 @@ var check = new EmuCheckbox(OPTIONS_COLUMN_Y  + 32, yy, 256, 32, "Log all creatu
 });
 _container.AddContent(check);
 yy+=32;
-
-
 
 
 

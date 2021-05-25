@@ -6,9 +6,17 @@ function Cell() constructor {
 	
 	x_cell = -1;
 	y_cell = -1;
+	
+	
+	probe_logging = false;			// log probe events?
 
-	list_producers_small = ds_list_create();
-	list_producers_big = ds_list_create();
+	//list_producers_small = ds_list_create();
+	//list_producers_big = ds_list_create();
+	
+	grid_producers = ds_grid_create(2, CELL_MAX_PRODUCERS); // columns: producer_id, producer_height
+	grid_producers_need_sort = false;	// a producer has changed height significatively and must reorder
+	_grid_producers_current = 0;		// number of producer in grid. next row to fill
+	
 	list_primaries = ds_list_create();
 	list_secondaries = ds_list_create();
 	
@@ -33,6 +41,7 @@ function Cell() constructor {
 	temperature_current_month = 0;
 	
 	map_nutrients = ds_map_create();
+	
 	
 		
 }

@@ -15,7 +15,7 @@ function log_events_creature_born(_id){
 		log_event(LOGEVENT.CREATURE_BORN_INFO, _id, "age", string(sim_steps_to_years(_id.structure.age)));
 		log_event(LOGEVENT.CREATURE_BORN_INFO, _id, "age_die", string(sim_steps_to_years(age_die)));
 		
-		log_event(LOGEVENT.CREATURE_BORN_INFO, _id, "biomass birth", string(biomass));
+		log_event(LOGEVENT.CREATURE_BORN_INFO, _id, "biomass birth", string(_biomass_given_by_parent));
 		log_event(LOGEVENT.CREATURE_BORN_INFO, _id, "biomass adult", string(_id.genome[GEN.BIOMASS_ADULT]));
 		log_event(LOGEVENT.CREATURE_BORN_INFO, _id, "_biomass_adult_max", string(_biomass_adult_max));
 		log_event(LOGEVENT.CREATURE_BORN_INFO, _id, "_biomass_reproduction_max", string(_biomass_reproduction_max));
@@ -29,7 +29,7 @@ function log_events_creature_born(_id){
 		log_event(LOGEVENT.CREATURE_BORN_INFO, _id, "_biomass_eat_allocation", string(_biomass_eat_allocation));
 		
 		// list gens
-		for (var i=0;i<GEN_NUM;i++) {
+		for (var i=0;i<GEN._LENGTH_;i++) {
 			log_event(LOGEVENT.CREATURE_BORN_INFO, _id, string_format_zeroes(i,2,0) +" " + gen_to_string(i), string(_id.genome[i]));
 		}
 		/*
