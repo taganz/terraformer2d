@@ -8,7 +8,15 @@ function state_dead(_id){
 	if (state_entry) {
 		world_creature_dead(_id);
 		log_events_creature_dead(_id);
+
+
+		// if dead at birth, don't need to decompose
 		
+		if _id.structure.dead_cause == DEADCAUSE.BIRTH {
+			world_creature_remove(_id);		
+			instance_destroy(_id);
+		}
+	
 	}
 	else {
 	

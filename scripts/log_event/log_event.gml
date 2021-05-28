@@ -341,7 +341,7 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 				}
 				_col_trophic_level = trophic_level_to_string(_id1.genome[GEN.TROPHIC_LEVEL]);
 				_col_specie = string(_id1.genome[GEN.SPECIE_CODE]);
-				_col_num1 = string(_id1.my_cell.plants_available_water);
+				_col_num1 = string(_id1.my_cell.plants_available_water);	// PAW
 				_col_num2 = string(_id1.structure.anabolism_input);
 				_col_num3 = string(_id1.structure.my_height);
 				_col_num4 = string(_arg1);									// plant transpiration
@@ -351,6 +351,9 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 				_col_txt3 = string(_id1.genome[GEN.SPECIE_CODE]);
 				break;
 			}
+			
+			// Monthly temperature and rain for a specific cell
+			
 			case LOGEVENT.WORLD_PROBE_RAIN_TEMP:  {					// _id1 = cell
 				_do_log = controller.user_options.LOG_WORLD;
 				_col_x = string(_id1.x_cell);

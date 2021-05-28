@@ -275,6 +275,7 @@
     {"id":{"name":"spr_plant_body_default","path":"sprites/spr_plant_body_default/spr_plant_body_default.yy",},"order":5,},
     {"id":{"name":"CarryingCapacity","path":"rooms/CarryingCapacity/CarryingCapacity.yy",},"order":12,},
     {"id":{"name":"state_to_string","path":"scripts/state_to_string/state_to_string.yy",},"order":8,},
+    {"id":{"name":"spr_tileset_climate_old","path":"sprites/spr_tileset_climate_old/spr_tileset_climate_old.yy",},"order":10,},
     {"id":{"name":"borrador_bush","path":"sprites/borrador_bush/borrador_bush.yy",},"order":17,},
     {"id":{"name":"scribble_get_state","path":"scripts/scribble_get_state/scribble_get_state.yy",},"order":0,},
     {"id":{"name":"spr_tileset_temperature","path":"sprites/spr_tileset_temperature/spr_tileset_temperature.yy",},"order":2,},

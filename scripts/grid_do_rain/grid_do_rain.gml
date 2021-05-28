@@ -19,6 +19,7 @@ function grid_do_rain() {
 				
 				if _cell!= 0 {
 						
+					// === update cell water status
 						
 					// process water losses
 					
@@ -32,7 +33,7 @@ function grid_do_rain() {
 					
 					_cell.rain_current_month = climate_rain(_cell.climate, controller.time.current_sim_month);
 					
-					// log rain and temperature
+					// log this month rain and temperature for this cell
 					
 					if _cell.probe_logging
 						log_event(LOGEVENT.WORLD_PROBE_RAIN_TEMP, _cell); 
@@ -55,7 +56,7 @@ function grid_do_rain() {
 						ds_grid_sort(_cell.grid_producers, 1, false);		// descending height
 					}
 					
-					// distribute water among producers - first the TALL ones, they receive the light
+					// === distribute water among producers - first the TALL ones, they receive the light
 					
 					var previous_root_depth = SOIL_DEPTH_MM;
 					
@@ -69,8 +70,9 @@ function grid_do_rain() {
 						// water quantity producer is asking for
 		
 						var _plant_transpiration =
-										producer_id.structure.biomass_eat * LEAF_M2_PER_KG 
-										* climate_ET0_evotranspiration(_cell.climate, controller.time.current_sim_month); 
+									producer_id.structure.biomass_eat * LEAF_M2_PER_KG 
+									* climate_ET0_evotranspiration(_cell.climate, controller.time.current_sim_month)
+									* producer_id.genome[GEN.EVOTRANSPIRATION_FACTOR]; 
 										
 						// water available to plant is the part of PAW up to roots depth
 						
@@ -81,7 +83,8 @@ function grid_do_rain() {
 				
 						// calculate available water at root depth
 				
-						_cell.plants_available_water = plant_root_depth_mm / previous_root_depth * _cell.plants_available_water;
+						//_cell.plants_available_water = plant_root_depth_mm / previous_root_depth * _cell.plants_available_water;
+						_cell.plants_available_water = plant_root_depth_mm / SOIL_DEPTH_MM * _cell.plants_available_water;
 				
 						// get maximum asked water if available
 				
@@ -94,8 +97,9 @@ function grid_do_rain() {
 						
 						// log available water to plant
 						
-						if _cell.probe_logging
+						if _cell.probe_logging {
 							log_event(LOGEVENT.WORLD_PROBE_PLANT_AVAILABLE_WATER, producer_id, _plant_transpiration, c);
+						}
 						
 						// substract used water and recalculate plant available water
 						
@@ -114,41 +118,6 @@ function grid_do_rain() {
 								
 						
 					}
-					
-					/*
-					// if there is still some water distribute among SMALL producers
-					// SMALL producers get access to a fraction of total PAW
-					
-					if _cell.plants_available_water > 0 {
-						
-						for (var c=0; c < ds_list_size(_cell.list_producers_small);c++) {
-								var producer_id = _cell.list_producers_small[|c];
-								
-								// give water to creature 
-								//var _quant_water = clamp(producer_id.structure.biomass_eat*WORLD_WATER_PER_LEAF_KG, 0, _cell.plant_roots_water_absorbtion);
-								var _plant_transpiration =
-												producer_id.structure.biomass_eat * LEAF_M2_PER_KG 
-												* climate_ET0_evotranspiration(_cell.climate, controller.time.current_sim_month); 
-								var _quant_water = clamp(_plant_transpiration,0, _cell.plants_available_water * SOIL_DEPTH_SMALL_ROOTS);
-								_quant_water = clamp(_quant_water, 0, _cell.stored_water);
-								
-								//producer_id.structure.plant_roots_absorbed_water += _quant_water;
-								producer_id.structure.anabolism_input = _quant_water;			// don't accumulate water from previous month
-								_cell.stored_water -= _quant_water;
-								_cell.plants_available_water = soil_plant_available_water(_cell.stored_water, _cell.soil_field_capacity_kg, _cell.soil_permanent_wilting_point_kg);
-								
-								// updates solar energy received
-								//producer_id.structure.plant_received_sun = 1;
-								
-								// no more water to give
-								if _cell.plants_available_water <= 0 
-									break;
-								
-							
-						}
-						
-					}
-					*/
 				}
 			}
 		}

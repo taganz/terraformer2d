@@ -8,6 +8,7 @@
 function climate_get_soil(soil){
 	var v = 0;
 	switch(soil) {
+		case CLIMATE.SUPERARID:
 		case CLIMATE.DRY:
 			v = SOIL.SAND;
 			break;

@@ -23,11 +23,18 @@ function climate_read_array() {
 			temperature : [ 20,  22,  25,  25,  27,  30,  35,  30,  24,  20,  17,  15],
 			rain : [ 10,  5,  5,  5,  5,  5,  10,  10,  15,  15,  20,  20]
 		};
+		
+	climates[CLIMATE.SUPERARID] = 
+		{
+			name : "Superarid",
+			temperature : [ 30,  32,  35,  35,  37,  40,  45,  40,  34,  30,  27,  25],
+			rain : [ 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0]
+		};
 	climates[CLIMATE.TROPICAL] = 
 		{
 			name : "Tropical",
 			temperature : [ 22,  22,  23,  23,  25,  27,  26,  25,  24,  23,  23,  23],
-			rain : [ 5,  10,  30,  150,  210,  220,  400,  350,  300,  120,  50,  10]
+			rain : [ 30,  40,  50,  150,  210,  220,  400,  350,  300,  120,  70,  30]
 		};
 		
 	climates[CLIMATE.MEDITERRANEAN] = 
@@ -48,6 +55,7 @@ function climate_read_array() {
 			temperature : [ -30,  -32,  -30,  -20,  -10,  -5,  0,  5,  10,  0,  -10,  -25],
 			rain : [ 15,  18,  20,  25,  30,  30,  26,  25,  24,  20,  18,  13]
 		}
+		
 		
 	return climates;
 		

@@ -1,6 +1,6 @@
 
 
-// <-- calculate average rain for climate
+// calculate monthly average rain for climate
 
 function climate_rain_year_average(climate){
 

@@ -67,7 +67,7 @@ function _grid_create_cell(_x_cell, _y_cell) {
 			
 			cell.losses_per_month_kg = soil_get_losses_rate(cell.climate, cell.soil_type) * CELL_AREA ;   // kg = mm/month * m2 * 1kg/m2/mm
 			
-			// initial water = saturation / 2			
+			// initial water 
 			cell.stored_water = cell.soil_saturation_water_kg * CELL_INITIAL_STORED_WATER;
 		}
 		
