@@ -41,7 +41,7 @@ function World() constructor {
 	trophic_level_biomass_now[TROPHIC_LEVEL.SECONDARY]=0;
 	
 	climates = [];
-	climates = climate_read_array();
+	climates = climate_definitions();
 	
 	radiation = -1;
 	

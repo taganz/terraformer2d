@@ -21,7 +21,7 @@
     {"id":{"name":"cell_update_producer_height","path":"scripts/cell_update_producer_height/cell_update_producer_height.yy",},"order":5,},
     {"id":{"name":"soil_get_losses_rate","path":"scripts/soil_get_losses_rate/soil_get_losses_rate.yy",},"order":5,},
     {"id":{"name":"World","path":"scripts/World/World.yy",},"order":0,},
-    {"id":{"name":"climate_read_array","path":"scripts/climate_read_array/climate_read_array.yy",},"order":1,},
+    {"id":{"name":"climate_definitions","path":"scripts/climate_definitions/climate_definitions.yy",},"order":1,},
     {"id":{"name":"obj_tree_tropical","path":"objects/obj_tree_tropical/obj_tree_tropical.yy",},"order":1,},
     {"id":{"name":"obj_plant_bush","path":"objects/obj_plant_bush/obj_plant_bush.yy",},"order":4,},
     {"id":{"name":"spr_primary_tiny_dead","path":"sprites/spr_primary_tiny_dead/spr_primary_tiny_dead.yy",},"order":4,},
@@ -806,6 +806,7 @@
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"Terraformer2D analysis.pbix","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"conversions terraformer2d.xlsx","resourceType":"GMIncludedFile",},
     {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"genus.csv","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles","resourceVersion":"1.0","name":"genus.xlsm","resourceType":"GMIncludedFile",},
   ],
   "MetaData": {
     "IDEVersion": "2.3.2.560",

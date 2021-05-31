@@ -16,5 +16,6 @@ function climate_ENUM(){
 		TUNDRA,
 		SUPERARID			// desert with no water at all, event with unlimited water option
 	}
-#macro CLIMATE_NUM 7
 }
+
+#macro CLIMATE_NUM 7

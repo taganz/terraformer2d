@@ -1,13 +1,13 @@
 /*
 
 	rain expressed in mm
+
+	return array of climates
 	
 */
 
 
-
-
-function climate_read_array() {
+function climate_definitions() {
 	
 	var climates = array_create(CLIMATE_NUM, 0);
 	

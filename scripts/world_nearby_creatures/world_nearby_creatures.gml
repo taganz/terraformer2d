@@ -16,11 +16,14 @@ function world_get_nearby_creatures(_x, _y, kind){
 		// try first same cell
 		
 		switch (kind) {
-			case "small_producer":
-				var _list = grid_cells[# _xx, _yy].list_producers_small;
-				break;
-			case "big_producer":
-				var _list = grid_cells[# _xx, _yy].list_producers_big;
+			case "producer":
+				//var _list = grid_cells[# _xx, _yy].list_producers_small;
+				// transform grid to list
+			
+				var _list = ds_list_create()
+				for (var c=0; c<grid_cells[# _xx, _yy]._grid_producers_current; c++) {
+					ds_list_add(_list, grid_cells[# _xx, _yy].grid_producers[#0, c]);
+				}
 				break;
 			case "primary":
 				var _list = grid_cells[# _xx, _yy].list_primaries;

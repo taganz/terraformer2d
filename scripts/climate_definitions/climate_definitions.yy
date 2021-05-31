@@ -6,7 +6,7 @@
     "path": "folders/Scripts/World/climate.yy",
   },
   "resourceVersion": "1.0",
-  "name": "climate_read_array",
+  "name": "climate_definitions",
   "tags": [],
   "resourceType": "GMScript",
 }
