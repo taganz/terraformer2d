@@ -36,12 +36,12 @@ function cell_to_string(_cell){
 				ss = ss + string(ds_list_find_value(list_dead_creatures, i))+ ".";
 			}
 			// concatenate nutrients
-			ss = ss + "\nNutrients: ";
-			var key = ds_map_find_first(map_nutrients);
-			for (i = 0; i< ds_map_size(map_nutrients);i++) {
-				ss = ss + "   "+string(key)+": "+string(map_nutrients[? key]);
-				key = ds_map_find_next(map_nutrients, key);
-			}
+			//ss = ss + "\nNutrients: ";
+			//var key = ds_map_find_first(map_nutrients);
+			//for (i = 0; i< ds_map_size(map_nutrients);i++) {
+			//	ss = ss + "   "+string(key)+": "+string(map_nutrients[? key]);
+			//	key = ds_map_find_next(map_nutrients, key);
+			//}
 			return ss;
 		}
 	}

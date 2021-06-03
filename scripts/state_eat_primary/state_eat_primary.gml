@@ -12,6 +12,7 @@ function state_eat_primary(_id) {
 		// try first with small producers
 		//var _list_creatures_cell = world_get_nearby_creatures(_id.x, _id.y, "small_producer");
 		var _list_creatures_cell = world_get_nearby_creatures(_id.x, _id.y, "producer");
+		_process_producers_list(_id, _list_creatures_cell);
 		
 		// if no small, try with the big ones
 		//if _eat == false {

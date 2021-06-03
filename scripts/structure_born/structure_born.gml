@@ -12,7 +12,7 @@ function structure_born(my_id){
 	with my_id.structure {
 
 
-		age_die = years_to_sim_steps(my_id.genome[GEN.AGE_DEAD])*random_range(0.9, 1.5);		
+		age_die = years_to_sim_steps(my_id.genome[GEN.AGE_DEAD])*random_range(1, 1.3);		
 
 
 		// -- biomass specie parameters
@@ -34,7 +34,7 @@ function structure_born(my_id){
 			
 			// assign random age
 			
-			age = age_die * random_range(0.2, 0.9);
+			age = age_die * random_range(0.2, 0.4);
 		}
 		else {
 			
@@ -51,7 +51,7 @@ function structure_born(my_id){
 	
 		// avoid 1st generation giving birth at the same time
 		if generation == 0 {
-			reproduction_age_last_time = - random(my_id.genome[GEN.REPRODUCTION_INTERVAL]);
+			reproduction_age_last_time = age - _reproduction_interval * random_range(0.7, 0.9);
 		}
 
 		// -- anabolism 

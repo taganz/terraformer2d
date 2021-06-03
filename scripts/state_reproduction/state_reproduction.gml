@@ -11,6 +11,10 @@
 
 function state_reproduction(_id){
 
+	// debug
+	if _id.is_plant == false
+		var breakpoint_reproduction_animal = true;
+
 
 	// do for all offspring
 

@@ -1,5 +1,8 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "spr_tileset_cell_grid",
+    "path": "sprites/spr_tileset_cell_grid/spr_tileset_cell_grid.yy",
+  },
   "tileWidth": 32,
   "tileHeight": 32,
   "tilexoff": 0,

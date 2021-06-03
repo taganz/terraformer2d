@@ -78,7 +78,7 @@ function grid_do_rain() {
 						
 						// calculate plant root depth
 						
-						var plant_root_depth_mm = producer_id.structure.my_height / PRODUCERS_MAX_HEIGHT * SOIL_DEPTH_MM;
+						var plant_root_depth_mm = producer_id.structure.my_height * 1000 / PRODUCERS_MAX_HEIGHT * SOIL_DEPTH_MM;
 				
 				
 						// calculate available water at root depth

@@ -15,7 +15,7 @@ function MACROS(){
 // === ROOM SETUP
 
 #macro LAYER_CLIMATE "climate"
-#macro LAYER_NUTRIENTS "nutrients"
+#macro LAYER_SOIL "soil"
 // creatures are created at a depth - LAYER_BASE - y   (-16000 < depth < 16000)
 #macro LAYER_BASE_PRODUCER 1000
 #macro LAYER_BASE_PRIMARY 5000
@@ -30,7 +30,7 @@ function MACROS(){
 
 // terrain
 #macro CELL_SIZE_PX				48			// pixel size - screen area (climate cells are 32x32px)
-#macro CELL_AREA				25			// m2 - real world area
+#macro CELL_AREA		15 //		25			// m2 - real world area
 #macro CELL_INITIAL_STORED_WATER  0.9		// stored water in cells at creation as a factor of soil saturation water
 #macro CELL_MAX_PRODUCERS		10			// producers a cell can hold
 

@@ -16,6 +16,10 @@ function state_idle(_id){
 		}
 		// time for reproduction? 
 		else if reproduction_ready(_id)  {
+			
+			if _id.is_plant != false {
+				var breakpoint_reproduction_animal = true;
+			}
 				
 			_id.state.next_state = STATE.REPRODUCTION;
 		}

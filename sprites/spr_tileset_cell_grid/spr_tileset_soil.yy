@@ -8,13 +8,13 @@
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
   "bbox_left": 0,
-  "bbox_right": 191,
+  "bbox_right": 319,
   "bbox_top": 0,
   "bbox_bottom": 31,
   "HTile": false,
   "VTile": false,
   "For3D": false,
-  "width": 192,
+  "width": 320,
   "height": 32,
   "textureGroupId": {
     "name": "Default",
@@ -24,12 +24,13 @@
   "gridX": 32,
   "gridY": 32,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"f1622e7c-2290-484a-a60c-3ee464d8d4d2","path":"sprites/spr_tileset_climate/spr_tileset_climate.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"f1622e7c-2290-484a-a60c-3ee464d8d4d2","path":"sprites/spr_tileset_climate/spr_tileset_climate.yy",},"LayerId":{"name":"86474e69-bd67-4b9b-b009-7de6d0697c29","path":"sprites/spr_tileset_climate/spr_tileset_climate.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_tileset_climate","path":"sprites/spr_tileset_climate/spr_tileset_climate.yy",},"resourceVersion":"1.0","name":"f1622e7c-2290-484a-a60c-3ee464d8d4d2","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"f1622e7c-2290-484a-a60c-3ee464d8d4d2","path":"sprites/spr_tileset_soil/spr_tileset_soil.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"f1622e7c-2290-484a-a60c-3ee464d8d4d2","path":"sprites/spr_tileset_soil/spr_tileset_soil.yy",},"LayerId":{"name":"86474e69-bd67-4b9b-b009-7de6d0697c29","path":"sprites/spr_tileset_soil/spr_tileset_soil.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+        {"FrameId":{"name":"f1622e7c-2290-484a-a60c-3ee464d8d4d2","path":"sprites/spr_tileset_soil/spr_tileset_soil.yy",},"LayerId":{"name":"1ff1bb6f-7c78-4308-b04c-32666dd0edb8","path":"sprites/spr_tileset_soil/spr_tileset_soil.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_tileset_soil","path":"sprites/spr_tileset_soil/spr_tileset_soil.yy",},"resourceVersion":"1.0","name":"f1622e7c-2290-484a-a60c-3ee464d8d4d2","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_tileset_climate","path":"sprites/spr_tileset_climate/spr_tileset_climate.yy",},
+    "spriteId": {"name":"spr_tileset_soil","path":"sprites/spr_tileset_soil/spr_tileset_soil.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +42,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"e8be11e6-7f2c-4ef9-a880-31387a851d67","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"f1622e7c-2290-484a-a60c-3ee464d8d4d2","path":"sprites/spr_tileset_climate/spr_tileset_climate.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"763d7f2e-98dc-4e7f-8dde-2f2054ed710b","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"f1622e7c-2290-484a-a60c-3ee464d8d4d2","path":"sprites/spr_tileset_soil/spr_tileset_soil.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -58,13 +59,14 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_tileset_climate","path":"sprites/spr_tileset_climate/spr_tileset_climate.yy",},
+    "parent": {"name":"spr_tileset_soil","path":"sprites/spr_tileset_soil/spr_tileset_soil.yy",},
     "resourceVersion": "1.3",
-    "name": "spr_tileset_climate",
+    "name": "spr_tileset_soil",
     "tags": [],
     "resourceType": "GMSequence",
   },
   "layers": [
+    {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"Layer 1","resourceVersion":"1.0","name":"1ff1bb6f-7c78-4308-b04c-32666dd0edb8","tags":[],"resourceType":"GMImageLayer",},
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"86474e69-bd67-4b9b-b009-7de6d0697c29","tags":[],"resourceType":"GMImageLayer",},
   ],
   "nineSlice": null,
@@ -73,7 +75,7 @@
     "path": "folders/Sprites/meta.yy",
   },
   "resourceVersion": "1.0",
-  "name": "spr_tileset_climate",
+  "name": "spr_tileset_soil",
   "tags": [],
   "resourceType": "GMSprite",
 }

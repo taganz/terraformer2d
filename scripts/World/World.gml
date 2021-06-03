@@ -61,7 +61,7 @@ function World() constructor {
 		
 			
 		// transform this biomass into organic nutrients
-		grid_cells[# _id.x div CELL_SIZE_PX, _id.y div CELL_SIZE_PX].map_nutrients[? NUTRIENT.MINERAL] += _decomp;
+		//grid_cells[# _id.x div CELL_SIZE_PX, _id.y div CELL_SIZE_PX].map_nutrients[? NUTRIENT.MINERAL] += _decomp;
 		
 		return _decomp;
 	}

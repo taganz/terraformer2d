@@ -41,7 +41,7 @@ function Cell() constructor {
 	rain_current_month = 0;				// rain fallen current month
 	temperature_current_month = 0;
 	
-	map_nutrients = ds_map_create();
+	//map_nutrients = ds_map_create();
 	
 	
 		

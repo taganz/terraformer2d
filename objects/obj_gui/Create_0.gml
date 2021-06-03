@@ -39,3 +39,23 @@ container_config_room_1 = -1;
 container_simulation = -1;
 container_escape_screen = -1;		 
 
+// === visible layers status
+layer_soil_visible = -1;
+layer_climate_visible = -1;
+layer_cell_grid_visible = -1;
+layer_tools_visible = -1;
+
+KEYS_TEXT_LINE =
+		"SHORCUTS"
+		+"\nP - pause"
+		+"\n1 - faster"
+		+"\n2 - slower"
+		+"\n4 - debug show layers"
+		+"\n5 - next room"
+		+"\nC - toogle show climates"
+		+"\nD - creatures as dots"
+		+"\nQ - escape_screen"
+		+"\nR - restart"
+		+"\nLMB - add default creature"
+		;
+		

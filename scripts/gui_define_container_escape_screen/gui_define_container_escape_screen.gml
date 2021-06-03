@@ -16,13 +16,9 @@ function gui_define_container_escape_screen(){
 
 	// --- help
 
-	var _button = new EmuButton(COLUMN_1_X, yy, 256, 32, "Help", function() {
+	var _button = new EmuButton(COLUMN_1_X, yy, 256, 32, "Keys", function() {
 	    var dialog = new EmuDialog(640, 640, "Terraformer2D");
-	    dialog.AddContent(new EmuText(32, 32, 512, 256, 
-		"Terraformer2D"
-		+"\n============================="
-		+"\nInstructions to be completed..."
-		));
+	    dialog.AddContent(new EmuText(32, 32, 512, 256, obj_gui.KEYS_TEXT_LINE));
 	});
 	_container.AddContent(_button);
 	yy+=32;
@@ -46,7 +42,8 @@ function gui_define_container_escape_screen(){
 	// === back to simulation
 
 	var _button = new EmuButton(COLUMN_1_X, yy, 256, 32, "Back", function() {
-		obj_gui.show_escape_screen = false;
+		//obj_gui.show_escape_screen = false;
+		gui_escape_screen_toggle();
 	});
 	_container.AddContent(_button);
 	yy+=32;
@@ -68,7 +65,7 @@ function gui_define_container_escape_screen(){
 
 	// button close
 
-	var _button = new EmuButton(COLUMN_1_X, yy, 256, 32, "Show Dialog", function() {
+	var _button = new EmuButton(COLUMN_1_X, yy, 256, 32, "Help", function() {
 	    //var dialog = new EmuDialog(640, 640, "Hey, listen!", emu_null);
 	    var dialog = new EmuDialog(640, 640, "Hey, listen!");
 	    dialog.AddContent(new EmuText(32, 32, 256, 64, "These are words that you can read and stuff"));

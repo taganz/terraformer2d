@@ -28,7 +28,7 @@ function gen_enum(){
 		
 		AGE_DEAD,							// 13
 		
-		HEIGHT_ADULT,						// 14 - used for giving light to plants. small < 5, tall > 5 
+		HEIGHT_ADULT,						// 14 - (m) 
 		BIOMASS_ADULT,						// 15
 		ALLOCATION_DIGESTIVE_ANIMALS,		// 16 - eaten biomass animals can store before metabolim
 		ALLOCATION_REPRODUCTIVE,			// 17 

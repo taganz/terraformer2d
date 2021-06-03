@@ -12,6 +12,7 @@ function _grid_create_cell(_x_cell, _y_cell) {
 			cell = ds_grid_get(grid_cells, _x_cell, _y_cell);
 			
 			
+			/*
 			// === NUTRIENTS
 			
 			// add nutrients to cell
@@ -20,7 +21,7 @@ function _grid_create_cell(_x_cell, _y_cell) {
 			var tile_data = tilemap_get_at_pixel(map_nutrients, _x_cell * CELL_SIZE_PX, _y_cell * CELL_SIZE_PX);   // <--- TBC
 			var nutrients_at_tile = tile_get_index(tile_data) * (NUTRIENT_TILE_MULTIPLIER) + (NUTRIENT_TILE_OFFSET);
 			cell.map_nutrients[? NUTRIENT.MINERAL] = nutrients_at_tile;
-		
+			*/
 		
 			// check climate change by user
 			//if controller.user_options.climate_replace > 0 {
@@ -51,9 +52,15 @@ function _grid_create_cell(_x_cell, _y_cell) {
 
 			// === SOIL
 
-			// soil parameters
-			//    at present, each climate has a specific soil type
-			cell.soil_type = climate_get_soil(cell.climate);
+			// load soil from tileset
+			var layer_id = layer_get_id(LAYER_SOIL);
+			var map_id = layer_tilemap_get_id(layer_id);
+			var tile_data = tilemap_get_at_pixel(map_id, _x_cell*CELL_SIZE_PX, _y_cell*CELL_SIZE_PX);
+			var tile_index = tile_get_index(tile_data);
+			if tile_index!= 0 
+				cell.soil_type = tile_index;
+			else
+				cell.soil_type = SOIL.LOAM;
 			
 			// check soil change by user
 			if controller.user_options.soil_type_replace > 0 {
