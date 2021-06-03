@@ -18,7 +18,7 @@ function gui_define_container_escape_screen(){
 
 	var _button = new EmuButton(COLUMN_1_X, yy, 256, 32, "Keys", function() {
 	    var dialog = new EmuDialog(640, 640, "Terraformer2D");
-	    dialog.AddContent(new EmuText(32, 32, 512, 256, obj_gui.KEYS_TEXT_LINE));
+	    dialog.AddContent(new EmuText(32, 32, 512, 256, gui_help_keys()));
 	});
 	_container.AddContent(_button);
 	yy+=32;
