@@ -20,14 +20,7 @@ if !controller.sim_paused {
 			
 			// absorb nutrients
 			structure_metabolism(id);
-			
-			//if id.is_plant {
-			//	structure_metabolism_plant(id);
-			//}
-			//else {
-			//	structure_metabolism_animal(id);
-			//}
-			
+
 			// once biomass is updated, reallocate it among biomass_eat, biomass_body and biomass_reproduction
 			
 			biomass_allocation(id);

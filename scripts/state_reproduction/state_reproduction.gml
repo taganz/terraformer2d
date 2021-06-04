@@ -1,12 +1,12 @@
 /*
 
-	Generates one offspring creature
+	state_reproduction
 	
 	- create offspring instances
-	- updates offspring dna
-	- give biomass to offspring and update some parameters
+	- updates offspring genome
+	- give some biomass to offspring 
+	- --> IDLE
 	
-
 */
 
 function state_reproduction(_id){

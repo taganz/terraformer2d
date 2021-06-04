@@ -1,16 +1,17 @@
 
 /* 
 	
-	BORN --> IDLE	
-	IDLE 
+	0.BORN --> IDLE	
+	1.IDLE 
 		--> IDLE 
 		--> EAT		if hungry, only animals, plants receive water directly from world)
 		--> REPRODUCTION
 		--> DEAD
-	REPRODUCTION --> IDLE
-	EAT
+	2.REPRODUCTION --> IDLE
+	3.EAT
 		--> IDLE
 		--> DEAD
+	4.DEAD
 		
 */
 

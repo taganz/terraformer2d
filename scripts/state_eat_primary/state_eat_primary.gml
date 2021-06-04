@@ -1,48 +1,36 @@
 
-// get biomass from plants in the same cell
-// try small producers first, then big producers
-// increment structure.animal_eaten_biomass
+/*
 
+	state_eat_primary
+	
+	- look for a producer in nearby cells
+	- if attack > prey.defense 
+		move to its cells and eat from it
 
+*/
 function state_eat_primary(_id) {
 	
 
 		// get creatures in my cell or nearby
 		
-		// try first with small producers
-		//var _list_creatures_cell = world_get_nearby_creatures(_id.x, _id.y, "small_producer");
-		var _list_creatures_cell = world_get_nearby_creatures(_id.x, _id.y, "producer");
-		_process_producers_list(_id, _list_creatures_cell);
+		var _producers_list = world_get_nearby_creatures(_id.x, _id.y, "producer");
+
 		
-		// if no small, try with the big ones
-		//if _eat == false {
-		//	var _list_creatures_cell = world_get_nearby_creatures(_id.x, _id.y, "big_producer");
-		//	_process_producers_list(_id, _list_creatures_cell);
-		//}
-					
-		
-		_id.state.next_state = STATE.IDLE;
-	
-}
-
-
-// if there is one producer in the list, eat from it and return true	
-
-function _process_producers_list(_id, _producers_list) {
-	
-		var _prey = -1;
-
 		// iterate producers in list looking for a plant to eat
 
+		var _prey = -1;
+		_id.last_prey_eaten = -1;
+		
 		for(var i=0; i<ds_list_size(_producers_list); i++) { 
 			
 			_prey = ds_list_find_value(_producers_list, i);		
+			
+			ASSERT(!is_undefined(_prey), _id, "state_eat_primary _prey undefined");
 			if is_undefined(_prey)== false {
 						
 											
 				// can eat plant?
 						
-				//if _id.structure.biomass > _prey.structure.biomass / _prey.genome[GEN.INDIVIDUALS_PER_CREATURE] * PRIMARY_TO_PLANT_RATIO_TO_EAT  {
 				if _id.genome[GEN.COMBAT_ATTACK_POINTS] > _prey.genome[GEN.COMBAT_DEFENSE_POINTS] {
 					
 					// move to plant position, it is near
@@ -57,11 +45,14 @@ function _process_producers_list(_id, _producers_list) {
 					log_event(LOGEVENT.CREATURE_EAT, _id, _prey, _biomass_got, _txt);
 				
 					// store to draw
-					last_prey_eaten = _prey;
-				
-					return true;	
+					_id.last_prey_eaten = _prey;
+
+					break;
 				}
 			}
 		}
-		return false;
+
+		_id.state.next_state = STATE.IDLE;
+	
+		return 
 }

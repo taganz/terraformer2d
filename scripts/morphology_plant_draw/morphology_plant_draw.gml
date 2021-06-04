@@ -17,9 +17,11 @@ function morphology_plant_draw(_id){
 		
 		if controller.debug_morphology_creatures_as_dots {
 			
-			draw_circle(_id.x, _id.y, 1+10*_body_w_scale, false);
+			//draw_circle(_id.x, _id.y, 1+20*_body_w_scale, false);
+			draw_set_colour(c_green);
+			draw_circle(_id.x, _id.y, 1+0.05*_id.structure.biomass, false);
 			
-			
+				
 		}
 		else {
 		

@@ -48,24 +48,4 @@ function World() constructor {
 
 
 
-	// simulating decomposers tranforming corpse into organic nutrients
-	biomass_decomposition = function (_id) {
-		
-		// calculate how much biomass is about to be decomposed
-		var _decomp = _id.structure.biomass * BIOMASS_DECOMPOSITION_FACTOR / _id.structure._metabolism_steps_per_month;
-		
-		if (_id.structure.biomass - _decomp < BIOMASS_DECOMPOSITION_ZERO)    // too small, go to zero
-			_decomp = _id.structure.biomass;
-				
-		biomass_modify(_id, -_decomp);
-		
-			
-		// transform this biomass into organic nutrients
-		//grid_cells[# _id.x div CELL_SIZE_PX, _id.y div CELL_SIZE_PX].map_nutrients[? NUTRIENT.MINERAL] += _decomp;
-		
-		return _decomp;
-	}
-	
-
-
 }

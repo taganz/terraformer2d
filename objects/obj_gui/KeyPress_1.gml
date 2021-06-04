@@ -1,5 +1,7 @@
 // Input keys
 
+// instructions in gui_help_keys() 
+
 
 #macro KEY_ACTIVATE_LOG_CREATURE_IN_SCREEN "3"  // used in Log
 //#macro KEYS_TEXT_LINE "ESC: Options P: Pause  R: Restart  1: Faster  2:Slower  3:Follow  4:Debug  "
@@ -13,7 +15,7 @@ if room!= Room0 {
 	if keyboard_check(vk_escape) {
 		gui_escape_screen_toggle();
 	}
-	// show creatures as dots
+	// show climates
 	if keyboard_check(ord("C")) {
 		layer_id = layer_get_id(LAYER_CLIMATE);
 		layer_set_visible(layer_id, !layer_get_visible(layer_id));

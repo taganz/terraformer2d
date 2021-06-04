@@ -35,8 +35,17 @@ function Morphology_Animal(_id) constructor {
 	// === draw 
 	
 	draw = function() {
-		
-		switch (my_id.state.state) {
+						
+
+		if controller.debug_morphology_creatures_as_dots {
+			
+			//draw_circle(_id.x, _id.y, 1+20*_body_w_scale, false);
+			draw_set_colour(c_maroon);
+			draw_circle(my_id.x, my_id.y, 1+0.5*my_id.structure.biomass, false);
+		}
+		else 
+		{
+			switch (my_id.state.state) {
 			case STATE.EAT:		
 				if my_id.structure.is_starving  {
 					if my_id.structure.anabolism_input > 0
@@ -62,11 +71,9 @@ function Morphology_Animal(_id) constructor {
 				else
 					sprite = my_id.creature_sprite_default; 
 					
+			}
+			draw_sprite_ext(sprite, 0, my_id.x, my_id.y, scale, scale, 0, c_white, 75);
 		}
-				
-
-		
-		draw_sprite_ext(sprite, 0, my_id.x, my_id.y, scale, scale, 0, c_white, 75);
 	}
 
 }

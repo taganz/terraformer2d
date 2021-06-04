@@ -2,12 +2,14 @@
 /*
 
     state_born
+	- put creature in world
+	- assigns my_cell
+	- initilize structure
+	- initilize morphology
+	- if sthing bad happens, DEADCAUSE.BIRTH
+	- --> IDLE
 
-	updates
-		world, craature born
-		my_cell
-		next_state
-
+	
 */
 
 function state_born(_id){
@@ -22,10 +24,6 @@ function state_born(_id){
 		
 		// initialize structure
 		structure_born(_id);
-
-		// update biomass general stats
-		//controller.world.trophic_level_biomass_now[_id.genome[GEN.TROPHIC_LEVEL]]+= _id.structure.biomass;
-
 	
 		// initialize morphology
 		if _id.is_plant {
