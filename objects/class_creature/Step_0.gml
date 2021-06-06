@@ -28,12 +28,7 @@ if !controller.sim_paused {
 		}
 
 		// update morphology parameters if necessary
-		if id.is_plant {
-			morphology_plant_step(id);		
-		}
-		else {
-			morphology.step();
-		}
+		morphology_step(id);		
 	}
 
 }

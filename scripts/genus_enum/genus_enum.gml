@@ -21,6 +21,9 @@ function genus_enum(){
 		,CROP_BUSH				// 12
 		,PRIMARY_TINY_2			// 13
 		,PRIMARY_TINY_3			// 14
+		,PLANT_BUSH_3			// 15
+		,PLANT_BUSH_4			// 16
+		,PLANT_BUSH_5			// 17
 	}
 
 }

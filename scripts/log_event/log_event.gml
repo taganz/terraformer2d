@@ -310,7 +310,7 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 				_col_trophic_level = trophic_level_to_string(_id1.genome[GEN.TROPHIC_LEVEL]);
 				_col_specie = string(_id1.genome[GEN.SPECIE_CODE]);
 				_col_num1 = string(_id1.genome[GEN.GENUS]);		// genus code
-				_col_txt1 = _id1.genome[GEN.GENUS_NAME];		// genus string
+				_col_txt1 = string(_id1.genome[GEN.GENUS_NAME]);// genus string
 				break;
 				
 			case LOGEVENT.WORLD_PROBE_SOIL: 

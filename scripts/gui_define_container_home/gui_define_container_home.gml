@@ -119,6 +119,14 @@ var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "CarryingCapacity", fun
 _container.AddContent(_button);
 yy+=32;
 
+var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "PopulationGrowth", function() {
+	obj_gui.state = GUI_STATE.CONFIG_ROOM;
+	obj_gui.selected_room = PopulationGrowth;
+});
+_container.AddContent(_button);
+yy+=32;
+
+
 
 
 

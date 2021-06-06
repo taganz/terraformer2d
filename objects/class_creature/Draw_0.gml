@@ -12,7 +12,7 @@ if obj_gui.show_escape_screen == false {
 			morphology_plant_draw(id);		
 		}
 		else {
-			morphology.draw();
+			morphology_animal_draw(id);
 		}
 	}
 

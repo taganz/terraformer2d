@@ -14,7 +14,9 @@
 
 function state_born(_id){
 
-	
+	if _id==0
+		var breakpoint = true;
+
 	// can not put this at create event to assure controller has already created world
 	var born_ok = world_creature_born(_id, _id.x, _id.y);
 	
@@ -26,12 +28,7 @@ function state_born(_id){
 		structure_born(_id);
 	
 		// initialize morphology
-		if _id.is_plant {
-			morphology_plant_born(_id);		
-		}
-		else {
-			_id.morphology.born();
-		}
+		morphology_born(_id);		
 			
 		// log parameters	
 		log_events_creature_born(_id);

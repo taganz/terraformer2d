@@ -20,12 +20,7 @@ last_prey_eaten = -1;			// TBC
 
 // -- morphology
 
-if is_plant {
-	morphology = new Morphology_Plant(id);   // will be initialized at state_born
-}
-else {
-	morphology = new Morphology_Animal(id);
-}
+morphology = new Morphology(id);   // will be initialized at state_born
 
 
 // -- state
