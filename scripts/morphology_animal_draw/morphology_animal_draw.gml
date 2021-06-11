@@ -7,7 +7,30 @@ function morphology_animal_draw(_id){
 		
 		if controller.debug_morphology_creatures_as_dots {
 			
-			draw_set_colour(c_maroon);
+			switch(_id.state.state){
+				case STATE.DEAD: 
+					draw_set_colour(c_maroon);
+					break;
+				case STATE.EAT: 
+					if _id.structure._has_eaten_this_time {
+						draw_set_colour(c_red);
+					}
+					else {
+						// nothing to eat
+						if _id.structure.is_starving 
+							draw_set_colour(c_yellow);
+						else 
+							draw_set_colour(c_maroon);
+					}
+					break;
+				default:  
+					if _id.structure.is_starving 
+						draw_set_colour(c_yellow);
+					else 
+						draw_set_colour(c_maroon);
+					break;
+			}
+					
 			draw_circle(_id.x, _id.y, 1+0.5*_id.structure.biomass, false);
 			
 				
@@ -27,18 +50,18 @@ function morphology_animal_draw(_id){
 				if (_head_w_scale > 0 ) {
 					var sprite_head_eat = -1;
 					if _id.structure.is_starving  {
-						if _id.structure.anabolism_input > 0
+						if _id.structure._has_eaten_this_time > 0
 							sprite_head_eat = _id.creature_sprite_starving_eat; 
 						else
 							// not really eating
 							sprite_head_eat = _id.creature_sprite_starving; 
 					}
 					else {
-						if _id.structure.anabolism_input > 0
+						if _id.structure._has_eaten_this_time > 0
 							sprite_head_eat = _id.creature_sprite_eat; 
 						else 
 							// not really eating
-							sprite_head_eat = _id.creature_sprite_default;
+							sprite_head_eat = _id.creature_sprite_head;
 						}
 						draw_sprite_ext(sprite_head_eat, 0, _id.x - _head_w/2, _id.y - _head_h -_body_h, _head_w_scale, _head_h_scale, 0, specie_blend, 75);
 				}
@@ -55,7 +78,7 @@ function morphology_animal_draw(_id){
 					if _id.structure.is_starving
 						draw_sprite_ext(_id.creature_sprite_starving, 0, _id.x - _head_w/2, _id.y - _head_h -_body_h, _head_w_scale, _head_h_scale, 0, specie_blend, 75);
 					else
-						draw_sprite_ext(_id.creature_sprite_default, 0, _id.x - _head_w/2, _id.y - _head_h -_body_h, _head_w_scale, _head_h_scale, 0, specie_blend, 75);
+						draw_sprite_ext(_id.creature_sprite_head, 0, _id.x - _head_w/2, _id.y - _head_h -_body_h, _head_w_scale, _head_h_scale, 0, specie_blend, 75);
 						
 				}
 				if (_body_w_scale > 0 ) {

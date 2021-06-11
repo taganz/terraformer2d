@@ -9,6 +9,10 @@
 
 function structure_born(my_id){
 
+
+	if my_id.is_plant == false
+		var breakpoint_animal = true;
+
 	with my_id.structure {
 
 

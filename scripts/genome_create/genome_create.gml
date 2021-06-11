@@ -15,7 +15,7 @@ function genome_create(_genus){
 		for (var i=0; i<GEN._LENGTH_;i++) {
 	
 			// get value 
-			var val = _genus_grid_gen_value(_genus, i);
+			var val = genus_get_gen(_genus, i);
 			if (val != -999999999) {
 				_genome[i] = val;
 			}

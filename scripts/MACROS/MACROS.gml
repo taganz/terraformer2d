@@ -58,11 +58,13 @@ function MACROS(){
 #macro LEAF_M2_PER_KG				0.1			// area/weight ratio for leafs 
 #macro PRODUCERS_MAX_HEIGHT			50			// roots will get maximum water at this plant height
 
+
 // general life constants
 #macro BIOMASS_DECOMPOSITION_ZERO  10			// when biomass decompeses under this level instance is destroyed
 #macro BIOMASS_DECOMPOSITION_FACTOR 0.4			// per sim_month 
 //#macro GENUS_SPAWN_AS_ADULTS true				// if false, depends on variable creature_spawn_as_adult
-#macro PRIMARY_TO_PLANT_RATIO_TO_EAT 0.5		// primaries biomass need be greater than this fraction of plant biomass to eat it
+#macro PRODUCER_BIOMASS_MINIMUM_EAT 0.2		// if producer biomass is less than this fraction of biomass_adult can not be eaten by primaries
+#macro BIOMASS_LIFE_FRACTION_STARVING 1.2	// if biomass goes below this level creature is_starving
 }
 
 

@@ -1,9 +1,9 @@
-// returns value for gen in initial specie
+// returns value for gen in genus
 // returns -999999999 if error
-function _genus_grid_gen_value(genus, gen){
+function genus_get_gen(genus, gen){
 
 	
-	// read specie values from initial_species_grid (columns are species, rows are gens)
+	// read specie values from _genus_grid (columns are species, rows are gens)
 	
 	with controller.species  {
 		

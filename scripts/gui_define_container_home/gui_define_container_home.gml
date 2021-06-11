@@ -119,9 +119,13 @@ var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "CarryingCapacity", fun
 _container.AddContent(_button);
 yy+=32;
 
-var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "PopulationGrowth", function() {
+var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Primaries on Bush Crop", function() {
+	controller.user_options.room_climate = CLIMATE.TROPICAL;
+	controller.user_options.room_soil_type = SOIL.LOAM;
+	controller.user_options.spawn_genus_object = genus_object_from_id(GENUS.PRIMARY_TINY);
 	obj_gui.state = GUI_STATE.CONFIG_ROOM;
-	obj_gui.selected_room = PopulationGrowth;
+	obj_gui.selected_room = OneClimateOneSoil;
+	obj_gui.container_config_room_1= gui_define_container_config_room_1();
 });
 _container.AddContent(_button);
 yy+=32;
@@ -211,8 +215,8 @@ yy+=32;
 // --- temperature input
 
 var input = new EmuInput(OPTIONS_COLUMN_Y, yy, 350, 32, "Temperature incr.", 
-	string(controller.user_options.default_climate_change_temperature_increment), "-50 - 50", 3, E_InputTypes.REAL, function() {
-    controller.user_options.default_climate_change_temperature_increment = value;
+	string(controller.user_options.room_temperature_increment), "-50 - 50", 3, E_InputTypes.REAL, function() {
+    controller.user_options.room_temperature_increment = value;
 });
 input.SetRealNumberBounds(-50, 50);
 _container.AddContent(input);
@@ -221,8 +225,8 @@ yy+=32;
 // --- radiation input
 
 var input = new EmuInput(OPTIONS_COLUMN_Y, yy, 350, 32, "Radiation",
-	string(controller.user_options.default_world_radiation), "0 - 9", 1, E_InputTypes.REAL, function() {
-    controller.user_options.default_world_radiation = value/10;
+	string(controller.user_options.room_world_radiation), "0 - 9", 1, E_InputTypes.REAL, function() {
+    controller.user_options.room_world_radiation = value/10;
 });
 input.SetRealNumberBounds(0, 9);
 _container.AddContent(input);

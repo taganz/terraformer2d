@@ -4,10 +4,14 @@ if RANDOMIZE_AT_START
 	randomize();
 
 
-//  === default values, can be adjusted by user from gui
 
-//default_climate_change_temperature_increment = 0;
-//default_world_radiation = SIMULATION_WORLD_RADIATION;
+// simulation area size
+world_max_x = window_get_width();
+world_max_y = window_get_height();
+	
+
+// holds species statistics, initial species definitions
+species = new Species();
 
 
 // === user options for next simulation
@@ -18,6 +22,10 @@ sim_paused = -1;			// simulation is paused
 // === log class
 
 log = new Log();
+
+
+// check for missing objects
+genus_check_objects_exist();	
 
 
 // === hide object

@@ -56,7 +56,7 @@ function genome_offspring_copy(_id_parent, _radiation){
 		// this is a different specie
 		
 		// get new specie code
-		controller.species._genus_last_variant[_id_parent.genome[GEN.GENUS]]++; 	
+		controller.species._genus_last_variant[_id_parent.genome[GEN.GENUS_ID]]++; 	
 		_genome_child[GEN.SPECIE_CODE] = specie_code_from_genome(_genome_child);
 		
 		// parent specie is parent's specie

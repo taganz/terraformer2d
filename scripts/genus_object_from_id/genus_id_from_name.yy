@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "World",
-    "path": "folders/Scripts/World.yy",
+    "name": "Species",
+    "path": "folders/Scripts/DNA/Species.yy",
   },
   "resourceVersion": "1.0",
-  "name": "world_nearby_creatures",
+  "name": "genus_id_from_name",
   "tags": [],
   "resourceType": "GMScript",
 }

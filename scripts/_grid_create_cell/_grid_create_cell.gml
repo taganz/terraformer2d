@@ -24,8 +24,8 @@ function _grid_create_cell(_x_cell, _y_cell) {
 			*/
 		
 			// check climate change by user
-			//if controller.user_options.climate_replace > 0 {
-			//	cell.climate = controller.user_options.climate_replace;
+			//if controller.user_options.room_climate > 0 {
+			//	cell.climate = controller.user_options.room_climate;
 			//}
 
 
@@ -39,8 +39,8 @@ function _grid_create_cell(_x_cell, _y_cell) {
 			cell.climate = climate_at_tile;
 						
 			// check climate change by user
-			if controller.user_options.climate_replace > 0 {
-				cell.climate = controller.user_options.climate_replace;
+			if controller.user_options.room_climate > 0 {
+				cell.climate = controller.user_options.room_climate;
 			}
 						
 			// === COORDINATES
@@ -63,8 +63,8 @@ function _grid_create_cell(_x_cell, _y_cell) {
 				cell.soil_type = SOIL.LOAM;
 			
 			// check soil change by user
-			if controller.user_options.soil_type_replace > 0 {
-				cell.soil_type = controller.user_options.soil_type_replace;
+			if controller.user_options.room_soil_type > 0 {
+				cell.soil_type = controller.user_options.room_soil_type;
 			}
 			
 			// max stored water

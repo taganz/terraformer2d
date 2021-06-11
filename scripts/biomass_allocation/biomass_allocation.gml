@@ -28,7 +28,8 @@ function biomass_allocation(_id) {
 			// - biomass_reproduction is zero
 			biomass_eat = max(biomass *(_biomass_eat_allocation + (0.9 - _biomass_eat_allocation) * (1 - biomass / biomass_adult)),0);
 			biomass_body = max(biomass - biomass_eat, 0);
-			
+		
+			biomass_reproduction = 0;
 		}
 		else {
 		

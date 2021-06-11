@@ -43,10 +43,10 @@ function Structure(_id, _spawn_as_adult) constructor {
 	
 	// biomass specie parameters
 	
-	biomass_adult = -1;
-	_biomass_eat_allocation = -1;		// different in plants and animals
-	_biomass_adult_max = -1;				// max biomass attainable by creature
-	_biomass_max = -1;						// max biomass attained by creature
+	biomass_adult = -1;					// defined by genome
+	_biomass_eat_allocation = -1;		
+	_biomass_adult_max = -1;			// max biomass attainable by creature including reproductive
+	_biomass_max = -1;					// max biomass attained by creature
 	_biomass_reproduction_max = -1;
 		
 	// height
@@ -81,5 +81,5 @@ function Structure(_id, _spawn_as_adult) constructor {
 	anabolism_input = -1;
 	_metabolism_steps_per_month = -1; // time correction factor for animals
 	
-	
+	_has_eaten_this_time = false;		// used in morphology
 }

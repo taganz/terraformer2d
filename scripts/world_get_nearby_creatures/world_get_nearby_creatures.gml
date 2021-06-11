@@ -8,8 +8,9 @@ function world_get_nearby_creatures(_x, _y, kind){
 
 
 	with controller.world {
-		
-		//var _msg = "";
+
+		// translate pixel to cell coordinates
+
 		var _xx = _x div CELL_SIZE_PX;
 		var _yy = _y div CELL_SIZE_PX;
 		
@@ -22,7 +23,7 @@ function world_get_nearby_creatures(_x, _y, kind){
 			
 				var _list = ds_list_create()
 				for (var c=0; c<grid_cells[# _xx, _yy]._grid_producers_current; c++) {
-					ds_list_add(_list, grid_cells[# _xx, _yy].grid_producers[#0, c]);
+					ds_list_add(_list, grid_cells[# _xx, _yy].grid_producers[# 0, c]);
 				}
 				break;
 			case "primary":
@@ -54,11 +55,10 @@ function world_get_nearby_creatures(_x, _y, kind){
 						var _cell = grid_cells[# _xx_check, _yy_check];
 						if _cell!= 0 {				
 							switch (kind) {
-								case "small_producer":
-									_list = _cell.list_producers_small;
-									break;
-								case "big_producer": 
-									_list = _cell.list_producers_big;
+								case "producer":
+									for (var c=0; c<grid_cells[# _xx_check, _yy_check]._grid_producers_current; c++) {
+										ds_list_add(_list, grid_cells[# _xx_check, _yy_check].grid_producers[# 0, c]);
+									}
 									break;
 								case "primary":
 									_list = _cell.list_primaries;

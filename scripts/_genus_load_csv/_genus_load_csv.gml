@@ -9,12 +9,15 @@ function _genus_load_csv(){
 		
 		var file_grid = csv_to_grid(FILE_GENUS_CSV);
 		
-		// validations
+		// === validations
+		
 		var _max_rows = ds_grid_height(file_grid);
 		ASSERT(ds_grid_value_exists(file_grid, 0, 0, 0, _max_rows, "GENUS"), 0, "INITIAL SPECIES ROW NOT FOUND IN SPECIES FILE");
 	
+	
 		// show file version
 		show_debug_message("*** Genus file version: "+string(file_grid[# 1, 0]))
+	
 	
 		/*
 		var ww = ds_grid_width(file_grid);

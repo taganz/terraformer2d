@@ -1,4 +1,15 @@
+/*
+	biomass_modify(id, quantity)
+	
+	- biomass is limited at 1.2 * biomass adult max (= (biomass adult + dna reproductive) *1.1)
+	- growth: heigth = biomass * dna height grow factor
+	- death by starving if biomass < biomass life (= biomass max * dna biomass life factor)
+	- 
+	
+	
+	
 	// === biomass_modify(quant)
+	
 	// returns 
 	//		modified quantity (can be a negative value)
 	// updates
@@ -9,6 +20,7 @@
 	//		is_starving	
 	//		is_dead
 	//		dead_cause
+*/
 	function biomass_modify (_id, _quant) {
 		
 		var _quant_got = _quant;
@@ -53,17 +65,17 @@
 					// _biomass_max surpassed?
 					if biomass > _biomass_max {				
 						_biomass_max = biomass;
-						_biomass_life = _biomass_max * _id.genome[GEN.BIOMASS_LIFE_FACTOR];
+						_biomass_life = min(_biomass_adult_max, _biomass_max) * _id.genome[GEN.BIOMASS_LIFE_FACTOR];
 					}
 			
 					// hungry histeresys cycle
 					if is_hungry == false {
-						is_hungry = (biomass < 0.8 * _biomass_adult_max);
+						is_hungry = (biomass < 0.9 * _biomass_adult_max);
 						is_starving = false;   // first time hungry, not starving
 					}
 					else {
 						is_hungry = biomass < 1.1 *_biomass_adult_max;
-						is_starving = biomass < 2 * _biomass_life ; 
+						is_starving = biomass < BIOMASS_LIFE_FRACTION_STARVING * _biomass_life ; 
 					}
 				}			
 

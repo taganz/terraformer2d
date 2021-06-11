@@ -88,20 +88,50 @@ function gui_define_container_escape_screen(){
 	
 	yy=0;
 
+/*
 	// spawn specie selection
 
-
+	var object_names_array = genus_get_names_array(-1);
 	var radio = new EmuRadioArray(COLUMN_2_X, yy, 256, 32, "Specie to spawn on left click:", 0, function() {
+		var _object_names_array = genus_get_names_array(-1);
 	    show_debug_message("You have chosen specie #" + string(value) + ".");
-		controller.user_options.object_spawn_on_click = value;
+		controller.user_options.object_spawn_on_click = genus_object_from_name(_object_names_array[value]);
 	});
-	radio.AddOptions(controller.user_options.object_spawn_on_click_options);
+	radio.AddOptions(object_names_array);
 	//radio.SetColumns(3, 256);
 	radio.SetColumns(0, 256);
 	_container.AddContent(radio);
 	
 	yy+=32;
+*/
 
-
+	// spawn specie selection
+	
+	var object_names_array = genus_get_names_array(-1);
+	var list = new EmuList(COLUMN_2_X, yy, 256, 32, "Specie to spawn on left click:", "Default", 10, function() {
+		var object_names_array_2 = genus_get_names_array(-1);
+	    var selected_index = GetSelection();
+	    if (selected_index >= 0) {
+	        show_debug_message("Primary index selected: " + string(selected_index));
+			controller.user_options.object_spawn_on_click = genus_object_from_id(genus_id_from_name(object_names_array_2[@ selected_index]));	
+	    }
+		});
+	list.SetMultiSelect(false, false, false);
+	list.AddEntries(object_names_array);
+	// select default value from user options
+	if controller.user_options.spawn_genus_object != -1 {
+		for (var i = 0; i < array_length(object_names_array); ++i) {
+			if object_names_array[i] == genus_name_from_object(controller.user_options.object_spawn_on_click) {
+				list.Select(i, true);		
+				break;
+			}
+		}
+	}
+	_container.AddContent(list);
+	
+	yy+=32 * 12;
+	
+	
+	
 	return _container;
 }

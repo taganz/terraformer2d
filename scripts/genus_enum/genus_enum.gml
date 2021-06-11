@@ -24,6 +24,7 @@ function genus_enum(){
 		,PLANT_BUSH_3			// 15
 		,PLANT_BUSH_4			// 16
 		,PLANT_BUSH_5			// 17
+		, _LENGTH_
 	}
 
 }

@@ -16,11 +16,11 @@ function World() constructor {
 
 	climate_change_temperature_increment = 0;		// used by GUI to simulate climate change
 
-	world_max_x = window_get_width();
-	world_max_y = window_get_height();
+	world_max_x = controller.world_max_x;
+	world_max_y = controller.world_max_y;
 	
-	world_w = floor(world_max_x/CELL_SIZE_PX);
-	world_h = floor(world_max_y/CELL_SIZE_PX);
+	world_w = floor(controller.world_max_x/CELL_SIZE_PX);
+	world_h = floor(controller.world_max_y/CELL_SIZE_PX);
 	grid_cells = ds_grid_create(world_w+1, world_h+1);
 	
 	// stats

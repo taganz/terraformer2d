@@ -15,16 +15,14 @@ if room == Room0 {
 	time = new Time();
 
 	world = new World();
-	world.climate_change_temperature_increment = user_options.default_climate_change_temperature_increment;
-	//world.radiation = default_world_radiation;
-	world.radiation = user_options.default_world_radiation;
+	world.climate_change_temperature_increment = user_options.room_temperature_increment;
+	//world.radiation = room_world_radiation;
+	world.radiation = user_options.room_world_radiation;
 	// add water
 	grid_do_rain();	
 
-	// holds species statistics, initial species definitions
+	// restart species statistics, initial species definitions
 	species = new Species();
 
-	log_open();
-	log_events_init_world();
 
 }

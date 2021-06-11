@@ -34,17 +34,29 @@ function User_options() constructor {
 	log_user_spawned_creatures	= true;		// set log for user spawned creatures
 
 
-	// === world
+	// === room config
 
-	climate_replace = -1;			// if > 0 all climate tiles will be replaced with this value
-	soil_type_replace = -1;			// if > 0 all soil tiles will be replaced with this value
-	default_world_radiation = WORLD_RADIATION_DEFAULT
-	default_climate_change_temperature_increment = 0;
-
-
-	object_spawn_on_click = 8;
+	room_world_radiation = WORLD_RADIATION_DEFAULT;
+	room_temperature_increment = 0;
 	
-	object_spawn_on_click_options = [
+	room_climate = -1;			// if > 0 all climate tiles will be replaced with this value
+	room_soil_type = -1;			// if > 0 all soil tiles will be replaced with this value
+	
+	spawn_genus_object = -1;		// creature object to be spawned at room start
+	spawn_quantity = 1;
+	spawn_distance_max = 64;
+	spawn_log_probability = 0.1;	// fraction of spawned creatures market with log flag
+	
+	
+	//
+	
+	
+
+	object_spawn_on_click = obj_primary_tiny;
+	
+	//object_spawn_on_click_options = genus_get_names_array(-1);
+	/*
+									[
 									"obj_plant_tree_5"
 									, "obj_tree_tropical"
 									, "obj_tree_continental"
@@ -60,7 +72,8 @@ function User_options() constructor {
 									, "obj_primary_tiny_3" 
 									, "obj_secondary_small"
 									];
-	
+	*/
+	/*
 	object_spawn_on_click_objects = [
 									obj_plant_tree_5
 									, obj_tree_tropical
@@ -77,6 +90,7 @@ function User_options() constructor {
 									, obj_primary_tiny_3 
 									, obj_secondary_small
 									];
+	*/
 
 }
 

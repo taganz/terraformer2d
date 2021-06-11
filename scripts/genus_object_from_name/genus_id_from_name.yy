@@ -3,10 +3,10 @@
   "isCompatibility": false,
   "parent": {
     "name": "Species",
-    "path": "folders/Scripts/Species.yy",
+    "path": "folders/Scripts/DNA/Species.yy",
   },
   "resourceVersion": "1.0",
-  "name": "specie_code_char_x",
+  "name": "genus_id_from_name",
   "tags": [],
   "resourceType": "GMScript",
 }
