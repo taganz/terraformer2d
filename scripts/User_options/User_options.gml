@@ -43,9 +43,14 @@ function User_options() constructor {
 	room_soil_type = -1;			// if > 0 all soil tiles will be replaced with this value
 	
 	spawn_genus_object = -1;		// creature object to be spawned at room start
-	spawn_quantity = 1;
-	spawn_distance_max = 64;
+	spawn_quantity = 30;
+	spawn_distance_max = 200;
 	spawn_log_probability = 0.1;	// fraction of spawned creatures market with log flag
+	
+	spawn_2_genus_object = -1;		// creature object to be spawned at room start
+	spawn_2_quantity = 10;
+	spawn_2_distance_max = 150;
+	spawn_2_log_probability = 0.1;	// fraction of spawned creatures market with log flag
 	
 	
 	//
