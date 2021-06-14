@@ -5,7 +5,7 @@ function _cell_add_creature (_id, _x_cell, _y_cell) {
 			
 	with controller.world {
 		
-			// check if cell already exist and creat it if not
+			// check if cell already exist and create it if not
 			var cell = ds_grid_get(grid_cells, _x_cell, _y_cell);
 			
 			if is_undefined(cell) {
@@ -23,8 +23,9 @@ function _cell_add_creature (_id, _x_cell, _y_cell) {
 				// add creature to cell;
 				switch( _id.genome[GEN.TROPHIC_LEVEL]) {
 					case TROPHIC_LEVEL.PRODUCER:
-						if _grid_producers_current < CELL_MAX_PRODUCERS {
+						if _grid_producers_current < CELL_MAX_PRODUCERS - 1 {
 							grid_producers[# 0, _grid_producers_current] = _id;
+							//ASSERT(_id.structure.my_height>0, _id, "_cell_add_creature heigth==0");  // can not have 0 heigth in grid producers
 							grid_producers[# 1, _grid_producers_current] = _id.structure.my_height;
 							grid_producers_need_sort = true;
 							_grid_producers_current++;

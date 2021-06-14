@@ -37,11 +37,13 @@
 			var previous_height = my_height;
 			my_height = max(my_height, _height_growth_factor * biomass);	// can not reduce heigth
 				
-			// if height has increased significatively cell will need to reorder producers grid
-			if (my_height - previous_height)/my_height  > 0.1 {
-				// update height in cell
-				cell_update_producer_height(_id);
-				_id.my_cell.grid_producers_need_sort = true;
+			// if producer height has increased significatively cell will need to reorder producers grid
+			if _id.is_plant {
+				if (my_height - previous_height)/my_height  > 0.1 {
+					// update height in cell
+					cell_update_producer_height(_id);
+					_id.my_cell.grid_producers_need_sort = true;
+				}
 			}
 			
 			// update statistics

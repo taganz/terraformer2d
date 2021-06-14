@@ -25,7 +25,7 @@ return -1;
 		}
 			
 	}
-	ASSERT(false, 0, "genus_object_from_id - object "+ name_genus +" not found for genus "+string(id_genus));
+	ASSERT(false, 0, "genus_object_from_id - object "+ string(name_genus) +" not found for genus "+string(id_genus));
 	return -1;
 
 }

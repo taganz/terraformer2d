@@ -15,6 +15,7 @@ function Cell() constructor {
 	
 	grid_producers = ds_grid_create(2, CELL_MAX_PRODUCERS); // columns: producer_id, producer_height
 														// to get all producers use grid_producers[#0, i]
+	ds_grid_set_region(grid_producers, 1, 0, 1, CELL_MAX_PRODUCERS, -1); // reset height for reordering purposes
 	grid_producers_need_sort = false;	// a producer has changed height significatively and must reorder
 	_grid_producers_current = 0;		// number of producer in grid. next row to fill
 	

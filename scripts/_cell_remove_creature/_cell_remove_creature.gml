@@ -26,8 +26,8 @@ function _cell_remove_creature (_id, _x_cell, _y_cell) {
 					ASSERT(row != -1 or _id.structure.dead_cause==DEADCAUSE.BIRTH, _id, "_cell_remove_creature producer not found");
 					if row != -1  {
 						// delete row values
-						grid_producers[# 0, row] = 0;
-						grid_producers[# 1, row] = 0;
+						grid_producers[# 0, row] = 0;				// reset creature id
+						grid_producers[# 1, row] = -1;				// reset creature heigth 
 						// sort to delete row
 						ds_grid_sort(grid_producers, 1, false);		// descending height
 						grid_producers_need_sort = false;			// just done

@@ -5,12 +5,13 @@ function _grid_create_cell(_x_cell, _y_cell) {
 	with controller.world {
 		
 		// check if cell already exists
-		
+			
 		if grid_cells[# _x_cell, _y_cell]==0 {
 			// create cell
 			ds_grid_add(grid_cells, _x_cell, _y_cell, new Cell())
 			cell = ds_grid_get(grid_cells, _x_cell, _y_cell);
 			
+			ASSERT(!is_undefined(cell), 0, "_grid_create_cell undefined ds_grid_get");
 			
 			/*
 			// === NUTRIENTS
@@ -76,6 +77,10 @@ function _grid_create_cell(_x_cell, _y_cell) {
 			
 			// initial water 
 			cell.stored_water = cell.soil_saturation_water_kg * CELL_INITIAL_STORED_WATER;
+		}
+		else {
+			ASSERT(false, 0, "_grid_create_cell cell already exists");
+
 		}
 		
 	}
