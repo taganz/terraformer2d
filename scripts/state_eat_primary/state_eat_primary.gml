@@ -11,9 +11,11 @@
 function state_eat_primary(_id) {
 	
 
+		ASSERT(_id.genome[@ GEN.TROPHIC_LEVEL]==TROPHIC_LEVEL.PRIMARY, _id, "state_eat_primary error trophic level");
+	
 		// get creatures in my cell or nearby
 		
-		var _producers_list = world_get_nearby_creatures(_id.x, _id.y, "producer");
+		var _producers_list = world_get_nearby_creatures(_id.x, _id.y, TROPHIC_LEVEL.PRODUCER);
 
 		
 		// iterate producers in list looking for a plant to eat
@@ -29,7 +31,7 @@ function state_eat_primary(_id) {
 			if is_undefined(_prey)== false and _prey != 0 {
 						
 											
-				// can eat plant?
+				// can eat?
 						
 				if _id.genome[GEN.COMBAT_ATTACK_POINTS] > _prey.genome[GEN.COMBAT_DEFENSE_POINTS]
 					and _prey.structure.biomass > _prey.structure.biomass_adult * PRODUCER_BIOMASS_MINIMUM_EAT {

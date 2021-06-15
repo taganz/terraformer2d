@@ -62,8 +62,8 @@ function morphology_animal_draw(_id){
 						else 
 							// not really eating
 							sprite_head_eat = _id.creature_sprite_head;
-						}
-						draw_sprite_ext(sprite_head_eat, 0, _id.x - _head_w/2, _id.y - _head_h -_body_h, _head_w_scale, _head_h_scale, 0, specie_blend, 75);
+					}
+					draw_sprite_ext(sprite_head_eat, 0, _id.x - _head_w/2, _id.y - _head_h -_body_h, _head_w_scale, _head_h_scale, 0, specie_blend, 75);
 				}
 				// body
 				if (_body_w_scale > 0 ) {

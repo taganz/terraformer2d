@@ -44,16 +44,24 @@ function gui_draw_creature_info(){
 
 function _log_text_creature(_id){
 
-	return string(_id) 
-	//+ "\nSpecie: "+gen_to_string(_id.genome[GEN.SPECIE_CODE])
-	+ "\nSpecie: "+string(_id.genome[GEN.SPECIE_CODE])
-	+ "\nInitial specie: "+string(_id.genome[GEN.GENUS_ID])
-	+ "\nBiomass: "+string_format(_id.structure.biomass, 4, 1)+"kg"
-	+ "\nAge: "+string(sim_steps_to_years(_id.structure.age))+"y"
-	//+ "\nSTATE: " + _id.state.to_string()
-	+ "\nSTATE: " + state_to_string(_id.state.state)
-	+ "\nCELL:"+cell_to_string(_id.my_cell)
-	;
+	if instance_exists(_id) {
+		return string(_id) 
+		+ "\nGenus:  "+string(_id.genome[GEN.GENUS_NAME])
+		+ "\nSpecie: "+string(_id.genome[GEN.SPECIE_CODE])
+		//+ "\nInitial specie: "+string(_id.genome[GEN.GENUS_ID])
+		+ "\nBiomass: "+string_format(_id.structure.biomass, 4, 1)+"kg"
+		+ "\nAge: "+string(sim_steps_to_years(_id.structure.age))+"y"
+		+ "\nis_hungry: " + string(_id.structure.is_hungry)
+		+ "\nis_starving: " + string(_id.structure.is_starving)
+		+ "\nanabolism_input: " + string(_id.structure.anabolism_input)
+		+ "\n_has_eaten_this_time: " + string(_id.structure._has_eaten_this_time)
+		+ "\nSTATE : " + state_to_string(_id.state.state)
+		+ "\nCell :"+string(cell_x_from_pixel(_id.x))+","+string(cell_x_from_pixel(_id.y))
+		;
+	}
+	else {
+		return "not found: "+string(_id)
+		+ "\nCell:"+string(_id.my_cell.x_cell)+","+string(_id.my_cell.y_cell)
+	}
 
-	
 }

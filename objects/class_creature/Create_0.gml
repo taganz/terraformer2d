@@ -31,11 +31,18 @@ state.state_script[STATE.IDLE] = state_idle;
 state.state_script[STATE.REPRODUCTION] = state_reproduction;
 state.state_script[STATE.DEAD] = state_dead;
 	
-if is_plant {
-	state.state_script[STATE.EAT] = -1;    // plants get water from world
-}
-else {	
-	state.state_script[STATE.EAT] = state_eat_primary;
+switch (id.genome[GEN.TROPHIC_LEVEL]) {
+	case TROPHIC_LEVEL.PRODUCER:
+		state.state_script[STATE.EAT] = -1;    // plants get water from world
+		break;
+	case TROPHIC_LEVEL.PRIMARY:
+		state.state_script[STATE.EAT] = state_eat_primary;
+		break;
+	case TROPHIC_LEVEL.SECONDARY:
+		state.state_script[STATE.EAT] = state_eat_secondary;
+		break;
+	default:
+		ASSERT(false, id, "invalid trophic level");
 }
 
 

@@ -7,10 +7,10 @@
   "edgeFiltering": false,
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
-  "bbox_left": 2,
-  "bbox_right": 30,
+  "bbox_left": 0,
+  "bbox_right": 31,
   "bbox_top": 0,
-  "bbox_bottom": 31,
+  "bbox_bottom": 27,
   "HTile": false,
   "VTile": false,
   "For3D": false,
@@ -24,12 +24,12 @@
   "gridX": 0,
   "gridY": 0,
   "frames": [
-    {"compositeImage":{"FrameId":{"name":"2f7c0c8f-362c-4c98-a3df-3d2d2d79b127","path":"sprites/spr_secondary_small_starving/spr_secondary_small_starving.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
-        {"FrameId":{"name":"2f7c0c8f-362c-4c98-a3df-3d2d2d79b127","path":"sprites/spr_secondary_small_starving/spr_secondary_small_starving.yy",},"LayerId":{"name":"b4362a2d-a3f8-4636-9d32-3443c3859c79","path":"sprites/spr_secondary_small_starving/spr_secondary_small_starving.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
-      ],"parent":{"name":"spr_secondary_small_starving","path":"sprites/spr_secondary_small_starving/spr_secondary_small_starving.yy",},"resourceVersion":"1.0","name":"2f7c0c8f-362c-4c98-a3df-3d2d2d79b127","tags":[],"resourceType":"GMSpriteFrame",},
+    {"compositeImage":{"FrameId":{"name":"2f7c0c8f-362c-4c98-a3df-3d2d2d79b127","path":"sprites/spr_primary_small/spr_primary_small.yy",},"LayerId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},"images":[
+        {"FrameId":{"name":"2f7c0c8f-362c-4c98-a3df-3d2d2d79b127","path":"sprites/spr_primary_small/spr_primary_small.yy",},"LayerId":{"name":"b4362a2d-a3f8-4636-9d32-3443c3859c79","path":"sprites/spr_primary_small/spr_primary_small.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMSpriteBitmap",},
+      ],"parent":{"name":"spr_primary_small","path":"sprites/spr_primary_small/spr_primary_small.yy",},"resourceVersion":"1.0","name":"2f7c0c8f-362c-4c98-a3df-3d2d2d79b127","tags":[],"resourceType":"GMSpriteFrame",},
   ],
   "sequence": {
-    "spriteId": {"name":"spr_secondary_small_starving","path":"sprites/spr_secondary_small_starving/spr_secondary_small_starving.yy",},
+    "spriteId": {"name":"spr_primary_small","path":"sprites/spr_primary_small/spr_primary_small.yy",},
     "timeUnits": 1,
     "playback": 1,
     "playbackSpeed": 30.0,
@@ -41,7 +41,7 @@
     "moments": {"Keyframes":[],"resourceVersion":"1.0","resourceType":"KeyframeStore<MomentsEventKeyframe>",},
     "tracks": [
       {"name":"frames","spriteId":null,"keyframes":{"Keyframes":[
-            {"id":"133cc714-9846-4199-a990-328143d8d165","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"2f7c0c8f-362c-4c98-a3df-3d2d2d79b127","path":"sprites/spr_secondary_small_starving/spr_secondary_small_starving.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
+            {"id":"759700fa-78f9-4d0f-832d-76ea7c712469","Key":0.0,"Length":1.0,"Stretch":false,"Disabled":false,"IsCreationKey":false,"Channels":{"0":{"Id":{"name":"2f7c0c8f-362c-4c98-a3df-3d2d2d79b127","path":"sprites/spr_primary_small/spr_primary_small.yy",},"resourceVersion":"1.0","resourceType":"SpriteFrameKeyframe",},},"resourceVersion":"1.0","resourceType":"Keyframe<SpriteFrameKeyframe>",},
           ],"resourceVersion":"1.0","resourceType":"KeyframeStore<SpriteFrameKeyframe>",},"trackColour":0,"inheritsTrackColour":true,"builtinName":0,"traits":0,"interpolation":1,"tracks":[],"events":[],"modifiers":[],"isCreationTrack":false,"resourceVersion":"1.0","tags":[],"resourceType":"GMSpriteFramesTrack",},
     ],
     "visibleRange": null,
@@ -58,9 +58,9 @@
     "yorigin": 0,
     "eventToFunction": {},
     "eventStubScript": null,
-    "parent": {"name":"spr_secondary_small_starving","path":"sprites/spr_secondary_small_starving/spr_secondary_small_starving.yy",},
+    "parent": {"name":"spr_primary_small","path":"sprites/spr_primary_small/spr_primary_small.yy",},
     "resourceVersion": "1.3",
-    "name": "spr_secondary_small_starving",
+    "name": "spr_primary_small",
     "tags": [],
     "resourceType": "GMSequence",
   },
@@ -73,7 +73,7 @@
     "path": "folders/Sprites/animals.yy",
   },
   "resourceVersion": "1.0",
-  "name": "spr_secondary_small_starving",
+  "name": "spr_primary_small",
   "tags": [],
   "resourceType": "GMSprite",
 }

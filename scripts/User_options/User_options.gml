@@ -45,12 +45,17 @@ function User_options() constructor {
 	spawn_genus_object = -1;		// creature object to be spawned at room start
 	spawn_quantity = 30;
 	spawn_distance_max = 200;
-	spawn_log_probability = 0.1;	// fraction of spawned creatures market with log flag
+	spawn_log_probability = 0;	// fraction of spawned creatures market with log flag
 	
 	spawn_2_genus_object = -1;		// creature object to be spawned at room start
 	spawn_2_quantity = 10;
 	spawn_2_distance_max = 150;
-	spawn_2_log_probability = 0.1;	// fraction of spawned creatures market with log flag
+	spawn_2_log_probability = 0;	// fraction of spawned creatures market with log flag
+	
+	spawn_3_genus_object = -1;		// creature object to be spawned at room start
+	spawn_3_quantity = 10;
+	spawn_3_distance_max = 150;
+	spawn_3_log_probability = 0;	// fraction of spawned creatures market with log flag
 	
 	
 	//
