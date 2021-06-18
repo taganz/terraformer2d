@@ -15,7 +15,7 @@ function gen_enum(){
 	enum GEN {
 		// Genus 
 		GENUS_ID,							// genus id
-		GENUS,								// match genus_enum()
+		//GENUS,								// match genus_enum()
 		GENUS_OBJECT_NAME,					// object name in asset browser with antecessor "class_creature"
 		GENUS_NAME,							// human readable string
 		TROPHIC_LEVEL,						// 
@@ -54,6 +54,9 @@ function gen_enum(){
 		
 		COMBAT_DEFENSE_POINTS,				//  
 		COMBAT_ATTACK_POINTS,				// 		
+		VIEW_RANGE,							// (distance) - distance can see food or threat
+		SPEED_EAT,							// (distance/step) - speed looking for food
+		SPEED_ESCAPE,						// (distance/step) - speed escaping from threat
 	
 		////////////////////////////////////////////////////////////
 		// this is used to return the total number of gens

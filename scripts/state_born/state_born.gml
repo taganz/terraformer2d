@@ -48,6 +48,7 @@ function state_born(_id){
 		log_event(LOGEVENT.WORLD_INITIAL_GENUS, _id);		
 	}
 	
+	// === transitions
 	
 	_id.state.next_state = STATE.IDLE;
 		

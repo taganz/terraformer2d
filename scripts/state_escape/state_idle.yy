@@ -6,7 +6,7 @@
     "path": "folders/Scripts/Creatures/State.yy",
   },
   "resourceVersion": "1.0",
-  "name": "state_eat_secondary",
+  "name": "state_idle",
   "tags": [],
   "resourceType": "GMScript",
 }

@@ -6,7 +6,7 @@ var msg = "";
 		// immutable gens
 		switch(gen) {
 			case GEN.TROPHIC_LEVEL:			msg="TROPHIC_LEVEL"; break;
-			case GEN.GENUS:					msg="GENUS"; break;
+			//case GEN.GENUS:					msg="GENUS"; break;
 			case GEN.GENUS_ID:					msg="GENUS_ID"; break;
 			case GEN.GENUS_OBJECT_NAME:		msg="GENUS_OBJECT_NAME"; break;
 			case GEN.GENUS_NAME:			msg="GENUS_NAME"; break;
@@ -35,8 +35,11 @@ var msg = "";
 			case GEN.DORMANCY_TEMPERATURE_TRIGGER:		msg="DORMANCY_TEMPERATURE_TRIGGER"; break;
 			case GEN.DORMANCY_CATABOLISM_REDUCTION:		msg="DORMANCY_CATABOLISM_REDUCTION"; break;
 			case GEN.DORMANCY_MONTHS:					msg="DORMANCY_MONTHS"; break;
-			case GEN.COMBAT_ATTACK_POINTS:					msg="COMBAT_ATTACK_POINTS"; break;
-			case GEN.COMBAT_DEFENSE_POINTS:					msg="COMBAT_DEFENSE_POINTS"; break;
+			case GEN.COMBAT_ATTACK_POINTS:		msg="COMBAT_ATTACK_POINTS"; break;
+			case GEN.COMBAT_DEFENSE_POINTS:		msg="COMBAT_DEFENSE_POINTS"; break;
+			case GEN.VIEW_RANGE:				msg="VIEW_RANGE"; break;
+			case GEN.SPEED_EAT:					msg="SPEED_EAT"; break;
+			case GEN.SPEED_ESCAPE:				msg="SPEED_ESCAPE"; break;
 			
 		}
 		

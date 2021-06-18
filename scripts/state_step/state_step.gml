@@ -1,14 +1,37 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function state_step(_id){
+
+
+	if _id.is_secondary 
+		var breakpoint1 = 1;
+	if _id.is_primary
+		var breakpoint2 = 1;
+	if _id == -1
+		var breakpoint3 = 1;
+	
 	// execute script for current state
 
 	with _id.state {
 	
-		// check if something bad happened between state execution
 		
-		if _id.structure.is_dead
+		// exception states
+		
+		if _id.structure.is_dead {
 			next_state = STATE.DEAD;
+		}
+		else if _id.brain.seen_threat != noone {
+			next_state = STATE.ESCAPE;
+		}
+		else if _id.structure.is_hungry == false and next_state == STATE.EAT {
+			// after metabolism the creature is no more hungry
+			next_state = STATE.IDLE;
+		}
+		else if _id.brain.seen_food == noone and next_state == STATE.EAT {
+			// all available food has died since last state
+			next_state = STATE.IDLE;
+		}
+		
 		
 		
 		// check for state change		

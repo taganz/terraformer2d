@@ -9,8 +9,13 @@ if RANDOMIZE_AT_START
 world_max_x = window_get_width();
 world_max_y = window_get_height();
 	
+// === log class
+
+log = new Log();
+
 
 // holds species statistics, initial species definitions
+
 species = new Species();
 
 
@@ -18,10 +23,6 @@ species = new Species();
 
 user_options = new User_options();
 sim_paused = -1;			// simulation is paused
-
-// === log class
-
-log = new Log();
 
 
 // check for missing objects

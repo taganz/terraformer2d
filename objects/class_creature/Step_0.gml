@@ -8,8 +8,11 @@ if !controller.sim_paused {
 	//and controller.time.current_sim_month > 1 {   
 		
 		
+		if is_secondary {
+			var breakpoint = 1;
+		}
+		
 		// next action
-		//state.step();
 		state_step(id);
 
 		if structure.is_dead==false {

@@ -82,4 +82,15 @@ function Structure(_id, _spawn_as_adult) constructor {
 	_metabolism_steps_per_month = -1; // time correction factor for animals
 	
 	_has_eaten_this_time = false;		// used in morphology
+	
+	
+	// -- speed
+	
+	speed_eat = -1;				// speed looking for food
+	speed_escape = -1;			// speed escaping from threat
+	
+	// -- senses
+	
+	view_range = -1;			// distance can see food or threat
+	
 }

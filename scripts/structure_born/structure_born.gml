@@ -100,7 +100,20 @@ function structure_born(my_id){
 				
 		biomass_allocation(my_id);
 		
+		// == speed
 		
+		if my_id.is_plant == false {
+		
+			speed_eat = my_id.genome[GEN.SPEED_EAT];				// speed looking for food
+			speed_escape = my_id.genome[GEN.SPEED_ESCAPE];		// speed escaping from threat
+		}
+		
+		// == senses
+		
+		if my_id.is_plant == false {
+			
+			view_range = my_id.genome[GEN.VIEW_RANGE];
+		}
 			
 
 		

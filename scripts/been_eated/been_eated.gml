@@ -10,6 +10,9 @@
 	
 	function been_eated (_id, _id_attacker, _quant_organic_wanted) {
 		
+	if _id == -1
+		var breakpoint = true;
+		
 	with _id.structure {		
 		var _quant_got = biomass < _quant_organic_wanted ? biomass : _quant_organic_wanted;
 		var _was_dead = is_dead;

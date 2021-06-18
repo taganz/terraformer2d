@@ -1,6 +1,6 @@
 
 
-
+/*
 function state_eat_secondary(_id){
 
 
@@ -16,7 +16,7 @@ function state_eat_secondary(_id){
 	// iterate producers in list looking for a plant to eat
 
 	var _prey = -1;
-	_id.last_prey_eaten = -1;
+	_id.brain.last_prey_eaten = -1;
 		
 	for(var i=0; i<ds_list_size(_prey_list); i++) { 
 			
@@ -43,7 +43,7 @@ function state_eat_secondary(_id){
 				log_event(LOGEVENT.CREATURE_EAT, _id, _prey, _biomass_got, _txt);
 				
 				// store to draw
-				_id.last_prey_eaten = _prey;
+				_id.brain.last_prey_eaten = _prey;
 
 				break;
 			}
@@ -56,3 +56,4 @@ function state_eat_secondary(_id){
 		
 	
 }
+*/

@@ -4,6 +4,7 @@ function MACROS(){
 // === LOG
 
 // see also user_options
+#macro DEBUG_VERBOSE_ANIMALS	true		// log debug info to console
 
 // ===	GAME
 
@@ -27,6 +28,9 @@ function MACROS(){
 #macro WORLD_RADIATION_DEFAULT      0			
 #macro RADIATION_GEN_MUTATION_MIN	0.2			// gen mutation factor in offspring_copy
 #macro RADIATION_GEN_MUTATION_MAX	0.7			// gen mutation factor in offspring_copy
+
+#macro WORLD_WRAP_X		true
+#macro WORLD_WRAP_Y		true
 
 // terrain
 #macro CELL_SIZE_PX				48			// pixel size - screen area (climate cells are 32x32px)
@@ -65,6 +69,13 @@ function MACROS(){
 //#macro GENUS_SPAWN_AS_ADULTS true				// if false, depends on variable creature_spawn_as_adult
 #macro PRODUCER_BIOMASS_MINIMUM_EAT 0.2		// if producer biomass is less than this fraction of biomass_adult can not be eaten by primaries
 #macro BIOMASS_LIFE_FRACTION_STARVING 1.2	// if biomass goes below this level creature is_starving
+
+// movement
+//#macro PRIMARY_SPEED 20				// (distance per step) 
+//#macro SECONDARY_SPEED 50			// (distance per step) 
+//#macro PRIMARY_VIEW_DISTANCE 64		// maximum distance to see a threat
+//#macro SECONDARY_VIEW_DISTANCE 128 // maximum distance to discover food
+#macro EAT_DISTANCE 16		// maximum distance to eat food
 }
 
 
