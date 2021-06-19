@@ -20,7 +20,7 @@ structure = new Structure(id, creature_spawn_as_adult);
 
 // -- brain
 
-brain = new Brain();
+brain = new Brain(id);
 
 
 // -- morphology

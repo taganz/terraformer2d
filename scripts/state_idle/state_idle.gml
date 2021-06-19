@@ -9,11 +9,6 @@ function state_idle(_id){
 		if is_dead {
 			_id.state.next_state = STATE.DEAD;
 		}
-		// starving? - if starving don't reproduce
-		else if is_starving {
-		
-			_id.state.next_state = _id.is_plant ? STATE.IDLE : STATE.EAT;
-		}
 		// time for reproduction? 
 		else if reproduction_ready(_id)  {
 			
@@ -23,9 +18,28 @@ function state_idle(_id){
 				
 			_id.state.next_state = STATE.REPRODUCTION;
 		}
-		// eat
+		// nothing interesting to do for plants
+		else if _id.is_plant {
+			_id.state.next_state = STATE.IDLE; 
+		}
+		// animals: if hungry go for food
 		else if is_hungry {
-			_id.state.next_state = _id.is_plant ? STATE.IDLE : STATE.EAT;
+			
+			if _id.brain.seen_food == noone {
+				
+				// search food
+				brain_wander(_id);
+				_id.state.next_state = STATE.IDLE;
+			}
+			else {
+				
+				// go to seen food
+				_id.state.next_state = STATE.EAT;
+			}
+		}
+		// animals: nothing to do, rest
+		else {
+			_id.state.next_state = STATE.IDLE;
 		}
 	}
 }

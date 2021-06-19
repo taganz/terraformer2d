@@ -37,9 +37,12 @@ function structure_metabolism(my_id){
 		_has_eaten_this_time = _quant_anabolism > 0;	// used by morphology
 		
 		log_event(LOGEVENT.CREATURE_ANABOLISM, my_id, _quant_anabolism, "anabolism_input: "+string(anabolism_input)+", T:" + string(my_id.my_cell.temperature_current_month)+", kt: "+string(_anabolism_temperature_factor));
-		anabolism_input = my_id.is_plant ? 0 : anabolism_input -  _quant_anabolism / my_id.genome[GEN.KA_ANABOLISM_FACTOR]  * TIME_SIM_STEPS_PER_MONTH;				  
-		//anabolism_input -= _quant_anabolism / my_id.genome[GEN.KA_ANABOLISM_FACTOR]  * TIME_SIM_STEPS_PER_MONTH;				  
-			
+		//anabolism_input = my_id.is_plant ? 0 : anabolism_input -  _quant_anabolism / my_id.genome[GEN.KA_ANABOLISM_FACTOR]  * TIME_SIM_STEPS_PER_MONTH;				  
+		
+		// substract used part
+		anabolism_input = my_id.is_plant ? 0 : anabolism_input -  _quant_anabolism / my_id.genome[GEN.KA_ANABOLISM_FACTOR]  * _metabolism_steps_per_month;				  
+		
+		
 		// === catabolism
 		var _catabolism_temperature_factor =  clamp(
 					my_id.genome[GEN.DORMANCY_CATABOLISM_REDUCTION]

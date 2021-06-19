@@ -43,7 +43,7 @@ function gen_enum(){
 		ALLOCATION_REPRODUCTIVE,			//  
 		BIOMASS_LIFE_FACTOR,				//  - % of biomass max need for live
 		EVOTRANSPIRATION_FACTOR,			// used to calculate leaf area reatio
-		KA_ANABOLISM_FACTOR,				// conversion from anabolism_input to creature biomass  kg/kg/month
+		KA_ANABOLISM_FACTOR,				// kg biomass obtained from kg of anabolism_input (kg/kg/month)
 		KC_METABOLIC_RATE,					// kg of biomass consumed per biomass kg per month
 		
 		TEMPERATURE_OPTIMAL,				// temperature where plants converts maximum biomass in anabolim

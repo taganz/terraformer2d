@@ -7,16 +7,12 @@ if !controller.sim_paused {
 			brain_step(id);
 	
 	
-		if creature_verbose or DEBUG_VERBOSE_ANIMALS and is_plant == false {
-			show_debug_message(
-				  string(id)
-				+ (is_primary ? " P " : " S ")
-				+" "+string(floor(x))+","+string(floor(y))
+		log_verbose(id,
 				+"   threat="+string(brain.seen_threat)	
 				+"   food="+string(brain.seen_food)	
 				+"   food_dist="+string(floor(brain.seen_food_distance))	
-				)
-		}		
+				);
+
 
 	
 	}

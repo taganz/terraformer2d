@@ -4,7 +4,8 @@ function brain_step(_id){
 	
 	with _id.brain {
 		
-		// -- primaries check for threats 
+		
+		// === threats (primaries)
 		
 		if _id.is_primary {
 			
@@ -17,21 +18,25 @@ function brain_step(_id){
 					
 					// set first secondary in the list as a our threat   <--- to be improved
 					seen_threat = _id.my_cell.list_secondaries[| 0];
+					log_verbose(_id, "new threat: "+string(seen_threat));
 				}
 				else {
 					seen_threat = noone;
+					log_verbose(_id, "no threats in this cell");
 				}
 			}
 			else {
 				
 				// still see threat?
-				if point_distance(_id.x, _id.y, seen_threat.x, seen_threat.y) > _id.structure.view_range
+				if point_distance(_id.x, _id.y, seen_threat.x, seen_threat.y) > _id.structure.view_range {
 					seen_threat = noone
+					log_verbose(_id, "threat missed...");
+				}
 				
 			}
 		}
 		
-		// -- all animals look for food
+		// == food (animals)
 		
 		
 		// secondaries food can move. need to recalculate distance
@@ -46,7 +51,7 @@ function brain_step(_id){
 				}
 			}
 		}
-
+		
 
 		// need to look for other food?
 		
@@ -63,7 +68,7 @@ function brain_step(_id){
 			}
 			else {
 				var _prey_list = world_get_nearby_creatures(_id.x, _id.y, TROPHIC_LEVEL.PRIMARY);
-				var min_biomass_fraction_to_eat = 1;
+				var min_biomass_fraction_to_eat = PRIMARY_BIOMASS_MINIMUM_EAT;
 			}
 
 			
@@ -82,7 +87,9 @@ function brain_step(_id){
 					// can eat?
 						
 					if _id.genome[GEN.COMBAT_ATTACK_POINTS] > _prey.genome[GEN.COMBAT_DEFENSE_POINTS]
-						and _prey.structure.biomass > _prey.structure.biomass_adult * min_biomass_fraction_to_eat {
+						and (_prey.structure.biomass > _prey.structure.biomass_adult * min_biomass_fraction_to_eat 
+							or _prey.structure.biomass > _id.structure.biomass)
+					{
 					
 						seen_food = _prey;
 						seen_food_distance = point_distance(_id.x, _id.y, _prey.x, _prey.y);

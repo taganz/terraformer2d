@@ -3,8 +3,7 @@
 
 	state_eat_primary
 	
-	- eat from food
-		move to its cells and eat from it
+
 
 */
 
@@ -22,16 +21,13 @@ function state_eat(_id) {
 			
 		
 			var _prey = _id.brain.seen_food;
-			//var _speed = _id.is_primary ? PRIMARY_SPEED : SECONDARY_SPEED;
+			var _prey_distance = point_distance(_id.x, _id.y, _prey.x, _prey.y);
 		
-			if  _id.brain.seen_food_distance > EAT_DISTANCE {
+			if  _prey_distance > _id.structure.speed_eat {
 			
-				//  prey is not close enough
-			
-				// approach food
+				//  prey is not close enough, approach			
 				world_creature_move_to(_id, _prey.x, _prey.y, _id.structure.speed_eat);
-				_id.brain.seen_food_distance = point_distance(_id.x, _id.y, _prey.x, _prey.y);
-		
+				//_id.brain.seen_food_distance will be recalculated in brain_step
 			}
 			else {
 			
@@ -47,6 +43,10 @@ function state_eat(_id) {
 				
 				// store to draw
 				_id.brain.last_prey_eaten = _prey;
+				
+				// change reference point
+				_id.brain.home_x = _prey.x;
+				_id.brain_home_y = _prey.y;
 
 		
 			}

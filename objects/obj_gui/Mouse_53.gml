@@ -10,5 +10,6 @@ if room!=Room0 and show_escape_screen == false {
 	// follow created creatures
 	if controller.user_options.log_user_spawned_creatures {
 		id_new.creature_log = true;
+		id_new.creature_verbose = true;
 	}
 }

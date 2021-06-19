@@ -4,7 +4,8 @@ function MACROS(){
 // === LOG
 
 // see also user_options
-#macro DEBUG_VERBOSE_ANIMALS	true		// log debug info to console
+#macro DEBUG_VERBOSE				false		// allow verbose
+#macro DEBUG_VERBOSE_LOG_ANIMALS	false		// send additional debug info to console for logged animals
 
 // ===	GAME
 
@@ -68,6 +69,7 @@ function MACROS(){
 #macro BIOMASS_DECOMPOSITION_FACTOR 0.4			// per sim_month 
 //#macro GENUS_SPAWN_AS_ADULTS true				// if false, depends on variable creature_spawn_as_adult
 #macro PRODUCER_BIOMASS_MINIMUM_EAT 0.2		// if producer biomass is less than this fraction of biomass_adult can not be eaten by primaries
+#macro PRIMARY_BIOMASS_MINIMUM_EAT 0.1
 #macro BIOMASS_LIFE_FRACTION_STARVING 1.2	// if biomass goes below this level creature is_starving
 
 // movement
@@ -75,7 +77,8 @@ function MACROS(){
 //#macro SECONDARY_SPEED 50			// (distance per step) 
 //#macro PRIMARY_VIEW_DISTANCE 64		// maximum distance to see a threat
 //#macro SECONDARY_VIEW_DISTANCE 128 // maximum distance to discover food
-#macro EAT_DISTANCE 16		// maximum distance to eat food
+//#macro EAT_DISTANCE 16		// maximum distance to eat food
+#macro WANDER_MINIMUM_DISTANCE_HOME 48
 }
 
 

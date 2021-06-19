@@ -1,6 +1,8 @@
 
 function log_events_creature_dead(_id){
 	
+	
+		log_verbose(_id, "DEAD! "+ deadcause_to_string(_id.structure.dead_cause));
 
 		log_event(LOGEVENT.CREATURE_DEAD, _id); //, deadcause_to_string(_id.structure.dead_cause));
 		log_event(LOGEVENT.SPECIE_DEAD, _id);
