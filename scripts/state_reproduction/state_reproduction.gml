@@ -32,7 +32,8 @@ function state_reproduction(_id){
 		if world_is_inside_pixel(_xTo, _yTo) {
 					
 			// create child creature
-			var _child = instance_create_layer(_xTo, _yTo, "Instances", _id.object_index);
+			//var _child = instance_create_layer(_xTo, _yTo, "Instances", _id.object_index);
+			var _child = genus_instance_create(_xTo, _yTo, _id.genome[GEN.GENUS_ID]);
 					
 			// give genome to child. 
 			// the instance_create_layer has executed create event for _child and it already has a genome instance

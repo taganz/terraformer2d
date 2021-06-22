@@ -21,7 +21,14 @@ for (var i=0; i< spawner_quantity ;i++) {
 	if world_is_inside_pixel(_xTo, _yTo) {
 					
 		// create child creature
-		_id = instance_create_layer(_xTo, _yTo, "Instances", spawner_object_to_spawn);
+		if spawner_object_to_spawn == -1 {    // deprecated <--- 
+			_id = genus_instance_create(_xTo, _yTo, genus_id_from_name(spawner_genus_to_spawn));
+		}
+		else  {
+			show_debug_message("*** WARNING: spawner_object_to_spawn is deprecated. use spawner_genus_to_spawn"); 
+			_id = instance_create_layer(_xTo, _yTo, "Instances", spawner_object_to_spawn);
+		}
+				
 		_id.creature_spawn_as_adult = spawner_spawn_as_adult;
 		
 		// mutate child
