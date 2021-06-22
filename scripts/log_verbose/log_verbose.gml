@@ -14,7 +14,8 @@ function log_verbose(_id, txt) {
 							 (_id.is_primary ? " P " : (_id.is_secondary ? " S " : "p"))
 							+ ", "+ string(_id) 
 							+ ", "+string(sim_steps_to_years(_id.structure.age))+"y "
-							+ ", "+string(ceil(_id.x))+","+string(ceil(_id.y))
+							+ ",Pos "+string(ceil(_id.x))+","+string(ceil(_id.y))
+							+ ",Home "+string(ceil(_id.brain.home_x))+","+string(ceil(_id.brain.home_y))
 							+ ", "+ cell_info
 							+ ", " + txt
 							);

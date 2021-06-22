@@ -1,12 +1,25 @@
 function Morphology(_id) constructor {
 
-	sprite_head = _id.creature_sprite_head;
-	sprite_body = _id.creature_sprite_body;
-	sprite_eat = _id.creature_sprite_eat;
-	sprite_starving = _id.creature_sprite_starving;
-	sprite_starving_eat = _id.creature_sprite_starving_eat;
-	sprite_dead = _id.creature_sprite_dead;
+	//morphology_type = 2;
 
+
+	var external_sprite = controller.species._genus_sprite_id[@ _id.genome[GEN.GENUS_ID]];
+	
+	if sprite_exists(external_sprite)
+		sprite_head = external_sprite; 
+	else
+		sprite_head = spr_class_plant; 
+		
+	sprite_body = -1;
+	sprite_dead = spr_creature_default_dead;
+	
+	image_body = 0;
+	
+	image_head = 0;			// 0
+	image_eat = 0;			// 1
+	image_starving = 0;		// 2
+	image_starving_eat = 0;	// 3
+	
 
 	
 	// color adjustment

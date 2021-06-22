@@ -9,25 +9,24 @@
 function gen_enum(){
 
 
-	#macro GEN_FIRST_MUTABLE 10		// first internal specie gen that can be affected by radiation
-	
+	#macro GEN_FIRST_MUTABLE 12		// first internal specie gen that can be affected by radiation
 	
 	enum GEN {
 		// Genus 
-		GENUS_ID,							// genus id
-		//GENUS,								// match genus_enum()
-		GENUS_OBJECT_NAME,					// object name in asset browser with antecessor "class_creature"
-		GENUS_NAME,							// human readable string
-		TROPHIC_LEVEL,						// 
-		
+		GENUS_ID,							// 0. genus id
+		GENUS_OBJECT_NAME,					// 1. object name in asset browser with antecessor "class_creature"
+		GENUS_NAME,							// 2. human readable string
+		TROPHIC_LEVEL,						// 3
+		SPRITE_HEAD,						// 4. filename for sprite. must be located at datafiles\sprites
+
 		// Specie external, change depending on internal mutation
-		SPECIE_CODE,						//  - string
-		PARENT_SPECIE_CODE,					//  - specie's parent specie (not creature's parent specie)
-		SPECIE_HUE,							//  - real, used to build blend color
-		PLANT_BODY_DENSITY,					//  - biomass kg / volum m3	
-		PLANT_BODY_FORM_FACTOR,				//  - (sprite height m / sprite width m2) ** 2
-		PLANT_HEAD_DENSITY,					// 
-		PLANT_HEAD_FORM_FACTOR,				// 
+		SPECIE_CODE,						// 5 - string
+		PARENT_SPECIE_CODE,					// 6 - specie's parent specie (not creature's parent specie)
+		SPECIE_HUE,							// 7 - real, used to build blend color
+		PLANT_BODY_DENSITY,					// 8 - biomass kg / volum m3	
+		PLANT_BODY_FORM_FACTOR,				// 9 - (sprite height m / sprite width m2) ** 2
+		PLANT_HEAD_DENSITY,					// 10
+		PLANT_HEAD_FORM_FACTOR,				// 11
 	
 		// Specie internal, can be affected by radiation
 		
@@ -55,8 +54,8 @@ function gen_enum(){
 		COMBAT_DEFENSE_POINTS,				//  
 		COMBAT_ATTACK_POINTS,				// 		
 		VIEW_RANGE,							// (distance) - distance can see food or threat
-		SPEED_EAT,							// (distance/step) - speed looking for food
-		SPEED_ESCAPE,						// (distance/step) - speed escaping from threat
+		SPEED_SLOW,							// (distance/step) - speed looking for food
+		SPEED_FAST,							// (distance/step) - speed chasing/escaping from threat
 	
 		////////////////////////////////////////////////////////////
 		// this is used to return the total number of gens

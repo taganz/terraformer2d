@@ -23,6 +23,7 @@ if room == Room0 {
 
 	// restart species statistics, initial species definitions
 	species = new Species();
+	specie_load_sprites();
 
 
 }

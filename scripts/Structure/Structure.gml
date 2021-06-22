@@ -86,7 +86,8 @@ function Structure(_id, _spawn_as_adult) constructor {
 	
 	// -- speed
 	
-	speed_eat = -1;				// speed looking for food
+	speed_wander = -1;			// speed looking for food
+	speed_eat = -1;				// speed chasing food
 	speed_escape = -1;			// speed escaping from threat
 	
 	// -- senses

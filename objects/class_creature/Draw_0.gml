@@ -33,13 +33,9 @@ if obj_gui.show_escape_screen == false {
 				draw_rectangle(_x0, _y0, _x0 + CELL_SIZE_PX, _y0 + CELL_SIZE_PX, true );
 			}
 			
-			// draw a red line to last prey eaten and a circle at this prey
-			if brain.last_prey_eaten != -1 {
-				if instance_exists(brain.last_prey_eaten) {
-					draw_line_color(x, y, brain.last_prey_eaten.x, brain.last_prey_eaten.y, c_red, true );
-					draw_circle_color(brain.last_prey_eaten.x, brain.last_prey_eaten.y, 40, c_red, c_red, true);
-				}
-			}
+			// draw a red line to home
+			draw_line_color(x, y, brain.home_x, brain.home_y, c_red, c_blue );
+
 	}
 
 }

@@ -1,11 +1,13 @@
 
 // move creature to destination point a maximum distance
 // stop if arrived at point
+//
+// if _distance_max_to_move == -1  --> no distance maximum
 
 function world_creature_move_to(_id, _xTo, _yTo, _distance_max_to_move){
 
 	// if destination point is closer than max distance to move, get there
-	if _distance_max_to_move > point_distance(_id.x, _id.y, _xTo, _yTo) {
+	if  _distance_max_to_move == -1 or _distance_max_to_move > point_distance(_id.x, _id.y, _xTo, _yTo) {
 		var _xx = _xTo;
 		var _yy = _yTo;
 	}

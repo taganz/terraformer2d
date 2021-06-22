@@ -23,4 +23,9 @@ function Species() constructor {
 	// load available creature objects
 	_genus_object_names_list = _genus_load_objects();
 			
+	// load genus sprites
+	_genus_sprite_id = array_create(_genus_max_species, 0);
+	
+		
 }
+	

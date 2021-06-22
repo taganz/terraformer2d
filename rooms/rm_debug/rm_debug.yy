@@ -123,6 +123,8 @@
         {"properties":[
             {"propertyId":{"name":"creature_verbose","path":"objects/class_creature/class_creature.yy",},"objectId":{"name":"class_creature","path":"objects/class_creature/class_creature.yy",},"value":"True","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
           ],"isDnd":false,"objectId":{"name":"obj_secondary_small","path":"objects/obj_secondary_small/obj_secondary_small.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":320.0,"y":288.0,"resourceVersion":"1.0","name":"inst_302B4668","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"obj_tree_apple","path":"objects/obj_tree_apple/obj_tree_apple.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":576.0,"y":160.0,"resourceVersion":"1.0","name":"inst_6A345884","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"obj_tree_apple","path":"objects/obj_tree_apple/obj_tree_apple.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":576.0,"y":384.0,"resourceVersion":"1.0","name":"inst_48D5C512","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":100,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Tools","tags":[],"resourceType":"GMRInstanceLayer",},
     {"tilesetId":{"name":"tileset_climate","path":"tilesets/tileset_climate/tileset_climate.yy",},"x":0,"y":0,"tiles":{"SerialiseWidth":25,"SerialiseHeight":19,"TileSerialiseData":[
 2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
@@ -231,6 +233,8 @@
     {"name":"inst_CE39D30","path":"rooms/rm_debug/rm_debug.yy",},
     {"name":"inst_439133A1","path":"rooms/rm_debug/rm_debug.yy",},
     {"name":"inst_302B4668","path":"rooms/rm_debug/rm_debug.yy",},
+    {"name":"inst_6A345884","path":"rooms/rm_debug/rm_debug.yy",},
+    {"name":"inst_48D5C512","path":"rooms/rm_debug/rm_debug.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,

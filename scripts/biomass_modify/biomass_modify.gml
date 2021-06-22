@@ -67,7 +67,9 @@
 					// _biomass_max surpassed?
 					if biomass > _biomass_max {				
 						_biomass_max = biomass;
-						_biomass_life = min(_biomass_adult_max, _biomass_max) * _id.genome[GEN.BIOMASS_LIFE_FACTOR];
+						
+						// _biomass_life is a fraction of biomass without reproduction part
+						_biomass_life = min(biomass_adult, _biomass_max) * _id.genome[GEN.BIOMASS_LIFE_FACTOR];
 					}
 			
 					// hungry histeresys cycle

@@ -33,6 +33,7 @@
     {"propertyId":{"name":"creature_sprite_dead","path":"objects/class_creature/class_creature.yy",},"objectId":{"name":"class_creature","path":"objects/class_creature/class_creature.yy",},"value":"spr_primary_small_dead","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
     {"propertyId":{"name":"creature_sprite_starving","path":"objects/class_creature/class_creature.yy",},"objectId":{"name":"class_creature","path":"objects/class_creature/class_creature.yy",},"value":"spr_primary_small_starving","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
     {"propertyId":{"name":"creature_sprite_starving_eat","path":"objects/class_creature/class_creature.yy",},"objectId":{"name":"class_creature","path":"objects/class_creature/class_creature.yy",},"value":"spr_primary_small_eat","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
+    {"propertyId":{"name":"creature_sprite_head","path":"objects/class_creature/class_creature.yy",},"objectId":{"name":"class_creature","path":"objects/class_creature/class_creature.yy",},"value":"spr_primary_small","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
   ],
   "parent": {
     "name": "Animals",

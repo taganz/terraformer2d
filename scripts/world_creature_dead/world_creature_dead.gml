@@ -20,17 +20,16 @@ function world_creature_dead(_id){
 			ds_list_add(grid_cells[# xx, yy].list_dead_creatures, _id);
 						
 			// update stats
-			creatures_live_now --;
-			trophic_level_live_now[_id.genome[GEN.TROPHIC_LEVEL]]--;
-			creatures_dead ++;
-			creatures_peak = creatures_peak <= creatures_live_now ? creatures_live_now : creatures_peak;
-			
-			// log
-			//controller.log.creature_dead(_id);
+			if _id.structure.dead_cause != DEADCAUSE.BIRTH {
+				creatures_live_now --;
+				trophic_level_live_now[_id.genome[GEN.TROPHIC_LEVEL]]--;
+				creatures_dead ++;
+				creatures_peak = creatures_peak <= creatures_live_now ? creatures_live_now : creatures_peak;
+			}
 			
 		}
 		else {
-			show_debug_message("*** WARNING *** invalid x, y in creature_dead: "+string(_id)+": "+string(_x)+","+string(_y));
+			ASSERT(false, _id, "*** WARNING *** invalid x, y in creature_dead: "+string(_id)+": "+string(_x)+","+string(_y));
 		}
 	}
 }

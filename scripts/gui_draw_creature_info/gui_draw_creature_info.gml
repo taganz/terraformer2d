@@ -56,7 +56,9 @@ function _log_text_creature(_id){
 		+ "\nanabolism_input: " + string(_id.structure.anabolism_input)
 		+ "\n_has_eaten_this_time: " + string(_id.structure._has_eaten_this_time)
 		+ "\nSTATE : " + state_to_string(_id.state.state)
+		+ "\nPos: "+string(ceil(_id.x))+","+string(ceil(_id.y))
 		+ "\nCell :"+string(cell_x_from_pixel(_id.x))+","+string(cell_x_from_pixel(_id.y))
+		+ "\nHome: "+string(ceil(_id.brain.home_x))+","+string(ceil(_id.brain.home_y))
 		;
 	}
 	else {

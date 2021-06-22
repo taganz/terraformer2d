@@ -48,26 +48,26 @@ function morphology_animal_draw(_id){
 			case STATE.EAT:		
 				// head
 				if (_head_w_scale > 0 ) {
-					var sprite_head_eat = -1;
+					var _image = -1;
 					if _id.structure.is_starving  {
 						if _id.structure._has_eaten_this_time > 0
-							sprite_head_eat = _id.creature_sprite_starving_eat; 
+							_image = image_starving_eat; 
 						else
 							// not really eating
-							sprite_head_eat = _id.creature_sprite_starving; 
+							_image = image_starving;
 					}
 					else {
 						if _id.structure._has_eaten_this_time > 0
-							sprite_head_eat = _id.creature_sprite_eat; 
+							_image = image_eat;
 						else 
 							// not really eating
-							sprite_head_eat = _id.creature_sprite_head;
+							_image = image_head;
 					}
-					draw_sprite_ext(sprite_head_eat, 0, _id.x - _head_w/2, _id.y - _head_h -_body_h, _head_w_scale, _head_h_scale, 0, specie_blend, 75);
+					draw_sprite_ext(sprite_head, _image, _id.x - _head_w/2, _id.y - _head_h -_body_h, _head_w_scale, _head_h_scale, 0, specie_blend, 75);
 				}
 				// body
 				if (_body_w_scale > 0 ) {
-					draw_sprite_ext(sprite_body, 0, _id.x - _body_w/2, _id.y - _body_h,          _body_w_scale, _body_h_scale, 0, specie_blend, 75);
+					draw_sprite_ext(sprite_body, image_body, _id.x - _body_w/2, _id.y - _body_h,          _body_w_scale, _body_h_scale, 0, specie_blend, 75);
 				}
 				break;
 
@@ -76,13 +76,13 @@ function morphology_animal_draw(_id){
 				// body and crown
 				if (_head_w_scale > 0 ) {
 					if _id.structure.is_starving
-						draw_sprite_ext(_id.creature_sprite_starving, 0, _id.x - _head_w/2, _id.y - _head_h -_body_h, _head_w_scale, _head_h_scale, 0, specie_blend, 75);
+						draw_sprite_ext(sprite_head, image_starving, _id.x - _head_w/2, _id.y - _head_h -_body_h, _head_w_scale, _head_h_scale, 0, specie_blend, 75);
 					else
-						draw_sprite_ext(_id.creature_sprite_head, 0, _id.x - _head_w/2, _id.y - _head_h -_body_h, _head_w_scale, _head_h_scale, 0, specie_blend, 75);
+						draw_sprite_ext(sprite_head, image_head, _id.x - _head_w/2, _id.y - _head_h -_body_h, _head_w_scale, _head_h_scale, 0, specie_blend, 75);
 						
 				}
 				if (_body_w_scale > 0 ) {
-					draw_sprite_ext(sprite_body, 0, _id.x - _body_w/2, _id.y - _body_h,          _body_w_scale, _body_h_scale, 0, specie_blend, 75);
+					draw_sprite_ext(sprite_body, image_body, _id.x - _body_w/2, _id.y - _body_h,          _body_w_scale, _body_h_scale, 0, specie_blend, 75);
 				}
 					
 			}

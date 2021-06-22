@@ -90,10 +90,13 @@ function brain_step(_id){
 						and (_prey.structure.biomass > _prey.structure.biomass_adult * min_biomass_fraction_to_eat 
 							or _prey.structure.biomass > _id.structure.biomass)
 					{
-					
-						seen_food = _prey;
-						seen_food_distance = point_distance(_id.x, _id.y, _prey.x, _prey.y);
-						break;	
+						// can see? 
+						var _dist = point_distance(_id.x, _id.y, _prey.x, _prey.y);
+						if _dist < _id.genome[GEN.VIEW_RANGE] { 
+							seen_food = _prey;
+							seen_food_distance = _dist;
+							break;	
+						}
 					}
 				}
 			}

@@ -4,7 +4,7 @@ function Brain(_id) constructor {
 	seen_food = noone;				// closest food seen
 	seen_food_distance = -1;
 
-	last_prey_eaten = -1;		// used by ?
+	//last_prey_eaten = -1;		// used by ?
 	
 	home_x = _id.x;			// reference point
 	home_y = _id.y;

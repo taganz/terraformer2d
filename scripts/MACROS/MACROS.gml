@@ -12,7 +12,8 @@ function MACROS(){
 #macro RANDOMIZE_AT_START		true			// controller will randomize at create event
 #macro OBJ_CREATED_BY_CLIC		obj_primary_tiny  // the object that will be created with left click
 #macro DEBUG_RAIN_UNLIMITED		false			// climates give 999999 rain water
-#macro FILE_GENUS_CSV "genus.csv"
+#macro FILE_GENUS_CSV			"genus.csv"
+#macro SPRITES_FOLDER			"sprites"		// genus sprites placed here
 
 // === ROOM SETUP
 
@@ -69,16 +70,16 @@ function MACROS(){
 #macro BIOMASS_DECOMPOSITION_FACTOR 0.4			// per sim_month 
 //#macro GENUS_SPAWN_AS_ADULTS true				// if false, depends on variable creature_spawn_as_adult
 #macro PRODUCER_BIOMASS_MINIMUM_EAT 0.2		// if producer biomass is less than this fraction of biomass_adult can not be eaten by primaries
-#macro PRIMARY_BIOMASS_MINIMUM_EAT 0.1
+#macro PRIMARY_BIOMASS_MINIMUM_EAT 0.3
 #macro BIOMASS_LIFE_FRACTION_STARVING 1.2	// if biomass goes below this level creature is_starving
 
 // movement
-//#macro PRIMARY_SPEED 20				// (distance per step) 
-//#macro SECONDARY_SPEED 50			// (distance per step) 
-//#macro PRIMARY_VIEW_DISTANCE 64		// maximum distance to see a threat
-//#macro SECONDARY_VIEW_DISTANCE 128 // maximum distance to discover food
-//#macro EAT_DISTANCE 16		// maximum distance to eat food
-#macro WANDER_MINIMUM_DISTANCE_HOME 48
+#macro WANDER_MINIMUM_DISTANCE_HOME 32
+
+// morphology
+#macro ALPHA_PRODUCERS 1			// transparency when drawing alive producers
+#macro ALPHA_PRODUCERS_DEAD 0.5		// transparency when drawing dead producers
+
 }
 
 

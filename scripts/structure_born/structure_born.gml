@@ -102,10 +102,17 @@ function structure_born(my_id){
 		
 		// == speed
 		
-		if my_id.is_plant == false {
+		if my_id.is_primary{
 		
-			speed_eat = my_id.genome[GEN.SPEED_EAT];				// speed looking for food
-			speed_escape = my_id.genome[GEN.SPEED_ESCAPE];		// speed escaping from threat
+			speed_wander = my_id.genome[GEN.SPEED_SLOW];		// looking for food
+			speed_eat = my_id.genome[GEN.SPEED_SLOW];			// looking for food
+			speed_escape = my_id.genome[GEN.SPEED_FAST];		// escaping from threat
+		}
+		
+		if my_id.is_secondary{
+		
+			speed_wander = my_id.genome[GEN.SPEED_SLOW];		// looking for food
+			speed_eat = my_id.genome[GEN.SPEED_FAST];			// chasing
 		}
 		
 		// == senses

@@ -106,6 +106,11 @@
         {"properties":[
             {"propertyId":{"name":"creature_log","path":"objects/class_creature/class_creature.yy",},"objectId":{"name":"class_creature","path":"objects/class_creature/class_creature.yy",},"value":"True","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
           ],"isDnd":false,"objectId":{"name":"obj_crop_bush","path":"objects/obj_crop_bush/obj_crop_bush.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":704.0,"y":544.0,"resourceVersion":"1.0","name":"inst_CE39D30","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"obj_tree_apple","path":"objects/obj_tree_apple/obj_tree_apple.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":640.0,"y":128.0,"resourceVersion":"1.0","name":"inst_73D94326","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"obj_tree_apple","path":"objects/obj_tree_apple/obj_tree_apple.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":672.0,"y":416.0,"resourceVersion":"1.0","name":"inst_2076970A","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"obj_tree_apple","path":"objects/obj_tree_apple/obj_tree_apple.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":416.0,"y":352.0,"resourceVersion":"1.0","name":"inst_3123D2C8","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"obj_tree_apple","path":"objects/obj_tree_apple/obj_tree_apple.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":160.0,"y":384.0,"resourceVersion":"1.0","name":"inst_22015C5A","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"obj_tree_apple","path":"objects/obj_tree_apple/obj_tree_apple.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":128.0,"y":160.0,"resourceVersion":"1.0","name":"inst_693B2821","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":0,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Instances","tags":[],"resourceType":"GMRInstanceLayer",},
     {"instances":[
         {"properties":[],"isDnd":false,"objectId":{"name":"obj_probe","path":"objects/obj_probe/obj_probe.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":672.0,"y":64.0,"resourceVersion":"1.0","name":"inst_25B95C85","tags":[],"resourceType":"GMRInstance",},
@@ -223,6 +228,11 @@
     {"name":"inst_5E1C6FBC","path":"rooms/rm_debug_climates/rm_debug_climates.yy",},
     {"name":"inst_7825A8EF","path":"rooms/rm_debug_climates/rm_debug_climates.yy",},
     {"name":"inst_24F70B17","path":"rooms/rm_debug_climates/rm_debug_climates.yy",},
+    {"name":"inst_73D94326","path":"rooms/rm_debug_climates/rm_debug_climates.yy",},
+    {"name":"inst_2076970A","path":"rooms/rm_debug_climates/rm_debug_climates.yy",},
+    {"name":"inst_3123D2C8","path":"rooms/rm_debug_climates/rm_debug_climates.yy",},
+    {"name":"inst_22015C5A","path":"rooms/rm_debug_climates/rm_debug_climates.yy",},
+    {"name":"inst_693B2821","path":"rooms/rm_debug_climates/rm_debug_climates.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,

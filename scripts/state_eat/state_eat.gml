@@ -32,29 +32,36 @@ function state_eat(_id) {
 			else {
 			
 				// it's close, can eat
+				
+				// go there
+				world_creature_move_to(_id, _prey.x, _prey.y, -1);
 			
-				// capture a part of biomass from one of the plants 
-				var _biomass_got = been_eated(_id.brain.seen_food, _id, _id.structure.biomass_eat);
+				// capture a part of biomass from prey 
+				var _biomass_got = been_eated(_prey, _id, _id.structure.biomass_eat);
 				_id.structure.anabolism_input += _biomass_got; 
 						
 				// log eat event
 				var _txt = "anabolism_input: "+string((_id.structure.anabolism_input))+"  biomass prey: "+string((_prey.structure.biomass));
 				log_event(LOGEVENT.CREATURE_EAT, _id, _prey, _biomass_got, _txt);
 				
-				// store to draw
-				_id.brain.last_prey_eaten = _prey;
 				
-				// change reference point
-				_id.brain.home_x = _prey.x;
-				_id.brain_home_y = _prey.y;
-
-		
+				// change home place to remember last place with food
+				if _biomass_got > 0 {
+					_id.brain.home_x = _id.x;
+					_id.brain.home_y = _id.y;
+				}
+				
+				log_verbose(_id, "EAT "+string(_prey));
 			}
 
 		}
+		else {
+			_id.brain.seen_food = noone;
+		}
+		
 	// === transition
 
-	if _id.structure.is_hungry 
+	if _id.structure.is_hungry and _id.brain.seen_food != noone
 		_id.state.next_state = STATE.EAT;
 	else
 		_id.state.next_state = STATE.IDLE;
