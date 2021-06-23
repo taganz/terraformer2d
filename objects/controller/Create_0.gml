@@ -30,7 +30,7 @@ specie_load_sprites();
 
 
 // check for missing objects
-genus_check_objects_exist();	
+//genus_check_objects_exist();	
 
 
 // === hide object

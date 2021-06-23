@@ -122,13 +122,13 @@ yy+=32;
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Add animals", function() {
 	controller.user_options.room_climate = CLIMATE.TROPICAL;
 	controller.user_options.room_soil_type = SOIL.LOAM;
-	controller.user_options.spawn_genus_object = genus_object_from_id(GENUS.PRIMARY_TINY);
+	controller.user_options.spawn_genus = GENUS.PRIMARY_TINY;
 	controller.user_options.spawn_quantity = 0;
 	controller.user_options.spawn_distance_max = 250;
-	controller.user_options.spawn_2_genus_object = genus_object_from_id(GENUS.SECONDARY_SMALL);
+	controller.user_options.spawn_2_genus = GENUS.SECONDARY_SMALL;
 	controller.user_options.spawn_2_quantity = 0;
 	controller.user_options.spawn_2_distance_max = 250;
-	controller.user_options.spawn_3_genus_object = genus_object_from_id(GENUS.CROP_BUSH);
+	controller.user_options.spawn_3_genus = GENUS.CROP_BUSH;
 	controller.user_options.spawn_3_quantity = 100;
 	controller.user_options.spawn_3_distance_max = 300;
 	obj_gui.state = GUI_STATE.CONFIG_ROOM;
@@ -145,16 +145,16 @@ yy+=32;
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Primaries on Bush Crop", function() {
 	controller.user_options.room_climate = CLIMATE.TROPICAL;
 	controller.user_options.room_soil_type = SOIL.LOAM;
-	controller.user_options.spawn_genus_object = genus_object_from_id(GENUS.PRIMARY_SMALL);
+	controller.user_options.spawn_genus = GENUS.PRIMARY_SMALL;
 	
 	controller.user_options.spawn_quantity = 40;
 	controller.user_options.spawn_distance_max = 200;
 	
-	controller.user_options.spawn_2_genus_object = genus_object_from_id(GENUS.SECONDARY_SMALL);
+	controller.user_options.spawn_2_genus = GENUS.SECONDARY_SMALL;
 	controller.user_options.spawn_2_quantity = 3;
 	controller.user_options.spawn_2_distance_max = 200;
 	
-	controller.user_options.spawn_3_genus_object = genus_object_from_id(GENUS.CROP_BUSH);
+	controller.user_options.spawn_3_genus = GENUS.CROP_BUSH;
 	controller.user_options.spawn_3_quantity = 100;
 	controller.user_options.spawn_3_distance_max = 300;
 	

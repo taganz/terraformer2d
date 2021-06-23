@@ -21,7 +21,7 @@ function Species() constructor {
 	_genus_last_variant = array_create(_genus_max_species, 0);
 			
 	// load available creature objects
-	_genus_object_names_list = _genus_load_objects();
+	//_genus_object_names_list = _genus_load_objects();
 			
 	// load genus sprites
 	_genus_sprite_id = array_create(_genus_max_species, 0);

@@ -1,6 +1,6 @@
 
 
-// Should match genus in excel definition
+// Number must match GENUS_ID in excel definition
 
 
 function genus_enum(){
@@ -25,7 +25,9 @@ function genus_enum(){
 		,PLANT_BUSH_4			// 16
 		,PLANT_BUSH_5			// 17
 		,SECONDARY_MEDIUM		// 18
-		,TREE_APPLE				// 19  - new sprite system
+		,TREE_APPLE				// 19
+		,PRIMARY_BIG			// 20
+		,SECONDARY_BIG			// 21
 		, _LENGTH_
 	}
 

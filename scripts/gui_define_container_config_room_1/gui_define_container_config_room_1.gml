@@ -71,15 +71,15 @@ function gui_define_container_config_room_1(){
 	    var selected_index = GetSelection();
 	    if (selected_index >= 0) {
 	        show_debug_message("Producer index selected: " + string(selected_index));
-			controller.user_options.spawn_3_genus_object = genus_object_from_id(genus_id_from_name(_list_genus_2[@ selected_index]));	
+			controller.user_options.spawn_3_genus = genus_id_from_name(_list_genus_2[@ selected_index]);	
 	    }
 		});
 	list.SetMultiSelect(false, false, false);
 	list.AddEntries(_list_genus);
 	// select default value from user options
-	if controller.user_options.spawn_3_genus_object != -1 {
+	if controller.user_options.spawn_3_genus != -1 {
 		for (var i = 0; i < array_length(_list_genus); i++) {
-			if _list_genus[i] == genus_name_from_object(controller.user_options.spawn_3_genus_object) {
+			if _list_genus[i] == genus_name_from_id(controller.user_options.spawn_3_genus) {
 				list.Select(i, true);		
 				break;
 			}
@@ -119,15 +119,15 @@ function gui_define_container_config_room_1(){
 	    var selected_index = GetSelection();
 	    if (selected_index >= 0) {
 	        show_debug_message("Primary index selected: " + string(selected_index));
-			controller.user_options.spawn_genus_object = genus_object_from_id(genus_id_from_name(_list_primaries_2[@ selected_index]));	
+			controller.user_options.spawn_genus = genus_id_from_name(_list_primaries_2[@ selected_index]);	
 	    }
 		});
 	list.SetMultiSelect(false, false, false);
 	list.AddEntries(_list_primaries);
 	// select default value from user options
-	if controller.user_options.spawn_genus_object != -1 {
+	if controller.user_options.spawn_genus != -1 {
 		for (var i = 0; i < array_length(_list_primaries); i++) {
-			if _list_primaries[i] == genus_name_from_object(controller.user_options.spawn_genus_object) {
+			if _list_primaries[i] == genus_name_from_id(controller.user_options.spawn_genus) {
 				list.Select(i, true);		
 				break;
 			}
@@ -163,15 +163,15 @@ function gui_define_container_config_room_1(){
 	    var selected_index = GetSelection();
 	    if (selected_index >= 0) {
 	        show_debug_message("Secondary index selected: " + string(selected_index));
-			controller.user_options.spawn_2_genus_object = genus_object_from_id(genus_id_from_name(_list_secondaries_2[@ selected_index]));	
+			controller.user_options.spawn_2_genus = genus_id_from_name(_list_secondaries_2[@ selected_index]);	
 	    }
 		});
 	list.SetMultiSelect(false, false, false);
 	list.AddEntries(_list_secondaries);
 	// select default value from user options
-	if controller.user_options.spawn_2_genus_object != -1 {
+	if controller.user_options.spawn_2_genus != -1 {
 		for (var i = 0; i < array_length(_list_secondaries); i++) {
-			if _list_secondaries[i] == genus_name_from_object(controller.user_options.spawn_2_genus_object) {
+			if _list_secondaries[i] == genus_name_from_id(controller.user_options.spawn_2_genus) {
 				list.Select(i, true);		
 				break;
 			}

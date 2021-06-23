@@ -19,16 +19,12 @@ for (var i=0; i< spawner_quantity ;i++) {
 				
 	// check if birth place is inside world
 	if world_is_inside_pixel(_xTo, _yTo) {
+		var _id = -1;
 					
 		// create child creature
-		if spawner_object_to_spawn == -1 {    // deprecated <--- 
-			_id = genus_instance_create(_xTo, _yTo, genus_id_from_name(spawner_genus_to_spawn));
-		}
-		else  {
-			show_debug_message("*** WARNING: spawner_object_to_spawn is deprecated. use spawner_genus_to_spawn"); 
-			_id = instance_create_layer(_xTo, _yTo, "Instances", spawner_object_to_spawn);
-		}
-				
+		_id = genus_instance_create(_xTo, _yTo, genus_id_from_name(spawner_genus_to_spawn));
+		ASSERT(_id != -1, 0, "spawner error creating genus instance "+string(spawner_genus_to_spawn));
+		
 		_id.creature_spawn_as_adult = spawner_spawn_as_adult;
 		
 		// mutate child
@@ -48,6 +44,6 @@ for (var i=0; i< spawner_quantity ;i++) {
 	
 }
 
-show_debug_message("*** Spawned: "+string(total)+" creatures "+ object_get_name(spawner_object_to_spawn) + " " + string(spawner_object_to_spawn) + " specie_code="+_id.genome[GEN.SPECIE_CODE]+ " from spawner "+string(id)+". Destroying...");
+show_debug_message("*** Spawned: "+string(total)+" creatures "+ string(spawner_genus_to_spawn) +" from spawner "+string(id)+". Destroying...");
 show_debug_message("Logging "+string(logging)+" creatures ");
 instance_destroy();
