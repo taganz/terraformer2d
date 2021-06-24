@@ -14,7 +14,7 @@ function gen_enum(){
 	enum GEN {
 		// Genus 
 		GENUS_ID,							// 0. genus id
-		GENUS_OBJECT_NAME,					// 1. object name in asset browser with antecessor "class_creature"
+		DEPRECATED_GENUS_OBJECT,					// 1. object name in asset browser with antecessor "class_creature"
 		GENUS_NAME,							// 2. human readable string
 		TROPHIC_LEVEL,						// 3
 		SPRITE_HEAD,						// 4. filename for sprite. must be located at datafiles\sprites

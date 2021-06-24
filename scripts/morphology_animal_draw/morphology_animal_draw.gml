@@ -43,7 +43,7 @@ function morphology_animal_draw(_id){
 			switch (_id.state.state) {
 			case STATE.DEAD:
 				// just body
-				draw_sprite_ext(sprite_dead, 0, _id.x-_body_w/2, _id.y-_body_h, _body_w_scale, _body_h_scale, 0, specie_blend, 50);
+				draw_sprite_ext(sprite_dead, 0, _id.x-_body_w/2, _id.y-_body_h, _body_w_scale, _body_h_scale, 0, specie_blend, ALPHA_ANIMALS_DEAD);
 				break;
 			case STATE.EAT:		
 				// head
@@ -63,11 +63,11 @@ function morphology_animal_draw(_id){
 							// not really eating
 							_image = image_head;
 					}
-					draw_sprite_ext(sprite_head, _image, _id.x - _head_w/2, _id.y - _head_h -_body_h, _head_w_scale, _head_h_scale, 0, specie_blend, 75);
+					draw_sprite_ext(sprite_head, _image, _id.x - _head_w/2, _id.y - _head_h -_body_h, _head_w_scale, _head_h_scale, 0, specie_blend, ALPHA_ANIMALS);
 				}
 				// body
 				if (_body_w_scale > 0 ) {
-					draw_sprite_ext(sprite_body, image_body, _id.x - _body_w/2, _id.y - _body_h,          _body_w_scale, _body_h_scale, 0, specie_blend, 75);
+					draw_sprite_ext(sprite_body, image_body, _id.x - _body_w/2, _id.y - _body_h,          _body_w_scale, _body_h_scale, 0, specie_blend, ALPHA_ANIMALS);
 				}
 				break;
 
@@ -76,9 +76,9 @@ function morphology_animal_draw(_id){
 				// body and crown
 				if (_head_w_scale > 0 ) {
 					if _id.structure.is_starving
-						draw_sprite_ext(sprite_head, image_starving, _id.x - _head_w/2, _id.y - _head_h -_body_h, _head_w_scale, _head_h_scale, 0, specie_blend, 75);
+						draw_sprite_ext(sprite_head, image_starving, _id.x - _head_w/2, _id.y - _head_h -_body_h, _head_w_scale, _head_h_scale, 0, specie_blend, ALPHA_ANIMALS);
 					else
-						draw_sprite_ext(sprite_head, image_head, _id.x - _head_w/2, _id.y - _head_h -_body_h, _head_w_scale, _head_h_scale, 0, specie_blend, 75);
+						draw_sprite_ext(sprite_head, image_head, _id.x - _head_w/2, _id.y - _head_h -_body_h, _head_w_scale, _head_h_scale, 0, specie_blend, ALPHA_ANIMALS);
 						
 				}
 				if (_body_w_scale > 0 ) {

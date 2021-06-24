@@ -41,6 +41,33 @@ _container.AddContent(text);
 yy+=32;
 
 
+var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Mediterranean", function() {
+	obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;
+	obj_gui.selected_room = rm_mediterranean;
+		
+	controller.user_options.spawn_genus = GENUS.TREE_MEDITERRANEAN;
+	controller.user_options.spawn_quantity = 40;
+	controller.user_options.spawn_distance_max = 300;
+	controller.user_options.spawn_2_genus = GENUS.PLANT_BUSH;
+	controller.user_options.spawn_2_quantity = 100;
+	controller.user_options.spawn_2_distance_max = 300;
+	controller.user_options.spawn_3_genus = GENUS.PLANT_BUSH_2;
+	controller.user_options.spawn_3_quantity = 100;
+	controller.user_options.spawn_3_distance_max = 300;
+});
+_container.AddContent(_button);
+yy+=32;
+
+
+var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Tropical", function() {
+	obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;
+	obj_gui.selected_room = rm_tropical;
+});
+_container.AddContent(_button);
+yy+=32;
+
+
+
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Predator/Prey", function() {
 	obj_gui.state = GUI_STATE.CONFIG_ROOM;
 	obj_gui.selected_room = OneClimate;
@@ -55,12 +82,6 @@ var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "All climates (4)", fun
 _container.AddContent(_button);
 yy+=32;
 
-var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Tropical", function() {
-	obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;
-	obj_gui.selected_room = rm_tropical;
-});
-_container.AddContent(_button);
-yy+=32;
 
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Artic", function() {
 	obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;
@@ -69,12 +90,6 @@ var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Artic", function() {
 _container.AddContent(_button);
 yy+=32;
 
-var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Mediterranean", function() {
-	obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;
-	obj_gui.selected_room = rm_mediterranean;
-});
-_container.AddContent(_button);
-yy+=32;
 
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Continental", function() {
 	obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;

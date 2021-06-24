@@ -7,7 +7,7 @@ function morphology_born(_id){
 		// -- specie blend
 		
 		if _id.genome[GEN.SPECIE_HUE] == -1
-			specie_blend = c_white;
+			specie_blend = -1;
 		else
 			specie_blend = make_colour_hsv(_id.genome[GEN.SPECIE_HUE], 128, 255);
 

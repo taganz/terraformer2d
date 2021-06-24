@@ -79,6 +79,8 @@ function MACROS(){
 // morphology
 #macro ALPHA_PRODUCERS 1			// transparency when drawing alive producers
 #macro ALPHA_PRODUCERS_DEAD 0.5		// transparency when drawing dead producers
+#macro ALPHA_ANIMALS 1			// transparency when drawing alive animals
+#macro ALPHA_ANIMALS_DEAD 0.5		// transparency when drawing dead animals
 
 }
 

@@ -17,7 +17,7 @@ return -1;
 	//var arr = array_create(0, noone);
 	// loop to all names. 
 	for (var i=1;i< GENUS._LENGTH_; i++) {
-		if genus_get_gen(i, GEN.GENUS_OBJECT_NAME) == object_get_name(_id_object) {
+		if genus_get_gen(i, GEN.DEPRECATED_GENUS_OBJECT) == object_get_name(_id_object) {
 			return genus_get_gen(i, GEN.GENUS_NAME);
 			
 		}

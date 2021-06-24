@@ -1,4 +1,4 @@
-﻿version;23/06/2021 7:00;;;control Q per salvar;;;GUARDAR COM EXCEL HABILITADO PARA MACROS;;;;;;;;;;;;;;
+﻿version;24/06/2021 18:32;;;control Q per salvar;;;GUARDAR COM EXCEL HABILITADO PARA MACROS;;;;;;;;;;;;;;
 CLIMATE_ET0_EVOTRANSPIRATION_AVG;180;;;All gen value must be numeric - no empty cells;;;;;;;;;;;;;;;;;
 LEAF_M2_PER_KG;0,1;;;Per baixar aigua consumida cal baixar KC vigilant que LMFa quedi > 0,01;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;
@@ -10,9 +10,9 @@ GENUS_OBJECT_NAME;obj_tree;obj_tree_apple;obj_tree_tropical;obj_tree_continental
 TROPHIC_LEVEL;0;0;0;0;0;0;0;0;0;0;0;0;0;1;1;1;1;1;2;2;2
 SPECIE_CODE;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
 PARENT_SPECIE_CODE;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
-SPRITE_HEAD;68.png;101.png;138.png;102.png;130.png;2.png;spr_crop_bush.png;103.png;91.png;92.png;94.png;96.png;77.png;79.png;66.png;63.png;12.png;10.png;1.png;24.png;57.png
+SPRITE_HEAD;68.png;101.png;138_rd.png;102.png;130.png;2.png;spr_crop_bush.png;103.png;91.png;92.png;94.png;96.png;77.png;79.png;66.png;63.png;12.png;10.png;1.png;24.png;4.png
 SPECIE_HUE;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1
-PLANT_HEAD_DENSITY;220;220;220;220;220;40;350;10;10;30;10;10;5;5;5;5;30;30;40;160;160
+PLANT_HEAD_DENSITY;220;220;220;220;220;40;350;10;20;40;20;100;5;5;5;10;30;24;60;480;480
 PLANT_HEAD_FORM_FACTOR;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1
 PLANT_BODY_DENSITY;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
 PLANT_BODY_FORM_FACTOR;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
@@ -64,3 +64,5 @@ steps to adult;-4,76;-4,76;29,76;46,87;177,30;-3,60;263,25;13,10;2,13;1,97;1,32;
 ;;;;;;;; ;;;;;;;;;;;;;
 _biomass_adult_max;484;484;484;470,8;453,2;10,56;605;7,26;12,1;24,2;12,1;60,5;12,1;1,32;3,96;8,58;17,16;17,16;42,9;357,5;357,5
 biomass at birth;40,00;40,00;40,00;28,00;6,00;1,60;12,50;0,30;1,00;0,40;1,00;5,00;0,25;0,07;0,20;0,90;1,80;1,80;4,50;75,00;75,00
+;;;;;;;;;;;;;;;;;;;;;
+tamany relatiu adult;1,8;1,8;1,8;1,8;1,8;0,2;1,4;0,6;0,5;0,5;0,5;0,5;2,0;0,2;0,6;0,6;0,4;0,5;0,5;0,5;0,5
