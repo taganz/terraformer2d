@@ -1,6 +1,6 @@
 /*
 	return asset index for id_genus
-	precondition: an object with name==GEN.DEPRECATED_GENUS_OBJECT and parent "class_creature" must exist
+	precondition: an object with name==GEN.FAMILY and parent "class_creature" must exist
 */
 function ___genus_object_from_id(id_genus){
 
@@ -14,7 +14,7 @@ return -1;
 */
 
 	// wanted object. can not get genus var from a non instance
-	var name_genus = genus_get_gen(id_genus, GEN.DEPRECATED_GENUS_OBJECT);
+	var name_genus = genus_get_gen(id_genus, GEN.FAMILY);
 	
 	// loop to all available objects. if object genus is ok return object
 	for (var i=0;i<ds_list_size(controller.species._genus_object_names_list); i++) {

@@ -25,8 +25,13 @@ function structure_born(my_id){
 		_biomass_adult_max = biomass_adult * (1 + my_id.genome[GEN.ALLOCATION_REPRODUCTIVE]) * 1.1;				// max biomass attainable by creature
 		_biomass_reproduction_max = biomass_adult * my_id.genome[GEN.ALLOCATION_REPRODUCTIVE]; 
 		
+		// -- size
+		
 		// height will grow linearly with biomass up to height_adult 
 		_height_growth_factor = my_id.genome[GEN.HEIGHT_ADULT]/my_id.genome[GEN.BIOMASS_ADULT];
+		var _my_area = family_get_area(my_id.genome[GEN.FAMILY]),
+		_my_area = _my_area * (my_id.genome[GEN.FAMILY]=="fam_crop" ? 1 : random_range (0.9, 1.1));
+		my_width = sqrt(_my_area);
 		
 		// -- set biomass at birth. 1st generations is always adult
 		

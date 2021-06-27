@@ -5,7 +5,8 @@ function _cell_add_creature (_id, _x_cell, _y_cell) {
 			
 	with controller.world {
 		
-			// check if cell already exist and create it if not
+			// create cell if not exists
+			
 			var cell = ds_grid_get(grid_cells, _x_cell, _y_cell);
 			
 			if is_undefined(cell) {
@@ -23,7 +24,9 @@ function _cell_add_creature (_id, _x_cell, _y_cell) {
 				// add creature to cell;
 				switch( _id.genome[GEN.TROPHIC_LEVEL]) {
 					case TROPHIC_LEVEL.PRODUCER:
-						if _grid_producers_current < CELL_MAX_PRODUCERS - 1 {
+						if _grid_producers_current < CELL_MAX_PRODUCERS - 1 
+							and family_cell_room_grid(_id, grid_producers) {
+														
 							grid_producers[# 0, _grid_producers_current] = _id;
 							//ASSERT(_id.structure.my_height>0, _id, "_cell_add_creature heigth==0");  // can not have 0 heigth in grid producers
 							grid_producers[# 1, _grid_producers_current] = _id.structure.my_height;
@@ -37,10 +40,24 @@ function _cell_add_creature (_id, _x_cell, _y_cell) {
 						}
 						break;
 					case TROPHIC_LEVEL.PRIMARY:
-						ds_list_add(list_primaries, _id);
+
+						if family_cell_room(_id, list_primaries) {
+							ds_list_add(list_primaries, _id);
+						}
+						else {
+							// no more room 
+							return -1;  
+						}
+
 					break;
 					case TROPHIC_LEVEL.SECONDARY:
-						ds_list_add(list_secondaries, _id);
+						if family_cell_room(_id, list_secondaries) {
+							ds_list_add(list_secondaries, _id);
+						}
+						else {
+							// no more room 
+							return -1;  
+						}
 					break;
 					default:
 						ASSERT(false, _id, "_cell_add_creature invalid trophic level");

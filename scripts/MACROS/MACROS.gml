@@ -35,8 +35,9 @@ function MACROS(){
 #macro WORLD_WRAP_Y		true
 
 // terrain
-#macro CELL_SIZE_PX				48			// pixel size - screen area (climate cells are 32x32px)
-#macro CELL_AREA		15 //		25			// m2 - real world area
+#macro CELL_SIZE_PX		32	// (pixels) pixel size - screen area (climate cells are 32x32px)
+#macro CELL_AREA		10   //	(m2) - real world area (used in water calculation...)
+#macro CELL_WIDTH_DRAW	3.3   //	(m) cell width used for creature relative size calculation
 #macro CELL_INITIAL_STORED_WATER  0.9		// stored water in cells at creation as a factor of soil saturation water
 #macro CELL_MAX_PRODUCERS		10			// producers a cell can hold
 

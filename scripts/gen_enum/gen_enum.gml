@@ -14,7 +14,7 @@ function gen_enum(){
 	enum GEN {
 		// Genus 
 		GENUS_ID,							// 0. genus id
-		DEPRECATED_GENUS_OBJECT,					// 1. object name in asset browser with antecessor "class_creature"
+		FAMILY,								// 1. genus' family
 		GENUS_NAME,							// 2. human readable string
 		TROPHIC_LEVEL,						// 3
 		SPRITE_HEAD,						// 4. filename for sprite. must be located at datafiles\sprites
@@ -23,8 +23,8 @@ function gen_enum(){
 		SPECIE_CODE,						// 5 - string
 		PARENT_SPECIE_CODE,					// 6 - specie's parent specie (not creature's parent specie)
 		SPECIE_HUE,							// 7 - real, used to build blend color
-		PLANT_BODY_DENSITY,					// 8 - biomass kg / volum m3	
-		PLANT_BODY_FORM_FACTOR,				// 9 - (sprite height m / sprite width m2) ** 2
+		DEPRECATED_PLANT_BODY_DENSITY,					// 8 - biomass kg / volum m3	
+		DEPRECATED_PLANT_BODY_FORM_FACTOR,				// 9 - (sprite height m / sprite width m2) ** 2
 		PLANT_HEAD_DENSITY,					// 10
 		PLANT_HEAD_FORM_FACTOR,				// 11
 	

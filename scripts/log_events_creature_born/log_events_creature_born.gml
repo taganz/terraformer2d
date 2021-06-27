@@ -8,7 +8,7 @@ function log_events_creature_born(_id){
 		log_event(LOGEVENT.CREATURE_BORN, _id);
 		log_event(LOGEVENT.CREATURE_LIFE_EVENT,		_id, "spawn_as_adult="+string(_id.creature_spawn_as_adult)+", generation="+string(generation)+", biomass: "+string(biomass), "");
 		
-		log_event(LOGEVENT.CREATURE_BORN_INFO,	   _id, "creature_sprite_head", sprite_get_name(_id.creature_sprite_head));
+		//log_event(LOGEVENT.CREATURE_BORN_INFO,	   _id, "creature_sprite_head", sprite_get_name(_id.creature_sprite_head));
 		log_event(LOGEVENT.CREATURE_BORN_INFO,	   _id, "Climate", climate_to_string(_id.my_cell.climate));
 		log_event(LOGEVENT.CREATURE_BORN_INFO,	   _id, "Soil", soil_to_string(_id.my_cell.soil_type));
 		

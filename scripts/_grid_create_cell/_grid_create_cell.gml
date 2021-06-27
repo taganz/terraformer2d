@@ -36,6 +36,7 @@ function _grid_create_cell(_x_cell, _y_cell) {
 			var layer_climate = layer_get_id(LAYER_CLIMATE);
 			var map_climate = layer_tilemap_get_id(layer_climate);
 			var tile_data = tilemap_get_at_pixel(map_climate, _x_cell*CELL_SIZE_PX, _y_cell*CELL_SIZE_PX);
+			ASSERT(tile_data != -1, 0, "_grid_create_cell tile_data == -1 "+string(_x_cell)+","+string(_y_cell));
 			var climate_at_tile= tile_get_index(tile_data);
 			cell.climate = climate_at_tile;
 						

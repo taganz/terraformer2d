@@ -66,11 +66,11 @@ function genome_offspring_copy(_id_parent, _radiation){
 		_genome_child[GEN.SPECIE_HUE] = specie_hue_from_genome(_genome_child);
 		
 		// get new morphology parameters
-		#macro MORPHOLOGY_MUTATION 0.1
-		_genome_child[GEN.PLANT_BODY_DENSITY] *= random_range(1-MORPHOLOGY_MUTATION, 1+MORPHOLOGY_MUTATION);
-		_genome_child[GEN.PLANT_BODY_DENSITY] *= random_range(1-MORPHOLOGY_MUTATION, 1+MORPHOLOGY_MUTATION);
-		_genome_child[GEN.PLANT_BODY_DENSITY] *= random_range(1-MORPHOLOGY_MUTATION, 1+MORPHOLOGY_MUTATION);
-		_genome_child[GEN.PLANT_BODY_DENSITY] *= random_range(1-MORPHOLOGY_MUTATION, 1+MORPHOLOGY_MUTATION);
+		// #macro MORPHOLOGY_MUTATION 0.1
+		// _genome_child[GEN.DEPRECATED_PLANT_BODY_DENSITY] *= random_range(1-MORPHOLOGY_MUTATION, 1+MORPHOLOGY_MUTATION);
+		// _genome_child[GEN.DEPRECATED_PLANT_BODY_DENSITY] *= random_range(1-MORPHOLOGY_MUTATION, 1+MORPHOLOGY_MUTATION);
+		// _genome_child[GEN.DEPRECATED_PLANT_BODY_DENSITY] *= random_range(1-MORPHOLOGY_MUTATION, 1+MORPHOLOGY_MUTATION);
+		// _genome_child[GEN.DEPRECATED_PLANT_BODY_DENSITY] *= random_range(1-MORPHOLOGY_MUTATION, 1+MORPHOLOGY_MUTATION);
 		
 		// log a new specie		
 		log_event(LOGEVENT.SPECIE_NEW, 0, _genome_child[GEN.SPECIE_CODE], _id_parent.genome[GEN.SPECIE_CODE], climate_to_string(_id_parent.my_cell.climate));	

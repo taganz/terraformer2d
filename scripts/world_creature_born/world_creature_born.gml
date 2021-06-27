@@ -1,4 +1,6 @@
 
+// return true if everything ok
+
 function world_creature_born(_id, _x, _y) {
 
 	var born_ok = true;
@@ -19,6 +21,15 @@ function world_creature_born(_id, _x, _y) {
 			}
 			else {
 				
+				// if family is crop, must adjust position inside cell to bottom middle
+				if _id.genome[GEN.FAMILY] == "fam_crop" {
+					_id.x = xx * CELL_SIZE_PX + CELL_SIZE_PX / 2;
+					_id.y = yy * CELL_SIZE_PX + CELL_SIZE_PX - 1;
+				}
+				
+				//  DEBUG
+				ASSERT(xx == floor(_id.x/CELL_SIZE_PX) and yy == floor(_id.y/CELL_SIZE_PX), _id, "world_creature_born repositionating crop");
+						
 				// update stats
 				creatures_live_now ++;
 				trophic_level_live_now[_id.genome[GEN.TROPHIC_LEVEL]]++;

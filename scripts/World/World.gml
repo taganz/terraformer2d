@@ -21,7 +21,7 @@ function World() constructor {
 	
 	world_w = floor(controller.world_max_x/CELL_SIZE_PX);
 	world_h = floor(controller.world_max_y/CELL_SIZE_PX);
-	grid_cells = ds_grid_create(world_w+1, world_h+1);
+	grid_cells = ds_grid_create(world_w, world_h);
 	
 	// stats
 	creatures_live_now = 0;

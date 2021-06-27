@@ -23,6 +23,7 @@ function state_born(_id){
 	if born_ok {
 	
 		_id.my_cell = cell_from_pixel(_id.x, _id.y);
+		ASSERT(_id.my_cell != -1, _id, "state_born debug  my_cell == -1");
 		
 		// initialize structure
 		structure_born(_id);
@@ -32,6 +33,12 @@ function state_born(_id){
 			
 		// log parameters	
 		log_events_creature_born(_id);
+			
+		//  log genome for initial creatures
+		if _id.structure.generation == 0 {
+			log_events_specie_genome(_id.genome);
+			log_event(LOGEVENT.WORLD_INITIAL_GENUS, _id);		
+		}
 	}
 	else {
 		
@@ -41,15 +48,12 @@ function state_born(_id){
 		_id.structure.dead_cause = DEADCAUSE.BIRTH;		
 		log_events_creature_dead(_id);
 	}
-	
-	//  log genome for initial creatures
-	if _id.structure.generation == 0 {
-		log_events_specie_genome(_id.genome);
-		log_event(LOGEVENT.WORLD_INITIAL_GENUS, _id);		
-	}
+
 	
 	// === transitions
 	
 	_id.state.next_state = STATE.IDLE;
+	
+	ASSERT (_id.my_cell != -1, _id, "state born debug my_cell -1");
 		
 }

@@ -49,10 +49,11 @@ function Structure(_id, _spawn_as_adult) constructor {
 	_biomass_max = -1;					// max biomass attained by creature
 	_biomass_reproduction_max = -1;
 		
-	// height
+	// size
 	
 	my_height = -1;						// can not use 'height' for some GM technical issues
 	_height_growth_factor = -1;
+	my_width = -1;						
 	
 	// -- health
 	

@@ -82,7 +82,7 @@ function brain_step(_id){
 			
 				ASSERT(!is_undefined(_prey), _id, "brain_step _prey undefined");
 				
-				if is_undefined(_prey)== false and _prey != 0 {
+				if is_undefined(_prey)== false and _prey != 0 and instance_exists(_prey) {
 										
 					// can eat?
 						
