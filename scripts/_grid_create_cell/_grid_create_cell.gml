@@ -1,4 +1,5 @@
 // create a cell at grid position
+// return cell or -1 if error
 function _grid_create_cell(_x_cell, _y_cell) {
 
 
@@ -11,7 +12,10 @@ function _grid_create_cell(_x_cell, _y_cell) {
 			ds_grid_add(grid_cells, _x_cell, _y_cell, new Cell())
 			cell = ds_grid_get(grid_cells, _x_cell, _y_cell);
 			
-			ASSERT(!is_undefined(cell), 0, "_grid_create_cell undefined ds_grid_get");
+			if is_undefined(cell) {
+				ASSERT(false, 0, "_grid_create_cell undefined ds_grid_get");
+				return -1;
+			}
 			
 			/*
 			// === NUTRIENTS
@@ -35,7 +39,7 @@ function _grid_create_cell(_x_cell, _y_cell) {
 			// load climate from tileset
 			var layer_climate = layer_get_id(LAYER_CLIMATE);
 			var map_climate = layer_tilemap_get_id(layer_climate);
-			var tile_data = tilemap_get_at_pixel(map_climate, _x_cell*CELL_SIZE_PX, _y_cell*CELL_SIZE_PX);
+			var tile_data = tilemap_get_at_pixel(map_climate, _x_cell*controller.world.cell_size_px, _y_cell*controller.world.cell_size_px);
 			ASSERT(tile_data != -1, 0, "_grid_create_cell tile_data == -1 "+string(_x_cell)+","+string(_y_cell));
 			var climate_at_tile= tile_get_index(tile_data);
 			cell.climate = climate_at_tile;
@@ -57,7 +61,7 @@ function _grid_create_cell(_x_cell, _y_cell) {
 			// load soil from tileset
 			var layer_id = layer_get_id(LAYER_SOIL);
 			var map_id = layer_tilemap_get_id(layer_id);
-			var tile_data = tilemap_get_at_pixel(map_id, _x_cell*CELL_SIZE_PX, _y_cell*CELL_SIZE_PX);
+			var tile_data = tilemap_get_at_pixel(map_id, _x_cell*controller.world.cell_size_px, _y_cell*controller.world.cell_size_px);
 			var tile_index = tile_get_index(tile_data);
 			if tile_index!= 0 
 				cell.soil_type = tile_index;
@@ -81,10 +85,11 @@ function _grid_create_cell(_x_cell, _y_cell) {
 		}
 		else {
 			ASSERT(false, 0, "_grid_create_cell cell already exists");
-
+			return grid_cells[# _x_cell, _y_cell];
 		}
 		
 	}
 	
+	return cell;
 	
 }

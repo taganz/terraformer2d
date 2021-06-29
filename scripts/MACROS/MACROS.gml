@@ -17,9 +17,15 @@ function MACROS(){
 
 // === ROOM SETUP
 
+//#macro ROOM_WIDTH			1200
+//#macro ROOM_HEIGTH		900
+#macro SIMULATION_WIDTH		800		// room = simulation + info
+#macro SIMULATION_HEIGTH	600
+
 #macro LAYER_CLIMATE "climate"
 #macro LAYER_SOIL "soil"
 // creatures are created at a depth - LAYER_BASE - y   (-16000 < depth < 16000)
+#macro LAYER_BASE_PRODUCER_CROP 0
 #macro LAYER_BASE_PRODUCER 1000
 #macro LAYER_BASE_PRIMARY 5000
 #macro LAYER_BASE_SECONDARY 10000
@@ -35,7 +41,7 @@ function MACROS(){
 #macro WORLD_WRAP_Y		true
 
 // terrain
-#macro CELL_SIZE_PX		32	// (pixels) pixel size - screen area (climate cells are 32x32px)
+#macro CELL_SIZE_PX		64	// (pixels) pixel size - screen area (climate cells are 32x32px)
 #macro CELL_AREA		10   //	(m2) - real world area (used in water calculation...)
 #macro CELL_WIDTH_DRAW	3.3   //	(m) cell width used for creature relative size calculation
 #macro CELL_INITIAL_STORED_WATER  0.9		// stored water in cells at creation as a factor of soil saturation water

@@ -10,7 +10,7 @@ function LOGEVENT_to_string(_log_event){
 		case LOGEVENT.CREATURE_BIOMASS_EAT:		_msg = "BM_EAT"; break;
 		case LOGEVENT.CREATURE_BIOMASS_BODY:	 _msg = "BM_BODY"; break;
 		case LOGEVENT.CREATURE_BIOMASS_REPRODUCTION: _msg = "BM_REPRODUCTION"; break;
-		case LOGEVENT.CREATURE_BIOMASS_RESERVE: _msg = "BM_RESERVE"; break;
+		//case LOGEVENT.CREATURE_BIOMASS_RESERVE: _msg = "BM_RESERVE"; break;
 		case LOGEVENT.CREATURE_BORN:			_msg = "BORN"; break;
 		case LOGEVENT.CREATURE_BORN_INFO:		_msg = "BORN_INFO"; break;
 		//case LOGEVENT.CREATURE_BORN_INFO_NUM:	_msg = "BORN_INFO_NUM"; break;

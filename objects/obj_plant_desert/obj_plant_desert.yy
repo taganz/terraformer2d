@@ -1,8 +1,5 @@
 {
-  "spriteId": {
-    "name": "spr_cactus_head_5x1",
-    "path": "sprites/spr_cactus_head_5x1/spr_cactus_head_5x1.yy",
-  },
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "spriteMaskId": null,

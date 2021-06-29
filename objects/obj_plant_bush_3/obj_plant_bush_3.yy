@@ -1,8 +1,5 @@
 {
-  "spriteId": {
-    "name": "spr_bush_3_sheet_6x1",
-    "path": "sprites/spr_bush_3_sheet_6x1/spr_bush_3_sheet_6x1.yy",
-  },
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "spriteMaskId": null,

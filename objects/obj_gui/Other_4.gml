@@ -14,7 +14,7 @@ else {
 	//controller.user_options.room_climate = selected_climate;
 	
 	warning_no_creature_alive_issued = false;
-	container_simulation = gui_bar_simulation();
+	container_bar_simulation = gui_bar_simulation();
 	container_escape_screen = gui_screen_escape();
 }
 

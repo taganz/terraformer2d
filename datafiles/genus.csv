@@ -1,4 +1,4 @@
-﻿version;26/06/2021 16:54;;;control Q per salvar;;;GUARDAR COM EXCEL HABILITADO PARA MACROS;;;;;;;;;;;;;;
+﻿version;27/06/2021 20:18;;;control Q per salvar;;;GUARDAR COM EXCEL HABILITADO PARA MACROS;;;;Lloc;1;1=casa, 0=no a casa;;;;;;;;
 CLIMATE_ET0_EVOTRANSPIRATION_AVG;180;;;All gen value must be numeric - no empty cells;;;;;;;;;;;;;;;;;
 LEAF_M2_PER_KG;0,1;;;Per baixar aigua consumida cal baixar KC vigilant que LMFa quedi > 0,01;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;

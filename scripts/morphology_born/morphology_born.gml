@@ -31,12 +31,12 @@ function morphology_born(_id){
 
 		_my_scale_factor_h = sqrt(family_get_area(_id.genome[GEN.FAMILY]))
 							 / CELL_WIDTH_DRAW 
-							 * CELL_SIZE_PX
+							 * controller.world.cell_size_px
 							 / sprite_get_height(sprite_head)
 							 * _id.genome[GEN.PLANT_HEAD_FORM_FACTOR];
 		_my_scale_factor_w = sqrt(family_get_area(_id.genome[GEN.FAMILY]))
 							 / CELL_WIDTH_DRAW 
-							 * CELL_SIZE_PX
+							 * controller.world.cell_size_px
 							 / sprite_get_width(sprite_head)
 							 / _id.genome[GEN.PLANT_HEAD_FORM_FACTOR];
 							 

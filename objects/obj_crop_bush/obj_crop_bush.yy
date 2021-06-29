@@ -1,8 +1,5 @@
 {
-  "spriteId": {
-    "name": "spr_crop_default",
-    "path": "sprites/spr_crop_default/spr_crop_default.yy",
-  },
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "spriteMaskId": null,

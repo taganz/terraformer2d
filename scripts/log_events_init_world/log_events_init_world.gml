@@ -13,7 +13,7 @@ function log_events_init_world(){
 	log_event(LOGEVENT.INFO_PARAMETERS, 0, "Radiation"				+ string(controller.world.radiation));
 	log_event(LOGEVENT.INFO_PARAMETERS, 0, "NUTRIENT_TILE_OFFSET"	+ string( NUTRIENT_TILE_OFFSET));
 	log_event(LOGEVENT.INFO_PARAMETERS, 0, "NUTRIENT_TILE_MULTIPLIER"+ string( NUTRIENT_TILE_MULTIPLIER));
-	log_event(LOGEVENT.INFO_PARAMETERS, 0, "climate_change_temperature_increment "+ string(controller.world.climate_change_temperature_increment));
+	log_event(LOGEVENT.INFO_PARAMETERS, 0, "temperature_increment "+ string(controller.world.temperature_increment));
 	log_event(LOGEVENT.INFO_PARAMETERS, 0, "1 sim year =  "		+string(years_to_sim_steps(1))+" sim step");
 	log_event(LOGEVENT.INFO_PARAMETERS, 0, "1 sim step =  "		+string(sim_steps_to_years(1))+" year");
 	

@@ -16,10 +16,15 @@ function _cell_add_creature (_id, _x_cell, _y_cell) {
 			
 			// if there is still no cell at position create one
 			if cell == 0 {
-				_grid_create_cell(_x_cell, _y_cell)
+				cell = _grid_create_cell(_x_cell, _y_cell);
+				if cell==-1 {
+					ASSERT(false, _id, "_cell_add_creature error creating cell "+string(_x_cell)+", "+string(_y_cell));
+					return -1;
+				}
 			}
 
-			with grid_cells[# _x_cell, _y_cell] {
+			//with grid_cells[# _x_cell, _y_cell] {
+			with cell {
 				
 				// add creature to cell;
 				switch( _id.genome[GEN.TROPHIC_LEVEL]) {
@@ -65,7 +70,8 @@ function _cell_add_creature (_id, _x_cell, _y_cell) {
 				}
 			}
 			
-			return grid_cells[# _x_cell, _y_cell];
+			//return grid_cells[# _x_cell, _y_cell];
+			return cell;
 	}		
 		
 }

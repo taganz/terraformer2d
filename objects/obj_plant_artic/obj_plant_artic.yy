@@ -1,8 +1,5 @@
 {
-  "spriteId": {
-    "name": "spr_plant_artic_head",
-    "path": "sprites/spr_plant_artic_head/spr_plant_artic_head.yy",
-  },
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "spriteMaskId": null,

@@ -1,8 +1,5 @@
 {
-  "spriteId": {
-    "name": "spr_bush_4_sheet_4x4",
-    "path": "sprites/spr_bush_4_sheet_4x4/spr_bush_4_sheet_4x4.yy",
-  },
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "spriteMaskId": null,

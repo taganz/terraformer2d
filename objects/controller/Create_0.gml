@@ -4,10 +4,8 @@ if RANDOMIZE_AT_START
 	randomize();
 
 
-
-// simulation area size
-world_max_x = window_get_width();
-world_max_y = window_get_height();
+game_max_x = window_get_width();
+game_max_y = window_get_height();
 	
 // === log class
 

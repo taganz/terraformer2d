@@ -1,8 +1,5 @@
 {
-  "spriteId": {
-    "name": "spr_tree_head_sheet_4x4_1",
-    "path": "sprites/spr_tree_head_sheet_4x4_1/spr_tree_head_sheet_4x4_1.yy",
-  },
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "spriteMaskId": null,

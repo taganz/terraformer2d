@@ -36,11 +36,16 @@ function User_options() constructor {
 
 	// === room config
 
+	room_cell_size_px = CELL_SIZE_PX;
+
 	room_world_radiation = WORLD_RADIATION_DEFAULT;
 	room_temperature_increment = 0;
 	
 	room_climate = -1;			// if > 0 all climate tiles will be replaced with this value
 	room_soil_type = -1;			// if > 0 all soil tiles will be replaced with this value
+	
+	room_simulation_width = SIMULATION_WIDTH;
+	room_simulation_heigth = SIMULATION_HEIGTH;
 	
 	spawn_genus = -1;		// creature object to be spawned at room start
 	spawn_quantity = 30;

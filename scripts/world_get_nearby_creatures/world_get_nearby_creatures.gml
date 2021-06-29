@@ -11,8 +11,8 @@ function world_get_nearby_creatures(_x, _y, _trophic_level){
 
 		// translate pixel to cell coordinates
 
-		var _xx = _x div CELL_SIZE_PX;
-		var _yy = _y div CELL_SIZE_PX;
+		var _xx = _x div cell_size_px;
+		var _yy = _y div cell_size_px;
 		
 		// try first same cell
 		

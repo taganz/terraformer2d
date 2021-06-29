@@ -23,18 +23,21 @@ function state_eat(_id) {
 			var _prey = _id.brain.seen_food;
 			var _prey_distance = point_distance(_id.x, _id.y, _prey.x, _prey.y);
 		
-			if  _prey_distance > _id.structure.speed_eat {
+			if  _prey_distance > _id.structure.speed_eat or cell_from_pixel(_id.x, _id.y) != cell_from_pixel(_prey.x, _prey.y) {
 			
 				//  prey is not close enough, approach			
 				world_creature_move_to(_id, _prey.x, _prey.y, _id.structure.speed_eat);
-				//_id.brain.seen_food_distance will be recalculated in brain_step
+
 			}
 			else {
 			
 				// it's close, can eat
 				
-				// go there
-				world_creature_move_to(_id, _prey.x, _prey.y, -1);
+				if _prey.genome[GEN.FAMILY]!= "fam_crop" {
+					
+					// go there if not crop
+					world_creature_move_to(_id, _prey.x, _prey.y, -1);
+				}
 			
 				// capture a part of biomass from prey 
 				var _biomass_got = been_eated(_prey, _id, _id.structure.biomass_eat);

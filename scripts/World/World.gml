@@ -14,14 +14,23 @@ function World() constructor {
 	// statistics
 
 
-	climate_change_temperature_increment = 0;		// used by GUI to simulate climate change
+	temperature_increment = 0;		// used by GUI to simulate climate change
 
-	world_max_x = controller.world_max_x;
-	world_max_y = controller.world_max_y;
+	world_max_x = controller.user_options.room_simulation_width;
+	world_max_y = controller.user_options.room_simulation_heigth;
 	
-	world_w = floor(controller.world_max_x/CELL_SIZE_PX);
-	world_h = floor(controller.world_max_y/CELL_SIZE_PX);
+	cell_size_px = controller.user_options.room_cell_size_px;
+	
+	world_w = floor(world_max_x/cell_size_px);
+	world_h = floor(world_max_y/cell_size_px);
 	grid_cells = ds_grid_create(world_w, world_h);
+	
+	// adjust allowed pixel area
+	world_max_x = world_w * cell_size_px - 1;
+	world_max_y = world_h * cell_size_px - 1;
+	
+	
+	show_debug_message("*** World grid size: "+string(world_w)+" x "+string(world_h));
 	
 	// stats
 	creatures_live_now = 0;

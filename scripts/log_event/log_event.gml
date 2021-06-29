@@ -60,7 +60,7 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 			case LOGEVENT.CREATURE_BIOMASS_EAT:
 			case LOGEVENT.CREATURE_BIOMASS_BODY:
 			case LOGEVENT.CREATURE_BIOMASS_REPRODUCTION:
-			case LOGEVENT.CREATURE_BIOMASS_RESERVE:
+			//case LOGEVENT.CREATURE_BIOMASS_RESERVE:
 			case LOGEVENT.CREATURE_BORN:
 			case LOGEVENT.CREATURE_BORN_INFO:
 			case LOGEVENT.CREATURE_CELL_PLANTS_AVAILABLE_WATER:
@@ -154,17 +154,17 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 						}
 						_col_txt1 = string(_percent)+"% biomass"
 					}
-					if _event == LOGEVENT.CREATURE_BIOMASS_RESERVE {
-						_col_num1 = string(_id1.structure.biomass - _id1.structure._biomass_life);	// reserve
-						if (_id1.structure._biomass_life < _id1.structure._biomass_max) {
-							var _percent = _col_num1/(_id1.structure._biomass_max - _id1.structure._biomass_life); // % reserve max
-							_col_num2 = string(_percent);
-							_col_txt1 = string(_percent)+"% reserve max"
-						}
-						else {
-							_col_txt1 = "error calculating % reserve max: biomass_life >= biomass_max"
-						}
-					}
+					//if _event == LOGEVENT.CREATURE_BIOMASS_RESERVE {
+					//	_col_num1 = string(_id1.structure.biomass - _id1.structure._biomass_life);	// reserve
+					//	if (_id1.structure._biomass_life < _id1.structure._biomass_max) {
+					//		var _percent = _col_num1/(_id1.structure._biomass_max - _id1.structure._biomass_life); // % reserve max
+					//		_col_num2 = string(_percent);
+					//		_col_txt1 = string(_percent)+"% reserve max"
+					//	}
+					//	else {
+					//		_col_txt1 = "error calculating % reserve max: biomass_life >= biomass_max"
+					//	}
+					//}
 					
 					if _event == LOGEVENT.CREATURE_CELL_PLANTS_AVAILABLE_WATER {
 						_col_num1 = string(_arg1);

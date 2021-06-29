@@ -23,37 +23,17 @@ function gui_screen_escape(){
 	_container.AddContent(_button);
 	yy+=32;
 
-	// --- debug
-
-	var _button = new EmuButton(COLUMN_1_X, yy, 256, 32, "Debug (4)", function() {
-		gui_debug_toogle();
-	});
-	_container.AddContent(_button);
-	yy+=32;
 
 	// === restart
 
-	var _button = new EmuButton(COLUMN_1_X, yy, 256, 32, "Restart (R)", function() {
-		gui_game_restart();
-	});
-	_container.AddContent(_button);
-	yy+=32;
+	//var _button = new EmuButton(COLUMN_1_X, yy, 256, 32, "Restart (R)", function() {
+	//	gui_game_restart();
+	//});
+	//_container.AddContent(_button);
+	//yy+=32;
 
-	// === back to simulation
 
-	var _button = new EmuButton(COLUMN_1_X, yy, 256, 32, "Back", function() {
-		//obj_gui.show_escape_screen = false;
-		gui_escape_screen_toggle();
-	});
-	_container.AddContent(_button);
-	yy+=32;
 
-	
-	
-	yy+=32;
-	yy+=32;
-	yy+=32;
-	yy+=32;
 
 	// checkbox
 
@@ -84,6 +64,16 @@ function gui_screen_escape(){
 
 
 
+	// === back to simulation
+
+	var _button = new EmuButton(COLUMN_1_X, yy, 256, 32, "Back", function() {
+		//obj_gui.show_escape_screen = false;
+		gui_escape_screen_toggle();
+	});
+	_container.AddContent(_button);
+	yy+=32;
+
+
 	// === COLUMN 2
 	
 	yy=0;
@@ -105,31 +95,6 @@ function gui_screen_escape(){
 	yy+=32;
 */
 
-	// spawn specie selection
-	
-	var _array = genus_get_names_array(-1);
-	var list = new EmuList(COLUMN_2_X, yy, 256, 32, "Genus to spawn on left click:", "Default", 10, function() {
-		var _array_2 = genus_get_names_array(-1);
-	    var selected_index = GetSelection();
-	    if (selected_index >= 0) {
-	        show_debug_message("Primary index selected: " + string(selected_index));
-			controller.user_options.genus_spawn_on_click = genus_id_from_name(_array_2[@ selected_index]);	
-	    }
-		});
-	list.SetMultiSelect(false, false, false);
-	list.AddEntries(_array);
-	// select default value from user options
-	if controller.user_options.spawn_genus != -1 {
-		for (var i = 0; i < array_length(_array); ++i) {
-			if _array[i] == genus_name_from_id(controller.user_options.genus_spawn_on_click) {
-				list.Select(i, true);		
-				break;
-			}
-		}
-	}
-	_container.AddContent(list);
-	
-	yy+=32 * 12;
 	
 	
 	

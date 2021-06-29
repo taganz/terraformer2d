@@ -11,8 +11,8 @@ function world_creature_born(_id, _x, _y) {
 		
 		if world_is_inside_pixel(_x, _y) {
 			
-			var xx = floor(_x/CELL_SIZE_PX);
-			var yy = floor(_y/CELL_SIZE_PX);
+			var xx = floor(_x/controller.world.cell_size_px);
+			var yy = floor(_y/controller.world.cell_size_px);
 			
 			var cell = _cell_add_creature (_id, xx, yy);
 			
@@ -23,12 +23,12 @@ function world_creature_born(_id, _x, _y) {
 				
 				// if family is crop, must adjust position inside cell to bottom middle
 				if _id.genome[GEN.FAMILY] == "fam_crop" {
-					_id.x = xx * CELL_SIZE_PX + CELL_SIZE_PX / 2;
-					_id.y = yy * CELL_SIZE_PX + CELL_SIZE_PX - 1;
+					_id.x = xx * cell_size_px + cell_size_px / 2;
+					_id.y = yy * cell_size_px + cell_size_px - 1;
 				}
 				
 				//  DEBUG
-				ASSERT(xx == floor(_id.x/CELL_SIZE_PX) and yy == floor(_id.y/CELL_SIZE_PX), _id, "world_creature_born repositionating crop");
+				ASSERT(xx == floor(_id.x/cell_size_px) and yy == floor(_id.y/cell_size_px), _id, "world_creature_born repositionating crop");
 						
 				// update stats
 				creatures_live_now ++;

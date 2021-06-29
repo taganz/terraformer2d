@@ -15,7 +15,7 @@ function gui_text_on_simulation_screen(){
 				+ "  Speed: "+string(ceil(controller.time.steps_per_sim_step))
 				+ "  Spawn: "+genus_name_from_id(controller.user_options.genus_spawn_on_click)
 				+ (controller.user_options.LOG_ALLOW_LOG ? " LOG" : "")
-				+ "  T inc: "+string(controller.world.climate_change_temperature_increment)+"ºC";
+				+ "  T inc: "+string(controller.world.temperature_increment)+"ºC";
 				;
 		
 		var _t2="Born: " + string(controller.world.creatures_born)
@@ -27,12 +27,12 @@ function gui_text_on_simulation_screen(){
 				+"  Sec: "+string(controller.world.trophic_level_live_now[TROPHIC_LEVEL.SECONDARY])
 				+" - Biomass: "+string(round(controller.world.biomass))
 				;
-		//var _t4 = "T inc: "+string(controller.world.climate_change_temperature_increment)+"ºC";
+		//var _t4 = "T inc: "+string(controller.world.temperature_increment)+"ºC";
 
 		
 		draw_set_color(c_black);
 		draw_set_font(fnt_small);
-		var _yy = 30;
+		var _yy = controller.user_options.room_simulation_heigth + 10;
 		var _xx = 110;
 		draw_text(_xx, _yy + 20, _t1);
 		draw_text(_xx, _yy + 40, _t2);

@@ -30,7 +30,7 @@ if obj_gui.show_escape_screen == false {
 			if my_cell != 0 {
 				var _x0 = grid_pixel_x_from_cell_x(my_cell.x_cell);
 				var _y0 = grid_pixel_y_from_cell_y(my_cell.y_cell);
-				draw_rectangle(_x0, _y0, _x0 + CELL_SIZE_PX, _y0 + CELL_SIZE_PX, true );
+				draw_rectangle(_x0, _y0, _x0 + controller.world.cell_size_px, _y0 + controller.world.cell_size_px, true );
 			}
 			
 			// draw a red line to home

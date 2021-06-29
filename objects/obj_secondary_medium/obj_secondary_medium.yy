@@ -1,8 +1,5 @@
 {
-  "spriteId": {
-    "name": "spr_secondary_small",
-    "path": "sprites/spr_secondary_small/spr_secondary_small.yy",
-  },
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "spriteMaskId": null,

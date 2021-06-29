@@ -9,7 +9,7 @@ if controller.time.sim_step_entry and is_plant == false
 		log_event(LOGEVENT.CREATURE_BIOMASS_EAT, id, structure.biomass_eat);
 		log_event(LOGEVENT.CREATURE_BIOMASS_BODY, id, structure.biomass_body);
 		log_event(LOGEVENT.CREATURE_BIOMASS_REPRODUCTION, id, structure.biomass_reproduction);
-		log_event(LOGEVENT.CREATURE_BIOMASS_RESERVE, id); 
+		//log_event(LOGEVENT.CREATURE_BIOMASS_RESERVE, id); 
 	}
 
 }

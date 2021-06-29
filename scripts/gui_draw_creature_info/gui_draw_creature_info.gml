@@ -17,7 +17,10 @@ function gui_draw_creature_info(){
 			draw_set_font(fnt_small);
 			draw_set_valign(fa_top);
 				
-			draw_text(50, 200, _log_text_creature(_id));
+			var x_draw = 200;
+			var y_draw = controller.user_options.room_simulation_heigth + 100;
+			draw_text(x_draw, y_draw, string_repeat("                  \n", 10));
+			draw_text(x_draw, y_draw, _log_text_creature(_id));
 			showing_debug_data_for_creature = _id;
 		
 			// draw cell rectanble
@@ -25,7 +28,7 @@ function gui_draw_creature_info(){
 			if (_id.my_cell != 0) {
 				var _x0 = grid_pixel_x_from_cell_x(_id.my_cell.x_cell);
 				var _y0 = grid_pixel_y_from_cell_y(_id.my_cell.y_cell);
-				draw_rectangle(_x0, _y0, _x0 + CELL_SIZE_PX, _y0 + CELL_SIZE_PX, true );
+				draw_rectangle(_x0, _y0, _x0 + controller.world.cell_size_px, _y0 + controller.world.cell_size_px, true );
 			}
 		
 			// if q is pressed, activate log for this creature
@@ -47,18 +50,18 @@ function _log_text_creature(_id){
 	if instance_exists(_id) {
 		return string(_id) 
 		+ "\nGenus:  "+string(_id.genome[GEN.GENUS_NAME])
-		+ "\nSpecie: "+string(_id.genome[GEN.SPECIE_CODE])
+		+ " - Specie: "+string(_id.genome[GEN.SPECIE_CODE])
 		//+ "\nInitial specie: "+string(_id.genome[GEN.GENUS_ID])
 		+ "\nBiomass: "+string_format(_id.structure.biomass, 4, 1)+"kg"
 		+ "\nAge: "+string(sim_steps_to_years(_id.structure.age))+"y"
-		+ "\nis_hungry: " + string(_id.structure.is_hungry)
-		+ "\nis_starving: " + string(_id.structure.is_starving)
+		+ "\Nhungry: " + string(_id.structure.is_hungry) 
+		+ " - starving: " + string(_id.structure.is_starving)
 		+ "\nanabolism_input: " + string(_id.structure.anabolism_input)
-		+ "\n_has_eaten_this_time: " + string(_id.structure._has_eaten_this_time)
+		+ " - _has_eaten_this_time: " + string(_id.structure._has_eaten_this_time)
 		+ "\nSTATE : " + state_to_string(_id.state.state)
-		+ "\nPos: "+string(ceil(_id.x))+","+string(ceil(_id.y))
-		+ "\nCell :"+string(cell_x_from_pixel(_id.x))+","+string(cell_x_from_pixel(_id.y))
-		+ "\nHome: "+string(ceil(_id.brain.home_x))+","+string(ceil(_id.brain.home_y))
+		+ "\nPos: "+string(ceil(_id.x))+","+string(ceil(_id.y)) + 
+		+ " - Cell :"+string(cell_x_from_pixel(_id.x))+","+string(cell_x_from_pixel(_id.y))
+		+ " - Home: "+string(ceil(_id.brain.home_x))+","+string(ceil(_id.brain.home_y))
 		;
 	}
 	else {

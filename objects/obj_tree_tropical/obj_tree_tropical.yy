@@ -1,8 +1,5 @@
 {
-  "spriteId": {
-    "name": "spr_tree_tropical_sheet_4x4",
-    "path": "sprites/spr_tree_tropical_sheet_4x4/spr_tree_tropical_sheet_4x4.yy",
-  },
+  "spriteId": null,
   "solid": false,
   "visible": true,
   "spriteMaskId": null,

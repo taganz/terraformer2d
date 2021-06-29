@@ -43,11 +43,11 @@ function world_creature_move(_id, _xTo, _yTo){
 		
 		// moving means cell change?
 	
-		if (_x_origin div CELL_SIZE_PX != _xTo div CELL_SIZE_PX) 
-			or (_y_origin div CELL_SIZE_PX != _yTo div CELL_SIZE_PX) {
+		if (_x_origin div controller.world.cell_size_px != _xTo div controller.world.cell_size_px) 
+			or (_y_origin div controller.world.cell_size_px != _yTo div controller.world.cell_size_px) {
 			
 			// add to new cell
-			var new_cell = _cell_add_creature (_id, _xTo div CELL_SIZE_PX, _yTo div CELL_SIZE_PX);
+			var new_cell = _cell_add_creature (_id, _xTo div controller.world.cell_size_px, _yTo div controller.world.cell_size_px);
 		
 			if new_cell != -1 {
 			
@@ -55,7 +55,7 @@ function world_creature_move(_id, _xTo, _yTo){
 				_id.my_cell = new_cell;
 			
 				// remove from old cell
-				_cell_remove_creature(_id, _x_origin div CELL_SIZE_PX, _y_origin div CELL_SIZE_PX);
+				_cell_remove_creature(_id, _x_origin div controller.world.cell_size_px, _y_origin div controller.world.cell_size_px);
 
 			}
 			else {

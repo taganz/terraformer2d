@@ -201,15 +201,6 @@ _container.AddContent(text);
 yy+=32;
 
 
-// --- unlimited water check
-
-var check = new EmuCheckbox(OPTIONS_COLUMN_Y, yy, 256, 32, "Unlimited water", obj_gui.options_unlimited_water, function() {
-    obj_gui.options_unlimited_water = value;
-	show_debug_message("options_unlimited_water: " + (obj_gui.options_unlimited_water ? "on" : "off"));
-});
-_container.AddContent(check);
-yy+=32;
-
 
 
 // === LOGS
@@ -265,28 +256,27 @@ yy+=32;
 
 
 
-// --- temperature input
+// === simulation size
+yy+=64;
 
-var input = new EmuInput(OPTIONS_COLUMN_Y, yy, 350, 32, "Temperature incr.", 
-	string(controller.user_options.room_temperature_increment), "-50 - 50", 3, E_InputTypes.REAL, function() {
-    controller.user_options.room_temperature_increment = value;
+var radio = new EmuRadioArray(OPTIONS_COLUMN_Y, yy, 256, 32, "Cell size:", 1, function() {
+    show_debug_message("Cell size: " + string(value) + ".");
+	switch(value) {
+		case 0: 
+			controller.user_options.room_cell_size_px = CELL_SIZE_PX / 2;
+		break;
+		case 1:
+			controller.user_options.room_cell_size_px = CELL_SIZE_PX;
+		break;
+		case 2:
+			controller.user_options.room_cell_size_px = CELL_SIZE_PX * 2;
+		
+	}
 });
-input.SetRealNumberBounds(-50, 50);
-_container.AddContent(input);
-yy+=32;
+radio.AddOptions(["Small", "Medium", "Big"]);
+radio.SetColumns(3, 160);
 
-// --- radiation input
-
-var input = new EmuInput(OPTIONS_COLUMN_Y, yy, 350, 32, "Radiation",
-	string(controller.user_options.room_world_radiation), "0 - 9", 1, E_InputTypes.REAL, function() {
-    controller.user_options.room_world_radiation = value/10;
-});
-input.SetRealNumberBounds(0, 9);
-_container.AddContent(input);
-yy+=32;
-
-
-
+_container.AddContent(radio)
 
 
 return _container;

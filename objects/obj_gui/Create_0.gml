@@ -37,7 +37,7 @@ selected_room = -1;
 // === gui containers for each screen
 container_home= -1;
 container_config_room_1 = -1;
-container_simulation = -1;
+container_bar_simulation = -1;
 container_escape_screen = -1;		 
 
 // === visible layers status
