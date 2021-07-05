@@ -19,7 +19,7 @@ function MACROS(){
 
 //#macro ROOM_WIDTH			1200
 //#macro ROOM_HEIGTH		900
-#macro SIMULATION_WIDTH		800		// room = simulation + info
+#macro SIMULATION_WIDTH		800 		// room = simulation + info
 #macro SIMULATION_HEIGTH	600
 
 #macro LAYER_CLIMATE "climate"

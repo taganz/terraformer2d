@@ -27,7 +27,7 @@ function structure_born(my_id){
 		
 		// -- size
 		
-		// height will grow linearly with biomass up to height_adult 
+		// height will grow linearly with biomass up to height_adult (m/kg)
 		_height_growth_factor = my_id.genome[GEN.HEIGHT_ADULT]/my_id.genome[GEN.BIOMASS_ADULT];
 		var _my_area = family_get_area(my_id.genome[GEN.FAMILY]),
 		_my_area = _my_area * (my_id.genome[GEN.FAMILY]=="fam_crop" ? 1 : random_range (0.9, 1.1));
@@ -93,7 +93,7 @@ function structure_born(my_id){
 			if _biomass_eat_allocation == -1 {
 				is_dead = true;
 				dead_cause = DEADCAUSE.BIRTH;
-				log_events_creature_dead(my_id);
+				//log_creature_dead(my_id);
 			}
 		}
 		else {

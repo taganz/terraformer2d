@@ -6,7 +6,7 @@ function state_dead(_id){
 	// mark creature as dead in world
 
 	if (state_entry) {
-		log_events_creature_dead(_id);
+		log_creature_dead(_id);
 		// world_creature_dead(_id);
 
 

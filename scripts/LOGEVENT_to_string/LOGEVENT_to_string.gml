@@ -35,11 +35,12 @@ function LOGEVENT_to_string(_log_event){
 		case LOGEVENT.SPECIE_BORN:				_msg = "SPECIE_BORN"; break;
 		case LOGEVENT.SPECIE_DEAD:				_msg = "SPECIE_DEAD"; break;
 		case LOGEVENT.SPECIE_GENOME:			_msg = "SPECIE_GENOME"; break;
-		//case LOGEVENT.SPECIE_GENOME_NUM:		_msg = "SPECIE_GENOME_NUM"; break;
+		
 				
 		
 		//case LOGEVENT.WORLD_PROBE_NUTRIENTS:			_msg = "WORLD_PROBE_NUTRIENTS"; break;
 		//case LOGEVENT.WORLD_PROBE_WATER:				_msg = "WORLD_PROBE_WATER"; break;
+		case LOGEVENT.GENUS_POPULATION:			_msg = "GENUS_POPULATION"; break;
 		case LOGEVENT.WORLD_INITIAL_GENUS:				_msg = "WORLD_INITIAL_GENUS"; break;
 		case LOGEVENT.WORLD_PROBE_SOIL:					_msg = "WORLD_PROBE_SOIL"; break;
 		case LOGEVENT.WORLD_PROBE_CLIMATE:				_msg = "WORLD_PROBE_CLIMATE"; break;

@@ -43,10 +43,14 @@ function _grid_create_cell(_x_cell, _y_cell) {
 			ASSERT(tile_data != -1, 0, "_grid_create_cell tile_data == -1 "+string(_x_cell)+","+string(_y_cell));
 			var climate_at_tile= tile_get_index(tile_data);
 			cell.climate = climate_at_tile;
-						
-			// check climate change by user
-			if controller.user_options.room_climate > 0 {
+				
+			// user configured climates
+			if cell.climate == 0 {
+				// check climate change by user
+				ASSERT(controller.user_options.room_climate > 0, 0, "_grid_create_cell need room_climate");
 				cell.climate = controller.user_options.room_climate;
+				cell._user_defined_climate = true;
+				controller.user_options.room_configurable_climate = true;
 			}
 						
 			// === COORDINATES
@@ -63,14 +67,15 @@ function _grid_create_cell(_x_cell, _y_cell) {
 			var map_id = layer_tilemap_get_id(layer_id);
 			var tile_data = tilemap_get_at_pixel(map_id, _x_cell*controller.world.cell_size_px, _y_cell*controller.world.cell_size_px);
 			var tile_index = tile_get_index(tile_data);
-			if tile_index!= 0 
-				cell.soil_type = tile_index;
-			else
-				cell.soil_type = SOIL.LOAM;
+			cell.soil_type = tile_index;
 			
-			// check soil change by user
-			if controller.user_options.room_soil_type > 0 {
+			// user configured soil
+			if cell.soil_type == 0 {
+				// check climate change by user
+				ASSERT(controller.user_options.room_soil_type > 0, 0, "_grid_create_cell need room_soil_type");
 				cell.soil_type = controller.user_options.room_soil_type;
+				cell._user_defined_soil = true;
+				controller.user_options.room_configurable_soil = true;
 			}
 			
 			// max stored water

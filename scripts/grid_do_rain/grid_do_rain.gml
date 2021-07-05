@@ -74,21 +74,19 @@ function grid_do_rain() {
 									* climate_ET0_evotranspiration(_cell.climate, controller.time.current_sim_month)
 									* producer_id.genome[GEN.EVOTRANSPIRATION_FACTOR]; 
 										
-						// water available to plant is the part of PAW up to roots depth
+						// water available to plant is the part of PAW up to roots depth * factor 
 						
-						// calculate plant root depth
-						
-						var plant_root_depth_mm = producer_id.structure.my_height * 1000 / PRODUCERS_MAX_HEIGHT * SOIL_DEPTH_MM;
+						var plant_root_depth_mm = producer_id.structure.my_height / PRODUCERS_MAX_HEIGHT * SOIL_DEPTH_MM * producer_id.genome[GEN.ROOT_HEIGHT_RATIO];
 				
 				
 						// calculate available water at root depth
 				
-						//_cell.plants_available_water = plant_root_depth_mm / previous_root_depth * _cell.plants_available_water;
-						_cell.plants_available_water = plant_root_depth_mm / SOIL_DEPTH_MM * _cell.plants_available_water;
-				
+						var _PAW_at_root_depth = plant_root_depth_mm / SOIL_DEPTH_MM * _cell.plants_available_water;
+						_PAW_at_root_depth = clamp(_PAW_at_root_depth, 0, _cell.plants_available_water);
+						
 						// get maximum asked water if available
 				
-						var _quant_water = clamp(_plant_transpiration,0, _cell.plants_available_water);
+						var _quant_water = clamp(_plant_transpiration,0, _PAW_at_root_depth);
 						_quant_water = clamp(_quant_water, 0, _cell.stored_water);
 							
 						// give to producer
@@ -98,7 +96,7 @@ function grid_do_rain() {
 						// log available water to plant
 						
 						if _cell.probe_logging {
-							log_event(LOGEVENT.WORLD_PROBE_PLANT_AVAILABLE_WATER, producer_id, _plant_transpiration, c);
+							log_event(LOGEVENT.WORLD_PROBE_PLANT_AVAILABLE_WATER, producer_id, _plant_transpiration, c, _PAW_at_root_depth);
 						}
 						
 						// substract used water and recalculate plant available water

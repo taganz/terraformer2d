@@ -8,7 +8,7 @@ function genus_get_gen(genus, gen){
 	with controller.species  {
 		
 		// get column for this specie
-		var _col = ds_grid_value_x(_genus_grid, 1, _genus_code_row, _genus_max_species, _genus_code_row, genus);
+		var _col = ds_grid_value_x(_genus_grid, 1, _genus_code_row, _genus_max_columns, _genus_code_row, genus);
 		if _col == -1  
 			return -999999999;
 			

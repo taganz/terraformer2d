@@ -56,7 +56,7 @@ function gen_enum(){
 		VIEW_RANGE,							// (distance) - distance can see food or threat
 		SPEED_SLOW,							// (distance/step) - speed looking for food
 		SPEED_FAST,							// (distance/step) - speed chasing/escaping from threat
-	
+		ROOT_HEIGHT_RATIO,					// (adim) - root length to plant heigth ratio
 		////////////////////////////////////////////////////////////
 		// this is used to return the total number of gens
 		_LENGTH_,							// last + 1 --> 

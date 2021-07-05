@@ -9,9 +9,11 @@ function family_cell_room(_id, list) {
 	
 	for (var i = 0; i < ds_list_size(list);i++) {
 		if list[|i] != 0 {
-			var f = genus_get_gen(list[| i].genome[GEN.GENUS_ID], GEN.FAMILY);
-			if f == _id_family {
-				family_occupied_area += family_get_area(f);
+			if instance_exists(list[|i]) {
+				var f = genus_get_gen(list[| i].genome[GEN.GENUS_ID], GEN.FAMILY);
+				if f == _id_family {
+					family_occupied_area += family_get_area(f);
+				}
 			}
 		}
 	}

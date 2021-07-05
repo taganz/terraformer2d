@@ -41,6 +41,46 @@ _container.AddContent(text);
 yy+=32;
 
 
+var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Pop. growth prod.", function() {
+	with controller.user_options {
+		spawn_3_genus = GENUS.PLANT_BUSH_3;
+		spawn_3_quantity = 1;
+		spawn_3_distance_max = 0.2;
+		room_climate = CLIMATE.TROPICAL;
+		room_soil_type = SOIL.LOAM;
+	}
+	obj_gui.state = GUI_STATE.CONFIG_ROOM;
+	obj_gui.selected_room = OneClimateOneSoil;
+	obj_gui.container_config_room_1= gui_screen_config_level();
+		
+});
+_container.AddContent(_button);
+yy+=32;
+
+
+
+var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Pop. growth prim.", function() {
+	with controller.user_options {
+		spawn_genus = GENUS.PRIMARY_TINY
+		spawn_quantity = 1;
+		spawn_distance_max = 0.2;
+		spawn_3_genus = GENUS.PLANT_BUSH_3;
+		spawn_3_quantity = 400;
+		spawn_3_distance_max = 1;
+		room_climate = CLIMATE.TROPICAL;
+		room_soil_type = SOIL.LOAM;
+	}
+	obj_gui.state = GUI_STATE.CONFIG_ROOM;
+	obj_gui.selected_room = OneClimateOneSoil;
+	obj_gui.container_config_room_1= gui_screen_config_level();
+		
+});
+_container.AddContent(_button);
+yy+=32;
+
+
+
+
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Mediterranean", function() {
 	obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;
 	obj_gui.selected_room = rm_mediterranean;
@@ -49,13 +89,13 @@ var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Mediterranean", functi
 		genus_spawn_on_click = GENUS.PRIMARY_TINY_2;
 		spawn_genus = GENUS.TREE_MEDITERRANEAN;
 		spawn_quantity = 40;
-		spawn_distance_max = 300;
+		spawn_distance_max = 1;
 		spawn_2_genus = GENUS.PLANT_BUSH;
 		spawn_2_quantity = 100;
-		spawn_2_distance_max = 300;
+		spawn_2_distance_max = 1;
 		spawn_3_genus = GENUS.PLANT_BUSH_2;
 		spawn_3_quantity = 100;
-		spawn_3_distance_max = 300;
+		spawn_3_distance_max = 1;
 	}
 });
 _container.AddContent(_button);
@@ -114,8 +154,10 @@ yy+=32;
 
 
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Test climates", function() {
-	obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;
+	obj_gui.state = GUI_STATE.CONFIG_ROOM;
 	obj_gui.selected_room = TestClimates;
+	obj_gui.container_config_room_1= gui_screen_config_level();
+	
 });
 _container.AddContent(_button);
 yy+=32;
@@ -130,27 +172,26 @@ yy+=32;
 
 
 
-var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "CarryingCapacity", function() {
+
+
+var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Empty", function() {
 	obj_gui.state = GUI_STATE.CONFIG_ROOM;
-	obj_gui.selected_room = CarryingCapacity;
+	obj_gui.selected_room = OneClimateOneSoil;
+	obj_gui.container_config_room_1= gui_screen_config_level();
 });
 _container.AddContent(_button);
 yy+=32;
+// 
 
-var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Add animals", function() {
+var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Central Climate", function() {
 	controller.user_options.room_climate = CLIMATE.TROPICAL;
 	controller.user_options.room_soil_type = SOIL.LOAM;
-	controller.user_options.spawn_genus = GENUS.PRIMARY_TINY;
-	controller.user_options.spawn_quantity = 0;
-	controller.user_options.spawn_distance_max = 250;
-	controller.user_options.spawn_2_genus = GENUS.SECONDARY_SMALL;
-	controller.user_options.spawn_2_quantity = 0;
-	controller.user_options.spawn_2_distance_max = 250;
-	controller.user_options.spawn_3_genus = GENUS.CROP_BUSH;
-	controller.user_options.spawn_3_quantity = 100;
-	controller.user_options.spawn_3_distance_max = 300;
+	controller.user_options.spawn_genus = GENUS.PRIMARY_SMALL;
+	
+	
+	
 	obj_gui.state = GUI_STATE.CONFIG_ROOM;
-	obj_gui.selected_room = OneClimateOneSoil;
+	obj_gui.selected_room = CentralClimate;
 	obj_gui.container_config_room_1= gui_screen_config_level();
 });
 _container.AddContent(_button);
@@ -158,23 +199,21 @@ yy+=32;
 
 
 
-// 
-
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Primaries on Bush Crop", function() {
 	controller.user_options.room_climate = CLIMATE.TROPICAL;
 	controller.user_options.room_soil_type = SOIL.LOAM;
 	controller.user_options.spawn_genus = GENUS.PRIMARY_SMALL;
 	
 	controller.user_options.spawn_quantity = 40;
-	controller.user_options.spawn_distance_max = 200;
+	controller.user_options.spawn_distance_max = 1;
 	
 	controller.user_options.spawn_2_genus = GENUS.SECONDARY_SMALL;
 	controller.user_options.spawn_2_quantity = 3;
-	controller.user_options.spawn_2_distance_max = 200;
+	controller.user_options.spawn_2_distance_max = 1;
 	
 	controller.user_options.spawn_3_genus = GENUS.CROP_BUSH;
 	controller.user_options.spawn_3_quantity = 100;
-	controller.user_options.spawn_3_distance_max = 300;
+	controller.user_options.spawn_3_distance_max = 1;
 	
 	obj_gui.state = GUI_STATE.CONFIG_ROOM;
 	obj_gui.selected_room = OneClimateOneSoil;
@@ -259,17 +298,17 @@ yy+=32;
 // === simulation size
 yy+=64;
 
-var radio = new EmuRadioArray(OPTIONS_COLUMN_Y, yy, 256, 32, "Cell size:", 1, function() {
+var radio = new EmuRadioArray(OPTIONS_COLUMN_Y, yy, 256, 32, "World size:", 1, function() {
     show_debug_message("Cell size: " + string(value) + ".");
 	switch(value) {
 		case 0: 
-			controller.user_options.room_cell_size_px = CELL_SIZE_PX / 2;
+			controller.user_options.room_cell_size_px = CELL_SIZE_PX * 2;
 		break;
 		case 1:
 			controller.user_options.room_cell_size_px = CELL_SIZE_PX;
 		break;
 		case 2:
-			controller.user_options.room_cell_size_px = CELL_SIZE_PX * 2;
+			controller.user_options.room_cell_size_px = CELL_SIZE_PX / 2;
 		
 	}
 });

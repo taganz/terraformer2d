@@ -49,6 +49,8 @@ function World() constructor {
 	trophic_level_biomass_now[TROPHIC_LEVEL.PRIMARY]=0;
 	trophic_level_biomass_now[TROPHIC_LEVEL.SECONDARY]=0;
 	
+	// genus level stats in Species()
+	
 	climates = [];
 	climates = climate_definitions();
 	

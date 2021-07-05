@@ -32,7 +32,7 @@ function state_born(_id){
 		morphology_born(_id);		
 			
 		// log parameters	
-		log_events_creature_born(_id);
+		log_creature_born(_id);
 			
 		//  log genome for initial creatures
 		if _id.structure.generation == 0 {
@@ -46,7 +46,7 @@ function state_born(_id){
 		
 		_id.structure.is_dead = true;
 		_id.structure.dead_cause = DEADCAUSE.BIRTH;		
-		log_events_creature_dead(_id);
+		//log_creature_dead(_id);
 	}
 
 	

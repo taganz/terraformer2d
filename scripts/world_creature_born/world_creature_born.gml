@@ -31,10 +31,10 @@ function world_creature_born(_id, _x, _y) {
 				ASSERT(xx == floor(_id.x/cell_size_px) and yy == floor(_id.y/cell_size_px), _id, "world_creature_born repositionating crop");
 						
 				// update stats
-				creatures_live_now ++;
-				trophic_level_live_now[_id.genome[GEN.TROPHIC_LEVEL]]++;
-				creatures_born ++;
-				creatures_peak = creatures_peak <= creatures_live_now ? creatures_live_now : creatures_peak;
+				//creatures_live_now ++;
+				//trophic_level_live_now[_id.genome[GEN.TROPHIC_LEVEL]]++;
+				//creatures_born ++;
+				//creatures_peak = creatures_peak <= creatures_live_now ? creatures_live_now : creatures_peak;
 				
 				//log_event(LOGEVENT.SPECIE_BORN, _id, climate_to_string(cell.climate));
 			}

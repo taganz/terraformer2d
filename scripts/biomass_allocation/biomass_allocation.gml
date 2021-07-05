@@ -57,7 +57,7 @@ function biomass_allocation(_id) {
 		if biomass_eat < 0 or biomass_body < 0 {
 			is_dead = true;
 			dead_cause = DEADCAUSE.ILL;
-			log_events_creature_dead(_id);
+			//log_creature_dead(_id);
 		}
 	}
 }

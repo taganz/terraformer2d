@@ -3,10 +3,10 @@
 function soil_ENUM() {
 	
 	enum SOIL {				
-		DEFAULT,    // not a real soil
-		SAND,
-		LOAM,
-		CLAY
+		DEFAULT,    // 0. not a real soil
+		SAND,		// 1
+		LOAM,		// 2
+		CLAY		// 3
 	}
 
 }

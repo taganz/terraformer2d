@@ -33,7 +33,55 @@ function gui_screen_escape(){
 	//yy+=32;
 
 
+	
+	// climate selection list (if configurable room)
+	
+	if controller.user_options.room_configurable_climate != -1 {
+	
+		var list = new EmuList(COLUMN_1_X, yy, 256, 32, "Climate", "default", 3, function() {
+		    var selected_index = GetSelection();
+		    if (selected_index >= 0) {
+		        show_debug_message("Climate selected: " + string(selected_index));
+				controller.user_options.room_climate = selected_index;	
+				// update climate
+				grid_reset_configurable_climate(selected_index);
+		    }
+			});
+		list.SetMultiSelect(false, false, false);
+		list.AddEntries(climate_array_climates());
+		list.Select(controller.user_options.room_climate, true);
+		_container.AddContent(list);
+		yy+=32;
+		yy+=32;
+		yy+=32;
+		yy+=32;
+		
+	}
 
+
+	// soil selection list
+		
+	if controller.user_options.room_configurable_soil != -1 {
+	
+		var list = new EmuList(COLUMN_1_X, yy, 256, 32, "Soil", "default", 3, function() {
+		    var selected_index = GetSelection();
+		    if (selected_index >= 0) {
+		        show_debug_message("Soil selected: " + string(selected_index));
+				controller.user_options.room_soil_type = selected_index;	
+				
+				// update soil
+				grid_reset_configurable_soil(selected_index);
+		    }
+			});
+		list.SetMultiSelect(false, false, false);
+		list.AddEntries(soil_array_soils());
+		list.Select(controller.user_options.room_soil_type, true);
+		_container.AddContent(list);
+		yy+=32;
+		yy+=32;
+		yy+=32;
+		yy+=32;
+	}
 
 	// checkbox
 

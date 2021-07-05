@@ -45,7 +45,9 @@ function Cell() constructor {
 	//map_nutrients = ds_map_create();
 	
 	
-		
+	// keep track of user definitions to allow changes during simulation
+	_user_defined_soil = false;
+	_user_defined_climate = false;
 }
 	
 	

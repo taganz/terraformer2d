@@ -1,7 +1,15 @@
-// Script assets have changed for v2.3.0 see
-// https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function log_events_creature_born(_id){
 
+	
+	// update stats
+	
+	with controller.world {
+		creatures_live_now ++;
+		trophic_level_live_now[_id.genome[GEN.TROPHIC_LEVEL]]++;
+		creatures_born ++;
+		creatures_peak = creatures_peak <= creatures_live_now ? creatures_live_now : creatures_peak;
+	}
+				
 	
 	
 	with _id.structure {

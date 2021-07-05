@@ -1,6 +1,18 @@
 
 function log_events_creature_dead(_id){
 	
+	// update stats
+	with controller.world {
+		
+		if _id.structure.dead_cause != DEADCAUSE.BIRTH {
+			creatures_live_now --;
+			trophic_level_live_now[_id.genome[GEN.TROPHIC_LEVEL]]--;
+			creatures_dead ++;
+			creatures_peak = creatures_peak <= creatures_live_now ? creatures_live_now : creatures_peak;
+		}
+	}
+	
+	// log file
 	
 		log_verbose(_id, "DEAD! "+ deadcause_to_string(_id.structure.dead_cause));
 

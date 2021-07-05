@@ -15,30 +15,6 @@ var _container = new EmuCore(controller.user_options.room_simulation_width + 1, 
 
 // === room selection column
 
-/*
-container = new EmuCore(32, 32, 640, 640);
-
-var tab_group = new EmuTabGroup(0, 0, 640, 640, 2, 32);
-var tab_bio = new EmuTab("Bio");
-var tab_look = new EmuTab("Appearance");
-var tab_stats = new EmuTab("Stats");
-var tab_skills = new EmuTab("Skills");
-var tab_summary = new EmuTab("Summary");
-
-tab_group.AddTabs(0, [tab_bio, tab_look]);
-tab_group.AddTabs(1, [tab_stats, tab_skills, tab_summary]);
-
-container.AddContent(tab_group);
-*/
-
-/*
-var _button = new EmuButton(10, yy, 70, 32, "Slower", function() {
-//    controller.time.sim_speed_slower();
-    time_sim_slower();
-});
-_container.AddContent(_button);
-*/
-
 
 // === SPEED
 
@@ -47,11 +23,10 @@ _container.AddContent(text);
 yy += 32;
 
 var bar = new EmuProgressBar(10, yy, 256, 32, 12, 0, 10, true, 7, function() {
-    show_debug_message("Speed " + string(value) + ".");
+    //show_debug_message("Speed " + string(value) + ".");
 	time_sim_set_value(11 - value);
 });
 bar.SetIntegersOnly(true);
-
 _container.AddContent(bar);
 
 yy += 32;
@@ -68,7 +43,7 @@ yy += 32;
 
 // --- Restart
 
-var _button = new EmuButton(10, yy, 256, 32, "Restart (R)", function() {
+var _button = new EmuButton(10, yy, 256, 32, "Quit (R)", function() {
 	gui_game_restart();
 });
 _container.AddContent(_button);
@@ -127,17 +102,19 @@ _container.AddContent(input);
 yy+=32;
 
 
+// === spawn on click
+
 // spawn specie selection
 	
 var _array = genus_get_names_array(-1);
 array_sort(_array, true);
 
-var list = new EmuList(10, yy, 256, 32, "Genus to spawn on left click:", "Default", 10, function() {
+var list = new EmuList(10, yy, 256, 32, "Genus to spawn on left click:", "Default", 5, function() {
 	var _array_2 = genus_get_names_array(-1);
 	array_sort(_array_2, true);
 	var selected_index = GetSelection();
 	if (selected_index >= 0) {
-		for (var i = 0; i < array_length(_array_2); ++i) {
+		for (var i = 1; i < array_length(_array_2); ++i) {
 			if _array_2[selected_index] == genus_name_from_id(i) {
 				controller.user_options.genus_spawn_on_click = i;
 			    show_debug_message("Primary index selected: " + string(i));
@@ -159,25 +136,48 @@ if controller.user_options.spawn_genus != -1 {
 }
 _container.AddContent(list);
 	
-yy+=32 * 12;
+yy+=32 * 7;
 	
 
-// --- multi spawn
+
+// quantity
+#macro SPAWN_ON_CLICK_MAX 100 
+
+var text = new EmuText(10, yy, 512, 32, "1        quantity       "+string(SPAWN_ON_CLICK_MAX));
+_container.AddContent(text);
+yy += 32;
+
+var bar = new EmuProgressBar(10, yy, 256, 32, 12, 1, SPAWN_ON_CLICK_MAX, true, controller.user_options.genus_spawn_on_click_quantity, function() {
+    //show_debug_message("genus_spawn_on_clic_quantity: " + string(value) );
+	controller.user_options.genus_spawn_on_click_quantity = value;
+});
+bar.SetIntegersOnly(true);
+_container.AddContent(bar);
+
+yy += 32;
+
+
+
+// === multi spawn
 
 var text = new EmuText(10, yy, 512, 32, "Multi spawn");
 _container.AddContent(text);
 yy += 32;
 
-var _button = new EmuButton(10, yy, 100, 32, "Producers", function() {
-	spawner_multi(TROPHIC_LEVEL.PRODUCER);
+var _button = new EmuButton(10, yy, 90, 32, "Selected", function() {
+	spawner_multi_genus_id(controller.user_options.genus_spawn_on_click);
 });
 _container.AddContent(_button);
-var _button = new EmuButton(130, yy, 100, 32, "Primaries", function() {
-	spawner_multi(TROPHIC_LEVEL.PRIMARY);
+var _button = new EmuButton(110, yy, 90, 32, "All Prod", function() {
+	spawner_multi_trophic_level(TROPHIC_LEVEL.PRODUCER);
 });
 _container.AddContent(_button);
-var _button = new EmuButton(260, yy, 100, 32, "Secondaries", function() {
-	spawner_multi(TROPHIC_LEVEL.SECONDARY);
+var _button = new EmuButton(220, yy, 90, 32, "All Prim", function() {
+	spawner_multi_trophic_level(TROPHIC_LEVEL.PRIMARY);
+});
+_container.AddContent(_button);
+var _button = new EmuButton(330, yy, 90, 32, "All Sec", function() {
+	spawner_multi_trophic_level(TROPHIC_LEVEL.SECONDARY);
 });
 _container.AddContent(_button);
 yy+=32;

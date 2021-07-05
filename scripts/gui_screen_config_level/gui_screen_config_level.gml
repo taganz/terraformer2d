@@ -28,11 +28,11 @@ function gui_screen_config_level(){
 	// climate selection list
 	
 	var list = new EmuList(COLUMN_1_X, yy, 256, 32, "Climate", "default", 3, function() {
-	    var selected_index = GetSelection();
-	    if (selected_index >= 0) {
-	        show_debug_message("Climate selected: " + string(selected_index));
+		var selected_index = GetSelection();
+		if (selected_index >= 0) {
+		    show_debug_message("Climate selected: " + string(selected_index));
 			controller.user_options.room_climate = selected_index;	
-	    }
+		}
 		});
 	list.SetMultiSelect(false, false, false);
 	list.AddEntries(climate_array_climates());

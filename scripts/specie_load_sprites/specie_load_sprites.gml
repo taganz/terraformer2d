@@ -2,7 +2,7 @@ function specie_load_sprites(){
 
 	with controller.species {
 		
-		for (var i=0;i<_genus_max_species;i++) {
+		for (var i=0;i<GENUS._LENGTH_;i++) {
 			var sprite_head_string = genus_get_gen(i, GEN.SPRITE_HEAD);
 			if ( string(sprite_head_string) != "-1") {
 				var sprite_id = sprite_add(SPRITES_FOLDER +"\\"+string(sprite_head_string), 1, true, true, 0, 0);

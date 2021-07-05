@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "genus",
-    "path": "folders/Scripts/DNA/genus.yy",
+    "name": "Species",
+    "path": "folders/Scripts/DNA/Species.yy",
   },
   "resourceVersion": "1.0",
   "name": "genus_instance_create",

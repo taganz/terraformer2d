@@ -37,12 +37,14 @@ function LOGEVENT_enum(){
 		SPECIE_BORN,				// individuals born per climate
 		SPECIE_DEAD,			
 		SPECIE_GENOME,
-		//SPECIE_GENOME_NUM,
+		
+		
 		
 		// World stats
-		
-		WORLD_POPULATION,				// total population for a trophic level at a given sim step
-		WORLD_BIOMASS,					// total biomass for a trophic level at a given sim step
+
+		GENUS_POPULATION,				// total population for genus at current sim step
+		WORLD_POPULATION,				// total population for trophic level at current sim step
+		WORLD_BIOMASS,					// total biomass for trophic level at a current sim step
 		WORLD_PROBE_SOIL,				// soil data 
 		WORLD_PROBE_CLIMATE,			// climate data					
 		WORLD_PROBE_TEMPERATURE,					

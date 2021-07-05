@@ -38,6 +38,7 @@ var msg = "";
 			case GEN.DORMANCY_MONTHS:					msg="DORMANCY_MONTHS"; break;
 			case GEN.COMBAT_ATTACK_POINTS:		msg="COMBAT_ATTACK_POINTS"; break;
 			case GEN.COMBAT_DEFENSE_POINTS:		msg="COMBAT_DEFENSE_POINTS"; break;
+			case GEN.ROOT_HEIGHT_RATIO:		msg="ROOT_HEIGHT_RATIO"; break;
 			case GEN.VIEW_RANGE:				msg="VIEW_RANGE"; break;
 			case GEN.SPEED_SLOW:					msg="SPEED_SLOW"; break;
 			case GEN.SPEED_FAST:				msg="SPEED_FAST"; break;

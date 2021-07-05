@@ -245,7 +245,6 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 			case LOGEVENT.SPECIE_DEAD: 
 			case LOGEVENT.SPECIE_NEW: 
 			case LOGEVENT.SPECIE_GENOME:
-			//case LOGEVENT.SPECIE_GENOME_NUM: 
 			{
 				_do_log = controller.user_options.LOG_SPECIES;
 				
@@ -261,10 +260,10 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 					
 				if _event == LOGEVENT.SPECIE_BORN {
 					_col_num1 = string(_id1.structure.biomass);					// biomass
+					_col_txt1 = _id1.genome[GEN.GENUS_NAME];					// genus name
 					if _id1.my_cell != 0 {
-						_col_txt1 = climate_to_string(_id1.my_cell.climate);	// climate
+						_col_txt2 = climate_to_string(_id1.my_cell.climate);	// climate
 					}
-					_col_txt2 = object_get_name(_id1.object_index);				// genus
 				}
 					
 				if _event == LOGEVENT.SPECIE_DEAD {
@@ -272,10 +271,10 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 					_col_num2 = string(sim_steps_to_years(_id1.structure.age));	// age
 					_col_num3 = string(_id1.structure.reproduction_count);		// reproduction times (not offspring!)
 					_col_num4 = string(_id1.structure.generation);				// generation among specie
+					_col_txt1 = _id1.genome[GEN.GENUS_NAME];					// genus
 					if _id1.my_cell != 0 {
-						_col_txt1 = climate_to_string(_id1.my_cell.climate);	// climate
+						_col_txt2 = climate_to_string(_id1.my_cell.climate);	// climate
 					}
-					_col_txt2 = object_get_name(_id1.object_index);				// genus
 					_col_txt3 = deadcause_to_string(_id1.structure.dead_cause);	// dead cause
 					_col_txt4 = string(_id1.genome[GEN.PARENT_SPECIE_CODE]);	// 
 				}
@@ -301,6 +300,15 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 #endregion
 			
 #region  === WORLD EVENTS
+			
+			
+			case LOGEVENT.GENUS_POPULATION: 
+				_do_log = controller.user_options.LOG_WORLD;
+				_col_id1 = "";
+				_col_trophic_level = trophic_level_to_string(genus_get_gen(_arg1, GEN.TROPHIC_LEVEL));    // trophic level
+				_col_txt1 = string(genus_get_gen(_arg1, GEN.GENUS_NAME));			// genus name
+				_col_num1 = string(controller.species.genus_population[@ _arg1]);	// value
+				break;
 			
 			case LOGEVENT.WORLD_BIOMASS:	
 			case LOGEVENT.WORLD_POPULATION:	
@@ -354,11 +362,12 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 				}
 				_col_trophic_level = trophic_level_to_string(_id1.genome[GEN.TROPHIC_LEVEL]);
 				_col_specie = string(_id1.genome[GEN.SPECIE_CODE]);
-				_col_num1 = string(_id1.my_cell.plants_available_water);	// PAW
+				_col_num1 = string(_arg3);							// cell PAW at rooth depth				
 				_col_num2 = string(_id1.structure.anabolism_input);
 				_col_num3 = string(_id1.structure.my_height);
 				_col_num4 = string(_arg1);									// plant transpiration
 				_col_num5 = string(_arg2);									// position cell plant height
+				_col_num6 = string(_id1.my_cell.plants_available_water);	// total cell PAW 
 				_col_txt1 = climate_to_string(_id1.my_cell.climate)
 				_col_txt2 = string(_id1.genome[GEN.GENUS_NAME]);
 				_col_txt3 = string(_id1.genome[GEN.SPECIE_CODE]);
