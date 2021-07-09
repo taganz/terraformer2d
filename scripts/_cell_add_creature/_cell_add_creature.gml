@@ -1,32 +1,32 @@
-// add creature to a cell without changing statistics.
-// create cell if it doesn't exist yet 
-// return new cell or -1 if error
+// return new creature's cell or -1 if error
+
 function _cell_add_creature (_id, _x_cell, _y_cell) {
 			
 	with controller.world {
 		
-			// create cell if not exists
+			// get world cell
 			
 			var cell = ds_grid_get(grid_cells, _x_cell, _y_cell);
 			
 			if is_undefined(cell) {
-				ASSERT(false, _id, "_cell_add_creature invalid cell position "+string(_id.x)+", "+string(_id.y));
+				log_error(string(_id)+" _cell_add_creature invalid cell position "+string(_id.x)+", "+string(_id.y));
 				return -1;
 			}
 			
-			// if there is still no cell at position create one
+			// create cell if still doesn't exists
+			
 			if cell == 0 {
 				cell = _grid_create_cell(_x_cell, _y_cell);
-				if cell==-1 {
-					ASSERT(false, _id, "_cell_add_creature error creating cell "+string(_x_cell)+", "+string(_y_cell));
+				if cell == -1 {
+					log_error(string(_id)+" _cell_add_creature error creating cell "+string(_x_cell)+", "+string(_y_cell));
 					return -1;
 				}
 			}
 
-			//with grid_cells[# _x_cell, _y_cell] {
+			// add creature to cell
+
 			with cell {
 				
-				// add creature to cell;
 				switch( _id.genome[GEN.TROPHIC_LEVEL]) {
 					case TROPHIC_LEVEL.PRODUCER:
 						if _grid_producers_current < CELL_MAX_PRODUCERS - 1 
@@ -70,7 +70,7 @@ function _cell_add_creature (_id, _x_cell, _y_cell) {
 				}
 			}
 			
-			//return grid_cells[# _x_cell, _y_cell];
+
 			return cell;
 	}		
 		

@@ -1,6 +1,6 @@
 
 
-function creature_create (_id) {
+function creature_event_create (_id) {
 
 	with _id {
 	

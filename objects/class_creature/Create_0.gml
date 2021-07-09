@@ -5,7 +5,7 @@ my_cell = 0;
 
 // -- if created from IDE object
 if genus != -1 {
-	creature_create(id);
+	creature_event_create(id);
 }
 
 

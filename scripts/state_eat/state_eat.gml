@@ -23,10 +23,10 @@ function state_eat(_id) {
 			var _prey = _id.brain.seen_food;
 			var _prey_distance = point_distance(_id.x, _id.y, _prey.x, _prey.y);
 		
-			if  _prey_distance > _id.structure.speed_eat or cell_from_pixel(_id.x, _id.y) != cell_from_pixel(_prey.x, _prey.y) {
+			if  _prey_distance > _id.structure.speed_eat_px or cell_from_pixel(_id.x, _id.y) != cell_from_pixel(_prey.x, _prey.y) {
 			
 				//  prey is not close enough, approach			
-				world_creature_move_to(_id, _prey.x, _prey.y, _id.structure.speed_eat);
+				world_creature_move_to(_id, _prey.x, _prey.y, _id.structure.speed_eat_px);
 
 			}
 			else {

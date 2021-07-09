@@ -6,6 +6,7 @@ function MACROS(){
 // see also user_options
 #macro DEBUG_VERBOSE				false		// allow verbose
 #macro DEBUG_VERBOSE_LOG_ANIMALS	false		// send additional debug info to console for logged animals
+#macro BUFFER_LINES 5000
 
 // ===	GAME
 

@@ -67,52 +67,58 @@ function grid_do_rain() {
 										
 						var producer_id = _cell.grid_producers[# 0, c];
 								
-						// water quantity producer is asking for
-		
-						var _plant_transpiration =
-									producer_id.structure.biomass_eat * LEAF_M2_PER_KG 
-									* climate_ET0_evotranspiration(_cell.climate, controller.time.current_sim_month)
-									* producer_id.genome[GEN.EVOTRANSPIRATION_FACTOR]; 
-										
-						// water available to plant is the part of PAW up to roots depth * factor 
-						
-						var plant_root_depth_mm = producer_id.structure.my_height / PRODUCERS_MAX_HEIGHT * SOIL_DEPTH_MM * producer_id.genome[GEN.ROOT_HEIGHT_RATIO];
-				
-				
-						// calculate available water at root depth
-				
-						var _PAW_at_root_depth = plant_root_depth_mm / SOIL_DEPTH_MM * _cell.plants_available_water;
-						_PAW_at_root_depth = clamp(_PAW_at_root_depth, 0, _cell.plants_available_water);
-						
-						// get maximum asked water if available
-				
-						var _quant_water = clamp(_plant_transpiration,0, _PAW_at_root_depth);
-						_quant_water = clamp(_quant_water, 0, _cell.stored_water);
+						if producer_id > 0 and instance_exists(producer_id) {
 							
-						// give to producer
+							// water quantity producer is asking for
+		
+							var _plant_transpiration =
+										producer_id.structure.biomass_eat * LEAF_M2_PER_KG 
+										* climate_ET0_evotranspiration(_cell.climate, controller.time.current_sim_month)
+										* producer_id.genome[GEN.EVOTRANSPIRATION_FACTOR]; 
+										
+							// water available to plant is the part of PAW up to roots depth * factor 
 						
-						producer_id.structure.anabolism_input = _quant_water; // don't accumulate water from previous month
+							var plant_root_depth_mm = producer_id.structure.my_height / PRODUCERS_MAX_HEIGHT * SOIL_DEPTH_MM * producer_id.genome[GEN.ROOT_HEIGHT_RATIO];
+				
+				
+							// calculate available water at root depth
+				
+							var _PAW_at_root_depth = plant_root_depth_mm / SOIL_DEPTH_MM * _cell.plants_available_water;
+							_PAW_at_root_depth = clamp(_PAW_at_root_depth, 0, _cell.plants_available_water);
 						
-						// log available water to plant
+							// get maximum asked water if available
+				
+							var _quant_water = clamp(_plant_transpiration,0, _PAW_at_root_depth);
+							_quant_water = clamp(_quant_water, 0, _cell.stored_water);
+							
+							// give to producer
 						
-						if _cell.probe_logging {
-							log_event(LOGEVENT.WORLD_PROBE_PLANT_AVAILABLE_WATER, producer_id, _plant_transpiration, c, _PAW_at_root_depth);
-						}
+							producer_id.structure.anabolism_input = _quant_water; // don't accumulate water from previous month
 						
-						// substract used water and recalculate plant available water
+							// log available water to plant
 						
-						_cell.stored_water -= _quant_water;
-						_cell.plants_available_water = soil_plant_available_water(_cell.stored_water, _cell.soil_field_capacity_kg, _cell.soil_permanent_wilting_point_kg);
+							if _cell.probe_logging {
+								log_event(LOGEVENT.WORLD_PROBE_PLANT_AVAILABLE_WATER, producer_id, _plant_transpiration, c, _PAW_at_root_depth);
+							}
+						
+							// substract used water and recalculate plant available water
+						
+							_cell.stored_water -= _quant_water;
+							_cell.plants_available_water = soil_plant_available_water(_cell.stored_water, _cell.soil_field_capacity_kg, _cell.soil_permanent_wilting_point_kg);
 					
-						// water beyond this point will be lost (producers are sorted by height-root)
+							// water beyond this point will be lost (producers are sorted by height-root)
 						
-						previous_root_depth = plant_root_depth_mm;
+							previous_root_depth = plant_root_depth_mm;
 						
 
 								
-						// no more water to give
-						//if _cell.plants_available_water <= 0 
-						//	break;
+							// no more water to give
+							//if _cell.plants_available_water <= 0 
+							//	break;
+						}
+						else {
+							ASSERT(false, 0, "grid_do_rain instance_exist false producer_id="+string(producer_id));
+						}
 								
 						
 					}

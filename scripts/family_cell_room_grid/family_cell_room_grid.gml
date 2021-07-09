@@ -4,7 +4,7 @@ function family_cell_room_grid(_id, _grid) {
 	var family_occupied_area = 0;
 	var _id_family = _id.genome[GEN.FAMILY];	
 	for (var i = 0; i < ds_grid_height(_grid);i++) {		// <-- TBO check only active producers
-		if _grid[# 0, i] != 0 {
+		if _grid[# 0, i] > 0 and instance_exists(_grid[# 0, i]){
 			var f = genus_get_gen(_grid[# 0, i].genome[GEN.GENUS_ID], GEN.FAMILY);
 			if f == _id_family {
 				family_occupied_area += family_get_area(f);

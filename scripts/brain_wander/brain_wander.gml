@@ -9,14 +9,14 @@ function brain_wander(_id){
 	
 	// to close to walk circles, get some distance from home
 	if _distance_home < WANDER_MINIMUM_DISTANCE_HOME {
-		var _xTo = _id.x + lengthdir_x(_id.structure.speed_wander, _angle_home); 	
-		var _yTo = _id.y + lengthdir_y(_id.structure.speed_wander, _angle_home); 	
-		world_creature_move_to(_id, _xTo, _yTo, _id.structure.speed_wander )
+		var _xTo = _id.x + lengthdir_x(_id.structure.speed_wander_px, _angle_home); 	
+		var _yTo = _id.y + lengthdir_y(_id.structure.speed_wander_px, _angle_home); 	
+		world_creature_move_to(_id, _xTo, _yTo, _id.structure.speed_wander_px )
 	}
 	else {
 		// walk circles
-		var _xTo = _id.x + lengthdir_x(_id.structure.speed_wander, _angle_home + 90); 	
-		var _yTo = _id.y + lengthdir_y(_id.structure.speed_wander, _angle_home + 90); 	
-		world_creature_move_to(_id, _xTo, _yTo, _id.structure.speed_wander )
+		var _xTo = _id.x + lengthdir_x(_id.structure.speed_wander_px, _angle_home + 90); 	
+		var _yTo = _id.y + lengthdir_y(_id.structure.speed_wander_px, _angle_home + 90); 	
+		world_creature_move_to(_id, _xTo, _yTo, _id.structure.speed_wander_px )
 	}
 }

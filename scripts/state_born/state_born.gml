@@ -21,12 +21,23 @@ function state_born(_id){
 	var born_ok = world_creature_born(_id, _id.x, _id.y);
 	
 	if born_ok {
-	
-		_id.my_cell = cell_from_pixel(_id.x, _id.y);
-		ASSERT(_id.my_cell != -1, _id, "state_born debug  my_cell == -1");
 		
+		// get a cell 
+		_id.my_cell = cell_from_pixel(_id.x, _id.y);
+		if _id.my_cell == -1 {
+			ASSERT(false, _id, "state_born debug  my_cell == -1");
+			born_ok = false;
+		}
+	}
+	
+	if born_ok {
+	
 		// initialize structure
-		structure_born(_id);
+		born_ok = structure_born(_id);
+		
+	}
+	
+	if born_ok {
 	
 		// initialize morphology
 		morphology_born(_id);		

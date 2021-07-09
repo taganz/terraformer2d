@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Creatures",
-    "path": "folders/Scripts/Creatures.yy",
+    "name": "Log",
+    "path": "folders/Scripts/Log.yy",
   },
   "resourceVersion": "1.0",
-  "name": "creature_create",
+  "name": "log_warning",
   "tags": [],
   "resourceType": "GMScript",
 }

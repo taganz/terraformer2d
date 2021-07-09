@@ -71,7 +71,7 @@ function Structure(_id, _spawn_as_adult) constructor {
 	reproduction_age_last_time = -1;		// age at last reproduction
 
 	_reproduction_interval = -1;
-	_reproduction_distance = -1;
+	_reproduction_distance_px = -1;
 	
 	
 	// -- anabolism  
@@ -87,12 +87,12 @@ function Structure(_id, _spawn_as_adult) constructor {
 	
 	// -- speed
 	
-	speed_wander = -1;			// speed looking for food
-	speed_eat = -1;				// speed chasing food
-	speed_escape = -1;			// speed escaping from threat
+	speed_wander_px = -1;			// speed looking for food
+	speed_eat_px = -1;				// speed chasing food
+	speed_escape_px = -1;			// speed escaping from threat
 	
 	// -- senses
 	
-	view_range = -1;			// distance can see food or threat
+	view_range_px = -1;			// distance can see food or threat
 	
 }

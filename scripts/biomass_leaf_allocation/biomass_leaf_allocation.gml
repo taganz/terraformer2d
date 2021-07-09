@@ -18,9 +18,9 @@ function biomass_leaf_allocation(my_id){
 
 
 	// smaller than 0.01 will not show correctly in statistics
-	ASSERT((_LMFa >= 0.01 && _LMFa < 0.99), my_id, "biomass_leaf_allocation Invalid LMFa="+string_format(_LMFa, 6, 4)+" creature "+string(my_id));  
 	
 	if _LMFa < 0.01 or _LMFa >= 0.99 {
+		log_warning("biomass_leaf_allocation Invalid LMFa="+string_format(_LMFa, 6, 4)+" creature "+string(my_id));  
 		_LMFa = -1;
 	}
 	

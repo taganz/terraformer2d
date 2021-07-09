@@ -29,8 +29,11 @@ function World() constructor {
 	world_max_x = world_w * cell_size_px - 1;
 	world_max_y = world_h * cell_size_px - 1;
 	
+	// conversion meters to pixels
+	pixels_per_meter = world_max_x / world_w / CELL_WIDTH_DRAW;		
 	
 	show_debug_message("*** World grid size: "+string(world_w)+" x "+string(world_h));
+	show_debug_message("*** World pixels per meter: "+string(pixels_per_meter));
 	
 	// stats
 	creatures_live_now = 0;

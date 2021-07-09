@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "World",
-    "path": "folders/Scripts/World.yy",
+    "name": "Creatures",
+    "path": "folders/Scripts/Creatures.yy",
   },
   "resourceVersion": "1.0",
-  "name": "world_creature_remove",
+  "name": "creature_event_create",
   "tags": [],
   "resourceType": "GMScript",
 }

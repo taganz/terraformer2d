@@ -9,6 +9,7 @@
 
 function structure_born(my_id){
 
+	var born_ok = true;
 
 	if my_id.is_plant == false
 		var breakpoint_animal = true;
@@ -56,7 +57,7 @@ function structure_born(my_id){
 		// -- reproduction
 		
 		_reproduction_interval = years_to_sim_steps(my_id.genome[GEN.REPRODUCTION_INTERVAL])*random_range(0.8, 1.2);	// steps
-		_reproduction_distance = my_id.genome[GEN.REPRODUCTION_DISTANCE]*random_range(0.9, 1.1);		
+		_reproduction_distance_px = world_m_to_px(my_id.genome[GEN.REPRODUCTION_DISTANCE_M]*random_range(0.9, 1.1));		
 	
 		// avoid 1st generation giving birth at the same time
 		if generation == 0 {
@@ -91,9 +92,7 @@ function structure_born(my_id){
 			
 			// if leaf_allocation is not valid creature die
 			if _biomass_eat_allocation == -1 {
-				is_dead = true;
-				dead_cause = DEADCAUSE.BIRTH;
-				//log_creature_dead(my_id);
+				born_ok = false;
 			}
 		}
 		else {
@@ -101,33 +100,39 @@ function structure_born(my_id){
 		}
 		
 
-		// == initial biomass allocation
+		if born_ok {
+			
+			// == initial biomass allocation
 				
-		biomass_allocation(my_id);
+			biomass_allocation(my_id);
 		
-		// == speed
+			// == speed
+			var _speed_slow_px = world_m_to_px(my_id.genome[GEN.SPEED_SLOW]);
+			var _speed_fast_px = world_m_to_px(my_id.genome[GEN.SPEED_FAST]);
 		
-		if my_id.is_primary{
+			if my_id.is_primary{
 		
-			speed_wander = my_id.genome[GEN.SPEED_SLOW];		// looking for food
-			speed_eat = my_id.genome[GEN.SPEED_SLOW];			// looking for food
-			speed_escape = my_id.genome[GEN.SPEED_FAST];		// escaping from threat
-		}
+				speed_wander_px = _speed_slow_px;		// looking for food
+				speed_eat_px = _speed_slow_px;			// looking for food
+				speed_escape_px = _speed_fast_px;		// escaping from threat
+			}
 		
-		if my_id.is_secondary{
+			if my_id.is_secondary{
 		
-			speed_wander = my_id.genome[GEN.SPEED_SLOW];		// looking for food
-			speed_eat = my_id.genome[GEN.SPEED_FAST];			// chasing
-		}
+				speed_wander_px = _speed_slow_px;		// looking for food
+				speed_eat_px = _speed_fast_px;			// chasing
+			}
 		
-		// == senses
+			// == senses
 		
-		if my_id.is_plant == false {
+			if my_id.is_plant == false {
 			
-			view_range = my_id.genome[GEN.VIEW_RANGE];
-		}
+				view_range_px = world_m_to_px(my_id.genome[GEN.VIEW_RANGE]);
+			}
 			
-
+		}
 		
 	}
+	
+	return born_ok;
 }

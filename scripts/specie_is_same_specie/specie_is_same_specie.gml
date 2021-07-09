@@ -1,9 +1,13 @@
-// return true if all mutable gens are equal or have a difference < 10%
+// specie is different if at least 3 mutable gens have a difference > 20%
 function specie_is_same_specie(genome1, genome2) {
 
-	var same_specie = true;
-	for (var i=GEN_FIRST_MUTABLE;i<GEN._LENGTH_ and same_specie;i++) {
-		same_specie = (genome1[i] >= (genome2[i] * (1-RADIATION_GEN_MUTATION_MIN))) and (genome1[i] <= (genome2[i] * (1+RADIATION_GEN_MUTATION_MIN))) ;
+	var gen_change = 0;
+	for (var i=GEN_FIRST_MUTABLE;i<GEN._LENGTH_ and gen_change < 3; i++) {
+		if (genome1[i] < (genome2[i] * (1-RADIATION_GEN_MUTATION_MIN)))  
+			or (genome1[i] > (genome2[i] * (1+RADIATION_GEN_MUTATION_MIN))) {
+			gen_change++;
+		}
+		
 		/*
 		var debug1 = genome1[i];
 		var debug2 = genome2[i];
@@ -14,5 +18,5 @@ function specie_is_same_specie(genome1, genome2) {
 		*/
 		
 	}
-	return same_specie;
+	return gen_change < 3;
 }

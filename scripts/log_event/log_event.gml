@@ -3,9 +3,13 @@
 function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 
 
+		// === log to console
+		
+		// verbose
 		if _event == LOGEVENT.CREATURE_LIFE_EVENT {
 			log_verbose(_id1, string(_arg1)+": "+string(_arg2));
 		}
+
 
 
 		// === main log switch option
@@ -391,6 +395,7 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 	
 			case LOGEVENT.INFO_PARAMETERS: {
 				_col_txt1 = string(_arg1);
+				_col_txt2 = string(_arg2);
 			break;
 			}
 			case LOGEVENT.INFO_WARNING:

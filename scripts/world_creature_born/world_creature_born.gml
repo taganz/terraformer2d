@@ -17,6 +17,8 @@ function world_creature_born(_id, _x, _y) {
 			var cell = _cell_add_creature (_id, xx, yy);
 			
 			if cell == -1 {
+				// probably no room for offspring
+				//log_warning("can not add creature to cell "+string(_id));
 				born_ok = false;
 			}
 			else {
@@ -40,7 +42,7 @@ function world_creature_born(_id, _x, _y) {
 			}
 		}
 		else {
-			show_debug_message("*** WARNING *** invalid x, y in creature_born: "+string(_id)+": "+string(_x)+","+string(_y));
+			log_warning("invalid x, y in creature_born: "+string(_id)+": "+string(_x)+","+string(_y));
 			born_ok = false;
 			
 		}

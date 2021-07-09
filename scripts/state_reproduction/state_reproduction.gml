@@ -24,7 +24,7 @@ function state_reproduction(_id){
 	for (var off=0; off < _id.genome[GEN.REPRODUCTION_QUANTITY]; off++) {
 
 		// calculate birth place
-		var _d = _id.structure._reproduction_distance;
+		var _d = _id.structure._reproduction_distance_px;
 		var _xTo = _id.x + _d * random_range (0.5, 1) * choose(-1, 1);
 		var _yTo = _id.y + _d * random_range (0.5, 1) * choose(-1, 1);
 				

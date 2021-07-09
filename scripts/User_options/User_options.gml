@@ -13,7 +13,6 @@
 //  WORLD_			logged if WORLD is selected
 
 
-#macro BUFFER_LINES 5000
 #macro SIM_LOG_FILE_NAME "SIM_LOG"
 #macro CSV_SEPARATOR ";"
 #macro LOG_MAXIMUM_CREATURES_ALL	1000	// when number of creatures exceed this stops logging LOG_CREATURES_ALL

@@ -298,22 +298,25 @@ yy+=32;
 // === simulation size
 yy+=64;
 
-var radio = new EmuRadioArray(OPTIONS_COLUMN_Y, yy, 256, 32, "World size:", 1, function() {
+var radio = new EmuRadioArray(OPTIONS_COLUMN_Y, yy, 256, 32, "World size:", 2, function() {
     show_debug_message("Cell size: " + string(value) + ".");
 	switch(value) {
 		case 0: 
+			controller.user_options.room_cell_size_px = CELL_SIZE_PX * 4;
+		break;
+		case 1: 
 			controller.user_options.room_cell_size_px = CELL_SIZE_PX * 2;
 		break;
-		case 1:
+		case 2:
 			controller.user_options.room_cell_size_px = CELL_SIZE_PX;
 		break;
-		case 2:
+		case 3:
 			controller.user_options.room_cell_size_px = CELL_SIZE_PX / 2;
 		
 	}
 });
-radio.AddOptions(["Small", "Medium", "Big"]);
-radio.SetColumns(3, 160);
+radio.AddOptions(["Smallest", "Small", "Medium", "Big"]);
+radio.SetColumns(4, 160);
 
 _container.AddContent(radio)
 

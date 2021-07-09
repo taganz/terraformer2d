@@ -28,7 +28,7 @@ function brain_step(_id){
 			else {
 				
 				// still see threat?
-				if point_distance(_id.x, _id.y, seen_threat.x, seen_threat.y) > _id.structure.view_range {
+				if point_distance(_id.x, _id.y, seen_threat.x, seen_threat.y) > _id.structure.view_range_px {
 					seen_threat = noone
 					log_verbose(_id, "threat missed...");
 				}
@@ -45,7 +45,7 @@ function brain_step(_id){
 				seen_food_distance = point_distance(_id.x, _id.y, seen_food.x, seen_food.y);
 				
 				// has food escaped?
-				if seen_food_distance > _id.structure.view_range {
+				if seen_food_distance > _id.structure.view_range_px {
 					seen_food = noone;
 					seen_food_distance = -1;
 				}
