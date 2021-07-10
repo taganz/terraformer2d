@@ -2,10 +2,10 @@ function genus_id_from_name(_name){
 
 /*
 show_debug_message("*** WARNING **** genus_id_from_name no esta acabat!!!!");
-if _name == "Primary small" return GENUS.PRIMARY_SMALL;
-if _name == "Primary tiny" return GENUS.PRIMARY_TINY;
-if _name == "Primary tiny 2" return GENUS.PRIMARY_TINY_2;
-if _name == "Primary tiny 3" return GENUS.PRIMARY_TINY_3;
+if _name == "Primary small" return GENUS.PRI_SMALL;
+if _name == "Primary tiny" return GENUS.PRI_TINY;
+if _name == "Primary tiny 2" return GENUS.PRI_TINY_2;
+if _name == "Primary tiny 3" return GENUS.PRI_TINY_3;
 return -1;
 */
 

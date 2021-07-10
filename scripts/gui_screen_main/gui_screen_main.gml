@@ -43,7 +43,7 @@ yy+=32;
 
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Pop. growth prod.", function() {
 	with controller.user_options {
-		spawn_3_genus = GENUS.PLANT_BUSH_3;
+		spawn_3_genus = GENUS.PR_BUSH_3;
 		spawn_3_quantity = 1;
 		spawn_3_distance_max = 0.2;
 		room_climate = CLIMATE.TROPICAL;
@@ -61,10 +61,10 @@ yy+=32;
 
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Pop. growth prim.", function() {
 	with controller.user_options {
-		spawn_genus = GENUS.PRIMARY_TINY
+		spawn_genus = GENUS.PRI_TINY
 		spawn_quantity = 1;
 		spawn_distance_max = 0.2;
-		spawn_3_genus = GENUS.PLANT_BUSH_3;
+		spawn_3_genus = GENUS.PR_BUSH_3;
 		spawn_3_quantity = 400;
 		spawn_3_distance_max = 1;
 		room_climate = CLIMATE.TROPICAL;
@@ -86,14 +86,14 @@ var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Mediterranean", functi
 	obj_gui.selected_room = rm_mediterranean;
 		
 	with controller.user_options {
-		genus_spawn_on_click = GENUS.PRIMARY_TINY_2;
-		spawn_genus = GENUS.TREE_MEDITERRANEAN;
+		genus_spawn_on_click = GENUS.PRI_TINY_2;
+		spawn_genus = GENUS.PR_TREE_1;
 		spawn_quantity = 40;
 		spawn_distance_max = 1;
-		spawn_2_genus = GENUS.PLANT_BUSH;
+		spawn_2_genus = GENUS.PR_BUSH;
 		spawn_2_quantity = 100;
 		spawn_2_distance_max = 1;
-		spawn_3_genus = GENUS.PLANT_BUSH_2;
+		spawn_3_genus = GENUS.PR_BUSH_2;
 		spawn_3_quantity = 100;
 		spawn_3_distance_max = 1;
 	}
@@ -154,10 +154,8 @@ yy+=32;
 
 
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Test climates", function() {
-	obj_gui.state = GUI_STATE.CONFIG_ROOM;
+	obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;
 	obj_gui.selected_room = TestClimates;
-	obj_gui.container_config_room_1= gui_screen_config_level();
-	
 });
 _container.AddContent(_button);
 yy+=32;
@@ -186,7 +184,7 @@ yy+=32;
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Central Climate", function() {
 	controller.user_options.room_climate = CLIMATE.TROPICAL;
 	controller.user_options.room_soil_type = SOIL.LOAM;
-	controller.user_options.spawn_genus = GENUS.PRIMARY_SMALL;
+	controller.user_options.spawn_genus = GENUS.PRI_SMALL;
 	
 	
 	
@@ -202,16 +200,16 @@ yy+=32;
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Primaries on Bush Crop", function() {
 	controller.user_options.room_climate = CLIMATE.TROPICAL;
 	controller.user_options.room_soil_type = SOIL.LOAM;
-	controller.user_options.spawn_genus = GENUS.PRIMARY_SMALL;
+	controller.user_options.spawn_genus = GENUS.PRI_SMALL;
 	
 	controller.user_options.spawn_quantity = 40;
 	controller.user_options.spawn_distance_max = 1;
 	
-	controller.user_options.spawn_2_genus = GENUS.SECONDARY_SMALL;
+	controller.user_options.spawn_2_genus = GENUS.SEC_SMALL;
 	controller.user_options.spawn_2_quantity = 3;
 	controller.user_options.spawn_2_distance_max = 1;
 	
-	controller.user_options.spawn_3_genus = GENUS.CROP_BUSH;
+	controller.user_options.spawn_3_genus = GENUS.PR_CROP_BUSH;
 	controller.user_options.spawn_3_quantity = 100;
 	controller.user_options.spawn_3_distance_max = 1;
 	

@@ -46,8 +46,8 @@ function User_options() constructor {
 									// configured by user
 	room_configurable_soil = false
 	
-	room_climate = -1;			// if > 0 all climate tiles will be replaced with this value
-	room_soil_type = -1;			// if > 0 all soil tiles will be replaced with this value
+	room_climate = CLIMATE.TROPICAL;	// type 0 climate tiles will be replaced with this value
+	room_soil_type = SOIL.LOAM;			// type 0 soil tiles will be replaced with this value
 	
 	room_simulation_width = SIMULATION_WIDTH;
 	room_simulation_heigth = SIMULATION_HEIGTH;
@@ -72,7 +72,7 @@ function User_options() constructor {
 	
 	
 
-	genus_spawn_on_click = GENUS.PRIMARY_TINY;
+	genus_spawn_on_click = GENUS.PRI_TINY;
 	genus_spawn_on_click_quantity = 1;
 	
 }
