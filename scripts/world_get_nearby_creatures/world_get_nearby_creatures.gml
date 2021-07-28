@@ -1,8 +1,5 @@
-// return list of creatures of a given kind in 9 cells. try first same cell
+// return list of creatures of a given trophic level in 9 cells. try first same cell
 // assumes that calling creature is at _x, _y 
-// in
-//   x, y
-//	 kind = "small_producer" or "big_producer" or "primary"
 
 function world_get_nearby_creatures(_x, _y, _trophic_level){
 
@@ -18,9 +15,7 @@ function world_get_nearby_creatures(_x, _y, _trophic_level){
 		
 		switch (_trophic_level) {
 			case TROPHIC_LEVEL.PRODUCER:
-				//var _list = grid_cells[# _xx, _yy].list_producers_small;
-				// transform grid to list
-			
+				// transform grid to list			
 				var _list = ds_list_create()
 				for (var c=0; c<grid_cells[# _xx, _yy]._grid_producers_current; c++) {
 					ds_list_add(_list, grid_cells[# _xx, _yy].grid_producers[# 0, c]);
@@ -35,8 +30,7 @@ function world_get_nearby_creatures(_x, _y, _trophic_level){
 			
 		
 		// if nothing at same cell look for nearby cells
-		
-		//if ds_list_size(_list) == 0 {			
+			
 		if ds_list_empty(_list) == true {
 
 			// chose first cell at random to avoid everybody moving in the same direction to eat

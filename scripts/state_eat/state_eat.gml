@@ -21,7 +21,7 @@ function state_eat(_id) {
 			
 		
 			var _prey = _id.brain.seen_food;
-			var _prey_distance = point_distance(_id.x, _id.y, _prey.x, _prey.y);
+			var _prey_distance = world_distance_to_object_m(_id.x, _id.y, _prey);
 		
 			if  _prey_distance > _id.structure.speed_eat_px or cell_from_pixel(_id.x, _id.y) != cell_from_pixel(_prey.x, _prey.y) {
 			
@@ -104,7 +104,7 @@ function state_eat_primary(_id) {
 				// can eat?
 						
 				if _id.genome[GEN.COMBAT_ATTACK_POINTS] > _prey.genome[GEN.COMBAT_DEFENSE_POINTS]
-					and _prey.structure.biomass > _prey.structure.biomass_adult * PRODUCER_BIOMASS_MINIMUM_EAT {
+					and _prey.structure.biomass > _prey.structure.biomass_adult_genome * PRODUCER_BIOMASS_MINIMUM_EAT {
 					
 					// move to plant position, it is near
 					world_creature_move(_id, _prey.x, _prey.y);

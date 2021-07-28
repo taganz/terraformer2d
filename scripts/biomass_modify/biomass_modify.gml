@@ -28,7 +28,7 @@
 		with _id.structure {
 			
 			// keep biomass within limits
-			_quant_got = clamp(_quant, 0 -  biomass, 1.2 * _biomass_adult_max - biomass);
+			_quant_got = clamp(_quant, 0 -  biomass, 1.2 * _biomass_adult_max_genome - biomass);
 							
 			// modify biomass 
 			biomass += _quant_got;
@@ -69,16 +69,16 @@
 						_biomass_max = biomass;
 						
 						// _biomass_life is a fraction of biomass without reproduction part
-						_biomass_life = min(biomass_adult, _biomass_max) * _id.genome[GEN.BIOMASS_LIFE_FACTOR];
+						_biomass_life = min(biomass_adult_genome, _biomass_max) * _id.genome[GEN.BIOMASS_LIFE_FACTOR];
 					}
 			
 					// hungry histeresys cycle
 					if is_hungry == false {
-						is_hungry = (biomass < 0.9 * _biomass_adult_max);
+						is_hungry = (biomass < 0.9 * _biomass_adult_max_genome);
 						is_starving = false;   // first time hungry, not starving
 					}
 					else {
-						is_hungry = biomass < 1.1 *_biomass_adult_max;
+						is_hungry = biomass < 1.1 *_biomass_adult_max_genome;
 						is_starving = biomass < BIOMASS_LIFE_FRACTION_STARVING * _biomass_life ; 
 					}
 				}			

@@ -9,6 +9,7 @@
 
 function structure_born(my_id){
 
+	// will return false is something bad happens 
 	var born_ok = true;
 
 	if my_id.is_plant == false
@@ -20,12 +21,14 @@ function structure_born(my_id){
 		age_die = years_to_sim_steps(my_id.genome[GEN.AGE_DEAD])*random_range(1, 1.3);		
 
 
-		// -- biomass specie parameters
+		// -- biomass and hunger
 	
-		biomass_adult = (my_id.genome[GEN.BIOMASS_ADULT]);
-		_biomass_adult_max = biomass_adult * (1 + my_id.genome[GEN.ALLOCATION_REPRODUCTIVE]) * 1.1;				// max biomass attainable by creature
-		_biomass_reproduction_max = biomass_adult * my_id.genome[GEN.ALLOCATION_REPRODUCTIVE]; 
-		
+		biomass_adult_genome = my_id.genome[GEN.BIOMASS_ADULT];
+		_biomass_adult_max_genome = biomass_adult_genome * (1 + my_id.genome[GEN.ALLOCATION_REPRODUCTIVE]) * 1.1;				// max biomass attainable by creature
+		_biomass_reproduction_max = biomass_adult_genome * my_id.genome[GEN.ALLOCATION_REPRODUCTIVE]; 
+		is_hungry = true;
+		is_starving = true;
+	
 		// -- size
 		
 		// height will grow linearly with biomass up to height_adult (m/kg)
@@ -40,7 +43,7 @@ function structure_born(my_id){
 			
 			// add random biomass to avoid all creatures giving birth at the same time
 			
-			biomass_modify(my_id, biomass_adult + random(_biomass_reproduction_max));
+			biomass_modify(my_id, biomass_adult_genome + random(_biomass_reproduction_max));
 			
 			// assign random age
 			
@@ -127,7 +130,7 @@ function structure_born(my_id){
 		
 			if my_id.is_plant == false {
 			
-				view_range_px = world_m_to_px(my_id.genome[GEN.VIEW_RANGE]);
+				view_range_m = my_id.genome[GEN.VIEW_RANGE];
 			}
 			
 		}

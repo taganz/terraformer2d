@@ -7,6 +7,7 @@ function DEADCAUSE_enum(){
 		BIRTH,
 		EATEN,
 		ILL,
-		GONE			// creature has disappeared beyond screen limits
+		GONE,			// creature has disappeared beyond screen limits
+		USER			// killed by user
 	}
 }

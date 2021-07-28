@@ -32,7 +32,7 @@ function log_creature_born(_id){
 		
 		log_event(LOGEVENT.CREATURE_BORN_INFO, _id, "biomass birth", string(_biomass_given_by_parent));
 		log_event(LOGEVENT.CREATURE_BORN_INFO, _id, "biomass adult", string(_id.genome[GEN.BIOMASS_ADULT]));
-		log_event(LOGEVENT.CREATURE_BORN_INFO, _id, "_biomass_adult_max", string(_biomass_adult_max));
+		log_event(LOGEVENT.CREATURE_BORN_INFO, _id, "_biomass_adult_max_genome", string(_biomass_adult_max_genome));
 		log_event(LOGEVENT.CREATURE_BORN_INFO, _id, "_biomass_reproduction_max", string(_biomass_reproduction_max));
 		
 		log_event(LOGEVENT.CREATURE_BORN_INFO, _id, "generation", string(generation));

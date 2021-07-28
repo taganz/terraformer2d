@@ -28,7 +28,7 @@ function brain_step(_id){
 			else {
 				
 				// still see threat?
-				if point_distance(_id.x, _id.y, seen_threat.x, seen_threat.y) > _id.structure.view_range_px {
+				if world_distance_to_object_m(_id.x, _id.y, seen_threat) > _id.structure.view_range_m {
 					seen_threat = noone
 					log_verbose(_id, "threat missed...");
 				}
@@ -42,12 +42,13 @@ function brain_step(_id){
 		// secondaries food can move. need to recalculate distance
 		if _id.is_secondary {		
 			if instance_exists(seen_food) != false and seen_food != noone {
-				seen_food_distance = point_distance(_id.x, _id.y, seen_food.x, seen_food.y);
+				//seen_food_distance = point_distance(_id.x, _id.y, seen_food.x, seen_food.y);
+				seen_food_distance_m = world_distance_to_object_m(_id.x, _id.y, seen_food);
 				
 				// has food escaped?
-				if seen_food_distance > _id.structure.view_range_px {
+				if seen_food_distance_m > _id.structure.view_range_m {
 					seen_food = noone;
-					seen_food_distance = -1;
+					seen_food_distance_m = -1;
 				}
 			}
 		}
@@ -79,24 +80,28 @@ function brain_step(_id){
 			for(var i=0; i<ds_list_size(_prey_list); i++) { 
 			
 				_prey = ds_list_find_value(_prey_list, i);		
-			
 				ASSERT(!is_undefined(_prey), _id, "brain_step _prey undefined");
 				
 				if is_undefined(_prey)== false and _prey != 0 and instance_exists(_prey) {
 										
 					// can eat?
+					if can_eat(_id, _prey) {
 						
-					if _id.genome[GEN.COMBAT_ATTACK_POINTS] > _prey.genome[GEN.COMBAT_DEFENSE_POINTS]
-						and (_prey.structure.biomass > _prey.structure.biomass_adult * min_biomass_fraction_to_eat 
-							or _prey.structure.biomass > _id.structure.biomass)
-					{
 						// can see? 
-						var _dist = point_distance(_id.x, _id.y, _prey.x, _prey.y);
-						if _dist < _id.genome[GEN.VIEW_RANGE] { 
+						var _dist = world_distance_to_object_m(_id.x, _id.y, _prey);
+						if  _dist < _id.genome[GEN.VIEW_RANGE] {
 							seen_food = _prey;
 							seen_food_distance = _dist;
 							break;	
 						}
+						/*
+						var _dist = point_distance(_id.x, _id.y, _prey.x, _prey.y);
+						if _dist < world_m_to_px(_id.genome[GEN.VIEW_RANGE]) { 
+							seen_food = _prey;
+							seen_food_distance = _dist;
+							break;	
+						}
+						*/
 					}
 				}
 			}

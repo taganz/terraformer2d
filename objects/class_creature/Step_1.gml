@@ -10,7 +10,7 @@ if !controller.sim_paused {
 		log_verbose(id,
 				+"   threat="+string(brain.seen_threat)	
 				+"   food="+string(brain.seen_food)	
-				+"   food_dist="+string(floor(brain.seen_food_distance))	
+				+"   food_dist_m="+string(floor(brain.seen_food_distance_m))	
 				);
 
 

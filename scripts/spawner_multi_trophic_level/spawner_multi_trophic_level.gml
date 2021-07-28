@@ -3,9 +3,21 @@
 */
 function spawner_multi_trophic_level(_trophic_level) {
 	
-	var _quantity = 10;
+	var _quantity = -1;
 	var _distance = 1;
-	var _radiation = 0;
+	var _radiation = controller.world.radiation;
+	
+	switch(_trophic_level) {
+		case TROPHIC_LEVEL.PRODUCER:
+			_quantity = SPAWNER_RANDOM_PRODUCER;
+			break;
+		case TROPHIC_LEVEL.PRIMARY:
+			_quantity = SPAWNER_RANDOM_PRIMARY;
+			break;
+		case TROPHIC_LEVEL.SECONDARY:
+			_quantity = SPAWNER_RANDOM_SECONDARY;
+			break;
+	}
 	
 	for (var i=1; i< GENUS._LENGTH_; i++) {
 		if genus_trophic_level_from_id(i) == _trophic_level or _trophic_level == -1 {

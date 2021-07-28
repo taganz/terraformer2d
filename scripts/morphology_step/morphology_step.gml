@@ -16,7 +16,7 @@ function morphology_step(_id){
 			_head_h_scale = _head_volum_sqrt * _my_scale_factor_h;
 			_head_w_scale = _head_volum_sqrt * _my_scale_factor_w;
 
-			//show_debug_message(string(_id)+" mass%: "+string(_id.structure.biomass/_id.structure._biomass_adult_max)+" scale h: "+string(_head_h_scale)+"scale w:"+string(_head_w_scale))
+			//show_debug_message(string(_id)+" mass%: "+string(_id.structure.biomass/_id.structure._biomass_adult_max_genome)+" scale h: "+string(_head_h_scale)+"scale w:"+string(_head_w_scale))
 
 
 		}			

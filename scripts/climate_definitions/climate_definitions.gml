@@ -33,20 +33,21 @@ function climate_definitions() {
 	climates[CLIMATE.TROPICAL] = 
 		{
 			name : "Tropical",
-			temperature : [ 22,  22,  23,  23,  25,  27,  26,  25,  24,  23,  23,  23],
+			temperature : [ 24,  25,  26,  26,  28,  32,  29,  26,  25,  23,  23,  23],
 			rain : [ 30,  40,  50,  150,  210,  220,  400,  350,  300,  120,  70,  30]
 		};
 		
 	climates[CLIMATE.MEDITERRANEAN] = 
 		{
 			name : "Mediterranean",
-			temperature : [ 15,  18,  20,  25,  30,  30,  26,  25,  24,  20,  18,  13],
+			temperature : [ 15,  18,  20,  24,  27,  27,  25,  25,  23,  20,  18,  13],
 			rain : [ 50,  40,  30,  20,  10,  8,  5,  5,  10,  50,  60,  70]
 		}
 	climates[CLIMATE.CONTINENTAL] = 
 		{
 			name : "Continental",
-			temperature : [ -10,  -5,  0,  5,  15,  20,  25,  30,  20,  10,  0, -5],
+			//27/7/21 temperature : [ -10,  -5,  0,  5,  15,  20,  25,  30,  20,  10,  0, -5],
+			temperature : [ -10,  -5,  0,  5,  15,  18,  20,  23,  20,  10,  0, -5],
 			rain : [ 40,  35,  40,  40,  60,  80,  90,  70,  60,  50,  50,  55]
 		}
 	climates[CLIMATE.TUNDRA] = 

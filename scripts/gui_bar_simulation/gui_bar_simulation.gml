@@ -83,23 +83,39 @@ yy+=32;
 
 // --- temperature input
 
-var input = new EmuInput(10, yy, 350, 32, "Temperature incr.", 
-	string(controller.world.temperature_increment), "-50 - 50", 3, E_InputTypes.REAL, function() {
-    controller.world.temperature_increment = value;
+var text = new EmuText(10, yy, 512, 32, "-50     Temp incr.       +50");
+_container.AddContent(text);
+yy += 32;
+
+var bar = new EmuProgressBar(10, yy, 256, 32, 12, -50, 50, true, 0, function() {
+    //show_debug_message("Speed " + string(value) + ".");
+	controller.world.temperature_increment = value
 });
-input.SetRealNumberBounds(-50, 50);
-_container.AddContent(input);
-yy+=32;
+bar.SetIntegersOnly(true);
+_container.AddContent(bar);
+
+yy += 32;
+
+
+
+
 
 // --- radiation input
 
-var input = new EmuInput(10, yy, 350, 32, "Radiation",
-	string(controller.world.radiation), "0 - 9", 1, E_InputTypes.REAL, function() {
-    controller.world.radiation = value/10;
+var text = new EmuText(10, yy, 512, 32, "0    Radiation     9 " );
+_container.AddContent(text);
+yy += 32;
+
+var bar = new EmuProgressBar(10, yy, 256, 32, 12, 0, 9, true, 0, function() {
+    //show_debug_message("Speed " + string(value) + ".");
+	 controller.world.radiation = value/10;
 });
-input.SetRealNumberBounds(0, 9);
-_container.AddContent(input);
-yy+=32;
+bar.SetIntegersOnly(true);
+_container.AddContent(bar);
+
+yy += 32;
+
+
 
 
 // === spawn on click
@@ -181,6 +197,19 @@ var _button = new EmuButton(330, yy, 90, 32, "All Sec", function() {
 });
 _container.AddContent(_button);
 yy+=32;
+
+// --- 3 trophic levels
+var _button = new EmuButton(10, yy, 90, 32, "Combination", function() {
+	spawner_random_3_trophic_levels();
+});
+_container.AddContent(_button);
+// --- kill all
+var _button = new EmuButton(110, yy, 90, 32, "Kill all", function() {
+	world_creature_kill_all();
+});
+_container.AddContent(_button);
+yy+=32;
+
 
 yy += 32;
 

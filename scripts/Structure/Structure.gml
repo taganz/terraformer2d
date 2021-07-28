@@ -41,25 +41,25 @@ function Structure(_id, _spawn_as_adult) constructor {
 	biomass_body = 0;					// trunk for plants
 	biomass_reproduction = 0;			
 	
-	// biomass specie parameters
+	// biomass and hunger
 	
-	biomass_adult = -1;					// defined by genome
-	_biomass_eat_allocation = -1;		
-	_biomass_adult_max = -1;			// max biomass attainable by creature including reproductive
+	biomass_adult_genome = -1;			// defined by GEN.BIOMASS_ADULT
+	_biomass_adult_max_genome = -1;		// max biomass attainable by creature including reproductive
 	_biomass_max = -1;					// max biomass attained by creature
 	_biomass_reproduction_max = -1;
-		
+	_biomass_life = -1;					// minimum biomass to keep alive
+	_biomass_eat_allocation = -1;		
+	is_hungry = true;
+	is_starving = true;
+	
 	// size
 	
 	my_height = -1;						// can not use 'height' for some GM technical issues
 	_height_growth_factor = -1;
 	my_width = -1;						
 	
-	// -- health
+	// -- dead status
 	
-	_biomass_life = -1;			// minimum biomass to keep alive
-	is_hungry = true;
-	is_starving = true;
 	is_dead = false;
 	dead_cause = -1;
 	
@@ -85,6 +85,9 @@ function Structure(_id, _spawn_as_adult) constructor {
 	_has_eaten_this_time = false;		// used in morphology
 	
 	
+	min_biomass_fraction_to_eat = _id.is_plant ? PRODUCER_BIOMASS_MINIMUM_EAT : PRIMARY_BIOMASS_MINIMUM_EAT;
+
+	
 	// -- speed
 	
 	speed_wander_px = -1;			// speed looking for food
@@ -93,6 +96,6 @@ function Structure(_id, _spawn_as_adult) constructor {
 	
 	// -- senses
 	
-	view_range_px = -1;			// distance can see food or threat
+	view_range_m = -1;			// distance can see food or threat
 	
 }

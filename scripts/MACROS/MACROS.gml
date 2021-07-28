@@ -16,6 +16,10 @@ function MACROS(){
 #macro FILE_GENUS_CSV			"genus.csv"
 #macro SPRITES_FOLDER			"sprites"		// genus sprites placed here
 
+#macro SPAWNER_RANDOM_PRODUCER		50
+#macro SPAWNER_RANDOM_PRIMARY		20
+#macro SPAWNER_RANDOM_SECONDARY		2
+
 // === ROOM SETUP
 
 //#macro ROOM_WIDTH			1200
@@ -42,7 +46,7 @@ function MACROS(){
 #macro WORLD_WRAP_Y		true
 
 // terrain
-#macro CELL_SIZE_PX		64	// (pixels) pixel size - screen area (climate cells are 32x32px)
+#macro CELL_SIZE_PX		96	// (pixels) pixel size - screen area (climate cells are 32x32px)
 #macro CELL_AREA		10   //	(m2) - real world area (used in water calculation...)
 #macro CELL_WIDTH_DRAW	3.3   //	(m) cell width used for creature relative size calculation
 #macro CELL_INITIAL_STORED_WATER  0.9		// stored water in cells at creation as a factor of soil saturation water
@@ -77,7 +81,7 @@ function MACROS(){
 #macro BIOMASS_DECOMPOSITION_ZERO  10			// when biomass decompeses under this level instance is destroyed
 #macro BIOMASS_DECOMPOSITION_FACTOR 0.4			// per sim_month 
 //#macro GENUS_SPAWN_AS_ADULTS true				// if false, depends on variable creature_spawn_as_adult
-#macro PRODUCER_BIOMASS_MINIMUM_EAT 0.2		// if producer biomass is less than this fraction of biomass_adult can not be eaten by primaries
+#macro PRODUCER_BIOMASS_MINIMUM_EAT 0.2		// if producer biomass is less than this fraction of biomass_adult_genome can not be eaten by primaries
 #macro PRIMARY_BIOMASS_MINIMUM_EAT 0.3
 #macro BIOMASS_LIFE_FRACTION_STARVING 1.2	// if biomass goes below this level creature is_starving
 

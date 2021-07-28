@@ -33,14 +33,14 @@ function morphology_born(_id){
 							 / CELL_WIDTH_DRAW 
 							 * controller.world.cell_size_px
 							 / sprite_get_height(sprite_head)
-							 * _id.genome[GEN.PLANT_HEAD_FORM_FACTOR];
+							 * _id.genome[GEN.SPRITE_SCALE_H];
 		_my_scale_factor_w = sqrt(family_get_area(_id.genome[GEN.FAMILY]))
 							 / CELL_WIDTH_DRAW 
 							 * controller.world.cell_size_px
 							 / sprite_get_width(sprite_head)
-							 / _id.genome[GEN.PLANT_HEAD_FORM_FACTOR];
+							 * _id.genome[GEN.SPRITE_SCALE_H];
 							 
-		//show_debug_message(string(_id)+" BORN: "+string(_id.structure.biomass/_id.structure._biomass_adult_max)+" scale h: "+string(_my_scale_factor_h)+"scale w:"+string(_my_scale_factor_w))
+		//show_debug_message(string(_id)+" BORN: "+string(_id.structure.biomass/_id.structure._biomass_adult_max_genome)+" scale h: "+string(_my_scale_factor_h)+"scale w:"+string(_my_scale_factor_w))
 	}
 
 }

@@ -29,7 +29,7 @@ function state_eat_secondary(_id){
 			// can eat plant?
 						
 			if _id.genome[GEN.COMBAT_ATTACK_POINTS] > _prey.genome[GEN.COMBAT_DEFENSE_POINTS]
-				and _prey.structure.biomass > _prey.structure.biomass_adult * PRODUCER_BIOMASS_MINIMUM_EAT {
+				and _prey.structure.biomass > _prey.structure.biomass_adult_genome * PRODUCER_BIOMASS_MINIMUM_EAT {
 					
 				// move to plant position, it is near
 				world_creature_move(_id, _prey.x, _prey.y);

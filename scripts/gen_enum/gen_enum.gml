@@ -23,8 +23,8 @@ function gen_enum(){
 		SPECIE_CODE,						// 5 - string
 		PARENT_SPECIE_CODE,					// 6 - specie's parent specie (not creature's parent specie)
 		SPECIE_HUE,							// 7 - real, used to build blend color
-		PLANT_HEAD_DENSITY,					// 8
-		PLANT_HEAD_FORM_FACTOR,				// 9
+		SPRITE_SCALE_W,						// 8
+		SPRITE_SCALE_H,						// 9
 		COMBAT_DEFENSE_POINTS,				// 10 
 		COMBAT_ATTACK_POINTS,				// 11
 	
@@ -50,7 +50,7 @@ function gen_enum(){
 		TEMPERATURE_RANGE,					// temperature range where plants stops working
 		DORMANCY_CATABOLISM_REDUCTION,		// catabolim level at low temperatures... NOT IMPLEMENTED THIS WAY: catabolism will be by this factor and temperature during dormancy
 		
-		VIEW_RANGE,							// (distance) - distance can see food or threat
+		VIEW_RANGE,							// (m) - distance can see food or threat
 		SPEED_SLOW,							// (distance/step) - speed looking for food
 		SPEED_FAST,							// (distance/step) - speed chasing/escaping from threat
 		ROOT_HEIGHT_RATIO,					// (adim) - root length to plant heigth ratio

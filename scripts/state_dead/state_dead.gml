@@ -17,6 +17,12 @@ function state_dead(_id){
 		if _id.structure.dead_cause == DEADCAUSE.BIRTH {
 			instance_destroy(_id);
 		}
+		
+		// kill all sends some creatures with no cell to decomposition causing an error
+		// (-->will this affect global biomass counting or all those creatures have no biomass counted yet?)
+		if _id.my_cell == 0 {
+			instance_destroy(_id);
+		}
 	
 	}
 	else {
