@@ -34,7 +34,7 @@ if room!= Room0 {
 	}
 	// restart
 	if keyboard_check(ord("R")) {
-		gui_game_restart();
+		gui_simulation_quit();
 	}
 	// simulation speed increase
 	if keyboard_check(ord("1")) {

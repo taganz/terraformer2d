@@ -22,10 +22,10 @@ function MACROS(){
 
 // === ROOM SETUP
 
-//#macro ROOM_WIDTH			1200
-//#macro ROOM_HEIGTH		900
+#macro ROOM_WIDTH			1200		// 1200
+#macro ROOM_HEIGHT			900			// 900
 #macro SIMULATION_WIDTH		800 		// room = simulation + info
-#macro SIMULATION_HEIGTH	600
+#macro SIMULATION_HEIGTH	500			// 600
 
 #macro LAYER_CLIMATE "climate"
 #macro LAYER_SOIL "soil"
@@ -93,6 +93,10 @@ function MACROS(){
 #macro ALPHA_PRODUCERS_DEAD 0.5		// transparency when drawing dead producers
 #macro ALPHA_ANIMALS 1			// transparency when drawing alive animals
 #macro ALPHA_ANIMALS_DEAD 0.5		// transparency when drawing dead animals
+
+// genome
+#macro SPECIE_CHANGE_GEN_COUNT 1			// how many gens must be different to change specie
+#macro SPECIE_CHANGE_GEN_RANGE 0.1			// how different to change specie
 
 }
 

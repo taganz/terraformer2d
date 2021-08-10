@@ -32,6 +32,7 @@ function LOGEVENT_to_string(_log_event){
 		case LOGEVENT.CREATURE_DEBUG:			_msg = "CREATURE_DEBUG"; break;
 		
 		case LOGEVENT.SPECIE_NEW:				_msg = "SPECIE_NEW"; break;
+		case LOGEVENT.SPECIE_ADULT:				_msg = "SPECIE_ADULT"; break;
 		case LOGEVENT.SPECIE_BORN:				_msg = "SPECIE_BORN"; break;
 		case LOGEVENT.SPECIE_DEAD:				_msg = "SPECIE_DEAD"; break;
 		case LOGEVENT.SPECIE_GENOME:			_msg = "SPECIE_GENOME"; break;

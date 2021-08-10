@@ -71,6 +71,10 @@ function state_reproduction(_id){
 		
 	// remember hom many reproduction times
 	_id.structure.reproduction_count ++;
+	if _id.structure.reproduction_count == 1  {
+		log_creature_adult(_id);
+	}
+	
 	_id.structure.reproduction_offspring_count += _offspring_count;
 		
 	log_event(LOGEVENT.CREATURE_LIFE_EVENT, _id, "reproduction", "offspring count: "+string(_offspring_count));

@@ -2,8 +2,8 @@
 /* 
 	state_ENUM()
 	
-	0.BORN 
-		--> IDLE	
+	//0.BORN 
+	//	--> IDLE	
 	1.IDLE 
 		decide next action
 		--> IDLE 
@@ -31,7 +31,7 @@
 function state_ENUM(){
 	
 	enum STATE {
-		BORN,
+		//BORN,
 		IDLE,
 		REPRODUCTION,
 		EAT,

@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "GUI",
-    "path": "folders/Scripts/GUI.yy",
+    "name": "events",
+    "path": "folders/Scripts/GUI/events.yy",
   },
   "resourceVersion": "1.0",
   "name": "gui_event_global_left_pressed",

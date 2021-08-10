@@ -4,7 +4,7 @@
 
 function climate_rain_year_average(climate){
 
-	if obj_gui.options_unlimited_water {
+	if controller.user_options.unlimited_water {
 		return 999999/12;
 	}
 	else  {

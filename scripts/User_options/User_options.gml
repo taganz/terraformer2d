@@ -34,7 +34,11 @@ function User_options() constructor {
 
 
 	// === room config
+	
+	simulation_room = -1;
+	simulation_id = -1;
 
+	unlimited_water = DEBUG_RAIN_UNLIMITED;
 
 	room_cell_size_px = CELL_SIZE_PX;
 
@@ -44,6 +48,7 @@ function User_options() constructor {
 	room_configurable_climate = false;	// non configurable room have climate and soil defined in room editor
 									// configurable rooms have at least one emtpy climate/soil tiles to be 
 									// configured by user
+									// this variable is set to true if some 0 tile is detected
 	room_configurable_soil = false
 	
 	room_climate = CLIMATE.TROPICAL;	// type 0 climate tiles will be replaced with this value

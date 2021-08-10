@@ -12,9 +12,9 @@ function cell_to_string(_cell){
 		
 			ss+= "Grid pos: "+string(x_cell)+","+string(y_cell);
 			ss += "\nSoil: "+soil_to_string(soil_type)+ ", water max:"+ string(_cell.soil_saturation_water_kg);
-			ss = ss + "\nClimate: "+ climate_to_string(climate);
-			ss = ss + "\nStored water: "+ string(stored_water);
-			ss = ss + "\nPlant avail water:" + string(plants_available_water);
+			ss = ss + " Climate: "+ climate_to_string(climate);
+			ss = ss + " Stored water: "+ string(stored_water);
+			ss = ss + " Plant avail water:" + string(plants_available_water);
 			
 			// concatenate creatures
 			

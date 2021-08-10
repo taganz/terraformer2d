@@ -11,7 +11,7 @@ function gui_event_global_left_pressed(){
 
 			if world_is_inside_pixel(mouse_x, mouse_y) {
 	
-				// first spawn
+				// first creature is spawned at mouse position
 	
 				id_new = genus_instance_create(mouse_x, mouse_y, controller.user_options.genus_spawn_on_click);
 				show_debug_message("Created instance: "+string(id_new));
@@ -23,7 +23,7 @@ function gui_event_global_left_pressed(){
 					id_new.creature_verbose = true;
 				}
 	
-				// others
+				// other creatures are distributed randomly
 	
 				if controller.user_options.genus_spawn_on_click_quantity > 1 {
 

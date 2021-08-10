@@ -1,36 +1,7 @@
-// === randomize
+controller_event_create();
 
-if RANDOMIZE_AT_START
-	randomize();
-
-
-game_max_x = window_get_width();
-game_max_y = window_get_height();
-	
-// === log class
-
-log = new Log();
+// do simple unit test here
+controller_test_at_create();
 
 
-// holds species statistics, initial species definitions (will be reloaded at each room)
 
-species = new Species();
-
-
-// === user options for next simulation
-
-user_options = new User_options();
-sim_paused = -1;			// simulation is paused
-
-
-// load sprites
-specie_load_sprites();
-
-
-// check for missing objects
-//genus_check_objects_exist();	
-
-
-// === hide object
-
-// depth = -15000;

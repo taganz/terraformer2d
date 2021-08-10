@@ -50,21 +50,7 @@ function Time() constructor {
 		}
 	}
 
-	/*
-	// === speed
 	
-	sim_speed_faster = function() {
-		if controller.sim_paused==false
-			if steps_per_sim_step > 1
-				steps_per_sim_step --;
-	}
-	
-	sim_speed_slower = function() {
-		if controller.sim_paused == false
-			steps_per_sim_step++;
-	}
-
-*/
 
 	
 }

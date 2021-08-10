@@ -20,7 +20,7 @@ function log_events_init_world(){
 	log_info_parameter( "1 m =  "		,string(world_m_to_px(1))+" px");
 	log_info_parameter( "1 px =  "		,string(world_px_to_m(1))+" m");
 	log_info_parameter( "starting room	"			,room_get_name(room));
-	log_info_parameter( "options_unlimited_water "	,string(obj_gui.options_unlimited_water));
+	log_info_parameter( "unlimited_water "	,string(controller.user_options.unlimited_water));
 	log_info_parameter( "user_options	"			,string(controller.user_options));
 	
 	if controller.user_options.LOG_CREATURES_PRODUCERS == false {

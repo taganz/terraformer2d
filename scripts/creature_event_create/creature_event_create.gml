@@ -31,8 +31,8 @@ function creature_event_create (_id) {
 
 		// -- state
 
-		state = new State_Machine(_id, STATE.BORN);
-		state.state_script[STATE.BORN] = state_born;
+		state = new State(_id, STATE.IDLE);
+		//state.state_script[STATE.BORN] = state_born;
 		state.state_script[STATE.IDLE] = state_idle;
 		state.state_script[STATE.REPRODUCTION] = state_reproduction;
 		state.state_script[STATE.ESCAPE] = state_escape;

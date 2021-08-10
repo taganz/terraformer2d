@@ -11,7 +11,7 @@ function biomass_leaf_allocation(my_id){
 
 	
 	var _LMFa = my_id.genome[GEN.KC_METABOLIC_RATE]
-				/ my_id.genome[GEN.KA_ANABOLISM_FACTOR]
+				/ my_id.structure.ka_anabolism_factor
 				/ CLIMATE_ET0_EVOTRANSPIRATION_AVG
 //				/ my_id.genome[GEN.EVOTRANSPIRATION_FACTOR]
 				/ LEAF_M2_PER_KG;

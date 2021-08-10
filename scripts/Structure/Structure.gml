@@ -3,12 +3,8 @@
 	Structure 
 	
 	Represents the creature actual "body" state
-	If formed by cells --> nutrients
 	Creature parameters are based on genome and modified by actual structure state.
-	In
-		_id
-		_spawn_as_adult
-	
+
 		
 */
 
@@ -18,14 +14,11 @@ function Structure(_id, _spawn_as_adult) constructor {
 
 	my_id = _id;
 	generation = 0;				
-	
-	
-	// some metabolic functions are different in plants and animals
-	
+		
 
 	// -- age
 	
-	age = 0 ;							// sim steps
+	age = -1 ;				// sim steps
 	age_die = -1;
 	
 
@@ -76,6 +69,7 @@ function Structure(_id, _spawn_as_adult) constructor {
 	
 	// -- anabolism  
 	
+	ka_anabolism_factor = -1;		// kg biomass obtained from kg of anabolism_input (kg/kg/month)
 	_Topt2 = -1;
 	_Topt1 = -1;
 	_Tmin  = -1;
@@ -92,10 +86,12 @@ function Structure(_id, _spawn_as_adult) constructor {
 	
 	speed_wander_px = -1;			// speed looking for food
 	speed_eat_px = -1;				// speed chasing food
+	speed_eat_m = -1;
 	speed_escape_px = -1;			// speed escaping from threat
 	
 	// -- senses
 	
 	view_range_m = -1;			// distance can see food or threat
+	view_range_px = -1;
 	
 }

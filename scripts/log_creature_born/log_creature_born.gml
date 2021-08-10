@@ -38,6 +38,7 @@ function log_creature_born(_id){
 		log_event(LOGEVENT.CREATURE_BORN_INFO, _id, "generation", string(generation));
 		log_event(LOGEVENT.CREATURE_BORN_INFO, _id, "_reproduction_interval", string(sim_steps_to_years(_reproduction_interval)));
 		log_event(LOGEVENT.CREATURE_BORN_INFO, _id, "cell", cell_to_string(_id.my_cell));				
+		log_event(LOGEVENT.CREATURE_BORN_INFO, _id, "ka_anabolism_factor", string(ka_anabolism_factor));
 		log_event(LOGEVENT.CREATURE_BORN_INFO, _id, "_Topt1", string(_Topt1));
 		log_event(LOGEVENT.CREATURE_BORN_INFO, _id, "_Topt2", string(_Topt2));
 		log_event(LOGEVENT.CREATURE_BORN_INFO, _id, "_Tmin", string(_Tmin));
@@ -54,7 +55,7 @@ function log_creature_born(_id){
 		log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "GEN.ALLOCATION_DIGESTIVE_ANIMALS", string(_id.genome[GEN.ALLOCATION_DIGESTIVE_ANIMALS]));
 		log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "GEN.BIOMASS_LIFE_FACTOR", string(_id.genome[GEN.BIOMASS_LIFE_FACTOR]));
 		log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "GEN.ANIMAL_ANABOLISM_BIOMASS_CONVERSION", string(_id.genome[GEN.ANIMAL_ANABOLISM_BIOMASS_CONVERSION]));
-		log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "GEN.SPECIE_HUE", string(_id.genome[GEN.SPECIE_HUE]));
+		log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "GEN.SPECIE_COLOR_HSB", string(_id.genome[GEN.SPECIE_COLOR_HSB]));
 		log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "GEN.TEMPERATURE_OPTIMAL", string(_id.genome[GEN.TEMPERATURE_OPTIMAL]));
 		log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "GEN.TEMPERATURE_RANGE", string(_id.genome[GEN.TEMPERATURE_RANGE]));
 		log_event(LOGEVENT.CREATURE_BORN_INFO_NUM, _id, "GEN.BIOMASS_BIRTH", string(_id.genome[GEN.BIOMASS_BIRTH]));

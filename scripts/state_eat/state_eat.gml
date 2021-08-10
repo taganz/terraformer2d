@@ -1,7 +1,8 @@
 
 /*
 
-	state_eat_primary
+	state_eat
+	animals only
 	
 
 
@@ -23,7 +24,7 @@ function state_eat(_id) {
 			var _prey = _id.brain.seen_food;
 			var _prey_distance = world_distance_to_object_m(_id.x, _id.y, _prey);
 		
-			if  _prey_distance > _id.structure.speed_eat_px or cell_from_pixel(_id.x, _id.y) != cell_from_pixel(_prey.x, _prey.y) {
+			if  _prey_distance > _id.structure.speed_eat_m or cell_from_pixel(_id.x, _id.y) != cell_from_pixel(_prey.x, _prey.y) {
 			
 				//  prey is not close enough, approach			
 				world_creature_move_to(_id, _prey.x, _prey.y, _id.structure.speed_eat_px);
@@ -41,6 +42,7 @@ function state_eat(_id) {
 			
 				// capture a part of biomass from prey 
 				var _biomass_got = been_eated(_prey, _id, _id.structure.biomass_eat);
+				//var _biomass_got = been_eated(_prey, _id, _id.structure.biomass_eat/_id.structure._metabolism_steps_per_month);
 				_id.structure.anabolism_input += _biomass_got; 
 						
 				// log eat event

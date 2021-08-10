@@ -9,8 +9,6 @@ function morphology_step(_id){
 			// adjust size
 			// should check creature is not decreasing size? <------ 
 
-					
-			// use biomass as reference instead of biomass_eat
 			var _head_volum_sqrt = 	sqrt(_id.structure.biomass/_id.genome[GEN.BIOMASS_ADULT]);
 			
 			_head_h_scale = _head_volum_sqrt * _my_scale_factor_h;

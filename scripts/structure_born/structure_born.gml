@@ -17,7 +17,7 @@ function structure_born(my_id){
 
 	with my_id.structure {
 
-
+		age = 0;
 		age_die = years_to_sim_steps(my_id.genome[GEN.AGE_DEAD])*random_range(1, 1.3);		
 
 
@@ -75,6 +75,9 @@ function structure_born(my_id){
 		//  - range Topt1 - Topt2: kt = 1 
 		//	- above Topt2: kt = 0
 
+		// ka_anabolism_factor: kg biomass obtained from kg of anabolism_input (kg/kg/month)
+		ka_anabolism_factor = 2 / 3 * my_id.genome[GEN.KA_AREA] / my_id.genome[GEN.TEMPERATURE_RANGE];
+
 		_Topt2 = my_id.genome[GEN.TEMPERATURE_OPTIMAL] + my_id.genome[GEN.TEMPERATURE_RANGE];
 		_Topt1 = my_id.genome[GEN.TEMPERATURE_OPTIMAL];
 		_Tmin  = my_id.genome[GEN.TEMPERATURE_OPTIMAL] - my_id.genome[GEN.TEMPERATURE_RANGE];
@@ -117,6 +120,7 @@ function structure_born(my_id){
 		
 				speed_wander_px = _speed_slow_px;		// looking for food
 				speed_eat_px = _speed_slow_px;			// looking for food
+				speed_eat_m = world_px_to_m(speed_eat_px);
 				speed_escape_px = _speed_fast_px;		// escaping from threat
 			}
 		
@@ -124,6 +128,7 @@ function structure_born(my_id){
 		
 				speed_wander_px = _speed_slow_px;		// looking for food
 				speed_eat_px = _speed_fast_px;			// chasing
+				speed_eat_m = world_px_to_m(speed_eat_px);
 			}
 		
 			// == senses
@@ -131,6 +136,7 @@ function structure_born(my_id){
 			if my_id.is_plant == false {
 			
 				view_range_m = my_id.genome[GEN.VIEW_RANGE];
+				//view_range_px = world_m_to_px(view_range_m);
 			}
 			
 		}

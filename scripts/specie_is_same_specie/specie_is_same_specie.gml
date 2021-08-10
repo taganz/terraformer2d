@@ -1,10 +1,10 @@
-// specie is different if at least 3 mutable gens have a difference > 20%
+// specie is different if at least SPECIE_CHANGE_GEN_COUNT mutable gens have a difference > SPECIE_CHANGE_GEN_RANGE
 function specie_is_same_specie(genome1, genome2) {
 
 	var gen_change = 0;
-	for (var i=GEN_FIRST_MUTABLE;i<GEN._LENGTH_ and gen_change < 3; i++) {
-		if (genome1[i] < (genome2[i] * (1-RADIATION_GEN_MUTATION_MIN)))  
-			or (genome1[i] > (genome2[i] * (1+RADIATION_GEN_MUTATION_MIN))) {
+	for (var i=GEN._SPECIE_MUTABLE_GENS_FOLLOWING_ + 1; i<GEN._LENGTH_ and gen_change < 3; i++) {
+		if (genome1[i] < (genome2[i] * (1-SPECIE_CHANGE_GEN_RANGE)))  
+			or (genome1[i] > (genome2[i] * (1+SPECIE_CHANGE_GEN_RANGE))) {
 			gen_change++;
 		}
 		
@@ -18,5 +18,5 @@ function specie_is_same_specie(genome1, genome2) {
 		*/
 		
 	}
-	return gen_change < 3;
+	return gen_change < SPECIE_CHANGE_GEN_COUNT;
 }

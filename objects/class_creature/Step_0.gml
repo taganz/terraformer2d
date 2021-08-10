@@ -1,21 +1,15 @@
 
-if !controller.sim_paused {
+if !controller_is_paused()  {
 	
 	// new sim step?
 	// producers use larger cycle
 	if (controller.time.sim_step_entry and is_plant == false 
 		|| controller.time.sim_month_entry and is_plant == true)  {
-	//and controller.time.current_sim_month > 1 {   
 		
-		
-		if is_secondary {
-			var breakpoint = 1;
-		}
 		
 		// next action
 		state_step(id);
 
-		//debug
 		
 		if structure.is_dead==false {
 			

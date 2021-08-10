@@ -18,7 +18,7 @@ function grid_reset_configurable_climate(_climate){
 						// if climate was user defined, update
 					
 						if _cell._user_defined_climate == true {
-							_cell.climate = _climate;
+							cell_climate_update(_cell, _climate);
 						}
 					}
 				}

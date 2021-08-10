@@ -7,7 +7,7 @@
 
 function climate_rain(climate, _month) {
 
-	if obj_gui.options_unlimited_water and climate != CLIMATE.SUPERARID
+	if controller.user_options.unlimited_water and climate != CLIMATE.SUPERARID
 		return 999999
 	else 
 		return controller.world.climates[climate].rain[_month-1];

@@ -42,20 +42,7 @@ yy+=32;
 
 
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Start here.", function() {
-	with controller.user_options {
-		spawn_2_genus = GENUS.PRI_TINY;
-		spawn_2_quantity = 3;
-		spawn_2_distance_max = 0.2;
-		spawn_3_genus = GENUS.PR_BUSH_4;
-		spawn_3_quantity = 200;
-		spawn_3_distance_max = 0.7;
-		room_climate = CLIMATE.TROPICAL;
-		room_soil_type = SOIL.LOAM;
-	}
-	obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;
-	obj_gui.selected_room = OneClimateOneSoil;
-	obj_gui.container_config_room_1= gui_screen_config_level();
-		
+	gui_simulation_start(1);
 });
 _container.AddContent(_button);
 yy+=32;
@@ -64,43 +51,23 @@ yy+=32;
 
 
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Pri Tiny on Bush Crop", function() {
-	controller.user_options.room_climate = CLIMATE.TROPICAL;
-	controller.user_options.room_soil_type = SOIL.LOAM;
-	
-	with controller.user_options {
-		spawn_2_genus = GENUS.SEC_TINY;
-		spawn_2_quantity = 3;
-		spawn_2_distance_max = 0.6;
-		
-		spawn_genus = GENUS.PRI_TINY_2;
-		spawn_quantity = 30;
-		spawn_distance_max = 0.6;
-
-		spawn_3_genus = GENUS.PR_CROP_BUSH;
-		spawn_3_quantity = 100;
-		spawn_3_distance_max = 1;
-	}
-	obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;
-	obj_gui.selected_room = OneClimateOneSoil;
-	obj_gui.container_config_room_1= gui_screen_config_level();
+	gui_simulation_start(2);
 });
 _container.AddContent(_button);
 yy+=32;
 
 
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Empty", function() {
-	obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;
-	obj_gui.selected_room = OneClimateOneSoil;
-	obj_gui.container_config_room_1= gui_screen_config_level();
+	gui_simulation_start(3);
 });
 _container.AddContent(_button);
 yy+=32;
 
-
+/*
 
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Tropical", function() {
-	obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;
-	obj_gui.selected_room = rm_tropical;
+	//obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;
+	controller.user_options.simulation_room = rm_tropical;
 		
 	with controller.user_options {
 		spawn_genus = GENUS.PR_TREE_5;
@@ -130,9 +97,9 @@ var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Pop. growth prim.", fu
 		room_climate = CLIMATE.TROPICAL;
 		room_soil_type = SOIL.LOAM;
 	}
-	obj_gui.state = GUI_STATE.CONFIG_ROOM;
-	obj_gui.selected_room = OneClimateOneSoil;
-	obj_gui.container_config_room_1= gui_screen_config_level();
+	//obj_gui.state = GUI_STATE.CONFIG_ROOM;
+	controller.user_options.simulation_room = OneClimateOneSoil;
+	//obj_gui.container_config_room_1= gui_screen_config_level();
 		
 });
 _container.AddContent(_button);
@@ -142,8 +109,8 @@ yy+=32;
 
 
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Tropical", function() {
-	obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;
-	obj_gui.selected_room = rm_tropical;
+	//obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;
+	controller.user_options.simulation_room = rm_tropical;
 });
 _container.AddContent(_button);
 yy+=32;
@@ -151,39 +118,39 @@ yy+=32;
 
 
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "rm_debug_climates", function() {
-	obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;
-	obj_gui.selected_room = rm_debug_climates;
+	//obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;
+	controller.user_options.simulation_room = rm_debug_climates;
 });
 _container.AddContent(_button);
 yy+=32;
 
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "All climates (4)", function() {
-	obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;
-	obj_gui.selected_room = Room4;
+	//obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;
+	controller.user_options.simulation_room = Room4;
 });
 _container.AddContent(_button);
 yy+=32;
 
 
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Artic", function() {
-	obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;
-	obj_gui.selected_room = rm_artic;
+	//obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;
+	controller.user_options.simulation_room = rm_artic;
 });
 _container.AddContent(_button);
 yy+=32;
 
 
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Continental", function() {
-	obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;
-	obj_gui.selected_room = rm_continental;
+	//obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;
+	controller.user_options.simulation_room = rm_continental;
 });
 _container.AddContent(_button);
 yy+=32;
 
 
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Desertic", function() {
-	obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;
-	obj_gui.selected_room = rm_desertic;
+	//obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;
+	controller.user_options.simulation_room = rm_desertic;
 });
 _container.AddContent(_button);
 yy+=32;
@@ -191,16 +158,16 @@ yy+=32;
 
 
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Test climates", function() {
-	obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;
-	obj_gui.selected_room = TestClimates;
+	//obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;
+	controller.user_options.simulation_room = TestClimates;
 });
 _container.AddContent(_button);
 yy+=32;
 
 
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Debug", function() {
-	obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;
-	obj_gui.selected_room = rm_debug;
+	//obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;
+	controller.user_options.simulation_room = rm_debug;
 });
 _container.AddContent(_button);
 yy+=32;
@@ -216,16 +183,16 @@ var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Central Climate", func
 	
 	
 	
-	obj_gui.state = GUI_STATE.CONFIG_ROOM;
-	obj_gui.selected_room = CentralClimate;
-	obj_gui.container_config_room_1= gui_screen_config_level();
+	//obj_gui.state = GUI_STATE.CONFIG_ROOM;
+	controller.user_options.simulation_room = CentralClimate;
+	//obj_gui.container_config_room_1= gui_screen_config_level();
 });
 _container.AddContent(_button);
 yy+=32;
 
 
 
-
+*/
 
 
 // === options column

@@ -7,14 +7,14 @@ if obj_gui.show_escape_screen == false {
 
 	// === draw creature
 
-	if structure.age > 1 {
+	//if structure.age > 1 {
 		if id.is_plant {
 			morphology_plant_draw(id);		
 		}
 		else {
 			morphology_animal_draw(id);
 		}
-	}
+	//}
 
 	// === debug draw if creature is in log mode
 

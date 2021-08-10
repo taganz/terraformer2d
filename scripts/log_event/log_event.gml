@@ -189,7 +189,7 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 						_col_num1 = string((_arg1));	
 					}
 					if _event == LOGEVENT.CREATURE_ANABOLISM {
-						_col_num1 = string((_arg1));									// anabolism
+						_col_num1 = string_format(_arg1, 4, 1);							// anabolism
 						_col_num2 = string_format(_id1.structure.biomass, 4, 1);		// biomass
 						_col_num3 = string_format(_id1.structure._biomass_life, 4, 1);	// biomass_life
 						_col_num4 = string((_id1.structure.is_hungry ? 1 : 0) 
@@ -197,8 +197,8 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 						_col_txt1 = _arg2;												// info text
 					}
 					if _event == LOGEVENT.CREATURE_CATABOLISM {
-						_col_num1 = string((_arg1));
-						_col_num2 = string_format((_id1.structure.biomass), 4, 1);
+						_col_num1 = string_format(_arg1, 4, 1);
+						_col_num2 = string_format(_id1.structure.biomass, 4, 1);
 						_col_txt1 = _arg2;
 					}
 					if _event == LOGEVENT.CREATURE_TEMPERATURE {
@@ -246,6 +246,7 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 #region === SPECIE EVENTS
 
 			case LOGEVENT.SPECIE_BORN: 
+			case LOGEVENT.SPECIE_ADULT: 
 			case LOGEVENT.SPECIE_DEAD: 
 			case LOGEVENT.SPECIE_NEW: 
 			case LOGEVENT.SPECIE_GENOME:
@@ -264,6 +265,15 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 					
 				if _event == LOGEVENT.SPECIE_BORN {
 					_col_num1 = string(_id1.structure.biomass);					// biomass
+					_col_txt1 = _id1.genome[GEN.GENUS_NAME];					// genus name
+					if _id1.my_cell != 0 {
+						_col_txt2 = climate_to_string(_id1.my_cell.climate);	// climate
+					}
+				}
+				
+				if _event == LOGEVENT.SPECIE_ADULT {
+					_col_num1 = string(_id1.structure.biomass);					// biomass
+					_col_num2 = string(_id1.structure.age);						// age
 					_col_txt1 = _id1.genome[GEN.GENUS_NAME];					// genus name
 					if _id1.my_cell != 0 {
 						_col_txt2 = climate_to_string(_id1.my_cell.climate);	// climate

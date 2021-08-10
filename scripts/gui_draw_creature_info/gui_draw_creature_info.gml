@@ -23,12 +23,20 @@ function gui_draw_creature_info(){
 			draw_text(x_draw, y_draw, _log_text_creature(_id));
 			showing_debug_data_for_creature = _id;
 		
-			// draw cell rectanble
+			// draw cell rectangle
 		
 			if (_id.my_cell != 0) {
 				var _x0 = grid_pixel_x_from_cell_x(_id.my_cell.x_cell);
 				var _y0 = grid_pixel_y_from_cell_y(_id.my_cell.y_cell);
 				draw_rectangle(_x0, _y0, _x0 + controller.world.cell_size_px, _y0 + controller.world.cell_size_px, true );
+			}
+			
+			// draw creature cercle 
+		
+			if (_id.my_cell != 0) {
+				draw_set_colour(c_green);
+				draw_circle(_id.x, _id.y, 5, false );
+				draw_circle(_id.x, _id.y, controller.world.cell_size_px / 3, true );
 			}
 		
 			// if q is pressed, activate log for this creature

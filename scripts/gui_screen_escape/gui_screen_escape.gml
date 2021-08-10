@@ -27,7 +27,7 @@ function gui_screen_escape(){
 	// === restart
 
 	//var _button = new EmuButton(COLUMN_1_X, yy, 256, 32, "Restart (R)", function() {
-	//	gui_game_restart();
+	//	gui_simulation_quit();
 	//});
 	//_container.AddContent(_button);
 	//yy+=32;

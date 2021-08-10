@@ -25,12 +25,13 @@ function genome_offspring_copy(_id_parent, _radiation){
 	var mutation_happens = random(1) < _radiation;
 	if mutation_happens {
 		
-		// mutate 3 gens
+		// mutate 1 gens
 		
-		for (var muts = 0; muts < 3; muts++) {
+		for (var muts = 0; muts < 1; muts++) {
 			
 			// select gen
-			gen_to_mutate = irandom_range(GEN_FIRST_MUTABLE, GEN._LENGTH_-1);
+			ASSERT(GEN._SPECIE_MUTABLE_GENS_FOLLOWING_ < GEN._LENGTH_, "genome_offspring_copy no mutable gens!");
+			gen_to_mutate = irandom_range(GEN._SPECIE_MUTABLE_GENS_FOLLOWING_ + 1, GEN._LENGTH_-1);
 		
 			// select mutation impact
 			var mutation_level = 
@@ -55,7 +56,7 @@ function genome_offspring_copy(_id_parent, _radiation){
 			_genome_child[GEN.PARENT_SPECIE_CODE] = _id_parent.genome[GEN.SPECIE_CODE];    
 		
 			// get new specie hue
-			_genome_child[GEN.SPECIE_HUE] = specie_hue_from_genome(_genome_child);
+			_genome_child[GEN.SPECIE_COLOR_HSB] = specie_color_hsb_from_genome(_genome_child);
 		
 
 			// log a new specie		
