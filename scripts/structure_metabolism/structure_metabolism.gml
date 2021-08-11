@@ -3,7 +3,7 @@
 	
 	// === do_metabolism	
 	//
-	//  biomass change = anabolism - catabolism
+	//  biomass change = anabolism (kg) - catabolism (kg)
 	//
 	//  anabolism = anabolism_input * k anabolism * anabolism_temperature_factor
 	//	catabolim = biomass_body * k catabolism * catabolism_temperature_factor
@@ -13,12 +13,6 @@
 	
 	
 function structure_metabolism(my_id){
-
-		
-	if my_id.is_primary {
-		var _aaa = 1;
-		_aaa = 33;
-	}
 
 	with my_id.structure {
 		
@@ -35,9 +29,15 @@ function structure_metabolism(my_id){
 		//      Tmin - Topt1  : linial from 0 to ka_anabolism_factor
 		//      Topt1 - Topt2 : ka_anabolism_factor
 		//           > Topt2  : 0
-		var _anabolism_temperature_factor = my_id.my_cell.temperature_current_month > _Topt2 
-					? 0 
-					: clamp((my_id.my_cell.temperature_current_month - _Tmin)/(_Topt1-_Tmin), 0, ka_anabolism_factor);
+		//var _anabolism_temperature_factor = my_id.my_cell.temperature_current_month > _Topt2 
+		//			? 0 
+		//			: clamp((my_id.my_cell.temperature_current_month - _Tmin)/(_Topt1-_Tmin), 0, ka_anabolism_factor);			
+		if my_id.my_cell.temperature_current_month > _Topt2 
+			var _anabolism_temperature_factor = 0;
+		else if my_id.my_cell.temperature_current_month > _Topt1
+			var _anabolism_temperature_factor = ka_anabolism_factor;
+		else
+			var _anabolism_temperature_factor = map(my_id.my_cell.temperature_current_month, _Tmin, _Topt1, 0, ka_anabolism_factor);
 					
 		var _quant_anabolism = anabolism_input / _metabolism_steps_per_month * _anabolism_temperature_factor;   // kc kg/kg /month;
 		

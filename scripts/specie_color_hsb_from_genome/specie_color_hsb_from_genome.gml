@@ -4,14 +4,14 @@ function specie_color_hsb_from_genome(genome) {
 
 	// get genus original color hsv values
 	
-	var col = int64(genus_get_gen(genome[GEN.GENUS_ID], GEN.SPECIE_COLOR_HSB));
-	if col == -1 {
+	var col_genus = int64(genus_get_gen(genome[GEN.GENUS_ID], GEN.SPECIE_COLOR_HSB));
+	if col_genus == -1 {
 		//col = make_color_hsv(191, 191, 100);
-		col = c_white;
+		col_genus = c_white;
 	}
-	var h = color_get_hue(col);
-	var s = color_get_saturation(col);
-	var v = color_get_value(col);
+	var h_genus = color_get_hue(col_genus);
+	var s_genus = color_get_saturation(col_genus);
+	var v_genus = color_get_value(col_genus);
 	
 	// get genus variation from genus to new specie
 	
@@ -28,38 +28,44 @@ function specie_color_hsb_from_genome(genome) {
 	// hue goes to red if toptimal increases and to blue otherwese
 	// let's assume a maximum variation of 10ºC and this will cause to a 90º hue variation
 	
-	if h < 128 {			// quadrants 1,2  (supposing 0º = E)
-		var h_new = map(topt - topt_genus, -10, 10, h+63, h-63);   // 63 = 255/4
+	if h_genus < 128 {			// quadrants 1,2  (supposing 0º = E)
+		var h_new = h_genus + map(topt - topt_genus, -10, 10, 63, -63);   // 63 = 255/4
 		var h_new = clamp(h_new, 0, 127);
 	}
 	else {				// quadrants 3,4
-		var h_new = map(topt - topt_genus, -10, 10, h-63, h+63);   // 63 = 255/4
+		var h_new = h_genus + map(topt - topt_genus, -10, 10, -63, 63);   // 63 = 255/4
 		var h_new = clamp(h_new, 127, 255);
 	}
 		
 	// saturation increases if trange is greater
 	// let's assume a maximum variation of 10ºC and this will cause a 50% variation
 	
-	var s_new = map( trange - trange_genus, -10, 10, s-63, s+63);
+	var s_new = s_genus + map( trange - trange_genus, -10, 10, -63, 63);
 	var s_new = clamp(s_new, 127, 255);
 		
 	// value doesn't change
 	
-	var v_new = v;
+	var v_new = v_genus;
 	
 	// create new color from components
 	
 	var col_new = make_colour_hsv(h_new, s_new, v_new);
 	
 	/*
-	show_debug_message("new color."
-					+"   topt_genus, trange_genus: "+string(topt_genus)+","+string(trange_genus)
-					+"   h,s,v genus: "+string(h)+","+string(s)+","+string(v)
-					+"   color genus: "+string(col)
-					+"   topt, trange:"+string(topt)+","+string(trange)
-					+"   h,s,v new: "+string(h_new)+","+string(s_new)+","+string(v_new)
-					+"   color new: "+string(col_new)
-					);
+	if col_genus != col_new {
+		show_debug_message("new color."
+						+" **  topt_genus, trange_genus: "+string(topt_genus)+","+string(trange_genus)
+						+"   h,s,v genus: "+string(h_genus)+","+string(s_genus)+","+string(v_genus)
+						+"   color genus: "+string(col_genus)
+						+" ** dif topt:"+string(topt-topt_genus)
+						+"   dif hue:"+string(h_new - h_genus)
+						+" ** dif trange:"+string(trange-trange_genus)
+						+"   dif sat:"+string(s_new - s_genus)
+						+" **  topt, trange: "+string(topt)+","+string(trange)
+						+"   h,s,v new: "+string(h_new)+","+string(s_new)+","+string(v_new)
+						+"   color new: "+string(col_new)
+						);
+	}
 	*/
 	
 	return col_new;

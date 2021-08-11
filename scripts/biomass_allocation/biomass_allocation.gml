@@ -23,7 +23,7 @@ function biomass_allocation(_id) {
 			
 			// == growing
 			
-			// during growth 
+			// during growth anabolism should be greater to allow creature growing
 			// - biomass_eat change from 90% of total biomass to _biomas_eat_allocation
 			// - biomass_reproduction is zero
 			biomass_eat = max(biomass *(_biomass_eat_allocation + (0.9 - _biomass_eat_allocation) * (1 - biomass / biomass_adult_genome)),0);
