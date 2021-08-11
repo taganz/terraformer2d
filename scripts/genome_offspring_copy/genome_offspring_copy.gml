@@ -33,14 +33,8 @@ function genome_offspring_copy(_id_parent, _radiation){
 			ASSERT(GEN._SPECIE_MUTABLE_GENS_FOLLOWING_ < GEN._LENGTH_, "genome_offspring_copy no mutable gens!");
 			gen_to_mutate = irandom_range(GEN._SPECIE_MUTABLE_GENS_FOLLOWING_ + 1, GEN._LENGTH_-1);
 		
-			// select mutation impact
-			var mutation_level = 
-					1 
-					+
-					(1-2*irandom_range(0,1))
-					* ((RADIATION_GEN_MUTATION_MAX - RADIATION_GEN_MUTATION_MIN) * _radiation + RADIATION_GEN_MUTATION_MIN); 
-					//* ((RADIATION_GEN_MUTATION_MAX - RADIATION_GEN_MUTATION_MIN) * _radiation - RADIATION_GEN_MUTATION_MIN);
-			// mutate
+			// mutate between random interval
+			var mutation_level = 1 + random_range(-1,1) * (RADIATION_GEN_MUTATION_MAX - RADIATION_GEN_MUTATION_MIN); 
 			_genome_child[gen_to_mutate] *= mutation_level;
 		}
 	

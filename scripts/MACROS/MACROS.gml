@@ -39,8 +39,8 @@ function MACROS(){
 
 // mutations
 #macro WORLD_RADIATION_DEFAULT      0			
-#macro RADIATION_GEN_MUTATION_MIN	0.2			// gen mutation factor in offspring_copy
-#macro RADIATION_GEN_MUTATION_MAX	0.7			// gen mutation factor in offspring_copy
+#macro RADIATION_GEN_MUTATION_MIN	0.1			// gen mutation factor in offspring_copy
+#macro RADIATION_GEN_MUTATION_MAX	0.4			// gen mutation factor in offspring_copy
 
 #macro WORLD_WRAP_X		true
 #macro WORLD_WRAP_Y		true

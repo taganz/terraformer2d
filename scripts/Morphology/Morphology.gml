@@ -10,8 +10,8 @@ function Morphology(_id) constructor {
 
 	// size parameters
 
-	_head_w_scale = 1;		// scale factor, depends on density and form factor
-	_head_h_scale = 1;		// initialize to show if spawned on pause
+	_head_w_scale = 0.5;		// scale factor, depends on density and form factor
+	_head_h_scale = 0.5;		// initialize to show if spawned on pause
 	
 	_my_scale_factor_w = -1;
 	_my_scale_factor_h = -1;
@@ -36,8 +36,7 @@ function Morphology(_id) constructor {
 
 	// -- specie blend for color adjustment
 		
-	//specie_blend = _id.genome[GEN.SPECIE_COLOR_HSB];
-	specie_blend = -1;
+	specie_blend = _id.genome[GEN.SPECIE_COLOR_HSB];
 	
 	// -- scale factor precalculation
 

@@ -1,4 +1,4 @@
-﻿version;10/08/2021 15:23;;;control Q per salvar;;GUARDAR COM EXCEL HABILITADO PARA MACROS;;;;Lloc;1;1=casa, 0=no a casa;;;;;;;;;;
+﻿version;11/08/2021 10:48;;;control Q per salvar;;GUARDAR COM EXCEL HABILITADO PARA MACROS;;;;Lloc;1;1=casa, 0=no a casa;;;;;;;;;;
 CLIMATE_ET0_EVOTRANSPIRATION_AVG;180;;;All gen value must be numeric - no empty cells;;;;;;;;;;;;;;;;;;
 LEAF_M2_PER_KG;0,1;;;Per baixar aigua consumida cal baixar KC vigilant que LMFa quedi > 0,01;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;
@@ -10,7 +10,7 @@ TROPHIC_LEVEL;0;0;0;0;0;0;0;0;0;0;0;0;0;1;1;1;1;1;2;2;2;2
 FAMILY;fam_tree_small;fam_tree_small;fam_tree_big;fam_tree_big;fam_tree_small;fam_crop;fam_plant_bush;fam_plant_bush;fam_plant_bush;fam_plant_bush;fam_plant_bush;fam_plant_bush;fam_plant_bush;fam_animal_tiny;fam_animal_tiny;fam_animal_tiny;fam_animal_small;fam_animal_big;fam_animal_tiny;fam_animal_small;fam_animal_medium;fam_animal_big
 SPECIE_CODE;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
 PARENT_SPECIE_CODE;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0
-SPECIE_COLOR_HSB;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1
+SPECIE_COLOR_HSB;-1;-1;-1;-1;-1;-1;-1;-1;-1;6618957;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1;-1
 SPRITE_HEAD;68.png;101_rd.png;138_rd.png;102.png;130_rd3.png;spr_crop_bush.png;103_rd4.png;91_rd.png;92.png;94_rd_line.png;96_rd.png;2.png;77.png;79_border.png;66.png;63.png;12.png;10.png;160.png;1.png;24.png;4.png
 SPRITE_SCALE_W;1;1;1;1;1;1;0,7;0,7;0,5;0,7;0,7;0,7;0,7;1;1;1;1;0,9;1;1;0,9;0,9
 SPRITE_SCALE_H;1;1;1;1;1;1;0,7;0,7;0,5;0,7;0,7;0,7;0,7;1;1;1;1;0,9;1;1;0,9;0,9
