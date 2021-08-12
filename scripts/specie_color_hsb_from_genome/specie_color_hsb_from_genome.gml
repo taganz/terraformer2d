@@ -26,14 +26,14 @@ function specie_color_hsb_from_genome(genome) {
 	
 	
 	// hue goes to red if toptimal increases and to blue otherwese
-	// let's assume a maximum variation of 10ºC and this will cause to a 90º hue variation
+	// let's assume a maximum variation of 10ºC 
 	
 	if h_genus < 128 {			// quadrants 1,2  (supposing 0º = E)
-		var h_new = h_genus + map(topt - topt_genus, -10, 10, 63, -63);   // 63 = 255/4
+		var h_new = h_genus + map(topt - topt_genus, -10, 10, 100, -100);   // 100 = aprox 140º
 		var h_new = clamp(h_new, 0, 127);
 	}
 	else {				// quadrants 3,4
-		var h_new = h_genus + map(topt - topt_genus, -10, 10, -63, 63);   // 63 = 255/4
+		var h_new = h_genus + map(topt - topt_genus, -10, 10, -100, 100);   
 		var h_new = clamp(h_new, 127, 255);
 	}
 		

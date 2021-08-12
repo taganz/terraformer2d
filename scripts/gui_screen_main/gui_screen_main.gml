@@ -63,6 +63,23 @@ var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Empty", function() {
 _container.AddContent(_button);
 yy+=32;
 
+
+var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Test climates", function() {
+	gui_simulation_start(4);
+});
+_container.AddContent(_button);
+yy+=32;
+
+
+
+var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Climates square", function() {
+	gui_simulation_start(5);
+});
+_container.AddContent(_button);
+yy+=32;
+
+
+
 /*
 
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Tropical", function() {
@@ -116,14 +133,6 @@ _container.AddContent(_button);
 yy+=32;
 
 
-
-var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "rm_debug_climates", function() {
-	//obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;
-	controller.user_options.simulation_room = rm_debug_climates;
-});
-_container.AddContent(_button);
-yy+=32;
-
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "All climates (4)", function() {
 	//obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;
 	controller.user_options.simulation_room = Room4;
@@ -156,13 +165,6 @@ _container.AddContent(_button);
 yy+=32;
 
 
-
-var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Test climates", function() {
-	//obj_gui.state = GUI_STATE.LAUNCH_SIMULATION;
-	controller.user_options.simulation_room = TestClimates;
-});
-_container.AddContent(_button);
-yy+=32;
 
 
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Debug", function() {
