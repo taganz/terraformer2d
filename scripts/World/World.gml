@@ -1,39 +1,36 @@
 /*
 	World (constructor)
+
+	world size is actual room size
+	this can be different from simulation size because of screen escalation
 	
 */
-
-
-
 function World() constructor {
 	
-	// === intialize vars
 
-	// grid_nutrients
-	// grid_cells
-	// statistics
-
-
-	temperature_increment = 0;		// used by GUI to simulate climate change
-
-	world_max_x = controller.user_options.room_simulation_width;
-	world_max_y = controller.user_options.room_simulation_heigth;
+	// simulation size in pixels
+	width_px = ROOM_SIM_WIDTH;
+	height_px = ROOM_SIM_HEIGHT;
+	//width_px = controller.user_options.simulation_width;
+	//height_px = controller.user_options.simulation_height;
 	
+	// simulation size in cells
 	cell_size_px = controller.user_options.room_cell_size_px;
+	width_cells = floor(width_px/cell_size_px);
+	height_cells = floor(height_px/cell_size_px);
 	
-	world_w = floor(world_max_x/cell_size_px);
-	world_h = floor(world_max_y/cell_size_px);
-	grid_cells = ds_grid_create(world_w, world_h);
+	// grid of cells
+	
+	grid_cells = ds_grid_create(width_cells, height_cells);
 	
 	// adjust allowed pixel area
-	world_max_x = world_w * cell_size_px - 1;
-	world_max_y = world_h * cell_size_px - 1;
+	width_px = width_cells * cell_size_px;
+	height_px = height_cells * cell_size_px;
 	
 	// conversion meters to pixels
-	pixels_per_meter = world_max_x / world_w / CELL_WIDTH_DRAW;		
+	pixels_per_meter = width_px / width_cells / CELL_WIDTH_DRAW;		
 	
-	show_debug_message("*** World grid size: "+string(world_w)+" x "+string(world_h));
-	show_debug_message("*** World pixels per meter: "+string(pixels_per_meter));
+
 	
 	// stats
 	creatures_live_now = 0;
@@ -58,6 +55,8 @@ function World() constructor {
 	climates = climate_definitions();
 	
 	radiation = -1;
+	temperature_increment = 0;		
+
 	
 
 

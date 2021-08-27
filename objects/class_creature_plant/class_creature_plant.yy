@@ -31,8 +31,8 @@
     {"propertyId":{"name":"class_creature","path":"objects/class_creature/class_creature.yy",},"objectId":{"name":"class_creature","path":"objects/class_creature/class_creature.yy",},"value":"spr_tree_body","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
   ],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "Creatures",
+    "path": "folders/Terraformer2D/Creatures.yy",
   },
   "resourceVersion": "1.0",
   "name": "class_creature_plant",

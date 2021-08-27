@@ -10,13 +10,14 @@
 
 function gui_screen_bar_simulation(){
 	
+
 var yy = 0;
-var _container = new EmuCore(controller.user_options.room_simulation_width + 1, 0, controller.game_max_x - controller.user_options.room_simulation_width , controller.game_max_y);
+var _container = new EmuCore(ROOM_SIM_WIDTH, 0, ROOM_BAR_WIDTH , ROOM_BAR_HEIGHT);
 
 
 // === tab definition
 
-var group = new EmuTabGroup(0, yy, 1200 - controller.user_options.room_simulation_width, controller.user_options.room_simulation_heigth, 2, 32);
+var group = new EmuTabGroup(0, yy, ROOM_BAR_WIDTH, ROOM_BAR_HEIGHT, 2, 32);
 var tab_main = new EmuTab("Main");
 var tab_climate = new EmuTab("Climate");
 var tab_soil = new EmuTab("Soil");

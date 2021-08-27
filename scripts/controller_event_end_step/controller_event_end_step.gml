@@ -3,7 +3,7 @@ function controller_event_end_step(){
 	
 	with controller {
 		
-		if room != Room0 and controller_is_paused()==false {
+		if sim_active and controller_is_paused()==false {
 	
 				// if too many live creatures, stop loggin all of them
 				if user_options.LOG_CREATURES_ALL {

@@ -13,9 +13,9 @@ var total = 0;
 var logging = 0;
 
 if _x == -1
-	_x = controller.world.world_max_x/2;
+	_x = controller.world.width_px/2;
 if _y == -1
-	_y = controller.world.world_max_y/2;
+	_y = controller.world.height_px/2;
 
 show_debug_message("Spawned started. Radiation?"+string(_radiation));
 
@@ -27,8 +27,8 @@ for (var i=0; i< _quantity ;i++) {
 
 	// calculate birt place
 	while world_is_inside_pixel(_xTo, _yTo) == false || _try++ > 10 {
-		_xTo = _x + (random_range (0, controller.world.world_max_x/2 * _distance) * choose(-1, 1));
-		_yTo = _y + (random_range (0, controller.world.world_max_y/2 * _distance) * choose(-1, 1));
+		_xTo = _x + (random_range (0, controller.world.width_px/2 * _distance) * choose(-1, 1));
+		_yTo = _y + (random_range (0, controller.world.height_px/2 * _distance) * choose(-1, 1));
 	}
 				
 	// check if birth place is inside world

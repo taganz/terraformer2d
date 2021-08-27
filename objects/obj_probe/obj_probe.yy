@@ -27,8 +27,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "Terraformer2D",
+    "path": "folders/Terraformer2D.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_probe",

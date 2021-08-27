@@ -2,11 +2,11 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Controller",
-    "path": "folders/Scripts/Controller.yy",
+    "name": "_tools",
+    "path": "folders/Terraformer2D/_tools.yy",
   },
   "resourceVersion": "1.0",
-  "name": "controller_event_room_start",
+  "name": "test_run_at_controller_create",
   "tags": [],
   "resourceType": "GMScript",
 }

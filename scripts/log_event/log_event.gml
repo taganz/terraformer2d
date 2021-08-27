@@ -487,7 +487,7 @@ function log_event(_event, _id1, _arg1, _arg2, _arg3) {
 						+ _col_txt6
 						;
 				
-				//if (_id1 == obj_gui.gui.creature_to_follow)
+				//if (_id1 == obj_gui.game_gui.creature_to_follow)
 				//	show_debug_message("log_event:  "+string_replace_all(_lines_buffer[_line], ";", "  ;  "));
 			
 				//show_debug_message(_lines_buffer[_line]);

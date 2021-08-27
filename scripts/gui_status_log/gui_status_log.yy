@@ -3,10 +3,10 @@
   "isCompatibility": false,
   "parent": {
     "name": "GUI",
-    "path": "folders/Scripts/GUI.yy",
+    "path": "folders/Terraformer2D/GUI.yy",
   },
   "resourceVersion": "1.0",
-  "name": "gui_set_window_size",
+  "name": "gui_status_log",
   "tags": [],
   "resourceType": "GMScript",
 }

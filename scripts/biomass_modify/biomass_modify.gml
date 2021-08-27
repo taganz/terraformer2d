@@ -2,7 +2,7 @@
 	biomass_modify(id, quantity)
 	
 	- biomass is limited at 1.2 * biomass adult max (= (biomass adult + dna reproductive) *1.1)
-	- growth: heigth = biomass * dna height grow factor
+	- growth: height = biomass * dna height grow factor
 	- death by starving if biomass < biomass life (= biomass max * dna biomass life factor)
 	- 
 	
@@ -35,7 +35,7 @@
 			
 			// update height depending on biomass
 			var previous_height = my_height;
-			my_height = max(my_height, _height_growth_factor * biomass);	// can not reduce heigth
+			my_height = max(my_height, _height_growth_factor * biomass);	// can not reduce height
 				
 			// if producer height has increased significatively cell will need to reorder producers grid
 			if _id.is_plant {

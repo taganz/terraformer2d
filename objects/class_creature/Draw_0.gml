@@ -2,7 +2,7 @@
 
 // draw creature if not showing escape screen
 
-if obj_gui.show_escape_screen == false {
+if obj_gui.game_gui.show_escape_screen == false {
 
 
 	// === draw creature

@@ -2,7 +2,7 @@
 function controller_event_begin_step(){
 	with controller {
 		
-		if room != Room0 {
+		if sim_active {
 
 			if !controller_is_paused() {
 

@@ -34,7 +34,7 @@
   ],
   "parent": {
     "name": "Animals",
-    "path": "folders/Objects/Animals.yy",
+    "path": "folders/Terraformer2D/_objects/Animals.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_primary_tiny",

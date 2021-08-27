@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "State",
-    "path": "folders/Scripts/Creatures/State.yy",
+    "path": "folders/Terraformer2D/Creatures/State.yy",
   },
   "resourceVersion": "1.0",
   "name": "state_ENUM",

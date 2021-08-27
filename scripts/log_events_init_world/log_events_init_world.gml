@@ -4,11 +4,11 @@ function log_events_init_world(){
 	log_info_parameter( "Date time "			, date_date_string(date_current_datetime())); 
 	log_info_parameter( "Date time string"	, date_time_string(date_current_datetime())); 
 	log_info_parameter( "Room "					,string(room_get_name(room))); 
-	log_info_parameter( "Screen pixels "		,string(controller.world.world_max_x)+", "+string(controller.world.world_max_y));
-	log_info_parameter( "World cells "			,string(controller.world.world_w)+", "+string(controller.world.world_h));
+	log_info_parameter( "Screen pixels "		,string(controller.world.width_px)+", "+string(controller.world.height_px));
+	log_info_parameter( "World cells "			,string(controller.world.width_cells)+", "+string(controller.world.height_cells));
 	log_info_parameter( "room_climate "		,string(controller.user_options.room_climate));
 	log_info_parameter( "room_soil_type "	,string(controller.user_options.room_soil_type));
-	log_info_parameter( "World cells "			,string(controller.world.world_w)+", "+string(controller.world.world_h));
+	log_info_parameter( "World cells "			,string(controller.world.width_cells)+", "+string(controller.world.height_cells));
 	log_info_parameter( "TIME_SIM_STEPS_PER_MONTH ",string(TIME_SIM_STEPS_PER_MONTH));
 	log_info_parameter( "SIMULATION_SPEED		",string(SIMULATION_SPEED));
 	log_info_parameter( "Radiation"				,string(controller.world.radiation));

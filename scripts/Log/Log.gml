@@ -10,7 +10,6 @@
 
 
 
-//#macro LOG_ID	controller.log.log_id						// <--- deprecated
 
 function Log() constructor{
 

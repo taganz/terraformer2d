@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Species",
-    "path": "folders/Scripts/DNA/Species.yy",
+    "path": "folders/Terraformer2D/DNA/Species.yy",
   },
   "resourceVersion": "1.0",
   "name": "genus_instance_create",

@@ -11,8 +11,8 @@ function gui_draw_cell_info(){
 		
 		// draw cell info
 		
-		var x_draw = 10;
-		var y_draw = controller.user_options.room_simulation_heigth + 100;
+		var x_draw = obj_gui.game_gui.gui_width - 500;
+		var y_draw = obj_gui.game_gui.gui_height - 150;
 				
 		var _txt = 
 				"Pixel: "+string(mouse_x)+","+string(mouse_y)
@@ -38,7 +38,7 @@ function gui_draw_cell_info(){
 /*
 
 var x_draw = 10;
-		var y_draw = controller.user_options.room_simulation_heigth + 100;
+		var y_draw = controller.user_options.simulation_height + 100;
 				
 		draw_text(x_draw, y_draw, string_repeat("                  ", 10));
 		draw_text(x_draw, y_draw, "Pixel: "+string(mouse_x)+","+string(mouse_y));

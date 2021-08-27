@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Log",
-    "path": "folders/Scripts/Log.yy",
+    "path": "folders/Terraformer2D/Log.yy",
   },
   "resourceVersion": "1.0",
   "name": "_log_write_buffer",

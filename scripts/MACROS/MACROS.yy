@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "Scripts",
-    "path": "folders/Scripts.yy",
+    "name": "Terraformer2D",
+    "path": "folders/Terraformer2D.yy",
   },
   "resourceVersion": "1.0",
   "name": "MACROS",

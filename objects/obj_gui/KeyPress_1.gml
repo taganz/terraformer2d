@@ -6,10 +6,14 @@
 #macro KEY_ACTIVATE_LOG_CREATURE_IN_SCREEN "3"  // used in Log
 //#macro KEYS_TEXT_LINE "ESC: Options P: Pause  R: Restart  1: Faster  2:Slower  3:Follow  4:Debug  "
 
-if room!= Room0 {
+if room == Room0 {
+}
+else if room == Room1 {
+}
+else {
 
-	input_show_creature_info = keyboard_check(vk_shift);
-	input_show_cell_info = keyboard_check(vk_control);
+	obj_gui.game_gui.input_show_creature_info = keyboard_check(vk_shift);
+	obj_gui.game_gui.input_show_cell_info = keyboard_check(vk_control);
 	
 	// activate escape screen (option)
 	if keyboard_check(vk_escape) {

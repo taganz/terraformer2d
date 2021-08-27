@@ -1,4 +1,4 @@
-function controller_test_at_create(){
+function test_run_at_controller_create(){
 	show_debug_message("*** UNIT TESTS INIT ***");
 
 	//ASSERT(map(0, -10, 10, 16, 20) == 18, 0, "controller_test_at_create - map");

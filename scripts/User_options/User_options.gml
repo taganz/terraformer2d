@@ -54,8 +54,8 @@ function User_options() constructor {
 	room_climate = CLIMATE.TROPICAL;	// type 0 climate tiles will be replaced with this value
 	room_soil_type = SOIL.LOAM;			// type 0 soil tiles will be replaced with this value
 	
-	room_simulation_width = SIMULATION_WIDTH;
-	room_simulation_heigth = SIMULATION_HEIGTH;
+	simulation_width = -1;
+	simulation_height = -1;
 	
 	spawn_genus = -1;		// creature object to be spawned at room start
 	spawn_quantity = 0;

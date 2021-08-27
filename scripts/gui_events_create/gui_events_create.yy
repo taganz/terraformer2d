@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "events",
-    "path": "folders/Scripts/GUI/events.yy",
+    "path": "folders/Terraformer2D/GUI/events.yy",
   },
   "resourceVersion": "1.0",
   "name": "gui_events_create",

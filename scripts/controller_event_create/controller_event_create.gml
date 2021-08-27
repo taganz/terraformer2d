@@ -1,8 +1,6 @@
 function controller_event_create(){
 
 
-gui_set_window_size();		
-
  with controller {
 	 
 	 // === randomize
@@ -30,6 +28,12 @@ gui_set_window_size();
 
 	// load sprites
 	specie_load_sprites();
+
+	// do simple unit test here
+	test_run_at_controller_create();
+
+
+
 
  }
 }

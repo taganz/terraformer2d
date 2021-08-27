@@ -5,7 +5,7 @@ function gui_event_global_left_pressed(){
 
 	with obj_gui {
 
-		if room!=Room0 and show_escape_screen == false {
+		if room!=Room0 and room!=Room1 and game_gui.show_escape_screen == false {
 
 			// if user clicked inside world simulation area
 

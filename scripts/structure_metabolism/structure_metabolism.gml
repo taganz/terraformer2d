@@ -19,9 +19,10 @@ function structure_metabolism(my_id){
 		_has_eaten_this_time = false;
 				
 		log_event(LOGEVENT.CREATURE_ANABOLISM_INPUT, my_id, anabolism_input);
+		ASSERT(my_id.my_cell > 0, my_id, "structure_metabolism my_cell <= 0");
 		log_event(LOGEVENT.CREATURE_RAIN, my_id, my_id.my_cell.rain_current_month);
 		log_event(LOGEVENT.CREATURE_CELL_PLANTS_AVAILABLE_WATER, my_id, my_id.my_cell.plants_available_water);
-				
+					
 		// === anabolism
 		
 		// temperature affects anabolism

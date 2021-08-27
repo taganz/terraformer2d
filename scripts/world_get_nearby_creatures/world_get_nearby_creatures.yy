@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "World",
-    "path": "folders/Scripts/World.yy",
+    "path": "folders/Terraformer2D/World.yy",
   },
   "resourceVersion": "1.0",
   "name": "world_get_nearby_creatures",

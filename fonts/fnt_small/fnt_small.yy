@@ -193,8 +193,8 @@
   "canGenerateBitmap": true,
   "maintainGms1Font": false,
   "parent": {
-    "name": "Fonts",
-    "path": "folders/Fonts.yy",
+    "name": "_fonts",
+    "path": "folders/Terraformer2D/_fonts.yy",
   },
   "resourceVersion": "1.0",
   "name": "fnt_small",

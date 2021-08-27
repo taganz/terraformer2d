@@ -1,4 +1,4 @@
-﻿version;11/08/2021 19:04;;;control Q per salvar;;GUARDAR COM EXCEL HABILITADO PARA MACROS;;;;Lloc;1;1=casa, 0=no a casa;;;;;;;;;;
+﻿version;12/08/2021 18:18;;;control Q per salvar;;GUARDAR COM EXCEL HABILITADO PARA MACROS;;;;Ubicacio;2;1=casa, 0=llava, 2,surface;;;;;;;;;;
 CLIMATE_ET0_EVOTRANSPIRATION_AVG;180;;;All gen value must be numeric - no empty cells;;;;;;;;;;;;;;;;;;
 LEAF_M2_PER_KG;0,1;;;Per baixar aigua consumida cal baixar KC vigilant que LMFa quedi > 0,01;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;
@@ -37,7 +37,7 @@ _SPECIE_MUTABLE_GENS_FOLLOWING_;;;;;;;;;;;;;;;;;;;;;;
 TEMPERATURE_OPTIMAL;5;10;15;20;25;20;24;8;20;27;28;25;-14;15;15;15;0;0;15;0;0;0
 TEMPERATURE_RANGE;8;8;8;8;8;10;4;14;7;7;5;5;23;15;15;14;50;50;15;50;50;50
 GEN_END;;;;;;;;;;;;;;;;;;;;;;
-;;;;;;;trop, cont, med;cont, art;med, cont;tot no artic;trop, med;dry, trop;artic;;;;;;;;;
+;;;;;;;trop, cont, med;cont, art;med, cont;tropical;trop, med;dry, trop;artic;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;NO SURT AQUEST?
 ;;;;;;;;;;;;;;;;;;;;;;

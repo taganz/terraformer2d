@@ -12,9 +12,9 @@ function world_creature_move(_id, _xTo, _yTo){
 
 	// adjust wrap if moving beyond limits
 	
-	if _xTo < 0 or _xTo >= controller.world.world_max_x {
+	if _xTo < 0 or _xTo >= controller.world.width_px {
 		if WORLD_WRAP_X {
-			_xTo = wrap(_xTo_origin, controller.world.world_max_x);
+			_xTo = wrap(_xTo_origin, controller.world.width_px);
 		}
 		else {
 			_id.structure.is_dead = true;
@@ -22,9 +22,9 @@ function world_creature_move(_id, _xTo, _yTo){
 		}
 	}
 			
-	if _yTo < 0 or _yTo >= controller.world.world_max_y  {
+	if _yTo < 0 or _yTo >= controller.world.height_px  {
 		if WORLD_WRAP_Y {
-			_yTo = wrap(_yTo_origin, controller.world.world_max_y);
+			_yTo = wrap(_yTo_origin, controller.world.height_px);
 		}
 		else {
 			_id.structure.is_dead = true;

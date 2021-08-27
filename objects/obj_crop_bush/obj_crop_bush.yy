@@ -33,7 +33,7 @@
   ],
   "parent": {
     "name": "Plants",
-    "path": "folders/Objects/Plants.yy",
+    "path": "folders/Terraformer2D/_objects/Plants.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_crop_bush",

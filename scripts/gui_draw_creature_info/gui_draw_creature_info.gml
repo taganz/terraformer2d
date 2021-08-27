@@ -16,9 +16,10 @@ function gui_draw_creature_info(){
 			draw_set_colour(c_black);
 			draw_set_font(fnt_small);
 			draw_set_valign(fa_top);
-				
-			var x_draw = 200;
-			var y_draw = controller.user_options.room_simulation_heigth + 100;
+			
+			var x_draw = obj_gui.game_gui.gui_width - 500;
+			var y_draw = obj_gui.game_gui.gui_height - 150;
+		
 			draw_text(x_draw, y_draw, string_repeat("                  \n", 10));
 			draw_text(x_draw, y_draw, _log_text_creature(_id));
 			showing_debug_data_for_creature = _id;

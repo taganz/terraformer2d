@@ -39,7 +39,7 @@ function _grid_create_cell(_x_cell, _y_cell) {
 			// load climate from tileset
 			var layer_climate = layer_get_id(LAYER_CLIMATE);
 			var map_climate = layer_tilemap_get_id(layer_climate);
-			var tile_data = tilemap_get_at_pixel(map_climate, _x_cell*controller.world.cell_size_px, _y_cell*controller.world.cell_size_px);
+			var tile_data = tilemap_get_at_pixel(map_climate, grid_pixel_x_from_cell_x(_x_cell), grid_pixel_y_from_cell_y(_y_cell));
 			ASSERT(tile_data != -1, 0, "_grid_create_cell tile_data == -1 "+string(_x_cell)+","+string(_y_cell));
 			var climate_at_tile= tile_get_index(tile_data);
 			cell.climate = climate_at_tile;

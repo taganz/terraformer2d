@@ -27,7 +27,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "meta",
-    "path": "folders/Objects/meta.yy",
+    "path": "folders/Terraformer2D/_objects/meta.yy",
   },
   "resourceVersion": "1.0",
   "name": "obj_world_dot",

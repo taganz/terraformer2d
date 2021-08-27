@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "GUI",
-    "path": "folders/Scripts/GUI.yy",
+    "path": "folders/Terraformer2D/GUI.yy",
   },
   "resourceVersion": "1.0",
   "name": "gui_help_keys",

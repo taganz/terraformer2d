@@ -209,9 +209,12 @@ function EmuCore(x, y, w, h) constructor {
     }
     
     getMouseHover = function(x1, y1, x2, y2) {
-        return GetInteractive() && point_in_rectangle(window_mouse_get_x(), window_mouse_get_y(), x1, y1, x2 - 1, y2 - 1);
+//RD 16/8/21        return GetInteractive() && point_in_rectangle(window_mouse_get_x(), window_mouse_get_y(), x1, y1, x2 - 1, y2 - 1);
+        return GetInteractive() && point_in_rectangle(mouse_x, mouse_y, x1, y1, x2 - 1, y2 - 1);
+//        return GetInteractive() && point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), x1, y1, x2 - 1, y2 - 1);
     }
     
+	 
     getMousePressed = function(x1, y1, x2, y2) {
         var click = (getMouseHover(x1, y1, x2, y2) && mouse_check_button_pressed(mb_left)) || (isActiveElement() && keyboard_check_pressed(vk_space));
         // In the event that clicking is polled more than once per frame, don't

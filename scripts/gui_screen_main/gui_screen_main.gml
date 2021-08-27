@@ -1,15 +1,13 @@
 /* 
 
-	When a room is selected
-		change to state 1 if room configuration is needed
-		change to state 2 if no configuration is needed
-
 	 GUI library
 		https://github.com/DragoniteSpam/Emu/wiki/Emu-Default-Macros
 */
 
 
 function gui_screen_main(){
+	
+
 	
 var TITLE_COLUMN_X = 32;
 var ROOMS_COLUMN_X = 32;
@@ -42,7 +40,7 @@ yy+=32;
 
 
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Start here.", function() {
-	gui_simulation_start(1);
+	obj_gui.game_gui.simulation_selected = 1;
 });
 _container.AddContent(_button);
 yy+=32;
@@ -51,21 +49,21 @@ yy+=32;
 
 
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Pri Tiny on Bush Crop", function() {
-	gui_simulation_start(2);
+	obj_gui.game_gui.simulation_selected = 2;
 });
 _container.AddContent(_button);
 yy+=32;
 
 
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Empty", function() {
-	gui_simulation_start(3);
+	obj_gui.game_gui.simulation_selected = 3;
 });
 _container.AddContent(_button);
 yy+=32;
 
 
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Test climates", function() {
-	gui_simulation_start(4);
+	obj_gui.game_gui.simulation_selected = 4;
 });
 _container.AddContent(_button);
 yy+=32;
@@ -73,7 +71,7 @@ yy+=32;
 
 
 var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Climates square", function() {
-	gui_simulation_start(5);
+	obj_gui.game_gui.simulation_selected = 5;
 });
 _container.AddContent(_button);
 yy+=32;
@@ -116,7 +114,7 @@ var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Pop. growth prim.", fu
 	}
 	//obj_gui.state = GUI_STATE.CONFIG_ROOM;
 	controller.user_options.simulation_room = OneClimateOneSoil;
-	//obj_gui.container_config_room_1= gui_screen_config_level();
+	//obj_gui.game_gui.container_config_room_1= gui_screen_config_level();
 		
 });
 _container.AddContent(_button);
@@ -187,7 +185,7 @@ var _button = new EmuButton(ROOMS_COLUMN_X, yy, 256, 32, "Central Climate", func
 	
 	//obj_gui.state = GUI_STATE.CONFIG_ROOM;
 	controller.user_options.simulation_room = CentralClimate;
-	//obj_gui.container_config_room_1= gui_screen_config_level();
+	//obj_gui.game_gui.container_config_room_1= gui_screen_config_level();
 });
 _container.AddContent(_button);
 yy+=32;
@@ -273,16 +271,16 @@ var radio = new EmuRadioArray(OPTIONS_COLUMN_Y, yy, 256, 32, "World size:", 1, f
     show_debug_message("Cell size: " + string(value) + ".");
 	switch(value) {
 		case 0: 
-			controller.user_options.room_cell_size_px = CELL_SIZE_PX * 3;
+			controller.user_options.room_cell_size_px = round(CELL_SIZE_PX * 3);
 		break;
 		case 1: 
-			controller.user_options.room_cell_size_px = CELL_SIZE_PX * 1.5;
+			controller.user_options.room_cell_size_px = round(CELL_SIZE_PX * 1.5);
 		break;
 		case 2:
-			controller.user_options.room_cell_size_px = CELL_SIZE_PX;
+			controller.user_options.room_cell_size_px = round(CELL_SIZE_PX);
 		break;
 		case 3:
-			controller.user_options.room_cell_size_px = CELL_SIZE_PX / 2;
+			controller.user_options.room_cell_size_px = round(CELL_SIZE_PX / 2);
 		
 	}
 });

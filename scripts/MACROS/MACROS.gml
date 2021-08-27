@@ -22,10 +22,13 @@ function MACROS(){
 
 // === ROOM SETUP
 
-#macro ROOM_WIDTH			1200		// 1200
-#macro ROOM_HEIGHT			900			// 900
-#macro SIMULATION_WIDTH		800 		// room = simulation + info
-#macro SIMULATION_HEIGTH	500			// 600
+// rooms have two areas, left is for simulation, right for displaying controls (we'll place EMU on room)
+
+#macro ROOM_SIM_WIDTH		800		// simulation part of room
+#macro ROOM_SIM_HEIGHT		600
+#macro ROOM_BAR_WIDTH		300		// EMU containers part of room
+#macro ROOM_BAR_HEIGHT		600		
+
 
 #macro LAYER_CLIMATE "climate"
 #macro LAYER_SOIL "soil"

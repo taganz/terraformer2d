@@ -1,7 +1,13 @@
-function gui_simulation_set_options(_simulation_id){
+function gui_simulation_set_user_options(_simulation_id){
 
 
-
+	controller.user_options.simulation_id = _simulation_id;
+	
+	// put simulation size here because world shouldn't acces obj_gui
+	controller.user_options.simulation_width = obj_gui.game_gui.simulation_width;
+	controller.user_options.simulation_height = obj_gui.game_gui.simulation_height;
+	
+	
 	switch(_simulation_id) {
 		case 1:
 			controller.user_options.simulation_room = OneClimateOneSoil;

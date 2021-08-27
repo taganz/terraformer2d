@@ -3,7 +3,7 @@
   "isCompatibility": false,
   "parent": {
     "name": "Structure",
-    "path": "folders/Scripts/Creatures/Structure.yy",
+    "path": "folders/Terraformer2D/Creatures/Structure.yy",
   },
   "resourceVersion": "1.0",
   "name": "reproduction_ready",

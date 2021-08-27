@@ -2,8 +2,8 @@
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
-    "name": "_test",
-    "path": "folders/Scripts/_test.yy",
+    "name": "_tools",
+    "path": "folders/Terraformer2D/_tools.yy",
   },
   "resourceVersion": "1.0",
   "name": "test_move_create",

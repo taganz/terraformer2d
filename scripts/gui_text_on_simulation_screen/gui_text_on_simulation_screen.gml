@@ -32,7 +32,7 @@ function gui_text_on_simulation_screen(){
 		
 		draw_set_color(c_black);
 		draw_set_font(fnt_small);
-		var _yy = controller.user_options.room_simulation_heigth + 10;
+		var _yy = obj_gui.game_gui.gui_height - 100;
 		var _xx = 110;
 		draw_text(_xx, _yy + 20, _t1);
 		draw_text(_xx, _yy + 40, _t2);

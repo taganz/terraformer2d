@@ -33,7 +33,7 @@ function _cell_add_creature (_id, _x_cell, _y_cell) {
 							and family_cell_room_grid(_id, grid_producers) {
 														
 							grid_producers[# 0, _grid_producers_current] = _id;
-							//ASSERT(_id.structure.my_height>0, _id, "_cell_add_creature heigth==0");  // can not have 0 heigth in grid producers
+							//ASSERT(_id.structure.my_height>0, _id, "_cell_add_creature height==0");  // can not have 0 height in grid producers
 							grid_producers[# 1, _grid_producers_current] = _id.structure.my_height;
 							grid_producers_need_sort = true;
 							_grid_producers_current++;
