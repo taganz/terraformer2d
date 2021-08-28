@@ -40,10 +40,15 @@ switch(room) {
 		
 		// initialize gui containers
 	
-		if game_gui.container_bar_simulation == -1 {
-			game_gui.container_bar_simulation = gui_screen_bar_simulation();
-			game_gui.container_escape_screen = gui_screen_escape();
+		if game_gui.container_bar_simulation != -1 {
+			// destroy previous core to reset widgets 
+			game_gui.container_bar_simulation.Destroy();
 		}	
+		game_gui.container_bar_simulation = gui_screen_bar_simulation();
+
+		if game_gui.container_escape_screen == -1 {
+			game_gui.container_escape_screen = gui_screen_escape();
+		}
 
 		// log status
 

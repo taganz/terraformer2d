@@ -25,7 +25,10 @@ else {
 	
 	else  {
 		
+		// when drawing viewport 1 render EMU widgews
+		
 		if view_current == 1 {
+			
 			// buttons
 			game_gui.container_bar_simulation.Render();
 			EmuOverlay.Render();	// dialogs

@@ -16,6 +16,9 @@ if !controller_is_paused()  {
 			// increment age, calculate DEPRECATED_AGE_ADULT
 			
 			age_growth(id);
+		}
+		
+		if structure.is_dead==false {
 			
 			// absorb nutrients
 			structure_metabolism(id);
